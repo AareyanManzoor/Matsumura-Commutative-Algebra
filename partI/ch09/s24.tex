@@ -1,0 +1,90 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Zariski Rings}\label{sec:24}
+
+\begin{pardefinition}
+A \defemph{Zariski ring}\index{Zariski ring} is a Noetherian ring equipped with an adic topology, such that every ideal is closed in it. 
+\end{pardefinition}
+
+\begin{theorem}
+\label{thm:056}
+Let $A$ be a Noetherian ring with an adic topology and let $I$ be an ideal of definition. Then the following are equivalent. 
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $A$ is a Zariski ring;
+    \item $I \subseteq \rad(A)$;
+    \item every finite $A$-module $M$ is separated in the $I$-adic topology;
+    \item in every finite $A$-module $M$, every submodule is closed in the $I$-adic topology;
+    \item the completion $\completion A$ of $A$ is faithfully flat over $A$. 
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[$(1) \implies (2)$] Suppose that a maximal ideal $\ideal m$ does not contain $I$. Then $I^m \not \subseteq \ideal m$ for all $n > 0$, so that $\ideal m + I^n = A$ and $\bigcap_n (\ideal m + I^n) = A \ne \ideal m$. Therefore $\ideal m$ is not closed, contradiction. 
+    \item[$(2) \implies (3)$] By the intersection theorem \ref{11.D}.
+    \item[$(3) \implies (4)$] If $N$ is a submodule of $M$, them $M/N$ is separated by assumption so that $N$ is closed in $M$.
+    \item[$(4) \implies (1)$] Trivial.
+    \item[$(2) \implies (5)$] Let $\ideal m$ be a maximal ideal of $A$. Then $\ideal m \supseteq I$, hence $\ideal m$ is open in $A$ and so $\completion A/\ideal m \completion A \simeq A/\ideal m$. Thus $\ideal m \completion A \ne \completion A$. Since $\completion A$ is flat over $A$ by \ref{23.L} Cor.\ref{cor:23.1}, this implies by \ref{4.A} Th.\ref{thm:002} that $\completion A$ is f.f. over $A$. 
+    \item[$(5) \implies (2)$] If $\ideal m$ is a maximal ideal of $A$ then there exists, by assumption, a maximal ideal $\ideal m'$ of $\completion A$ lying over $\ideal m$. Since $I \completion A \subseteq \ideal m'$ by \ref{23.G}, we have \[I \subseteq I \completion A \cap A \subseteq \ideal m' \cap A = \ideal m.\]
+\end{implyenumerate}
+\end{proof}
+
+\begin{corollary}
+Let $A$ be a Zariski ring and $\completion A$ its completion. The (1) $A$ is a subring of $\completion A$, and (2) the map $\ideal m \mapsto \ideal m \completion A$ is a bijection from the set $\Omega(A)$ of all maximal ideals in $A$ to $\Omega(\completion A)$, and we have $A/\ideal m \simeq \completion A/\ideal m \completion A$ and $\ideal m \completion A \cap A = \ideal m$.
+\end{corollary}
+
+\newparagraph A Noetherian semi-local ring is a Zariski ring. A Noetherian ring with an adic topology which is complete and separated is also a Zariski ring. 
+
+Let $A$ be an arbitrary Noetherian ring and $I$ a proper ideal of $A$. Put \[S = 1 + I = \{1 + x \mid x \in I\}, \quad A' = S^{-1} A\text{ and }I' = S^{-1} I.\] Then all elements of $1 + I'$ are invertible in $A'$, and so $I' \subseteq \rad(A')$. We equip $A$ with the $I$-adic topology and $A'$ with the $I'$-adic (or what is the same, the $I$-adic) topology. Then the canonical map $\psi : A \longrightarrow A'$ is continuous, and has the universal mapping property for continuous homomorphisms from $A$ to Zariski rings. In fact, if $f : A \longrightarrow B$ is such a homomorphism and if $J$ is an ideal of definition for $B$, then $f(I^n) \subseteq J \subseteq \rad(B)$ for some $n$, hence $f(I) \subseteq \rad(B)$ and the elements of $f(S)$ are invertible in $B$. Therefore $f$ factors through $A'$. In particular, the canonical map $A \longrightarrow \completion A$ of $A$ into the completion $\completion A$ of $A$ factors through $A'$, and it follows immediately that $\completion A$ is also the completion of $A'$. 
+
+For a prime ideal $\ideal p$ of $A$ we have $\ideal p \cap S = \varnothing$ iff $\ideal p + I \ne (1)$, i.e. iff \newline $V(\ideal p) \cap V(I) \ne \varnothing$. The localization $A \longrightarrow A'$ has, geometrically, the effect of considering only the ``sub--varieties'' of $\Spec(A)$ which intersect the closed set $V(I)$. Since $\completion A$ is faithfully flat over $A'$, the set $\{p \in \Spec(A) \mid \ideal p + I \ne (1)\} \, (\simeq \Spec(A))$ is also the image of $\Spec(\completion A)$ in $\Spec(A)$. The set of the maximal ideals of $\completion A$ (resp. the prime ideals of $\completion A$ containing $I \completion A$) is in a natural $1$-$1$ correspondence with the set of maximal ideals (resp. prime ideals) of $A$ containing $I$. 
+
+\newparagraph Let $A$ be a semi-local ring and $\ideal m_1, \ldots, \ideal m_r$ be its maximal ideals. Put $A_i = A_{\ideal m_i}$, $\,{\ideal m}_i' = {\ideal m}_i A_i\for{i = 1, 2, \ldots, r}$, and \[\ideal m = \rad(A) = \ideal m_1 \ldots \ideal m_r.\] Then \[{\ideal m}^r = \prod \ideal m_i^n = \bigcap \ideal m_i^n,\] hence \[A/\ideal m^n = A/\ideal m_1^n \times \ldots \times A/\ideal m_r^n\] by \ref{1.C}. Moreover, $A/\ideal m_i^n = A_i/\ideal m_i'^n$ as $A/\ideal m_i^n$ is a local ring. Therefore
+\[
+\completion A = \varprojlim A/\ideal m^n = \completion{A}_1 \times \ldots \times \completion{A}_r.
+\]
+
+\newparagraph Let $(A, \ideal m)$ be a Noetherian local ring and $\completion A$ its completion. Then $A/\ideal m^n \simeq \completion A/\ideal m^n \completion A$ for all $n > 0$, hence $\ideal m^n/\ideal m^{n + 1} \simeq \ideal m^n \completion A/\ideal m^{n + 1} \completion A$ and \newline $\gr(A) \simeq \gr(\completion A)$. It follows that i) $\dim A = \dim \completion A$, and ii) $A$ is regular iff $\completion A$ is so. 
+
+Next, let $A$ be an arbitrary Noetherian ring, $I$ an ideal of $A$ and $\completion A$ the $I$-adic completion of $A$. Let $\ideal p$ be a prime ideal of $A$ containing $I$. Since $\ideal p$ is open in $A$, the ideal $\ideal p \completion A = \completion{\ideal p}$ is open and prime in $\completion A$ and $A/\ideal p^n \simeq \completion{A}/(\completion{\ideal{p}})^n$ for all $n > 0$. Localizing both sides with respect to $\ideal p/\ideal p^n$ and $\completion {\ideal p}/(\completion{\ideal{p}})^n$ respectively, we get
+\[
+A_{\ideal p}/\ideal p^n A_{\ideal p} \simeq {\completion A}_{\completion {\ideal p}}/{\completion {\ideal p}}^n \completion A_{\ideal p}
+\]
+
+Therefore ${\completion{A}}_{\ideal p} = \varprojlim A_{\ideal p}/\ideal p^n A_{\ideal p} \simeq \completion{({\completion{A}}_{\completion{\ideal p}})}$. Two local rings are said to be \defemph{analytically isomorphic}\index{analytically!\indexline isomorphic} if their completions are isomorphic. Thus, if $\ideal p$ and $\completion {\ideal p}$ are corresponding open prime ideals of $A$ and $\completion A$, then the local rings $A_{\ideal p}$ and ${\completion A}_{\completion {\ideal p}}$ are analytically isomorphic. Since all maximal ideals of $\completion A$ are open, it follows that
+
+\begin{enumerate}[label=\roman*')]
+    \item $\dim \completion A = \sup_{\ideal p \supseteq I} \dim A_{\ideal p}$,
+    \item if $A_{\ideal p}$ is regular for every prime ideal $\ideal p$ containing $I$, then $\completion A$ is regular.
+\end{enumerate}
+
+As a corollary of ii') we have the following
+
+\begin{proposition}
+Let $A$ be a regular Noetherian ring. Then the ring of formal power series $A[[X_1, \ldots, X_m]]$ is also regular. 
+\end{proposition}
+
+\begin{proof}
+$A[X] = A[[X_1, \ldots, X_m]]$ is a regular ring by \ref{17.J}, and $A[[X]]$ is the $\sum X_iA[X]$-adic completion of $A[X]$. 
+\end{proof}
+
+\begin{parproposition}
+Let $A$ be a Zariski ring and $\completion A$ its completion. Then: 
+
+\begin{enumerate}[label=\roman*)]
+    \item If $\ideal {a}$ is an ideal of $A$ and if $\ideal {a} \completion A$ is principal, then $\ideal {a}$ is itself principal.
+    \item If $\completion A$ is normal, then $A$ is also normal.
+\end{enumerate}
+\end{parproposition}
+
+\begin{proof}
+\begin{enumerate}[label=\roman*)]
+    \item Suppose $\ideal {a} \completion A = \alpha \completion A\for{\alpha \in \completion A}$. Then $\alpha = \sum \alpha_i \xi_i$ with $a_i \in \ideal {a}$, $\xi_i \in \completion A$. Put $\completion I = I \completion A$, where $I$ is an ideal of definition of $A$. By Artin-Rees we have $\alpha \completion A \cap {\completion I}^n \subseteq \completion I \alpha \completion A$ for $n$ sufficiently large. Take $x_i \in A$ such that $x_i \equiv \xi_i \, ({\completion I}^n)$ and put $a = \sum a_i x_i$. Then $a \equiv \alpha \, ({\completion I}^n)$, and $a \in \ideal {a} \subseteq \alpha \completion A$. Therefore $\alpha = a + \beta$ with $\beta \in \alpha \completion A \cap {\completion I}^n \subseteq \completion I \alpha \completion A$, hence $\alpha \completion A \subseteq a \completion A + \completion I \alpha \completion A$, and by \hyperref[NAK]{NAK} we get $\alpha \completion A = a \completion A$. Then \[\ideal {a} = \alpha \completion A \cap A = a \completion A \cap A = a A.\]
+    \item is a consequence of faithful flatness was already proved in \ref{21.E} (iii).
+\end{enumerate}
+\end{proof}
+
+We shall see in Part II that Noetherian local (or semi-local) rings have many good properties.
+\end{document}

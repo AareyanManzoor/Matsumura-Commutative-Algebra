@@ -1,0 +1,71 @@
+\documentclass[../main]{subfiles}
+
+%TeXromancers front cover template
+%by derivada.schwarziana
+
+\begin{document}
+
+\input{_BOOKINFO}    %BOOK INFO GOES HERE -- please update _BOOKINFO.tex for new books
+\input{colorpalette} %colors
+
+%back cover
+\newpage
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+%uses the calc library
+    \fill[tyellow] (current page.south west) rectangle (current page.north east);
+    
+    \coordinate (start) at ($(current page.east)!0.5!(current page.north east)+(1,-1)$);
+    \coordinate (end)   at (current page.north west);
+    \foreach \i in {0,0.01,...,1}
+    {
+        \coordinate (point) at ($(start)!\i!(end)$);
+        \draw[tyellowlight]
+            ($(point)+(310*\i:6)$)--
+            ($(point)+(310*\i+120:6)$)--
+            ($(point)+(310*\i+240:6)$)--
+            ($(point)+(310*\i:6)$);
+    }
+    \coordinate (start) at (current page.south west);
+    \coordinate (end)   at (current page.east);
+    \foreach \i in {0,0.02,...,1}
+    {
+        \coordinate (point) at ($(start)!\i!(end)$);
+        \draw[tyellowlight]
+            ($(point)+(310*\i:10)$)--
+            ($(point)+(310*\i+120:10)$)--
+            ($(point)+(310*\i+240:10)$)--
+            ($(point)+(310*\i:10)$);
+    }
+    
+    \node (review)
+        [shape=rectangle, 
+         fill=tbluedark,
+         outer sep=2em,
+         inner sep=2em,
+         minimum height=18em, 
+         minimum width=\paperwidth, 
+         align=flush left, 
+         text=white,
+         text width=0.8\paperwidth,
+         anchor=north
+        ] 
+        at ($(current page.center)!0.6!(current page.north)$)
+        {\fontsize{1.5em}{1em}\fontfamily{lmss}\selectfont\bookreview\par
+        };
+    
+    \node (aboutauthor)
+        [
+         align=flush left,
+         text width=0.4\paperwidth,
+         anchor=north east
+        ]
+        at ($(review.south east)-(0.1\paperwidth,0)$)
+        {\fontsize{1em}{0.8em}\fontfamily{lmss}\selectfont\bookauthorbio\\[1em]
+        
+        %(Sources: \authorbiosource)\par
+        };
+\end{tikzpicture}
+
+\end{document}

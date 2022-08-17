@@ -1,0 +1,158 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Completion}\label{sec:23}
+
+\newparagraph Let $A$ be a ring, and let $F$ be a set of ideals of $A$ such that for any two ideals $I_1, I_2 \in F$ there exists $I_3 \in F$ contained in $I_1 \cap I_2$. Then one can define a topology on $A$ by taking $\{x + I \mid I \in F\}$ as a fundamental system of neighborhoods of $x$ for each $x \in A$. One sees immediately that in this topology the addition, the multiplication and the map $x \mapsto -x$ are continuous; in other words $A$ is a topological ring. A topology on a ring obtained in this matter is called a \defemph{linear topology}\index{linear topology}. When $M$ is an $A$-module one defined a linear topology on $M$ in the same way, the only difference being that `ideals' are replaced by `submodules'. Let $M = \{M_\lambda\}$ be a set of sub-modules which defines the topology. Then $M$ is separated (i.e. Hausdorff) iff $\bigcap_\lambda M_\lambda = (0)$. A submodule $N$ of $M$ is closed in $M$ iff $\bigcap (M_\lambda + N) = N$, the left hand side being the closure of $N$. 
+
+\newparagraph Let $A$ be a ring, $M$ an $A$-module linearly topologized by a set of submodules $\{M_\lambda\}$ and $N$ a submodule of $M$. Let $\overline M_\lambda$ be the image of $M_\lambda$ in $M/N$. Then the linear topology on $M/N$ defined by $\{\overline M_\lambda\}$ is nothing but the quotient topology of the topology on $M$, as one can easily check. When we say ``the quotient module $M/N$'', we shall always mean the module $M/N$ with the quotient topology. It is separated iff $N$ is closed.
+
+\newparagraph For simplicity, we shall consider in the following only such linear topologies that are defined by a countable set of submodules. This is equivalent to saying that the topology satisfies the first axiom of countability. If a linear topology on $M$ is defined by $\{M_1, M_2, \ldots\}$, then the set $\{M_1, M_1 \cap M_2, M_1 \cap M_2 \cap M_3, \ldots\}$ defines the same topology. Therefore we can assume without loss of generality that $M_1 \supseteq M_2 \supseteq M_3 \supseteq \ldots$ (in other words, the topology defined by a filtration of $M$, cf. p.\pageref{def:filtration}). A sequence $(x_n)$ of elements of $M$ is a \defemph{Cauchy sequence} if, for every open submodule $N$ of $M$, there exists an integer $n_0$ such that 
+
+\begin{equation}
+\tag{23.*}\label{eqn:23.*}
+x_n - x_M \in N \quad \text {for all } n, m > n_0.
+\end{equation}
+
+Since $N$ is a submodule, the condition \ref{eqn:23.*} can also be written as\newline $x_{n + 1} - x_n \in N$ for all $n > n_0$. Therefore a sequence $(x_n)$ is Cauchy iff $x_{n + 1} - x_n$ converges to zero when $n$ tends to infinity. A continuous homomorphism of linearly topologized modules maps Cauchy sequences into Cauchy sequences. A topological $A$-module $M$ is said to be \defemph{complete}\index{complete} if every Cauchy sequence in $M$ has a limit in $M$. Note that the limit of a Cauchy sequence is not uniquely determined if $M$ is not separated.
+
+\begin{parproposition}
+Let $A$ be a ring and let $M$ be an $A$-module with a linear topology defined by a filtration $M_1 \supseteq M_2 \supseteq \cdots$; let $N$ be a submodule of $M$. If $M$ is complete, then the quotient module $M/N$ is also complete.
+\end{parproposition}
+
+\begin{proof}
+Let $(\overline x_n)$ be a Cauchy sequence in $M/N$. For each $\overline x_n$ choose a pre-image $x_n$ in $M$. We have $\overline x_{N + 1} - \overline x_n \in \overline M_{i(n)}$ with $i(n) \to \infty$, therefore we can write
+\[
+x_{n + 1} - x_n = y_n + z_n \for{y_n \in M_{i(n)},\, z_n \in N},
+\]
+and the sequence $(y_n)$ converges to zero in $M$. Let $s \in M$ be a limit of the Cauchy sequence $x_1, x_1 + y_1, x_1 + y_1 + y_2,\ldots$; then its image $\overline s$ in $M/N$ is a limit of the sequence $(\overline x_n)$. Thus $M/N$ is complete.
+\end{proof}
+
+\newparagraph Let $A$ be a ring, $I$ an ideal and $M$ an $A$-module. The set of submodules $\{I^n M \mid n = 1, 2, \ldots\}$ defines the $I$-adic topology of $M$. We also say that the topology is \defemph{adic}\index{adic topology} and that $I$ is \defemph{an ideal of definition}\index{ideal of definition} for the topology. Clearly, any ideal $J$ such that $I^n \subseteq J$ and $J^m \subseteq I$ for some $n, m > 0$ is an ideal of definition for the same topology. When $A$ and $M$ are $I$-adically topologized, the map $(a, x) \mapsto a x\for{a \in A,\,x \in M}$ is a continuous map from $A \times M$ to $M$. When $A$ is a semi-local ring with $\rad(A) = \ideal m$ then it is viewed as an $\ideal m$-adic topological ring, unless the contrary is explicitly stated.
+
+\newparagraph Let $k$ be a ring, and let $A$ and $B$ be $k$-algebras with linear topology defined by $\mathscr M = \{I_n\}$ and $\mathscr N = \{J_m\}$ respectively. Put $C = A \otimes_k B$. Then a linear topology can be defined on $C$ by means of the set of ideals $\{I_n C + J_m C\}_{n, m}$. This is called the topology of tensor product. If $A$ has the $I$-adic topology and $B$ the $J$-adic topology, where $I$ (resp. $J$) is an ideal of $A$ (resp. $B$), then the topology of tensor product on $C$ is the $(IC + JC)$-adic topology, for we have
+\[
+(IC + JC)^{n + m - 1} \subseteq I^n C + J^m C \quad \text {and} \quad I^n C + J^n C \subseteq (IC + JC)^n
+\]
+
+\begin{parproposition}
+Let $A$ be a ring and $I$ an ideal of $A$. Suppose that $A$ is complete and separated for the $I$-adic topology. Then any element of the form $u + x$, where $u$ is a unit in $A$ and $x$ is an element of $I$, is a unit in $A$. The ideal $I$ is contained in the Jacobson radical of $A$. 
+\end{parproposition}
+
+\begin{proof}
+We have $u + x = u(1 - y)$, where $y = -u^{-1} x \in I$. The infinite series $1 + y + y^2 + \cdots$ converges in $A$, and we have $(1 - y)(1 + y + y^2 + \cdots) = 1$ since $A$ is separated. Thus $1 - y$ (hence also $u + x$) is a unit. The second assertion is easy.
+\end{proof}
+
+\newparagraph Let $A$ be a ring and $M$ a linearly topologized $A$-module. The \defemph{completion}\index{completion} of $M$ is, by definition, an $A$-module $\completion{M}$ with a complete separated linear topology, together with a continuous homomorphism $\phi : M \longrightarrow \completion{M}$, having the following universal mapping property: for any $A$-module $M'$ with a complete separated linear topology and for any continuous homomorphism $f : M \longrightarrow M'$, there exists a unique continuous homomorphism $\completion{f} : \completion{M} \longrightarrow M'$ satisfying $\completion{f} \phi = f$. The completion of $M$ exists, and is unique up to isomorphisms. In fact the uniqueness is clear from the definition, while the existence can be proved by several methods. First of all, note that, if $K$ is the intersection of all open submodules of $M$, the canonical map $\phi : M \longrightarrow \completion{M}$ must factor through $M^h = M/K$ (which is called the Hausdorffization of $M$) and hence $M$ and $M^h$ have the same completion. 
+
+\begin{enumerate}
+    \item Take the completion of the uniform space $M^h$ and call it $\completion{M}$. The topological space $\completion{M}$ becomes a linearly topologized $A$-module by extending the $A$-module structure of $M^h$ to $\completion{M}$ by uniform continuity. The universal mapping property of $\completion{M}$ follows immediately, continuous homomorphisms $f : M \longrightarrow M'$ being uniformly continuous.
+    \item Let $W$ be the set of Cauchy sequences in $M$, and make it an $A$-module by defining the addition and the scalar multiplication termwise. Then the set $W_0$ of the null sequences (i.e. the sequences which have zero as a limit) is a submodule of $W$. Put $\completion{M} = W/W_0$, and define the canonical map $\phi : M \longrightarrow \completion{M}$ in the obvious way. For any open submodule $N$ of $M$, let $\widehat N$ denote the image in $\completion{M}$ of the set of Cauchy sequences in $N$. Then $\widehat N$ is a submodule of $\completion{M}$. The set of all such $\widehat N$ defines a linear topology in $\completion{M}$ and $\widehat N$ is the closure of $\phi(N)$ in this topology. It is easy to see that $\completion{M}$ is complete and separated and has the universal mapping property.
+    \item Denote by $\completion{M}$ the inverse limit of the discrete $A$-modules $M/M_n$, where $(M_n)$ is a filtration of $M$ defining the topology, and put the inverse limit topology (i.e. the topology as a subspace of the product space $\prod M/M_n$) on it. Let $\phi : M \longrightarrow \completion{M}$ be defined in the obvious way, and let $\completion{M_n}$ denote the closure of $\phi(M_n)$ in $\completion{M}$. Then $\completion{M_n}$ consists of those vectors of $\completion{M}$ of which the first $n$ coordinates are zero, and the set of submodules \newline $\{\completion{M_n} \mid n = 1, 2, \ldots\}$ defines a complete separated linear topology on $\completion{M}$. Let $M'$ be an $A$-module with a complete separated linear topology and $f : M \longrightarrow M'$ a continuous homomorphism. For any element $\completion{x} = (\overline x_1, \overline x_2, \ldots)$ of $\completion{M}\for{\overline x_n \in M/M_n}$, choose a pre-image $x_n$ of $\overline x_n$ in $M$ for each $n$. Then the sequence $x_1, x_2, \ldots$ is a Cauchy sequence in $M$, hence the image sequence $f(x_1), f(x_2), \ldots$ is a Cauchy sequence in $M'$. Therefore $\displaystyle \lim_{n \to \infty} f(x_n)$ exists in $M'$, and this limit is easily seen to be independent of the choice of the pre-images $x_n$. Putting $\completion{f}(\completion{x}) = \lim f(x_n)$ we obtain $\completion{f} : \completion{M} \longrightarrow M'$ as wanted. 
+\end{enumerate}
+
+These constructions show that $\phi : M \longrightarrow \completion{M}$ is injective if $M$ is separated. 
+
+\newparagraph If $f : M \longrightarrow N$ is a continuous homomorphism of linearly topologized $A$-modules $M$ and $N$, and if $\phi_M : M \longrightarrow \completion{M}$ and $\phi_N : N \longrightarrow \completion{N}$ are the canonical homomorphisms into the completions, then there exists a unique continuous homomorphism $\completion{f} : \completion{M} \longrightarrow \completion{N}$ with $\phi_N f = \completion{f} \phi_M$; this is a formal consequence of the definition. The map $\completion{f}$ is called the completion of $f$. Taking completions is, therefore, an additive covariant functor.
+
+\begin{proposition}
+Let $M$ be a linearly topologized $A$-module, $N$ a submodule and $\phi : M \longrightarrow M'$ the canonical map to the completion. Then 
+\begin{enumerate}[label= (\roman*)]
+    \item the completion of $N$ (for the topology induced from $M$) is the closure $\overline {\phi(N)}$ of $\phi(N)$ in $\completion{M}$, and
+    \item the quotient module $\completion{M}/\overline {\phi(N)}$ is the completion of the quotient module $M/N$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}[label= (\roman*)]
+    \item This follows, e.g., from the second construction of completion in \ref{23.H}.
+    \item The quotient module $\completion{M}/\overline {\phi(N)}$ is separated by \ref{23.B}, and complete by \ref{23.D}. The canonical map $M \longrightarrow \completion{M}$ induces a map $M/N \longrightarrow \completion{M}/\overline {\phi(N)}$, and the universal property of this map is easily proved by a formal argument. 
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+Taking $N = M$ we see that $\phi(M)$ is dense in $\completion{M}$. 
+\end{remark}
+
+\begin{remark}
+If $N$ is an open submodule of $M$ then $M/N$ is discrete, hence complete and separated. Thus $M/N \simeq \completion{M}/\overline{\phi(N)}$.
+\end{remark}
+
+\begin{theorem}
+\label{thm:054}
+Let $A$ be a Noetherian ring and $I$ an ideal. Let \[0 \varrightarrow{} L \varrightarrow{} M \varrightarrow{} N \varrightarrow{} 0\] be an exact sequence of finite $A$-modules, and let $\completion{}$ denote the $I$-adic completion. Then the sequence \[0 \varrightarrow{} \completion{L} \varrightarrow{} \completion{M} \varrightarrow{} \completion{N} \varrightarrow{} 0\] is also exact.
+\end{theorem}
+
+\begin{proof}
+By Artin-Rees theorem, the $I$-adic topology of $L$ coincides with the topology induced by the $I$-adic topology of $M$. Therefore the assertion follows from the preceding proposition.
+\end{proof}
+
+\newparagraph Let $A$ be a linearly topologized ring. Then the completion $\completion{A}$ of $A$ is not only an $A$-module but also a ring, the multiplication in $A$ being extended to $\completion{A}$ by continuity. If $\phi : A \longrightarrow \completion{A}$ is the canonical map and $I$ is an ideal of $A$, then the closure $\overline {\phi(I)}$ of $\phi(I)$ in $\completion{A}$ is an ideal of $\completion{A}$. Thus $\completion{A}$ is a linearly topologized ring. Example: let$k$ be a ring. Put $A = k[X_1, \ldots, X_n]$ and $I = \sum_1^n AX_i$. Then the ring of formal power series $k[[X_1, \ldots, X_n]]$ is the $I$-adic completion of $A$. 
+\newparagraph Let $A$ be a ring, $I$ a finitely generated ideal of $A$, $\completion{A}$ the $I$-adic completion of $A$ and $\phi : A \longrightarrow \completion{A}$ the canonical map. Then for any element $\completion{x}$ in $\completion{A}$ there exists a Cauchy sequence $(x_n) = (x_0, x_1, \ldots)$ in $A$ such that $\completion{x} = \lim \phi(x_n)$. Replacing $(x_n)$ by a suitable subsequence we may assume that $x_{n + 1} - x_n \in I^n\for{n = 0, 1, 2 \ldots}$. Let $a_1, \ldots, a_m$ generate $I$, and put $a_i' = \phi(a_i)$. Then $x_{n + 1} - x_n$ is a homogeneous polynomial of degree $n$ in $a_1, \ldots, a_m$. Thus: 
+\[
+\completion{x} = \phi(x_0) + \sum_{n = 0}^\infty \phi(x_{n + 1} - x_n)
+\]
+has a power series expansion in $a_1', \ldots, a_m'$ with coefficients in $\phi(A)$. Consider the formal power series ring $A[[X]] = A[[X_1, \ldots, X_m]]$; let $u(X) \in A[[X]]$, and let $\overline u(X)$ denote the power series obtained by applying $\phi$ to the coefficients of $u(X)$. Since $\completion{A}$ is complete and separated, the series $\overline u(a') = \overline u(a'_1, \ldots, a'_m)$ converges in $\completion{A}$. The map $u(X) \mapsto \overline u(a')$ defines a surjective homomorphism $A[[X]] \longrightarrow \completion{A}$. Thus $\completion{A} \simeq A[[X]]/J$ with some ideal $J$ of $A[[X]]$. As a consequence, $\completion{A}$ is Noetherian if $A$ is so.
+
+\newparagraph Let $A$ be a ring, $I$ an ideal and $M$ an $A$-module. Let $\ast$ denote the $I$-adic completion. Then $\completion{M}$ is an $\completion{A}$-module in a natural way, therefore there exists a canonical map $M \otimes_A \completion{A} \longrightarrow \completion{M}$. 
+
+\begin{theorem}
+\label{thm:055}
+When $A$ is Noetherian and $M$ is finite over $A$, the map\newline $M \otimes_a \completion{A} \longrightarrow \completion{M}$ is an isomorphism.
+\end{theorem}
+
+\begin{proof}
+Take an exact sequence of $A$-modules $A^p \varrightarrow{f} A^q \varrightarrow{g} M \varrightarrow{} 0$. Since the completion commutes with direct sum, we get a commutative diagram 
+
+\begin{center}
+\begin{tikzcd}
+A^p \otimes \completion{A} \arrow[r] \arrow[d, "v_1"'] & A^q \otimes \completion{A} \arrow[r] \arrow[d, "v_2"'] & M \otimes \completion{A} \arrow[r] \arrow[d, "v_3"'] & 0 \\
+(\completion{A})^p \arrow[r, "\completion{f}"]                 & (\completion{A})^q \arrow[r, "\completion{g}"]                 & \completion{M} \arrow[r]                             & 0
+\end{tikzcd}
+\end{center}
+
+where the vertical arrows $v_1$ are the canonical maps and the horizontal sequences are exact by the right-exactness of tensor product and by Th.\ref{thm:054}. Since $v_1$ and $v_2$ are isomorphisms $v_3$ is also an isomorphism by the Five-Lemma.
+\end{proof}
+
+\begin{corollary}
+\label{cor:23.1}
+Let $A$ be a Noetherian ring and $I$ an ideal of $A$. Then the $I$-adic completion $\completion{A}$ of $A$ is flat over $A$.
+\end{corollary}
+
+\begin{corollary}
+Let $A$ and $I$ be as above and assume that $A$ is $I$-adically complete and separated. Let $M$ be a finite $A$-module. Then $M$ is complete and separated, and any submodule $N$ of $M$ is closed in $M$, for the $I$-adic topology.
+\end{corollary}
+
+\begin{proof}
+Since $A = \completion{A}$ we have $\completion{M} = M \otimes \completion{A} = M$, i.e. $M$ is its own completion. Similarly, a submodule $N$ is complete in the $I$-adic topology, which coincides with the induced topology by Artin-Rees. Since a complete subspace of $M$ is necessarily closed, we are done.
+\end{proof}
+
+\begin{corollary}
+\label{cor:23.3}
+Let $A$ be a Noetherian ring, $M$ a finite $A$-module, $N$ a submodule of $M$ and $I$ an ideal of $A$. Let $\canonicalCompletion : M \longrightarrow \completion{M}$ be the canonical map to the $I$-adic completion $\completion{M}$. Then we have $\completion{N} \simeq \overline {\canonicalCompletion(N)} = \canonicalCompletion(N)\completion{A}$, where $\overline {\canonicalCompletion(N)}$ is the closure of $\canonicalCompletion(N)$ in $\completion{M}$. 
+\end{corollary}
+
+\begin{proof}
+Immediate from Th.\ref{thm:054} and Th.\ref{thm:055}. 
+\end{proof}
+
+\begin{corollary}
+Let $A$ and $I$ be as in Cor.\ref{cor:23.3}. Then the toplogy of the $I$-adic completion $\completion{A}$ of $A$ is the $I \completion{A}$-adic topology. 
+\end{corollary}
+
+\begin{proof}
+By construction, the topology of $\completion{A}$ is defined by the ideals ($\phi(I^n)$ in $\completion{A}$) $= I^n \completion{A} = (I \completion{A})^n$.
+\end{proof}
+
+\begin{corollary}
+Let $A$, $I$ and $\completion{A}$ be as above and suppose that $I = \sum\limits_1^m a_i A$. Then $A \simeq A[[X_1, \ldots, X_m]]/(X_1 - a_1, \ldots, X_m - a_m)$. 
+\end{corollary}
+
+\begin{proof}
+%Bodge, feel free to change \widehat{\ldots} to something better
+Put $B = A[X_1, \ldots, X_m]$, $I' = \sum X_i B$ and $J = \sum (X_i - a_i)B$. Then $B/J \simeq A$, and the $I'$-adic topology on the $B$-algebra $B/J$ corresponds to the $I$-adic topology on $A$. Denoting the $I'$-adic completion by $\widehat {\ldots}$, we thus obtain: 
+\[
+\completion{A} \simeq \widehat {B/J} = \widehat B/\widehat J = \widehat B/J \widehat B = A[[X_1, \ldots, X_m]]//(X_1 - a_1, \ldots, X_m - a_m)
+\]
+\end{proof}
+\end{document}

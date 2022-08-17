@@ -1,0 +1,66 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Homomorphisms and Ass}\label{sec:09}
+
+\begin{parproposition}\label{pro:09.01}
+Let $\phi:A\longrightarrow B$ be a homomorphism of Noetherian rings and $M$ a $B$-module. We can view $M$ as an $A$-module by means of $\phi$. Then \[\Ass_A(M) =\SpecInduced{\phi}(\Ass_B(M)).\]
+\end{parproposition}
+
+\begin{proof}
+Let $P\in\Ass_B(M)$. Then there exists an element $x$ of $M$ such that $\Ann_B(x)=P$. Since \[\Ann_A(x) = \Ann_B(x)\cap A = P\cap A\] we have $P\cap A \in \Ass_A(M)$. Conversely, let $\ideal{p}\in \Ass_A(M)$ and take an element $x \in M$ such that $\Ann_A(x)=\ideal{p}$. Put $\Ann_B(x) = I$, let $I = Q_1\cap\cdots\cap Q_r$ be an irredundant primary decomposition of the ideal $I$ and let $Q_i$ be $P_i$-primary. Since $M\supseteq Bx \cong B/I$ the set $\Ass(M)$ contains $\Ass(B/I) = \{P_1,\ldots, P_r\}$. We will prove $P_i\cap A = \ideal{p}$ for some $i$. Since $I\cap A\neq\ideal{p}$ we have $P_i\cap A\supseteq\ideal{p}$ for all $i$. Suppose $P_i\cap A\neq\ideal{p}$ for all $i$. Then there exists $a_i \in P_i\cap A$ such that $a_i\in\ideal{p}$, for each $i$. Then $a_i^m \in Q_i$ for all $i$ if $m$ is sufficiently large, hence \[a = \prod_ia_i^m\in I\cap A=\ideal{p},\] contradiction, Thus $P_i\cap A = \ideal{p}$ for some $i$ and $\ideal{p}\in\SpecInduced{\phi}(\Ass_B(M))$.
+\end{proof}
+
+\begin{partheorem}[Bourbaki]\label{thm:012}
+Let $\phi:A\longrightarrow B$ be a homomorphism of Noetherian rings, $E$ an $A$-module and $F$ a $B$-module. Suppose $F$ is flat as an $A$-module. Then:
+\begin{enumerate}
+    \item for any prime ideal $\ideal{p}$ of $A$, \[\SpecInduced{\phi}(\Ass_B(F/\ideal{p}F))=\Ass_A(F/\ideal{p}F)=\begin{cases}\{\ideal{p}\}&\text{if }F/\ideal{p}F\neq0\\\varnothing&\text{if }F/\ideal{p}F=0\end{cases}.\]
+    \item $\Ass_B(E \otimes_A F) = \displaystyle \bigcup_{\ideal{p}\in\Ass(E)}\Ass_B(F/\ideal{p}F)$.
+\end{enumerate}
+\end{partheorem}
+
+\begin{corollary}\label{cor:09.01}
+Let $A$ and $B$ be as above and suppose $B$ is $A$-flat. Then \[\Ass_B(B) = \bigcup_{\ideal{p}\in\Ass(A)}\Ass_B (B/\ideal{p}B),\] and $\SpecInduced{\phi}(\Ass_B(B)) = \{\ideal{p} \in \Ass(A) \mid \ideal{p}B \neq B\}$. We have $\SpecInduced{\phi}(\Ass_B(B))= \Ass(A)$ if $B$ is faithfully flat over $A$.
+\end{corollary}
+
+\begin{proof}[Proof of Theorem \ref{thm:012}]
+\begin{enumerate}[label= (\roman*)]
+    \item The module $F/\ideal{p}F$ is flat over $A/\ideal{p}$ (base change), and $A/\ideal{p}$ is a domain, therefore $F/\ideal{p}F$ is torsion-free as an $A/\ideal{p}$-module by \ref{3.F}. The assertion follows from this.
+    \item The inclusion $\supseteq$ is immediate: if $p \in \Ass(E)$ then $E$ contains a submodule isomorphic to $A/\ideal{p}$, whence $E\otimes F$ contains a submodule isomorphic to $(A/\ideal{p})\otimes_AF = F/\ideal{p}F$ by the flatness of $F$. Therefore \newline $\Ass_B(F/\ideal{p}F)\subseteq\Ass_B(E\otimes F)$. To prove the other inclusion $\subseteq$ is more difficult. 
+
+\end{enumerate}
+\begin{enumerate}[label = Step \arabic*.]
+    \item Suppose $E$ is finitely generated and coprimary with $\Ass(E) = \{\ideal{p}\}$. Then any associated prime $P \in \Ass_B(E\otimes F)$ lies over $\ideal{p}$. In fact, the elements of $\ideal{p}$ are locally nilpotent (on $E$, hence) on $E\otimes F$, therefore $\ideal{p}\subseteq P\cap A$. On the other hand the elements of $A-\ideal{p}$ are $E$-regular, hence $E\otimes F$-regular by the flatness of $F$. Therefore $A-\ideal{p}$ does not meet $P$, so that $P\cap A=\ideal{p}$. Now, take a chain of submodules \[E= E_0\supset E_1\supset\cdots\supset E_r=(0)\]
+    such that $E_i/E_{i+1}\cong A/\ideal{p}_i$ for some prime ideal $\ideal{p}_i$. Then \[E\otimes F = E_0\otimes F\supseteq E_1\otimes F\supseteq\cdots\supseteq E_r\otimes F=(0)\] and $E_i\otimes F/E_{i+1}\otimes F\cong F/\ideal{p}_iF$, so that \[\Ass_B(E\otimes F)\subseteq\bigcup_i\Ass_B(F/\ideal{p}_iF).\] But if $P\in\Ass_B(F/\ideal{p}_iF)$ and if $\ideal{p}_i\neq\ideal{p}$ then $P\cap A =\ideal{p}_i \neq\ideal{p}$ (by (i)), hence $P \notin \Ass_B(E\otimes F)$ by what we have just proved. Therefore \newline $\Ass_B(E\otimes F) \subseteq \Ass_B(F/\ideal{p}F)$ as wanted.
+    \item Suppose $E$ is finitely generated. Let $(0) = Q_1\cap\cdots\cap Q_r$ be an irredundant primary decomposition of $(0)$ in $E$. Then $E$ is isomorphic to a submodule of $E/Q_1\oplus\cdots\oplus E/Q_r$ and so $E\otimes F$ is isomorphic to a submodule of the direct sum of
+the $E/Q_i\otimes F$'s. Then \[\Ass_B(E\otimes F)\subseteq\bigcup\Ass_B(E/Q_i\otimes F)=\bigcup\Ass_B(F/\ideal{p}_iF).\]
+    \item General case. Write $E = \bigcup_\lambda E_\lambda$, with finitely generated submodules $E_\lambda$. Then it follows from the definition of the associated primes that \newline $\Ass(E) = \bigcup \Ass(E_\lambda)$ and \[\Ass(E\otimes F) = \Ass\big(\bigcup E_\lambda\otimes F\big) = \bigcup \Ass(E_\lambda\otimes F).\] Therefore the proof is reduced to the case of finitely generated $E$.
+\end{enumerate}
+
+\end{proof}
+
+\begin{partheorem}\label{thm:013}
+Let $A \longrightarrow B$ be a flat homomorphism of Noetherian rings; let $\ideal{q}$ be a $\ideal{p}$-primary ideal of $A$ and assume that $\ideal{p}B$ is prime. Then $\ideal{q}B$ is $\ideal{p}B$-primary.
+\end{partheorem}
+
+\begin{proof}
+Replacing $A$ by $A/\ideal{q}$ and $B$ by $B/\ideal{q}B$, one may assume $\ideal{q} = (0)$. Then $\Ass(A) = \{\ideal{p}\}$, whence \[\Ass(B) = \Ass_B(B/\ideal{p}B) = \{\ideal{p}B\}\] by the preceding theorem.
+\end{proof}
+
+\newparagraph We say a homomorphism $\phi: A \longrightarrow B$ of Noetherian rings is \defemph{non-degenerate}\index{non-degenerate homomorphism} if $\SpecInduced{\phi}$ maps $\Ass(B)$ into $\Ass(A)$. A flat homomorphism is non-degenerate by the corollary \ref{cor:09.01}.
+
+\begin{proposition}\label{pro:09.02}
+Let $f: A\longrightarrow B$ and $g: A \longrightarrow C$ be homomorphisms of Noetherian rings. Suppose 
+\begin{enumerate}[label = \arabic*)]
+    \item $B\otimes_AC$ is Noetherian,
+    \item $f$ is flat and 
+    \item $g$ is non-degenerate.
+\end{enumerate}
+Then $1_B\otimes g: B\longrightarrow B\otimes C$ is also non-degenerate. (In short, the property of being non-degenerate is preserved by flat base change.)
+\end{proposition}
+
+\begin{proof}
+Left to the reader as an exercise. 
+\end{proof}
+
+\end{document}

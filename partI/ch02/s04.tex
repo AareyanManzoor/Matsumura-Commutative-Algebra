@@ -1,0 +1,100 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Faithful Flatness}\label{sec:04}
+
+\begin{partheorem}\label{thm:002}
+    Let $A$ be a ring and $M$ an $A$-module. The following conditions are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $M$ is faithfully flat over $A$;
+        \item $M$ is flat over $A$, and for any $A$-module $N \ne 0$ we have $N \otimes M \ne 0$;
+        \item $M$ is flat over $A$, and for any maximal ideal $\ideal{m}$ of $A$ we have $\ideal{m}M \ne M$.
+    \end{enumerate}
+\end{partheorem}
+\begin{proof}\phantom{,}
+    \begin{implyenumerate}
+        \item[(i)$\implies$(ii)] Suppose $N \otimes M = 0$. Let us consider the sequence $0 \longrightarrow N \longrightarrow 0$. As $0 \longrightarrow N \otimes M \longrightarrow 0$ is exact, so is $0 \longrightarrow N \longrightarrow 0$. Therefore $N = 0$.
+        \item[(ii)$\implies$(iii)] Since $A/\ideal{m} \ne 0$, we have $(A/\ideal{m}) \otimes M = M/\ideal{m}M \ne 0$ by hypothesis.
+        \item[(iii)$\implies$(ii)] Take an element $x \in N$, $x \ne 0$. The submodule $Ax$ is a homomorphic image of $A$ as $A$-module, hence $Ax \cong A/I$ for some ideal $I \ne A$. Let $\ideal{m}$ be a maximal ideal of $A$ containing $I$. Then $M \supset \ideal{m}M \supseteq IM$, therefore $(A/I) \otimes M = M/IM \ne 0$. By flatness \[0 \longrightarrow (A/I) \otimes M \longrightarrow N \otimes M\] is exact, hence $N \otimes M \ne 0$.
+        \item[(ii)$\implies$(i)] Let $S: N' \longrightarrow N \longrightarrow N''$ be a sequence of $A$-modules, and suppose that
+        \[ S \otimes M : N' \otimes M \varrightarrow{f_M} N \otimes M \varrightarrow{g_M} N'' \otimes M \]
+        is exact. As $M$ is flat, the exact functor $\otimes M$ transforms kernel into kernel and image into image. Thus $\Im(g\circ f) \otimes M = \Im(g_M \circ f_M) = 0$, and by the assumption we get $\Im(g\circ f) = 0$, i.e. $g\circ f = 0$. Hence $S$ is a complex, and if $H(S)$ denotes its homology (at $N$), we have $H(S) \otimes M = H(S \otimes M) = 0$. Using again the assumption (ii) we obtain $H(S) = 0$, which implies that $S$ is exact.
+    \end{implyenumerate}
+ 
+\end{proof}
+
+\begin{corollary}\label{cor:04.01}
+    Let $A$ and $B$ be local rings, and $\psi : A \longrightarrow B$ a local homomorphism. Let $M$ ($\ne 0$) be a finite $B$-module. Then \[ M\text{ is flat over }A \iff M\text{ is f.f. over }A.\] In particular, $B$ is flat over $A$ iff it is f.f. over $A$.
+\end{corollary}
+\begin{proof}
+    Let $\ideal{m}$ and $\ideal{n}$ be the maximal ideals of $A$ and $B$ respectively. Then \newline $\ideal{m}M \subseteq \ideal{n}M$ since $\psi$ is local, and $\ideal{n}M \ne M$ by \hyperref[NAK]{NAK}, hence the assertion follows from the theorem.
+\end{proof}
+
+\newparagraph Just as flatness, faithful flatness is \defemph{transitive} ($B$ is f.f. $A$-algebra and $M$ is f.f. $B$-module $\implies$ $M$ is f.f. over $A$) and is preserved by \defemph{change of basis} ($M$ is f.f. $A$-modules and $B$ is any $A$-algebra $\implies$ $M\otimes_A B$ is f.f. $B$-module).
+
+Faithful flatness has, moreover, the following \defemph{descent} property: if $B$ is an $A$-algebra and if $M$ is a f.f. $B$-module which is also f.f. over $A$, then $B$ is f.f. over $A$.
+
+Proofs are easy and left to the reader.
+
+\newparagraph Faithful flatness is particularly important in the case of a ring extension. Let $\psi : A \longrightarrow B$ be a f.f. homomorphism of rings. Then:
+\begin{enumerate}[label=(\roman*)]
+    \item For any $A$-module $N$, the map $N \longrightarrow N \otimes B$ defined by $x \mapsto x \otimes 1$ is injective. In particular $\psi$ is injective and $A$ and be viewed as a subring of $B$.
+    \item For any ideal $I$ of $A$, we have $IB \cap A = I$.
+    \item $\SpecInduced\psi : \Spec(B) \longrightarrow \Spec(A)$ is surjective.
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+    \item Let $0 \ne x \in N$. Then $0 \ne Ax \subseteq N$, hence $Ax \otimes B \subseteq N \otimes B$ by flatness of $B$. Then $Ax \otimes B = (x \otimes 1)B$, therefore $x \otimes 1 \ne 0$ by theorem \ref{thm:002}.
+    \item  By change of base, $B \otimes_A (A/I) = B/IB$ is f.f. over $A/I$. Now the assertion follows from (i).
+    \item Let $\ideal{p} \in \Spec(A)$. The ring $B_\ideal{p} = B \otimes A_\ideal{p}$ is f.f. over $A_\ideal{p}$, hence $\ideal{p}B_\ideal{p} \ne B_\ideal{p}$. Take a maximal ideal $\ideal{m}$ of $B_\ideal{p}$ which contains $\ideal{p}B_\ideal{p}$. Then $\ideal{m} \cup A_\ideal{p} \supseteq \ideal{p}A_\ideal{p}$, therefore $\ideal{m} \cap A_\ideal{p} = \ideal{p}A_\ideal{p}$ because $\ideal{p}A_\ideal{p}$ is maximal. Putting $P = \ideal{m} \cap B$, we get \[P \cap A = (\ideal{m} \cap B) \cap A = \ideal{m} \cap A = (\ideal{m} \cap A_\ideal{p}) \cap A = \ideal{p}A_\ideal{p} \cap A = \ideal{p}.\]
+\end{enumerate}
+\end{proof}
+
+\begin{partheorem}\label{thm:003}
+Let $\psi: A \longrightarrow B$ be a homomorphism of rings. The following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+    \item $\psi$ is faithfully flat;
+    \item $\psi$ is flat, and $\SpecInduced\psi:\Spec(B) \longrightarrow \Spec(A)$ is surjective;
+    \item $\psi$ is flat, and for any maximal ideal $\ideal{m}$ of $A$ there exists a maximal ideal $\ideal{m}'$ of $B$ lying over $\ideal{m}$.
+\end{enumerate}
+\end{partheorem}
+\newpage 
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[$(1)\implies(2)$] Already proved.
+    \item[$(2)\implies(3)$] By assumption there exists $\ideal{p}' \in \Spec(B)$ with $\ideal{p}' \cap A = \ideal{m}$. If $\ideal{m}'$ is any maximal ideal of $B$ containing $\ideal{p}'$, we have $\ideal{m}' \cap A = \ideal{m}$ as $\ideal{m}$ is maximal. 
+    \item[$(3)\implies(1)$] The existence of $\ideal{m}'$ implies $\ideal{m}B \ne B$. Therefore $B$ is f.f. over $A$ by theorem \ref{thm:002}.
+\end{implyenumerate}
+\end{proof}
+
+\begin{remark}\label{rem:04.02}
+In algebraic geometry one says that a morphism $f : X \longrightarrow Y$ of preschemes is \defemph{faithfully flat} if $f$ is flat (i.e. for all $x \in X$ the associated homomorphisms $\mathcal{O}_{Y, f(x)} \longrightarrow \mathcal{O}_{X,x}$ are flat) and surjective.
+\end{remark}
+
+\newparagraph Let $A$ be a ring and $B$ a faithfully flat $A$-algebra. Let $M$ be an $A$-module. Then:
+\begin{enumerate}[label=(\roman*)]
+    \item $M$ is flat (resp. f.f.) over $A$ $\iff$ $M \otimes_A B$ is so over $B$,
+    \item when $A$ is local and $M$ is finite over $A$ we have $M$ is $A$-free $\iff$ $M \otimes_A B$ is $B$-free.
+\end{enumerate}
+\begin{proof}\phantom{,}
+\begin{enumerate}[label=(\roman*)]
+    \item \begin{implyenumerate}
+        \item[$\implies$]This is nothing but a change of base (\ref{3.C} and \ref{4.B}).
+        \item[$\impliedby$]This follows from the fact that, for any sequence of $\mathcal{S}$ of $A$-modules, we have \[(\mathcal{S}\otimes_A M)\otimes_A B = (\mathcal{S}\otimes_A B)\otimes_B(M\otimes_A B).\]
+    \end{implyenumerate}
+    \item \begin{implyenumerate}
+        \item[$\implies$] This is trivial.
+        \item[$\impliedby$] follows from (i) because, under the hypothesis, freeness of $M$ is equivalent to flatness as we saw in \ref{3.G}.
+    \end{implyenumerate}
+\end{enumerate}
+\end{proof}
+
+\begin{parremark}
+Let $V$ be an algebraic variety over $\mathbb{C}$ and let $x \in V$ (or more generally, let $V$ be an algebraic scheme over $\mathbb{C}$ and let $x$ be a closed point on $V$). Let $V^h$ denote the complex space obtained from $V$ (for the precise definition see \cite{serre1956geometrie-translated}), and let $\mathcal{O}$ and $\mathcal{O}^h$ be the local rings of $x$ on $V$ and on $V^h$ respectively. Locally, one can assume that $V$ is an algebraic subvariety of the affine $n$-space $\mathcal{A}_n$. Then $V$ is defined by an ideal $I$ of $R = \mathbb{C}[X_1, \dots, X_n]$, and taking the coordinate system in such a way that $x$ is the origin we have $I \subseteq \ideal{m} = (X_1, \dots, X_n)$ and $\mathcal{O} = R_\ideal{m}/IR_\ideal{m}$. Furthermore, denoting the ring of convergent power series in $X_1, \dots, X_n$ by $S = \mathbb{C}\{\{X_1, \dots, X_n\}\}$, we have $\mathcal{O}^h = S/IS$ by definition. Let $F$ denote the formal power series ring: $F = \mathbb{C}[[X_1, \dots, X_n]]$. It has been known long since that $\mathcal{O}$ and $\mathcal{O}^h$ are Noetherian local rings. J.-P. Serre observed that the completion $(\mathcal{O}^h)^{\hat{}}$ (cf. \ref{ch:03}) of $\mathcal{O}^h$ is the same as the completion $\hat{\mathcal{O}} = F/IF$ of $\mathcal{O}$, and that $\hat{\mathcal{O}}$ is faithfully flat over $\mathcal{O}$ as well as over $\mathcal{O}^h$. It follows by descent that $\mathcal{O}^h$ is faithfully flat over $\mathcal{O}$, and this fact was made the basis of Serre's famous paper GAGA \cite{serre1956geometrie-translated}\footnote{This is a translated version of the famous paper, see \cite{serre1956geometrie} for the paper in original french.}. It was in the appendix to this paper that the notions of flatness and faithful flatness were defined and studied for the first time.
+\end{parremark}
+
+\begin{exercise}
+Let $A$ be an integral domain and $B$ an integral domain containing $A$ and having the same quotient field as $A$. Prove that $B$ is f.f. over $A$ only when $B = A$. (Geomtetrically, this means that if a birational morphism $f: X \longrightarrow Y$ is flat at a point $x \in X$, then it is biregular at $x$.)
+\end{exercise}
+
+\end{document}

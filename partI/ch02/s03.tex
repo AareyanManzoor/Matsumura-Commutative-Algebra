@@ -1,0 +1,206 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+\section{Flatness}\label{sec:03}
+
+\begin{pardefinition}
+    Let $A$ be a ring and $M$ an $A$-module; when \[S:\cdots \varrightarrow{} N \varrightarrow{} N' \varrightarrow{} N'' \varrightarrow{} \cdots\] is any sequence of $A$-modules (and of $A$-linear maps), let $S \otimes M$ denote the sequence \[\cdots \varrightarrow{} N \otimes M \varrightarrow{} N' \otimes M \varrightarrow{} N'' \otimes M \varrightarrow{} \cdots\] obtained by tensoring $S$ with $M$. We say that $M$ is \defemph{flat over $A$}, or \defemph{$A$-flat}, if $S\otimes M$ is exact whenever $S$ is exact. We say that $M$ is \defemph{faithfully flat}\index{faithfully flat} (f.f.) over $A$, if $S\otimes M$ is exact iff $S$ is exact.     
+\end{pardefinition}
+
+\begin{example} 
+    Projective modules are flat. Free modules are f.f.. If $B$ and $C$ are rings and $A = B \times C$, then $B$ is projective module (hence flat) over $A$ but not f.f. over $A$.
+\end{example}
+
+\begin{theorem}\label{thm:001}
+    The following conditions are equivalent:
+    \begin{enumerate} [label={(\arabic*)}]
+       \item $M$ is a flat;
+       \item if $0 \varrightarrow{} N' \varrightarrow{} N$ is an exact sequence of $A$-modules, then \newline $0 \varrightarrow{} N' \otimes M \varrightarrow{} N \otimes M$ is exact;
+       \item for any finitely generated ideal $I$ of $A$, the sequence $0 \varrightarrow{} I\otimes M \varrightarrow{} M$ is exact, in other words we have $I \otimes M \cong IM$;
+       \item $\Tor^A_1 (M, A/ I) = 0$ for any finitely generated ideal $I$ of $A$;
+       \item $\Tor^A_1(M,N) = 0$ for any finite $A$-module $N$;
+       \item if $a_i \in A, x_i \in M\for{1 \leq i \leq r}$ and $\sum_1^r a_i x_i = 0$, then there exist an integer $s$ and elements $b_{ij} \in A$ and $y_j \in M\for{1 \leq j \leq s}$ such that $\sum_i a_i b_{ij} = 0$ for all $j$ and $x_i = \sum b_{ij}y_j$ for all $i$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    The Equivalence of the conditions (1) through (5) is well known; one uses the fact that the inductive limit (=direct limit) in the category of $A$-Modules preserves exactness and commutes $\Tor_i$. We omit the detail. As for (6), first suppose that $M$ is flat and $\sum_1^r a_i x_i = 0$. Consider the exact sequence
+    \[
+        K \varrightarrow{g} A^r \varrightarrow{f} A
+    \]
+    where $f$ is defined by $f(b_1,\ldots, b_r) = \sum a_i b_i\for{b_i \in A}$, $K = \ker{f}$ and $g$ is the inclusion map. Then $K\otimes M \varrightarrow{} M^r \varrightarrow{f_M} M$ is exact, where \newline $f_M(t_1,\ldots,t_r) = \sum a_i t_i\for{t_i \in M}$; therefore $(x_1,\ldots,x_r) = \sum_1^s \beta_j \otimes y_j$ with $\beta_j \in K$, $y_j \in M$. Writing $\beta_j = (b_{ij},\ldots,b_{rj})\for{b_{ij} \in A}$, we get the wanted result.
+    
+    Next let us prove $(6) \implies (3)$. Let $a_1,\ldots,a_r \in I$ and $x_1,\ldots,x_r \in M$ be such that $\sum a_ix_i =0$. Then by assumption $x_i = \sum b_{ij}y_j, \quad \sum a_ib_{ij} = 0$. Then by assumption $x_i=\sum b_{ij}y_j,\quad  \sum a_ib_{ij} =0$, hence in $I\otimes M$ we have \[\sum_i a_i \otimes x_i= \sum_i a_i \otimes \sum_j b_{ij}y_j= \sum_j \bigg( \sum_ia_ib_{ij} \otimes y_j \bigg) = 0.\]
+\end{proof}
+ 
+\newparagraph (\emph{Transitivity}) Let $\phi\colon A \varrightarrow{} B  $ be a homomorphism of rings and suppose that $\phi$ makes $B$ a flat $A$-module. (In this case we shall say that $\phi$ is a flat homomorphism.) Then a flat $B$-module $N$ is also flat over $A$.
+
+\begin{proof} 
+    Let $S$ be a sequence of $A$-module Then 
+    \[
+        S \otimes_A N = S \otimes_A (B \otimes_B N) = (S \otimes_A B) \otimes_B N.
+    \] 
+    Thus, $S$ is exact $\implies S \otimes_A B$ is exact $\implies S \otimes_A N$ is exact.
+\end{proof}
+
+\newparagraph (\emph{Change of Basis}) Let $\phi\colon A \varrightarrow{} B$ be any homomorphism of rings and let $M$ be a flat $A$-module. Then $M_{(B)} = M \otimes_A B$ is a flat $B$-module.
+
+\begin{proof}
+    Let $S$ be a sequence of $B$-modules. Then $S \otimes_B (B \otimes_A M) = S \otimes_AM$, which is exact if $S$ is exact.
+\end{proof}
+
+\newparagraph (\emph{Localization}) Let $A$ be a ring, and $S$ a multiplicative subset of $A$. Then $S^{-1}A$ is flat over $A$. 
+
+\begin{proof} 
+    Let $M$ be an $A$-module and $N$ a submodule. We have $M \otimes S^{-1}A = S^{-1}M$ and $N \otimes S^{-1}A = S^{-1}N.$ A typical element of $S^{-1}N$ is of the form $s/ x, x\in N, s \in S;$ if $x/ s = 0$ in $s^{-1}M,$ this means that there exists $s' \in S$ with $s'x = 0 $ in M, which is equivalent to saying that $s'x = 0$ in N, hence $x/ s =0$ in $S^{-1}N.$ Thus $0 \varrightarrow{} S^{-1}N \varrightarrow{} S^{-1}N$ is exact.
+\end{proof}
+
+\newparagraph Let $\phi\colon A \varrightarrow{} B  $ be a flat homomorphism of rings, and let $M$ and $N$ be $A$-modules. Then $\Tor_i^A(M,N) \otimes_A B = \Tor_i^B (M_{(B)}, N_{(B)}) $. If $A$ is Noetherian and $M$ is finite over $A$, we also have $\Ext_A^i(M,N) \otimes_AB = \Ext_B^i(M_{(B)}, N_{(B)}) $. 
+
+
+\begin{proof} 
+    Let \[\cdots \varrightarrow{} X_1 \varrightarrow{} X_0 \varrightarrow{} M \varrightarrow{} 0\] be a projective resolution of the $A$-module $M$. Then, since $B$ is flat, the sequence
+     \[\tag{3.*}\label{eqn:3.*}
+        \ldots \varrightarrow{} X_{1(B)} \varrightarrow{} X_{0(B)} \varrightarrow{} M_{(B)} \varrightarrow{} 0
+    \]
+    is a projective resolution of $M_{(B)}$. We have therefore 
+    \begin{align*}
+        &\Tor_i^A(M,N) = H_i(X,\otimes N),\\[0.5em]
+        &\Tor_i^B(M_{(B)}, N_{(B)}) = H_i(X, \otimes_A N \otimes_A B),
+    \end{align*}
+    But the exact functor $-\otimes_AB$ commutes with taking homology, so that 
+    \[
+        H_i(X.\otimes_AN\otimes_A B) = H_i(X.\otimes_AN)\otimes_A B = \Tor_i^A (M,N) \otimes_AB.
+    \] 
+    If $A$ is Noetherian and $M$ is finite over $A$, we can assume that the $X_i$'s are finite free A-modules.Then \[\Hom_B(X_i\otimes B, N \otimes B) = \Hom_A(X_i, N) \otimes_A B,\] and so the same reasoning as above proves the formula for $\Ext$. 
+\end{proof}
+In particular, for $\ideal p \in \Spec(A),$ we have 
+\begin{align*}
+    &\Tor_i^{A_{\ideal p}} (M_{\ideal p}, N_{\ideal p}) = \Tor_i^A (M,N)_{\ideal p}, \\
+    &\Ext^i_{A_{\ideal p}} (M_{\ideal p}, N_{\ideal p}) =\Ext^i_A (M,N)_{\ideal p}, 
+\end{align*}
+the latter being valid for $A$ Noetherian and $M$ finite.
+
+
+\newparagraph Let $A$ be a ring and $M$ a flat $A$-module. Then an $A$-regular element $a \in A$ is also $M$-regular.
+\begin{proof} 
+    As $0 \varrightarrow{} A \varrightarrow{a} A$ is exact, so is $0 \varrightarrow{} M \varrightarrow{a} M$.
+\end{proof}
+
+
+\begin{parproposition}\label{pro:3.G}
+    Let $(A, \ideal m, k )$ be a local ring and $M$ an $A$-module. Suppose that either $\ideal{m}$ is nilpotent or $M$ is finite over A. Then
+    \[
+        M \text{ is free} \iff M \text{ is projective} \iff M \text{ is flat.}
+    \]
+\end{parproposition}
+
+\begin{proof} 
+    We have only to prove that if $M$ is flat then it is free. We prove that any minimal basis of $M$ (c.f. \ref{1.N}) is a basis of M. For that purpose it suffices to prove that, if $x_1,\ldots ,x_n \in M$ are such that their images $\overline{x}_1, \ldots , \overline{x}_n$ in $M/ \ideal{m} = M \otimes_A k $ are linearly independent over $k$, then they are linearly independent over $A$. We use induction on $n$. When $n=1,$ let $ax=0$. Then there exist $y_1,\ldots ,y_r\in M$ and $b_1,\ldots ,b_r\in A$ such that $ab_i=0$ for all $i$ and such that $x = \sum b_iy_i$. Since $\overline{x} \neq 0$ in $M/ \ideal{m} $, not all $b_i$ are in $\ideal{m}$. Suppose $b_1 \not\in \ideal{m}.$ Then $b_1$ is a unit in $A$ and $ab_1=0$, hence $a=0$.
+    
+    Suppose $n>1$ and $\sum_n^{1} a_ix_i=0.$ Then there exists $y_1, \ldots y_r \in M$ and\newline $b_{ij}\in A\for{1 \le j \le r}$ such that $x_i = \sum_j b_{ij}y_j$ and $\sum_ia_ib_{ij}=0$. Since $x_n \not\in \ideal{m}$ for at least one $j$. Since $a_1b_{1j},\ldots ,a_nb_{nj}=0$ and $b_{nj}$ is a unit, we have 
+    \[
+        a_n = \sum_1^{n-1} c_ia_i \for{c_i = -b_{ij}/b_{nj}}.
+    \] 
+    Then 
+    \[
+        0 = \sum_1^n a_ix_i = a_1(x_1+c_1x_n) + \ldots + a_{n-1} (x_{n-1} + c_{n-1}x_n).
+    \] 
+    Since the elements $\overline{x}_1 + \overline{c}_1\overline{x}_n,\ldots ,\overline{x}_{n-1}+\overline{c}_{n-1}\overline{x}_n$ are linearly independent over $k$, by the induction hypothesis we get 
+    \[
+        a_1 = \ldots = a_{n-1} = 0, \text{ and } a_n = \sum_1^{n-1} c_ia_i=0. 
+    \] 
+\end{proof}
+
+
+\begin{remark*} If $M$ is flat but not finite, it is not necessarily free (e.g. $A=\bZ_{(p)}$ and $M=\bQ)$. On the other hand, any projective module over a local ring is free \cite{kaplansky1958projective}. For more general rings, it is known that non-finitely generated projective modules are, under very mild hypotheses, free, (Cf. \cite{bass1963big}, and \cite{hinohara1963projective}). 
+\end{remark*}
+
+\newparagraph Let $A \varrightarrow{} B$ be a flat homomorphism of rings, and let $I_1$ and $I_2$ be ideals of $A.$ Then 
+\begin{enumerate} [label=(\arabic*)]
+    \item $(I_1 \cap I_2)B = I_1B \cap I_2B$.
+    \item $(I_1 : I_2)B = I_1B : I_2B $ if $I_2$ is finitely generated.
+\end{enumerate}
+
+\begin{proof} 
+    \begin{enumerate} [label=(\arabic*)]
+        \item Consider the exact sequence of $A$-modules 
+            \[
+                I_1 \cap I_2 \varrightarrow{} A \varrightarrow{} A/ I_1 \otimes A/ I_2.
+            \] 
+            Tensoring it with $B$, we get an exact sequence. 
+            \[
+                (I_1 \cap I_2) \otimes_A B = (I_1\cap I_2)B \varrightarrow{} B \varrightarrow{} B/ I_1B \otimes B/ I_2B.
+            \] 
+            This means $(I_1 \cap I_2)B = I_1B \cap I_2B.$
+        \item When $I_2$ is a principal ideal $aA$, we use the exact sequence. 
+            \[
+                (I_1:aA) \varrightarrow{i} A \varrightarrow{f} A/ I_1
+            \] 
+            where $i$ is the injection and $f(x) = ax \mod I_1$. Tensoring it with $B$ we get the formula $(I_1:aA)B = (I_1B:aB)$. In the general case, if $I_2=aA+ \ldots + a_nA,$ we have $(I_1:I_2) = \bigcap_i (I_1:a_i)$ so that by (1)
+            \[
+                (I_1 : I_2)B = \bigcap (I_1:a_iA)B = \bigcap (I_1B:a_iB) = (I_1B:I_2B).
+            \] 
+    \end{enumerate}
+\end{proof}
+
+\begin{parexample}     
+    Let $A = k[x,y]$ be a polynomial ring over a field $k$, and put $B = A/ xA \cong k[y]$. Then $B$ is not flat over $A$ by \ref{3.F}. Let $I_1 = (x+y)A$ and $I_2=yA$. Then 
+    \begin{itemize}
+        \item  $I_1\cap I_2 = (xy + y^{2})A,$
+        \item  $I_1B = I_2B = yB,$
+        \item $(I_1 \cap I_2)B = y^{2}B \neq I_1B \cap I_2B.$
+    \end{itemize}
+\end{parexample}
+
+\begin{example}
+    Let $k, x, y$ be as above and put  $z = y/x,$  $A = k[x,y],$  $B=k[x,y,z]=k[x,z].$ Let $I_1=xA$, $I_2=yA.$ Then 
+    \begin{itemize}
+        \item $I_1 \cap I_2 = xyA,$
+        \item  $(I_1 \cap I_2)B = x^{2}zB,$
+        \item $I_1B \cap I_2B = xzB$.
+    \end{itemize}
+      Thus. $B$ is not flat over $A$. The map $\Spec(B) \varrightarrow{}  \Spec(A) $ corresponds to the projection to $(x,y)$-plane of the surface $F\colon xz = y  $ in the $(x,y,z)$-space. Note $F$ contains the whole $z$-axis and hence does not look `flat' over the $(x,y)$-plane.
+\end{example}
+
+\begin{example}
+Let $A = k[x,y]$ be as above and $B = k[x,y,z]$ with \newline $z^{2}=f(x,y) \in A$. Then $B = A \otimes Az$ as an $A$-module, so that $B$ is free, hence flat, over $A$. Geometrically, the surface $z^{2}=f(x,y)$ appears indeed to lie rather flatly over the $(x,y)$-plane. A word of caution: such intuitive pictures are not enough to guarantee flatness.
+\end{example}
+
+\newparagraph Let $A \varrightarrow{} B$ be a homomorphism of rings. Then the following conditions are equivalent:
+\begin{enumerate} [label=(\arabic*)]
+    \item $B$ is flat over $A$
+    \item $B_p$ is flat over $A_{\ideal{p}}\for{\ideal{p} = P \cap A}$ for all $P \in \Spec{B}$; 
+    \item $B_p$ is flat over $A_{\ideal{p} }\for{\ideal{p} = P \cap A}$ for all $P \in \Omega(B)$.
+\end{enumerate}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[$(1)\implies(2)$] the ring $B_{\ideal{p}} = B \otimes A_{\ideal{p}}$ is flat over $A_{\ideal{p}}$ (base change), and $B_p$ is a localization of $B_{\ideal{p}}$, so that $B_p$ is flat over $A_{\ideal{p}}$ by transitivity.
+    \item[$(2) \implies (3)$] trivial.
+    \item[$(3) \implies (1)$] it suffices to show that $\Tor_1^A(B,N)=0$ for any $A$-module $N$.
+\end{implyenumerate}
+
+We use the following
+
+\begin{lemma}
+    Let $B$ be an $A$-algebra, $P$ a prime ideal of $B$, $\ideal{p} = P \cap A $ and $N$ an $A$-module. Then
+    \[
+        (\Tor_i^A(B,N))_P = \Tor_i^{A_{\ideal{p}}}(B_P, N_{\ideal{p}}) 
+    \] 
+\end{lemma}
+
+\begin{proof} 
+Let \[X_\bullet: \cdots \varrightarrow{} X_1 \varrightarrow{} X_0 ( \varrightarrow{} N \varrightarrow{} 0)\] be a free resolution of the $A$-module $N$. We have 
+\[\Tor_i^A(B,N)= H_i(X_\bullet \otimes_A B),\]
+\[\begin{aligned}
+    \Tor_i^A(B,N) \otimes_BB_P&= H_i(X_\bullet \otimes_A B \otimes_B B_P )\\
+    &= H_i(X_\bullet \otimes_A B_P) = H_i(X_\bullet \otimes_A A_{\ideal{p}}\otimes_{A_{\ideal{p} }}B_P),
+\end{aligned}\]
+and $X_\bullet \otimes A_{\ideal{p}}$ is a free resolution of the $A$-module $N_{\ideal{p}}$, hence the least expression is equal to $\Tor_i^{A_{\ideal{p}}}(B_P, N_{\ideal{p}})$. Thus the lemma is proved.
+\end{proof}
+
+Now, if $B_P$ is flat over $A_{\ideal{p}}$ for all $P \in \Omega(B),$ then $(\Tor_1^A(B,N) )_P = 0$ for all $P \in \Omega(B)$ by the lemma, therefore $\Tor_1^A(B,N)=0 $ by \ref{1.H} as wanted.
+\end{proof}
+
+
+\end{document}

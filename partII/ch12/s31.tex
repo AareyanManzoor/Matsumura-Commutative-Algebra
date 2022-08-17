@@ -1,0 +1,139 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Nagata Rings}\label{sec:31}
+
+\begin{pardefinition}
+ Let $A$ be an integral domain and $K$ its quotient field. We say that \defemph{$A$ is N-1}\index{N-1, N-2, Nagata ring} if the integral closure of $A$ in $K$ is a finite $A$-module; and that \defemph{$A$ is N-2}\index{Japanese ring (= N-2)} if, for any finite extension $L$ of $K$, the integral closure $A_L$ of $A$ in $L$ is a finite $A$-module. If $A$ is N-1 (resp. N-2), so is any localization of A. The first example of a Noetherian domain that is not N-1 was given by \cite{akizuji1935proceedings}.
+\end{pardefinition}
+We say that a ring $B$ is a Nagata ring\footnote{pseudo-geometric ring in Nagata's terminology, and (Noetherian) universally Japanese ring\index{universally Japanese ring}\index{Japanese ring (= N-2)!universally \indexline} in EGA (cf. EGA IV. 7.7.2 \cite{egaIV}).} if it is Noetherian and if $B / \ideal{p}$ is N-2 for every $\ideal{p} \in \Spec(B)$. If $B$ is a Nagata ring then any localization of $B$ and any finite $B$ algebra are again Nagata.
+
+\begin{parproposition}\label{pro:31.01} Let $A$ be a Noetherian normal domain with quotient field $K$, let $L$ be a finite separable extension of $K$ and let $A_L$ denote the integral closure of $A$ in $L$. Then $A_L$ is finite over $A$.
+\end{parproposition}
+\begin{proof} Enlarging $L$ if necessary, we may assume $L$ is a finite Galois extension of $K$. Let $G=\{\sigma_1, \ldots, \sigma_n\}$ be its group, and choose a basis $\omega_1, \ldots, w_n$ of $L$ from $A_L$. Take $\alpha \in A_L$ and write $\alpha=\sum u_j \omega_j\for{u_j \in K}$. Then $\sigma_i(\alpha)=\sum u_j \sigma_i(\omega_j)$ for $1 \leq i \leq n$, and the determinant $D=\det(\sigma_i(\omega_j))$ is not zero. The element $c=D^2$ is $G$-invariant, hence belongs to $K$. Solving the linear equations\newline $\sigma_i(\alpha)=\sum u_j \sigma_i(\omega_j)$, we get $u_1=D_f / D =c_i / c$, where $D_i \in A_L$ and $c_i=DD_1 \in A_L \cap K=A$. Thus $A_L$ is contained in the finite $A$-module $\sum A(\omega_i / c)$. Therefore $A_L$ itself is finite over $A$.\end{proof}
+
+\begin{corollary}\label{cor:31.01} Let $A$ be a Noetherian domain of characteristic zero. Then $A$ is N-2 iff it is N-1.
+\end{corollary}
+
+\begin{corollary}\label{cor:31.02} Let $A$ be a Noetherian domain with quotient field $K$. Then $A$ is N-2 if, for any finite radical extension $E$ of $K$, the integral closure of $A$ in $E$ is finite over $A$. Proof. 
+\end{corollary}
+\begin{proof}
+If $L$ is a finite extension of $K$, the smallest normal extension $L'$ of $K$ containing $L$ is also finite over $K$, and if $E$ is the subfield of $\Aut(L' / K)$-invariants then $L' / E$ is separable and $E / K$ is radical. Thus the assertion follows from the Proposition \ref{pro:31.01}.
+\end{proof}
+
+\begin{partheorem}[Tate]\label{thm:069} Let A be a Noetherian normal domain and let $x \neq 0$ be an element of $A$ such that $x A$ is a prime ideal. Suppose further that $A$ is $xA$-adically complete and separated, and that $A / x A$ is N-2. Then $A$ itself is N-2.
+\end{partheorem}
+\begin{proof} We may assume that $\ch(A)=p>0$. Let $L$ be a finite radical extension of the quotient field $K$ of $A$, and let $B$ be the integral closure of $A$ in $L$. Then there exists a power $q=p^f$ of $\ideal{p}$ such that $L^q \subseteq K$, and we have $B=\{b \in L \mid b^q \in A\}$ by the normality of $A$. By enlarging $L$ if necessary, we may assume that there exists $y \in B$ with $y^q=x$. Put $\ideal{p}=x A$, and let $P$ be a prime ideal of $B$ lying over $\ideal{p}$. Then we have $P=\{b \in B \mid b^q \in \ideal{p}\}=y B$. Thus $A_{\ideal{p}}$ and $B_P$ are local domains whose maximal ideals are principal and $\neq (0)$. Hence they are principal valuation rings. Then it is well known (and easy to see) that $[\kappa(P): \kappa(\ideal{p})] \leqslant[L: K]$, where $\kappa(P)$ and $\kappa(\ideal{p})$ are the residue fields of $B_P$ and $A_{\ideal{p}}$ respectively. Since $B / P$ is contained in the integral closure of $A / \ideal{p}$ in $k(P)$, and since $A / \ideal{p}=A / x A$ is N-2, the ring $B / P$ is finite over $A / x A$. Since $P=y B$, we have $P^i / P^{i+1} \simeq B / P$ for each $i$, hence $B / x B$ $=B / P^q$ is also a finite module over $A / x A$. Moreover, $B$ is separated in the $x B$-adic topology. In fact, the $x B$-adic topology is equal to the $yB$-adic topology, and since $y$ is not a zero-divisor in $B$ one immediately verifies that $y^m B_P \cap B=y^m B\for{m=1,2, \ldots}$. Therefore \[\bigcap^{\infty} y^mB \subseteq \bigcap^{\infty} y^mB_P=(0).\] Now the theorem follows from the lemma of \ref{28.P}.\end{proof}
+\begin{corollary}
+If $A$ is a Noetherian normal domain which is N-2, then the formal power series ring $A[[X_1, \ldots, X_n]]$ is N-2 also.
+\end{corollary}
+\begin{corollary}[Nagata]
+ A Noetherian complete local ring $A$ is a Nagata ring.
+\end{corollary}
+\begin{proof}
+If $\ideal{p} \in \Spec(A)$ then $A / \ideal{p}$ is also a complete local ring. Thus we have only to prove that a Noetherian complete local domain $A$ is N-2. But then $A$ is a finite module over a complete regular local ring $A_0$ by \ref{28.P}, and $A_0$ is N-2 by the theorem (use induction on $\dim A_0$). Hence $A$ is N-2.
+\end{proof}
+
+\newparagraph Let $A$ be a Noetherian semi-local ring and $\completion{A}$ its completion. If $\completion{A}$ is reduced then $A$ is said to be \defemph{analytically unramified}\index{analytically!\indexline unramified}\index{unramified}. A prime ideal $\ideal{p}$ of $A$ is said to be \defemph{analytically} unramified if $\completion{A} / \completion{\ideal{p}A}=\completion{(A / \ideal{p})}$ is reduced.
+
+\begin{lemma}\label{lem:31.01}Let $A$ be a Noetherian semi-local domain and $P \in \Spec(A)$. Suppose that
+\begin{enumerate}[label = (\arabic*)]
+    \item $A_{\ideal{p}}$ is a principal valuation ring,
+    \item $\ideal{p}$ is analytically unramified.
+\end{enumerate}
+Then, for any $\completion{\ideal{p}} \in \Ass_{\completion{A}}(\completion{A} / \ideal{p} \completion{A})$, the ring $\completion{A}_{\completion{\ideal{p}}}$ is a principal valuation ring. 
+\end{lemma}
+\begin{proof} By (1) there exists $\pi \in A$ such that $\ideal{p} A_\ideal{p}=\pi A_\ideal{p}$, and by (2) we get \[\completion{\ideal{p}} \completion{A}_{\completion{\ideal{p}}}=\ideal{p} \completion{A}_{\completion{\ideal{p}}}=(\ideal{p} A_{\completion{\ideal{p}}})\completion{A}_{\completion{\ideal{p}}}=\pi \completion{A}_{\completion{\ideal{p}}}\] Since $\pi$ is $\completion{A}$-regular by the flatness of $\completion{A}$ over $A$, the local ring $\completion{A}_{\completion{\ideal{p}}}$ is regular of dimension $1 .$\end{proof}
+
+\begin{lemma}\label{lem:31.02}
+Let $A$ be a Noetherian semi-local domain and let $0 \neq x \in \rad(A)$. Suppose
+\begin{enumerate}[label=(\roman*)]
+    \item $A/xA$ has no embedded primes,
+    \item for each $\ideal{p} \in \Ass_A(A / x A)$, $A_\ideal{p}$ is regular and $\ideal{p}$ is analytically unramified.
+\end{enumerate}
+Then $A$ is analytically unramified.
+\end{lemma} 
+
+\begin{proof} Let $\Ass_A(A / x)=\{\ideal{p}_1, \ldots, \ideal{p}_r\}$ and $\Ass_{\completion{A}}(\completion{A} / \ideal{p}_i \completion{A})=\{P_{i 1}, \ldots, P_{i n_i}\}$. Then $P_i \completion{A}=\bigcap_j P_{i j}$ by (2). Let $Q_{i j}$ be the kernel of the canonical map \newline$\completion{A} \varrightarrow{} \completion{A}_{P_{i j}}$. Since $\completion{A}_{ P_{i j}}$ is regular by Lemma \ref{lem:31.01},$Q_{i j}$ is a prime ideal of $\completion{A}$. Therefore, $\completion{A}$ is reduced if $\bigcap_{i, j} Q_{i j}=(0)$. Put $N=\bigcap Q_{i j}$. The formula \[\Ass_{\completion{A}}(\completion{A} / x \completion{A})=\bigcup_{\ideal{p}\in \Ass(A/xA)} \Ass_{\completion{A}} (\completion{A}/\ideal{p}\completion{A})= \{P_{ij}\}\]
+shows that $x \completion{A}=\bigcap_{i, j} P_{i j}'$ where $P_{i j}'$ is $P_{i j}$-primary. We have $Q_{i j} \subseteq P_{i j}'$ by the definition of $Q_{ij}$. Hence $N \subseteq x \completion{A}$. But $x$ is $\completion{A}$-regular, so that $x \notin Q_{i j}$. Hence we get $N=x N$, and since $x \in \rad(\completion{A})$ we conclude $N=(0)$.
+\end{proof}
+\begin{theorem}\label{thm:070} Let $A$ be a Noetherian semi-local domain. If $A$ is a Nagata ring then it is analytically unramified.\end{theorem}
+\begin{proof} 
+We use induction on $\dim A$. Let $B$ be the integral closure of $A$ in its quotient field. Then $B$ is finite over $A$, hence for any $P \in \Spec(B)$ the domain $B / P$ is finite over $A / P \cap A$ which is assumed to be N-2. Thus $B$ is a Nagata ring. Moreover, if $\ideal{m}=\rad(A)$ then the ($\rad(B)$-adic) topology of $B$ is equal to the $\ideal{m}$-adic topology, hence $A$ is a subspace of $B$ by Artin-Rees so that $\completion{A} \subseteq \completion{B}$. Therefore we may assume that $A$ is a normal domain. Let $0 \neq x \in \rad(A)$. Since $A$ is normal the $A$-module $A / x A$ has no embedded primes. If $\ideal{p}\in \Ass_{A}(A / x A)$, then $A / \ideal{p}$ is a Nagata domain and $\dim A / \ideal{p}<\dim A$, hence $\ideal{p}$ is analytically unramified by the induction hypothesis. Moreover, $A_\ideal{p}$ is regular because $\Ht(\ideal{p})=1$. Thus the conditions of Lemma \ref{lem:31.02} are satisfied, and $A$ is analytically unramified. \end{proof}
+
+\newparagraph For any ring $R$, we shall denote by $R'$ the integral closure of $R$ in its total quotient ring $\Phi R$. Let $A$ be a Noetherian local ring, and suppose A is analytically unramified. Then $(0)=P_1 \cap \ldots \cap P_r$ in $\completion{A}$, where the $P_i$ are the minimal prime ideals of $\completion{A}$. Hence $\Phi\completion{A}=K_1 \times \ldots \times K_r$ with $K_i=\Phi(\completion{A} / P_i)$, and ${\completion{A}}'=(\completion{A} / P_1)' \cdot \times \ldots \times(\completion{A} / P_r)'$. Since $\completion{A} / P_1$ is a complete local domain, it is a Nagata ring and $(\completion{A} / P_i)'$ is finite over $\completion{A} / P_i$, or what amounts to the same, over $\completion{A}$. Therefore ${\completion{A}}'$ is finite over $\completion{A}$. This property implies, in turn, that $A'$ is finite over $A$. Indeed, since $\completion{A}$ is faithfully flat over $A$ we have \[A'\otimes_A \completion{A}\subseteq (\Phi A)\otimes_A \completion{A} \subseteq \Phi \completion{A},\] and hence $A' \otimes_{A} \completion{A} \subseteq \completion{A}$. Thus $A' \otimes \completion{A}$ is finite over $\completion{A}$, and we can find elements $a_i'\for{1 \leqslant i \leqslant m}$ of $A'$ such that $A' \otimes \completion{A}=\sum a_i' \completion{A}$. Then $(A' / \sum a_i' A) \otimes_{A} {\completion{A}}=0$, so that $A'=\sum a_1' A$ by the faithful flatness of $\completion{A}$. Summing up, we have the following implications for a Noetherian local ring $A$.
+\[\begin{aligned}
+&A\text{ is complete }&\implies& A\text{ is a Nagata ring}\\
+&A\text{ is a Nagata domain} &\implies& A \text{ is analytically unramified}\\\implies& {\completion{A}}' \text{ is finite over } \completion{A}&\implies& A' \text{ is finite over }A,\text{ i.e. }A\text{ is N-1}\end{aligned}\]
+
+\begin{partheorem}\label{thm:071} Let $A$ be a semi-local Nagata domain. Let $P_1, \ldots, P_r$ be the minimal prime ideals of the completion $\completion{A}$ of $A$ and let $K$ (resp. $L_1$) denote the quotient field of $A$ (resp, of $\completion{A} / P_i$). Then each $L_1$ is separable over $K$.\end{partheorem}
+\begin{proof}
+Take any finite extension $I$ of $K$. Since $\completion{A}$ is reduced by Th.\ref{thm:070} we have $\Phi \completion{A}=L_1 \times \ldots \times L_r$, and it suffices to show that \[\Phi \completion{A} \otimes_K L=(L_1 \otimes L) \times \ldots \times(L_r \otimes L)\] is
+reduced. Since $L$ is flat over $A$ we have \[\completion{A} \otimes_A L \subseteq \Phi \completion{A} \otimes_A L= \Phi\completion{A}\otimes_K L \subseteq \Phi(\completion{A}\otimes_AL),\] 
+so it is enough to see that $\completion{A}\otimes_A L$
+is reduced. Let $B$ denote the integral closure of $A$ in $L$.
+Then $B$ is finite over $A$, hence $\completion{B}=\completion{A} \otimes_AB$ and so \[\Phi\completion{B}\supseteq \completion{A} \otimes_A \Phi B=\completion{A} \otimes_A L.\] But $B$ is a semi-local Nagata domain, so
+that $\completion{B}$ is reduced by Th.\ref{thm:070}. Hence $\Phi \completion{B}$ and $\completion{A} \otimes_A L$ are
+reduced.
+\end{proof}
+
+\newparagraph For any scheme $X$, let $\Nor(X)$ denote the set of points
+$x$ of $X$ such that the local ring at $x$ is normal.
+
+\begin{lemma}\label{lem:31.03}
+Let $A$ be a Noetherian domain, and put $X=\Spec(A)$. Suppose there exists $0 \neq f \in A$ such that $A_{f}=A[1 / f]$ is normal. Then $\Nor(X)$ is open in $X$.
+\end{lemma} 
+
+\begin{proof}
+If $f \notin \ideal{p} \in X$ then $A_{\ideal{p}}$ is a localization of $A_{f}$, hence $\ideal{p} \in \Nor(X)$. Put \[E=\{p \in \Ass_{A}(A / f A) \mid \text{either }\Ht(\ideal{p})=1\text{ and } A_\ideal{p}\text{ is not regular, or }\Ht(p)>1\}.\] Then $E$ is of course a finite set, and by the criterion of normality (Th.\ref{thm:039}) it is not difficult to see that
+\[
+\Nor(X)=X-\bigcup_{p \in E} V(p) .
+\]
+Therefore $\Nor(X)$ is open.
+\end{proof}
+\begin{lemma}\label{lem:31.04} Let $B$ be a Noetherian domain with quotient field $k$, such that there exists $0 \neq f \in B$ such that $B_{f}=B[1 / f]$ is normal. Suppose that $B_\ideal{p}$ is N-1 for each maximal ideal $\ideal{p}$ of B. Then $B$ is N-1.\end{lemma}
+\begin{proof}
+We denote the integral closure in $K$ by $'$. Let $\ideal{p}$ be a maximal ideal of $B$ and write $(B_\ideal{p})'=\sum_{1}^{n} B_\ideal{p}\omega_{i}$ with $\omega_{i} \in B'$. This is possible because \[(B_\ideal{p})'=B'_\ideal{p}=B_\ideal{p}[B'].\] Put $C^{(\ideal{p})}=B[\omega_{1}, \ldots, \omega_{n}]$. Then $C^{(\ideal{p})}$ is finite over $B$, hence is Noetherian. Let $P$ be any prime of $C^{(\ideal{p})}$ lying over $\ideal{p}$. Then \[(C^{(\ideal{p})})_{P}\supseteq  (C^{(\ideal{p})})_\ideal{p} \supseteq C^{(\ideal{p})},\] and $(C^{(\ideal{p})})_\ideal{p}=(B_\ideal{p})'$ is normal. Thus $(C^{(\ideal{p})})_{P}$ is a localization of the normal ring $(B_\ideal{p})'$, hence is itself normal. Put $X_\ideal{p}=\Spec(C^{(\ideal{p})}),\, F_\ideal{p}=X_\ideal{p}-\Nor(X_\ideal{p}),$ and $X=\Spec(B) ;$ let $\pi_\ideal{p}: X_\ideal{p} \varrightarrow{} X$ be the morphism corresponding to the inclusion map $B \varrightarrow{} C^{(\ideal{p})}$. Since $C^{(\ideal{p})}[1 / f]=B_{f}$, the set $F_\ideal{p}$ is closed in $X_\ideal{p}$ by Lemma \ref{lem:31.03}. Since $C^{(\ideal{p})}$ is finite over $B$, the map $\pi_\ideal{p}$ is a closed map. Thus $\pi_\ideal{p}(F_\ideal{p})$ is a closed set in $X$, and $\ideal{p} \notin \pi_\ideal{p}(F_\ideal{p})$ by what we have just seen. Therefore the intersection $ \bigcap_{\text{all max } \ideal{p}}\pi_\ideal{p}(F_\ideal{p})$ contains no closed point (= maximal ideal of $B$), so that we have $\bigcap_\ideal{p}(F_\ideal{p})=\varnothing$. As affine schemes are quasi-compact, there exist $\ideal{p}_{1}, \ldots, \ideal{p}_{r}$ such that $\bigcap_{i=1} \pi_{\ideal{p}_i}(F_{\ideal{p}_{i}}) \neq \varnothing$. Put $C^{(i)}=C^{(\ideal{p}_{i})}$ and $C=B[C^{(1)}, \ldots, C^{(r)}]$. Then $C$ is finite over $B$.
+We claim that $C_{Q}$ is normal for any $Q \in\Spec(C)$. In fact we have $Q \cap B \notin \pi_{\ideal{p}_i}(F_{\ideal{p}_i})$ for some $i$, hence $Q \cap C^{(i)} \in \Nor(x_\ideal{p})$. Putting $C^{(i)} \cap Q=\ideal{q}$ we have $C_Q \supseteq C^{(i)}_\ideal{q},$ and since $C^{(i)}_\ideal{q}$ is
+normal we have $C^{(i)} \supseteq C$, hence $C_{Q}=C^{(i)}_\ideal{q}$, Thus our claim is proved and $C$ is normal. Therefore $B'=C$, so $B'$ is finite over $B$.\end{proof}
+
+\begin{partheorem}[Nagata]\label{thm:072}
+Let $A$ be a Nagata ring and $B$ an $A$-algebra of finite type. Then $B$ is also a Nagata ring.
+\end{partheorem} 
+\begin{proof}
+The canonical Image of $A$ in $B$ is also a Nagata ring, so we may assume that $A \subseteq B$. Then $B=A[x_{1}, \ldots, x_{n}]$ with some $x_{i} \in B$, and by induction on $n$ it is enough to consider the case $B=A[x]$.
+
+
+Let $P \in \Spec(B)$. Then $B / P=(A / A \cap P)[\overline{x}]$ where $A / A \cap P$ is a Nagata domain, and we have to prove that $B / P$ is N-2.
+Thus the problem is reduced to proving the following:
+
+\paragraph{(31.*)}\label{31.*} If $A$ is a Nagata domain, and if $B=A[x]$ is an integral domain generated by a single element $x$ over $A$, then $B$ is N-2.
+
+Let $K$ be the quotient field of $A$. It is easy to see that we may replace A by its integral closure in $K$. So we can assume in \ref{31.*} that $A$ is normal.
+\begin{enumerate}
+    \item[Case 1.] $x$ is transcedental over $A$.
+
+Then $B$ is normal. Therefore if $\ch(B)=0$ we are done.
+Suppose $\ch(B)=P$, and take a finite radical extension $L= K(x, \alpha_{1}, \ldots, \alpha_{r})$ of $\Phi B=K(x)$. Let $q=p^{e}$ be such that $\alpha_{i}^{q} \in K(x)$ for all $i$. Then there exists a finite radical extension $K'$ of $K$ such that $\alpha_{i} \in K'(x^{1 / q})$. If $\widetilde{A}$ (resp. $\widetilde{B}$) is the integral closure of $A$ in $K'$ (resp. of $B$ in $L$), then $\widetilde{A}[x^{1 / q}]$ is normal and we have $B=A[x] \subseteq \widetilde{B} \subseteq \widetilde{A}[x^{1 / q}]$. Since $\widetilde{A}[x^{1 / q}]$ is finite over $B, \widetilde{B}$ is also finite over $B$.
+
+ \item[Case 2.] $x$ is algebraic over $A$.
+
+Let $L$ be a finite extension of $\Phi B$. Then $[L: K]<\infty$, and if $\widetilde{A}$ (resp, $\widetilde{B}$) is the integral closure of $A$ (resp. $B$) in $L$ then $\widetilde{A}$ is finite over $A$, hence $\widetilde{A}[x]$ is finite over $A[x]=B$, and $B=A[x] \subseteq \widetilde{A}[x] \subseteq \widetilde{B}$. Therefore we have only to prove:
+\paragraph{($\dagger$)}\label{31.dagger} Let $A$ be a normal Nagata domain with quotient field $K$, and let $B=A[x]\for{x \in K}$. Then $B$ is N-1.
+
+Write $x=b / a$ with $a, b \in$ A. Then $B_{a}=B[1 / a]=A[1 / a]$ is normal because it is a localization of the normal ring $A$. Thus by Lemma \ref{lem:31.04} it is enough to prove that $B_{P}$ is N-1 for any maximal ideal $P$ of $B .$ Put $P'=P \cap A .$ Then $B / P=(A / P')[\overline{x}]$ is a field, so the image $\overline{x}$ of $x$ in $B / P$ is algebraic over $A / P'$. Hence there exists a monic polynomial $f(X) \in A[X]$ such that $f(x) \in P \cdot$ Let $K''$ be the field obtained by adjoining all roots of $f(X)$ to $K$, let $A''$ denote the integral closure of $A$ in $K$ and put $B''=A''[x]$. Then $A''$ is Nagata and $B''$ is finite over $B$. Let $P''$ denote any prime of $B''$ lying over $P$. If $B''_{P''}$ is N-1 for all such $P''$ then $B_{P}''$ is N-1 by Lemma \ref{lem:31.04} and it follows easily that $B_{P}$ is N-1. Thus replacing $A, B$ and $P$ by $A'', B''$ and $P''$ respectively we may assume that $f(X)=\prod (X-a_{i})$ with $a_{i} \in A$. Then $\overline{x}=\overline{a}_{i}$ for some $i$, and as we can replace $x$ by $x-a_{i}$ we may assume that $x \in P$.
+
+Let $Q$ be the kernel of the homomorphism $A[X] \varrightarrow{} A[x]=B$ which maps $X$ to $x$. Then $Q$ is generated by the linear forms $a X-b$ such that $x=b / a$, (For, if $F(X)=a_{0} X^{n}+a_{1} X^{n-1}+\ldots$ $+a_{n} \in Q$, then $a_{0} x$ is integral over $A$, hence $a_{0} x=b \in A$ by the normality of $A$. Then $F(X)-(a_{0} X-b) X^{n-1} \in Q$, and our assertion is proved by induction on $n=\deg F(X)$.) Let I be the ideal of A generated by such b, in other words $I=xA \cap A$. We have \[B / x B \simeq A[X] /(X A[X]+Q)=A[X] /(X A[X]+I)\simeq A / I.\]
+
+We want to apply Lemma \ref{lem:31.02} to the local ring $B_P$ and to $x \in PB_{P}$. If this is possible then $B_{P}$ is analytically unramified, so by \ref{31.E} $B_{P}$ is N-1, as wanted. Now the conditions of Lemma \ref{lem:31.02} are: 
+\begin{enumerate}[label=(\arabic*)]
+    \item $B_P/xB_P$ has no embedded primes,
+    \item if $\ideal{p}\in \Spec(B_p)$ is any associated prime of $B_P/xB_P$ 
+\end{enumerate}
+then $(B_P)_\ideal{p}$ is regular and $\ideal{p}$ is analytically unramified. Let us check these conditions.
+
+Since $A$ is a Noetherian normal ring we have $A=\bigcap_{\Ht(\ideal{q})=1} A_\ideal{q}$. Therefore, if $\ideal{q}_{1}, \ldots, \ideal{q}_{s}$ are the prime ideals of height $1$ such that $x \in \ideal{q}_{i} A_{\ideal{q}_{i}}$, then \[I=x A \cap A=\bigcap_{i=1}^{s}(x A_{q_{i}} \cap A).\] Hence $A / I=B / x B$ has no embedded primes, proving (1).
+
+Let $\ideal{p}$ be an associated prime of $B_P/xB_P$. Then $\Ht(\ideal{p})=1$, and $\ideal{p}\cap A$ is an associated prime of $A/(xB_P\cap A) = A/I$. Thus $A_{(\ideal{p}\cap A)}$ is a principle valuation ring and so $(B_P)_\ideal{p} = A_{(\ideal{p}\cap A)}$. Lastly, $B_P/\ideal{p}$ is a localization of $B/(\ideal{p}\cap B)$ and $B/(\ideal{p}\cap B) \simeq A/(\ideal{p}\cap A)$ since $x\in \ideal{p}$. Thus $B_P/\ideal{p}$ is a Nagata local domain, hence is analytically unramified. Thus the condition (2) is verified and our proof is complete.
+\end{enumerate}\end{proof}
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{\texorpdfstring{$\Ass(M)$}{Ass(M)}}\label{sec:07}
+
+
+\newparagraph Throughout this section let $A$ denote a Noetherian ring and $M$ an $A$-module. We say a prime ideal $\ideal{p}$ of $A$ is an \defemph{associated prime}\index{associated prime} of $M$, if one of the following equivalent
+conditions holds:
+\begin{enumerate}[label=(\roman*)]
+    \item there exists an element $x\in M$ with $\Ann(x)=\ideal{p}$;
+    \item $M$ contains a submodule isomorphic to $A/\ideal{p}$.
+\end{enumerate}
+The set of the associated primes of $M$ is denoted by $\Ass_A(M)$ or by $\Ass(M)$.
+
+\begin{parproposition}\label{pro:07.01}
+Let $\ideal{p}$ be a maximal element of the set of ideals $\{\Ann(x)\mid x\in M,x\neq0\}$. Then $\ideal{p}\in\Ass(M)$.
+\end{parproposition}
+
+\begin{proof}
+We have to show that $\ideal{p}$ is prime. Let $\ideal{p}=\Ann(x)$, and suppose $ab\in\ideal{p}$, $b\notin\ideal{p}$. Then $bx\neq0$ and $abx = 0$. Since $\Ann(bx)\supseteq\Ann(x)=\ideal{p}$, we have $\Ann(bx)=\ideal{p}$ by the maximality of $\ideal{p}$. Thus $a\in \ideal{p}$.
+\end{proof}
+
+\begin{corollary}\label{cor:07.01}
+$\Ass(M)=\varnothing\iff M=0$.
+\end{corollary}
+
+\begin{corollary}\label{cor:07.02}
+The set of the zero-divisors for $M$ is the union of the associated primes of $M$.
+\end{corollary}
+
+\begin{parlemma}\label{lem:07.01}
+Let $S$ be a multiplicative subset of A, and put $A'=S^{-1}A$, $M'=S^{-1}M$. Then \[\Ass_A(M')=f(\Ass_{A'}(M'))=\Ass_A(M)\cap\{\ideal{p}\mid\ideal{p}\cap S=\varnothing\},\] where $f$ is the natural map $\Spec(A')\longrightarrow\Spec(A)$.
+\end{parlemma}
+
+\begin{proof} \renewcommand{\qedsymbol}{}
+Left to the reader. One must use the fact that any ideal of $A$ is finitely generated.
+\end{proof} 
+
+\begin{partheorem}\label{thm:009}
+Let $A$ be a Noetherian ring and $M$ an $A$-module. Then $\Ass(M)\subseteq\Supp(M)$, and any minimal element
+of $\Supp(M)$ is in $\Ass(M)$.
+\end{partheorem}
+\begin{proof}
+If $\ideal{p}\in\Ass(M)$ there exists an exact sequence $0\longrightarrow A/\ideal{p}\longrightarrow M$, and since $A_{\ideal{p}}$ is flat over $A$ the sequence $0\longrightarrow A_{\ideal{p}}/\ideal{p}A_{\ideal{p}}\longrightarrow M_{\ideal{p}}$ is also exact. As $A_{\ideal{p}}/\ideal{p}A_{\ideal{p}}\neq0$, we have $M_{\ideal{p}}\neq0$, i.e. $p\in\Supp(M)$. Next let $\ideal{p}$ be a minimal element of $\Supp(M)$. By \ref{7.C}, $\ideal{p}\in\Ass(M)$ iff $\ideal{p}A_{\ideal{p}}\in\Ass_{A_{\ideal{p}}}(M_{\ideal{p}})$, therefore replacing $A$ and $M$ by $A_{\ideal{p}}$ and $M_{\ideal{p}}$, we can assume that $(A,\ideal{p})$ is a local ring, that $M\neq 0$ and that $M_{\ideal{p}}=0$ for any prime $\ideal{q}\subset\ideal{p}$. Thus $\Supp(M)=\{\ideal{p}\}$. Since $\Ass(M)$ is not empty and is contained in $\Supp(M)$, we must have $p\in\Ass(M)$.
+\end{proof}
+
+\begin{corollary}\label{cor:07.03}
+Let $I$ be an ideal. Then the minimal associated primes of the $A$-module $A/I$ are precisely the minimal prime over-ideals of $I$.
+\end{corollary}
+
+\begin{remark}
+By the above theorem the minimal associated primes of $M$ are the minimal elements of $\Supp(M)$. Associated primes which are not minimal are called \defemph{embedded primes}\index{embedded prime}.
+\end{remark}
+
+\begin{partheorem}\label{thm:010}
+Let $A$ be a Noetherian ring and $M$ a finite $A$-module, $M\neq0$. Then there exists a chain of submodules \[(0)=M_n\subset\cdots\subset M_{n-1}\subset M_n=M\] such that $M_i/M_{i-1}\cong A/\ideal{p}_i$, for some $\ideal{p}_i\in\Spec(A)\for{1\leqslant i\leqslant n}$.
+\end{partheorem}
+
+\begin{proof}
+Since $M\neq0$ we can choose $M_1\subseteq M$ such that $M_1=A/\ideal{p}_1$, for some $\ideal{p}_1\in\Ass(M)$. If $M_1\neq M$ then we apply the same procedure to $M/M_1$ to find $M_2$, and so on. Since the ascending chain condition for submodules holds in $M$, the process must stop in finite steps.
+\end{proof}
+
+\begin{parlemma}\label{lem:07.02}
+If $0\longrightarrow M'\longrightarrow M\longrightarrow M''$ is an exact sequence of $A$-modules, then $\Ass(M)\subseteq\Ass(M')\cup\Ass(M'')$.
+\end{parlemma}
+\begin{proof}
+Take $\ideal{p}\in\Ass(M)$ and choose a submodule $N$ of $M$ isomorphic to $A/\ideal{p}$. If $N\cap M'=(0)$ then $N$ is isomorphic to a submodule of $M''$, so that $p\in\Ass(M'')$. If $N\cap M'\neq(0)$, pick $0\neq x\in N\cap M'$. Since $N\cong A/\ideal{p}$ and since $A/\ideal{p}$ is a domain we have $\Ann(x)=\ideal{p}$, therefore $\ideal{p}\in\Ass(M')$.
+\end{proof}
+
+\begin{parproposition}\label{pro:07.02}
+Let $A$ be a Noetherian ring and $M$ a finite $A$-module. Then $\Ass(M)$ is a finite set.
+\end{parproposition}
+\begin{proof}
+Using the notation of Th.\ref{thm:010}, we have \[\Ass(M)\subseteq\Ass(M_1)\cup\Ass(M_2/M_1)\cup\cdots\cup\Ass(M_n/M_{n-1})\] by lemma \ref{lem:07.02}. On the other hand we have $\Ass(M_i/M_{i-1})=\Ass(A/\ideal{p}_i)=\{\ideal{p}_i\}$, therefore $\Ass(M)\subseteq\{\ideal{p}_1,\ldots,\ideal{p}_n\}$.
+\end{proof}
+\end{document}

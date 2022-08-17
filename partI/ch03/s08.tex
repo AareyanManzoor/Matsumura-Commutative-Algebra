@@ -1,0 +1,98 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Primary Decomposition}\label{sec:08}
+
+\begin{quote}
+As in the preceding section, $A$ denotes a Noetherian ring and $M$ an $A$-module
+\end{quote}
+
+\begin{pardefinition}
+An $A$-module is said to be \defemph{co-primary}\index{co-primary (module)} if it has only one associated prime, A submodule $N$ of $M$ is said to be a \defemph{primary submodule of $M$}\index{primary!\indexline submodule} if $M/N$ is co-primary. If $\Ass(M/N)=\{\ideal{p}\}$, we say $N$ is $\ideal{p}$-primary or that $N$ belongs to $\ideal{p}$. 
+\end{pardefinition}
+
+\begin{parproposition}\label{pro:08.01}
+The following are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+    \item the module $M$ is co-primary;
+    \item $M\neq0$, and if $a\in A$ is a zero-divisor for $M$ then $a$ is locally nilpotent on $M$ (by this we mean that, for each $x\in M$, there exists an integer $n > 0$ such that $a^nx = 0$).
+\end{enumerate}
+\end{parproposition}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[(1) $\implies$ (2)] Suppose $\Ass(M)=\{\ideal{p}\}$. If $0\neq x\in M$, then $\Ass(Ax)=\{\ideal{p}\}$ and hence $\ideal{p}$ is the unique minimal element of $\Supp(Ax) = V(\Ann(x))$ by \ref{7.D}. Thus $\ideal{p}$ is the radical of $\Ann(x)$, therefore $a\in \ideal{p}$ implies $a^nx = 0$ for some $n > 0$.
+    
+    \item[(2) $\implies$ (1)] Put $\ideal{p}=\{a\in A\mid a\text{ is locally nilpotent on }M\}$. Clearly this is an ideal. Let $\ideal{q}\in\Ass(M)$. Then there exists an element $x$ of $M$ with $\Ann(x)=\ideal{q}$, therefore $\ideal{p}\subseteq\ideal{q}$ by the definition of $\ideal{p}$. Conversely, since $\ideal{p}$ coincides with the union of the associated primes by assumption, we get $\ideal{q}\subseteq\ideal{p}$. Thus $\ideal{p} = \ideal{q}$ and $\Ass(M) = \{\ideal{p}\}$, so that $M$ is co-primary.
+\end{implyenumerate}
+\end{proof}
+
+\begin{remark}
+When $M = A/\ideal{q}$, the condition (2) reads as follows:
+
+(2') all zero-divisors of the ring $A/\ideal{q}$ are nilpotent. 
+This is precisely the classical definition of a primary ideal $\ideal{q}$, cf. \ref{1.A}.
+\end{remark} 
+
+\begin{exercise}
+Prove that, if $M$ is a finitely generated co-primary $A$-module with $\Ass(M) = \{\ideal{p}\}$, then the annihilator $\Ann(M)$ is a $\ideal{p}$-primary ideal of $A$.
+\end{exercise}
+
+\newparagraph Let $\ideal{p}$ be a prime of $A$, and let $Q_1$ and $Q_2$ be $\ideal{p}$-primary submodules of $M$. Then the intersection $Q_1\cap Q_2$ is also $\ideal{p}$-primary.
+
+\begin{proof}
+There is an obvious monomorphism $M/Q_1\cap Q_2\longrightarrow M/Q_1\oplus M/Q_2$. Hence \[\varnothing\neq\Ass(M/Q_1\cap Q_2)\subseteq\Ass(M/Q_1)\cup\Ass(M/Q_2)=\{\ideal{p}\}.\]
+\end{proof}
+
+\newparagraph Let $N$ be a submodule of M. A \defemph{primary decomposition}\index{primary!\indexline decomposition} of $N$ is an equation $N = Q_1\cap\cdots\cap Q_r$ with $Q_i$ primary in $M$. Such a decomposition is said to be \defemph{irredundant} if no $Q_i$ can be omitted and if the associated primes of $M/Q_i\for{1\leqslant i\leqslant r}$ are all distinct. Clearly any primary decomposition can be simplified to an irredundant one. 
+
+\begin{parlemma}\label{lem:08.01}
+If $N=Q_1\cap\cdots\cap Q_r$ is an irredundant primary decomposition and if $Q_i$ belongs to $\ideal{p}_i$, then we have \[\Ass(M/N)=\{\ideal{p}_1,\ldots,\ideal{p}_r\}.\]
+\end{parlemma}
+
+\begin{proof}
+There is a natural monomorphism $M/N\longrightarrow M/Q_1\oplus\cdots\oplus M/Q_r$, whence \[\Ass(M/N)\subseteq\bigcup_i\Ass(M/Q_i)=\{\ideal{p}_1,\ldots,\ideal{p}_r\}.\] Conversely, $(Q_2\cap\cdots\cap Q_r)/N$ is isomorphic to a non-zero submodule of $M/Q_1$, so that $\Ass(Q_2\cap\cdots\cap Q_r/N)=\{\ideal{p}_1\}$, and since $Q_2\cap\cdots\cap Q_r/N=M/N$ we have $\ideal{p}_i\in\Ass(M/N)$. Similarly for other $\ideal{p}_i$'s.
+\end{proof}
+
+\begin{parproposition}\label{pro:08.02}
+Let $N$ be a $\ideal{p}$-primary submodule of an $A$-module $M$, and let $\ideal{p}'$ be a prime ideal. Put $M' = M_{\ideal{p}'}$ and $N' = N_{\ideal{p}'}$ and let $\nu:M\longrightarrow M'$ be the canonical map. Then
+\begin{enumerate}
+    \item $N'=M'$ if $\ideal{p}\nsubseteq\ideal{p}'$,
+    \item $N=\nu^{-1}(N')$ if $\ideal{p}\subseteq\ideal{p}'$ (symbolically one may write $N=M\cap N'$).
+\end{enumerate}
+\end{parproposition}
+
+\begin{proof}
+\begin{enumerate}
+    \item We have $M'/N' = (M/N)_{\ideal{p}}$ and \[\Ass_A(M'/N') =\Ass_A(M/N)\cap\{\text{primes contained in }p'\}=\varnothing.\] Hence $M'/N' = 0$.
+    \item Since $\Ass(M/N) = \{\ideal{p}\}$ and since $\ideal{p}\subseteq\ideal{p}'$, the multiplicative set $A-\ideal{p}'$ does not contain zero-divisors for $M/N$. Therefore the natural map $M/N\longrightarrow(M/N)_{\ideal{p}} = M'/N'$ is injective.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}\label{cor:08.01}
+Let $N = Q_1\cap\cdots\cap Q_r$ be an irredundant primary decomposition of a submodule $N$ of $M$, let $Q_1$ be $\ideal{p}_1$-primary and suppose $\ideal{p}_1$ is minimal in $\Ass(M/N)$. Then $Q_1=M\cap N_{\ideal{p}_1}$, hence the primary component $Q_1$ is uniquely determined by $N$ and by $\ideal{p}_1$.
+\end{corollary}
+
+\begin{remark}
+If $\ideal{p}_i$ is an embedded prime of $M/N$ then the corresponding primary component $Q_i$, is not necessarily unique.
+\end{remark}
+
+\begin{partheorem}\label{thm:011}
+Let $A$ be a Noetherian ring and $M$ an $A$-module, Then one can choose a $\ideal{p}$-primary submodule $Q(\ideal{p})$ for each $\ideal{p}\in\Ass(M)$ in such a way that $(0) =\displaystyle \bigcap_{\ideal{p}\in\Ass(M)}Q(\ideal{p})$.
+\end{partheorem}
+
+\begin{proof}
+Fix an associated prime $\ideal{p}$ of $M$, and consider the set of submodules \newline ${\cal N}=\{N\subseteq M\mid\ideal{p}\notin\Ass(N)\}$. This set is not empty since $(0)$ is in it, and if \newline ${\cal N}' = \{N_\lambda\}_\lambda$ is a linearly ordered subset of ${\cal N}$ then $\bigcup N_\lambda$ is an element of ${\cal N}$ (because $\Ass(\bigcup N_\lambda)=\bigcup\Ass(N_\lambda)$ by the definition of $\Ass$). Therefore ${\cal N}$ has maximal elements by Zorn; choose one of them and call it $Q = Q(\ideal{p})$. Since $\ideal{p}$ is associated to $M$ and not to $Q$ we have $M \neq Q$. On the other hand, if $M/Q$ had an associated prime $\ideal{p}'$ other than $\ideal{p}$, then $M/Q$ would contain a submodule $Q'/Q \cong A/\ideal{p}'$ and then $Q'$ would belong to ${\cal N}$ contradicting the maximality of $Q$. Thus $Q = Q(\ideal{p})$ is a $\ideal{p}$-primary submodule of $M$. As \[\Ass(\bigcap_{\ideal{p}}Q(\ideal{p}))=\bigcap\Ass(Q(\ideal{p}))=\varnothing\] we have $\bigcap Q(\ideal{p}) = (0)$.
+\end{proof}
+
+\begin{corollary}\label{cor:08.02}
+If $M$ is finitely generated then any submodule $N$ of $M$ has a primary decomposition.
+\end{corollary}
+
+\begin{proof}
+Apply the theorem to $M/N$ and notice that $\Ass(M/N)$ is finite.
+\end{proof}
+
+\newparagraph Let $\ideal{p}$ be a prime ideal of a Noetherian ring $A$, and let $n > 0$ be an integer. Then $\ideal{p}$ is the unique minimal prime over-ideal of $\ideal{p}^n$, therefore the $\ideal{p}$-primary component of $\ideal{p}^n$ is uniquely determined; this is called the $n$-th \defemph{symbolic power}\index{symbolic power} of $\ideal{p}$ and is denoted by $\ideal{p}^{(n)}$. Thus $\ideal{p}^{(n)}=\ideal{p}^nA_{\ideal{p}}\cap A$. It can happen that $\ideal{p}^n \neq \ideal{p}^{(n)}$. Example: let $k$ be a field and $B = k[x, y]$ the polynomial ring in the indeterminates $x$ and $y$. Put $A = k[x, xy, y^2, y^3]$ and \[\ideal{p} = yB\cap A =(xy,y^2,y^3).\] Then $\ideal{p}^2=(x^2y^2,xy^3,y^4,y^5)$. Since $y = xy/x\in A_{\ideal{p}}$, we have $B = k[x, y]\subseteq A_{\ideal{p}}$ and hence $A_{\ideal{p}} = B_{yB}$. Thus \[\ideal{p}^{(2)}=y^2B_{yB}\cap A=y^2B\cap A=(y^2,y^3)\neq\ideal{p}^2.\] An irredundant primary decomposition of $\ideal{p}^2$ is given by \[\ideal{p}^2=(y^2, y^3)\cap(x^2,xy^3,y^4,y^5).\]
+
+\end{document}

@@ -1,0 +1,74 @@
+list of (comm.) diagrams
+
+(long exact seq's aren't counted as diagrams -- these will go fine in display math)
+(most diagrams are simple, e.g. squares)
+
+PART I
+    
+    sec. 13
+    
+    p. 82 - Proof of Thm. 21 %done
+    
+    sec. 18
+    
+    p. 137 - Proof of Lemma 8
+    
+    sec. 20
+    
+    p.148
+    p.149
+    
+    sec. 23
+    
+    p.170
+
+PART II
+
+    sec. 25
+    
+    p.179
+    p.180
+    
+    sec. 26
+    
+    p.185
+    
+    sec. 28
+    
+    p.199 (2)
+    p.201 (2)
+    p.202 (2)
+    p.203
+    
+    sec. 29
+    
+    p.215
+    p.217
+    p.218
+    
+    sec. 30
+    
+    p.222
+    p.225
+    p.226
+    p.227
+    
+    sec. 33
+    
+    p.251
+
+APPENDIX
+
+    sec. 37
+    
+    p.268
+    
+    sec. 39
+    
+    p.278
+    p.280
+    
+    sec. 42
+    
+    p.301 - Whoever
+    p.302 - Does not have the isomorphism symbol

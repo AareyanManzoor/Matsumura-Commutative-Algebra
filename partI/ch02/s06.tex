@@ -1,0 +1,172 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+%claimed by twiceshy
+
+\section{Constructible Sets}\label{sec:06}
+
+\newparagraph A topological space $X$ is said to be \defemph{Noetherian}\index{Noetherian!\indexline space} if the descending chain condition holds for the closed sets in $X$. The spectrum $\Spec(A)$ of a Noetherian ring $A$ is Noetherian. If a space is covered by a finite number of Noetherian subspaces then it is Noetherian. Any subspace of a Noetherian space is Noetherian. A Noetherian space is quasi-compact.
+
+A closed set $Z$ in a topological space $X$ is \defemph{irreducible}\index{irreducible!\indexline set} if it is not expressible as the sum of two proper closed subsets. In a Noetherian space $X$ any closed set $Z$ is uniquely decomposed into a finite number of irreducible closed sets: $Z = Z_1 \cup \cdots \cup Z_r$ such that $Z_i \not\subseteq Z_j$ for $i \ne j$. This follows easily from the definitions. The $Z_i$'s are called the \defemph{irreducible components}\index{irreducible!\indexline component} of $Z$. 
+
+\newparagraph Let $X$ be a topological space and $Z$ a subset of $X$. We say $Z$ is \defemph{locally closed}\index{locally closed} in $X$ if, for every point $z$ of $Z$, there exists an open neighborhood $U$ of $z$ in $X$ such that $U \cap Z$ is closed in $U$. It is easy to see that $Z$ is locally closed in $X$ iff it is expressible as the intersection of an open set in $X$ and a closed set in $X$.
+
+Let $X$ be a Noetherian space. We say a subset $Z$ of $X$ is a \defemph{constructible}\index{constructible!\indexline set} set in $X$ if $Z$ is a finite union of locally closed sets in $X$:
+\[
+\begin{aligned}
+Z = \bigcup_{i=1} ^m &(U_i \cap F_i), &U_i \text{ open, } F_i\, \text{closed.}
+\end{aligned}
+\]
+(When $X$ is not Noetherian, the definition of a constructible set is more complicated, cf. \cite{egaIII}.)
+
+If $Z$ and $Z'$ are constructible in $X$, so are $Z\cup Z'$, $Z\cap Z'$ and $Z - Z'$. This is clear for $Z \cup Z'$. Repeated use of the formula
+\begin{align*}
+(U \cap F) - (U' \cap F') 
+&= U \cap F \cap ((U')^C \cup (F')^C)\\
+&= (U \cap (F \cap (U')^C) \cup ((U \cap (F')^C) \cap F),
+\end{align*}
+where $U^C$ denotes the complement of $U$ in $X$, shows that $Z- Z'$ is constructible. Taking $Z=X$ we see the complement of a constructible set is is constructible. Finally $Z \cap Z' = (Z^C \cup (Z')^C)^C$ is constructible.
+
+We say a subset $Z$ of a Noetherian space $X$ is \defemph{pro-constructible}\index{constructible!pro \indexline}\index{pro-constructible} (resp. \defemph{ind-constructible}\index{constructible!ind \indexline}\index{ind-constructible}) if it is the intersection (resp. union) of an arbitrary collection of constructible sets in $X$.
+
+\begin{parproposition}\label{pro:06.01}
+Let $X$ be a Noetherian space and $Z$ a subset of $X$. Then $Z$ is constructible in $X$ iff the following condition is satisfied.
+\begin{enumerate}[label = (\arabic*.$\ast$)]\setcounter{enumi}{5}
+\item\label{cond:06.*} For each irreducible closed set $X_0$ in $X$, either $X_0 \cap Z$ is not dense in $X_0$, or $X_0 \cap Z$ contains a non-empty open subset of $X_0$.
+
+\end{enumerate}
+\end{parproposition}
+
+\begin{proof}
+(Necessity.) If $Z$ is constructible we can write
+\[
+X_0 \cap Z = \bigcup_{i=1} ^m (U_i \cap F_i),
+\]
+where $U_i$ is open in $X$, $F_i$ is closed and irreducible in $X$ and $U_i \cap F_i$ is not empty for each $i$. Then $\overline{U_i \cap F_i} = F_i$ since $F_i$ is irreducible, therefore $\overline{X_0 \cap Z} = \bigcup_i F_i$. If $X_0 \cap Z$ is dense in $X_0$, we have $X_0 = \bigcup_i F_i$ so that some $F_i$, say $F_1$, is equal to $X_0$. Then $U_1 \cap X_0 = U_1 \cap F_1$ is a non-empty open set of $X_0$ contained in $X_0 \cap Z$.
+
+(Sufficiency.) Suppose \ref{cond:06.*} holds. We prove the constructibility of $Z$ by induction on the smallness of $\overline{Z}$, using the fact that $X$ is Noetherian. The empty set being constructible, we suppose that $Z \ne \varnothing$ and that any subset $Z'$ of $Z$ which satisfies \ref{cond:06.*} is constructible. Let $\overline{Z} = F_1 \cup \cdots \cup F_r$ be the decomposition of $\overline{Z}$ into the irreducible components. Then $F_1 \cap Z$ is dense in $F_1$ as one can easily check, whence there exists, by \ref{cond:06.*}, a proper closed subset $F'$ of $F_1$ such that $F_1 - F \subseteq Z$. Then, putting $F^* = F' \cup F_2 \cup \cdots \cup F_r$, we have $Z= (F_1 - F') \cup (Z \cap F^*)$. The set $F_1 - F^*$ is locally closed in $X$. On the other hand $Z \cap F^*$ satisfies the condition \ref{cond:06.*} because, if $X_0$ is irreducible and if $\overline{Z \cap F^* \cap X_0} = X_0$, the closed set $F^*$ must contain $X_0$ and so $Z \cap F^* \cap X_0 = Z \cap X_0$. Since $\overline{Z \cap F^*} \subseteq F^* \subset \overline{Z}$, the set $Z \cap F^*$ is constructible by the induction hypothesis. Therefore $Z$ is constructible.
+\end{proof}
+
+\begin{parlemma}\label{lem:06.01}
+Let $A$ be a ring and $F$ a closed subset of $X= \Spec(A)$. Then $F$ is irreducible iff $F=V(\ideal p)$ for some prime ideal $\ideal p$. This $\ideal p$ is unique and is called the \defemph{generic point}\index{generic point} of $F$.
+\end{parlemma}
+
+\begin{proof} Suppose that $F$ is irreducible. Since it is closed it can be written $F=V( I)$ with $ I = \bigcap_{\ideal p \in F} \ideal p$. If $ I$ is not prime we would have elements $a$ and $b$ of $A -  I$ such that $ab \in  I$. Then 
+$F \not \sse V(A)$, $F \not \sse V(b)$, and $F \sse V(a) \cap V(b) = V(ab)$, hence $F = (F \cap V(a)) \cup (F \cap V(b))$, which contradicts the irreducibility. The converse is proved by noting $\ideal p \in V(\ideal p)$. The uniqueness comes from the fact that $\ideal p$ is the smallest element of $V(\ideal p)$.
+\end{proof}
+
+\begin{lemma}\label{lem:06.02} 
+Let $\phi : A \varrightarrow{} B$ be a homomorphism of rings. Put $X = \Spec(A)$, $Y=\Spec(B)$ and $f = \SpecInduced{\phi}: Y \varrightarrow{} X$. Then $f(Y)$ is dense in $X$ iff\newline $\Ker(\phi) \sse \nil(A)$. If, in particular, $A$ is reduced, $f(Y)$ is dense in $X$ iff $\phi$ is injective.
+\end{lemma}
+
+\begin{proof} The closure $\overline{f(Y)}$ in $\Spec(A)$ is the closed set $V( I)$ defined by the ideal
+\[
+I = \bigcap_{\ideal p \in Y} \phi \inv (\ideal p) = \phi \inv \bigg(\bigcap_{\ideal p \in Y} \ideal p \bigg),
+\]
+which is equal to $\phi\inv (\nil(B))$ by \ref{1.E}. Clearly $\Ker(\phi) \sse  I$. Suppose that $f(Y)$ is dense in $X$. Then $V( I) = X$, whence $ I = \nil(A)$ by \ref{1.E}. Therefore \newline $\Ker(\phi) \sse \nil(A)$. Conversely, suppose $\Ker(\phi) \sse \nil(A)$. Then it is clear that 
+\[
+ I = \phi \inv (\nil(B)) = \nil(A),
+\]
+which means $\overline{f(Y)} = V( I ) = X$.
+\end{proof}
+\begin{partheorem}\label{thm:006}
+(Chevalley). Let $A$ be a Noetherian ring and $B$ an $A$-algebra of finite type. Let $\phi : A \varrightarrow{} B$ be the canonical homomorphism; put $X = \Spec(A)$, $Y = \Spec(B)$ and $f= \SpecInduced{\phi}: Y \varrightarrow{} X$. Then the image $f(Y')$ of a constructible set $Y'$ in $Y$ is constructible in $X$.
+\end{partheorem}
+
+\begin{proof}
+First we show \ref{6.C} can be applied to the case when $Y' = Y$. Let $X_0$ be an irreducible closed set in $X$. Then $X_0 = V(\ideal p)$ for some $\ideal p \in \Spec(A)$. Put $A' = A / \ideal p$, and $B' = B / \ideal p B$. Suppose that $X_0 \cap f(Y)$ is dense in $X_0$. The map $\phi' : A' \varrightarrow{} B'$ induced by $\phi$ is then injective by Lemma \ref{lem:06.02}. We want to show $X_0 \cap f(Y)$ contains a non-empty open subset of $X_0$. By replacing $A,B$ and $\phi$ by $A', B'$ and $\phi'$ respectively, it is enough to prove the following assertion:
+
+\begin{enumerate}[label=(\arabic*.$\dagger$)]\setcounter{enumi}{5}
+    \item\label{cond:06.dag} if $A$ is a Noetherian domain, and if $B$ is a ring which contains $A$ and which is finitely generated over $A$, there exists $0 \ne a \in A$ such that the elementary open set $D(a)$ of $X=\Spec(A)$ is contained in $f(Y)$, where $Y=\Spec(B)$ and $f: Y \varrightarrow{} X$ is the canonical map.
+\end{enumerate}
+
+Write $B=A[x_1, \ldots, x_n]$, and suppose that $x_1,\ldots,x_r$ are algebraically independent over $A$ while each $x_j\for{r<j\leqslant n}$ satisfies algebraic relations over $A[x_1, \ldots, x_r]$. Put $A^* = A[x_1, \ldots x_r]$, and choose for each $r < j \le n$ a relation
+\[
+g_{j0}(x) \cdot x_j ^{d_j} + g_{j1}(x) \cdot x_j ^{d_j-1} + \dots = 0
+\]
+where $g_{jv} (x) \in A^*$, $g_{j0}(x) \ne 0$. Then $\prod_{j=r+1} ^n g_{j0} (x_1, \dots, x_r)$ is a non-zero polynomial in $x_1, \dots, x_r$ with coefficients in $A$. Let $a \in A$ be any of the non-zero coefficients of this polynomial. We claim that this element satisfies the requirement. In fact, suppose $\ideal p \in \Spec(A)$, $a \not\in \ideal p$, and put $\ideal p^* =\ideal p A^* = \ideal p[x_1, \dots, x_r]$. Then $\Pi g_{j0} \not\in \ideal p^*$, so that $B_{\ideal p^*}$ is integral over $A^* _{\ideal p^*}$. Thus there exists a prime $P$ of $B_{\ideal p^*}$ lying over $\ideal p^* A^* _{\ideal p^*}$. We have
+\[
+P \cap A = P \cap A^* \cap A = \ideal p[x_1,\dots,x_r]\cap A = \ideal p,
+\]
+therefore 
+\[
+\ideal p = P \cap A = (P \cap B) \cap A \in f(\Spec(B)).
+\]
+Thus \ref{cond:06.dag} is proved.
+\end{proof}
+
+The general case follows from the special case treated above and from the following
+
+\begin{lemma}\label{lem:06.03}
+Let $B$ be a Noetherian ring and let $Y'$ be a constructible set in $Y= \Spec(B)$. Then there exists a $B$-algebra of finite type $B'$ such that the image of $\Spec(B')$ in $\Spec(B)$ is exactly $Y'$.
+\end{lemma} 
+
+\begin{proof}
+First suppose $Y' = U \cap F$, where $U$ is an elementary open set $U = D(B)$, $b \in B$, and $F$ is a closed set $V(I)$ defined by an ideal $I$ of $B$. Put $S = \{1,b,b^2, \dots\}$ and $B'=S\inv (B/I)$. Then $B'$ is a $B$-algebra of finite type generated by $1/\overline{b}$, where $\overline{b} = $ the image of $b$ in $B'$, and the image of $\Spec(B')$ in $\Spec(B)$ is clearly $U \cap F$.
+
+When $Y'$ is an arbitrary constructible set, we can write it as a finite union of locally closed sets $U_i \cap F_i$ $(1 \le i \le m)$ with $U_i$ elementary open, because any open set in the Noetherian space $Y$ is a finite union of elementary open sets. Choose a $B$-algebra $B_i '$ of finite type such that $U_i \cap F_i$ is the image of $\Spec(B_i ')$ for each $i$, and put $B' = B_1 ' \times \dots \times B_m '$. Then we can view $\Spec(B')$ as the disjoint union of $\Spec(B_i ')$'s, so the image of $\Spec(B)$ in $Y$ is $Y'$ as wanted.
+\end{proof}
+
+\begin{parproposition}
+ \label{pro:6.02} Let $A$ be a Noetherian ring, $\phi : A \varrightarrow{} B$ a homomorphism of rings, $X = \Spec(A)$, $Y=\Spec(B)$, and $f= \SpecInduced{\phi}: Y \varrightarrow{} X$. Then $f(Y)$ is pro-constructible in $X$.
+\end{parproposition}
+
+\begin{proof}
+We have $B = \varinjlim B_\lambda$, where the $B_\lambda$'s are the subalgebras of $B$ which are finitely generated over $A$. Put $Y_\lambda = \Spec(B_\lambda)$ and let $g_\lambda : Y \varrightarrow{} Y_\lambda$ and $f_\lambda : Y_\lambda \varrightarrow{} X$ denote the canonical maps. Clearly $f(Y) \sse \bigcap_\lambda f_\lambda (Y_\lambda)$. Actually the equality holds, for suppose that $\ideal p \in X - f(Y)$. Then $\ideal p B_{\ideal p} = B_{\ideal p}$, so that there exist elements $\pi_\alpha \in \ideal p$, $b_\alpha \in B\for{1\leqslant \alpha \leqslant m}$ and $s \in A - \ideal p$ such that 
+\[
+\sum_{\alpha = 1} ^m \pi_\alpha (b_\alpha / s) = 1
+\]
+in $B_{\ideal p}$, i.e.,
+\[
+s'\bigg(\sum_{\alpha = 1} ^m \pi_\alpha b_\alpha - s\bigg) = 0
+\]
+in $B$ for some $s' \in A - \ideal  p$. If $B_\lambda$ contains $b_1, \ldots, b_m$ we have $1 \in \ideal p (B_\lambda)_{\ideal p}$, therefore $\ideal p \not\in f_\lambda (Y_\lambda)$ for such $\lambda$. Thus we have proved $f(Y) = \bigcap f_\lambda (Y_\lambda)$. Since each $f_\lambda (Y_\lambda)$ is constructible by \ref{thm:006}, $f(Y)$ is pro-constructible.
+\end{proof}
+(Remark. \cite{egaIV} contains many other results on constructible sets, including generalization to non-Noetherian case.) %not underlined in the text so i don't think this should be in the remark environment
+
+\newparagraph Let $A$ be a ring and let $\ideal p, \ideal p' \in \Spec(A)$. We say that $\ideal p'$ is a \defemph{specialization}\index{specialization} of $\ideal p$ and that $\ideal p$ is a \defemph{generalization}\index{generalization} of $\ideal p'$ iff $\ideal p \sse \ideal p'$. If a subset $Z$ of $\Spec(A)$ contains all specializations (resp. generalizations) of its points, we say $Z$ is \defemph{stable}\index{stable} under specialization (resp. generalization). A closed (resp. open) set in $\Spec(A)$ is stable under specialization (resp. generalization). 
+
+\begin{lemma} \label{lem:06.04}
+Let $A$ be a Noetherian ring and $X = \Spec(A)$. Let $Z$ be a pro-constructible set in $X$ stable under specialization. Then $Z$ is closed in $X$.
+\end{lemma}
+
+\begin{proof}
+Let $Z = \bigcap E_\lambda$ with $E_\lambda$ constructible in $X$. Let $W$ be an irreducible component of $\overline{Z}$ and let $x$ be its generic point. Then $W \cap Z$ is dense in $W$, hence a fortiori $W \cap E_\lambda$ is dense in $W$. Therefore $W \cap E_\lambda$ contains a non-empty open set of $W$ by \ref{6.C}, so that $x \in E_\lambda$. Thus $ x \in \bigcap E_\lambda = Z$. This means $W \sse Z$ by our assumption, and so we obtain $Z = \overline{Z}$.
+\end{proof}
+
+\newparagraph Let $\phi: A \varrightarrow{} B$ be a homomorphism of rings, and put $X = \Spec(A)$, $Y= \Spec(B)$ and $f = \SpecInduced{\phi}: Y \varrightarrow{} X$. We say that $f$ is (or: $\phi$ is) \defemph{submersive}\index{submersive} if $f$ is surjective and if the topology of $X$ is the quotient of that of $Y$ (i.e. a subset of $X'$ is closed in $X$ iff $f\inv(X')$ is closed in $Y$). We say $f$ is (or: $\phi$ is) \defemph{universally submersive} if, for any $A$-algebra $C$, the homomorphism $\phi_C : C \varrightarrow{} B \otimes_A C$ is submersive. (Submersiveness and universal submersiveness for morphisms of preschemes are defined in the same way, \cite{egaIV} (15.7.8).)
+
+\begin{theorem} \label{thm:007}
+Let $A, B, \phi, X, Y$ and $f$ be as above. Suppose that 
+\begin{enumerate}[label = (\arabic*)]
+    \item A is Noetherian, 
+    \item $f$ is surjective and
+    \item the going-down theorem holds of $\phi: A \varrightarrow{} B$.
+\end{enumerate}
+Then $\phi$ is submersive.
+\end{theorem}
+
+\begin{remark}\label{rem:06.02} The conditions (2) and (3) are satisfied, e.g., in the following cases:
+\begin{itemize}
+    \item[$(\alpha)$] when $\phi$ is faithfully flat, or
+    \item[$(\beta)$] when $\phi$ is injective, assume $B$ is an integral domain over $A$ and $A$ is an integrally closed domain. 
+\end{itemize}
+In the case $(\alpha)$, $\phi$ is even universally submersive since faithful flatness is preserved by change of base.\footnote[1]{In algebraic geometry, there are two important classes of universally submersive morphisms. Namely, the faithfully flat morphisms and the proper and surjective ones. The universal submersiveness of the latter is immediate from the definitions, while that of the former is essentially what we just proved.}
+\end{remark}
+\begin{proof}[Proof of Th. 7]
+Let $X' \sse X$ be such that $f\inv(X')$ is closed. We have to prove $X'$ is closed. Take an ideal $J$ of $B$ such that $f\inv(X') = V(J)$. As $X' = f(f\inv(X'))$ by (2), application of \ref{6.F} to the composite map $A \varrightarrow{\phi} B \varrightarrow{} B/J$ shows $X'$ is pro-constructible. Therefore it suffices, by \ref{6.G}, to prove that $X'$ is stable under specialization. For that purpose, let $\ideal p_1, \ideal p_2 \in \Spec(A)$, $\ideal p_1 \supset \ideal p_2 \in X'$. Take $P_1 \in Y$ lying over $\ideal p_1$ (by (2)) and $P_2 \in Y$ lying over $\ideal p_2$ such that $P_1 \supset P_2$ (by (3)). Then $P_2$ is in the closed set $f\inv(X')$, so $P_1$ is also in $f\inv(X')$. Thus \[\ideal p_1 = f(P_1) \in f(f\inv(X')) = X',\] as wanted.
+\end{proof}
+
+\begin{partheorem} \label{thm:008}
+Let $A$ be a Noetherian ring and $B$ an $A$-algebra \defemph{of finite type}. Suppose that the going-down theorem holds between $A$ and $B$. Then the canonical map $f: \Spec(B) \varrightarrow{} \Spec(A)$ is an open map (i.e. sends open sets to open sets).
+\end{partheorem}
+
+\begin{proof}
+Let $U$ be an open set in $\Spec(B)$. Then $f(U)$ is a constructible set \ref{thm:006}. On the other hand the going-down theorem shows that $f(U)$ is stable under generalisation. Therefore, applying \ref{6.G} to $\Spec(A) - f(U)$ we see that $f(U)$ is open.
+\end{proof}
+
+\newparagraph Let $A$ and $B$ be rings and $\phi : A \varrightarrow{} B$ a homomorphism. Suppose $B$ is Noetherian and that the going-up theorem holds for $\phi$. Then \newline $\SpecInduced{\phi}: \Spec(B) \varrightarrow{} \Spec(A)$ is a closed map (i.e. sends closed sets to closed sets).
+
+\begin{proof} \renewcommand{\qedsymbol}{} %don't want the qed square because the proof is left as an exercise 
+Left to the reader as an easy exercise. (It has nothing to do with constructible sets.)
+\end{proof}
+\end{document}

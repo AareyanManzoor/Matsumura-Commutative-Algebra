@@ -1,0 +1,214 @@
+\usepackage{makeidx}
+\makeindex
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{mathrsfs}
+\usepackage[style=alphabetic-verb]{biblatex}
+\addbibresource{references.bib}
+\usepackage{tikz-cd,tikz}
+    \usetikzlibrary{hobby, calc, intersections, decorations.markings, decorations.pathreplacing} %libraries
+    \tikzset{>=latex} %sets -> to render as -latex arrow tip
+                      %https://tex.stackexchange.com/questions/54796/how-to-set-default-style-for-arrow-tips-in-tikz
+\input{insbox} %used for a floating diagram in sec 13 --deri https://tex.stackexchange.com/a/486033
+\usepackage{quiver}
+\usepackage{subfiles}
+
+\usepackage[b5paper]{geometry} %page size, same as Blue Book
+
+
+\newcommand{\plscite}[1]{{\color{purple} #1}} %Changed from green to purple to stop the eye massacre
+
+\usepackage{chngcntr}
+
+% allow section number to continue between chapters
+\renewcommand{\thesection}{\arabic{section}}
+
+% paragraph counter
+\newcounter{parcounter}[section]
+\setcounter{parcounter}{0}
+\renewcommand{\theparcounter}{(\thesection.\Alph{parcounter})}
+\newcommand{\newparagraph}{\refstepcounter{parcounter}\paragraph{\theparcounter}\label{\thesection.\Alph{parcounter}}}
+
+\newcommand{\seclabel}[1]{}
+
+
+\setlist[enumerate,1]{label=(\roman*)}
+
+
+
+
+\newtheoremstyle{definitionpar}%             % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\bf}%                                  % Theorem head font
+  {. }%                                     % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {{\bf \refstepcounter{parcounter}\theparcounter\label{\thesection.\Alph{parcounter}}\quad\thmname{#1}\thmnumber{  #2}\thmnote{ {\normalfont (#3)}}}}
+\theoremstyle{definitionpar}
+\newtheorem*{pardefinition}{Definition}
+\newtheorem{partheorem}{Theorem}
+\newtheorem{parproposition}{Proposition}[section]
+\newtheorem{parlemma}{Lemma}[section]
+\newtheorem{parcorollary}{Corollary}[section]
+\newtheorem{parconvention}{Convention}
+\newtheorem{parexample}{Example}[section]
+\newtheorem{parexercise}{Exercise}[section]
+\newtheorem{parexercises}{Exercises}[section]
+\newtheorem{parremark}{Remark}[section]
+\newtheorem{parapplication}{Application}[section]
+\newtheorem*{pardefinition*}{Definition}
+\newtheorem*{partheorem*}{Theorem}
+\newtheorem*{parproposition*}{Proposition}
+\newtheorem*{parlemma*}{Lemma}
+\newtheorem*{parcorollary*}{Corollary}
+\newtheorem*{parexamples}{Example}
+\newtheorem*{parexercise*}{Exercise}
+\newtheorem*{parexercises*}{Exercises}
+\newtheorem*{parremark*}{Remark}
+
+
+
+\newtheoremstyle{definition}%             % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\bf}%                                  % Theorem head font
+  {. }%                                     % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{  #2}\thmnote{ {\normalfont (#3)}}}
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem{theorem}[partheorem]{Theorem}
+\newtheorem{proposition}[parproposition]{Proposition}
+\newtheorem{lemma}[parlemma]{Lemma}
+\newtheorem{corollary}[parcorollary]{Corollary}
+\newtheorem{example}[parexample]{Example}
+\newtheorem{exercise}[parexercise]{Exercise}
+\newtheorem{exercises}[parexercise]{Exercises}
+\newtheorem{remark}[parremark]{Remark}
+\newtheorem*{definition*}{Definition}      %numberless env's:
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{examples*}{Example}
+\newtheorem*{exercise*}{Exercise}
+\newtheorem*{exercises*}{Exercises}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{conjecture*}{Conjecture}
+
+
+% this is just for chapter 1 and 3 where there's a small paragraph after the chapter title
+\renewenvironment{quote}{
+  \noindent     % No indent of first character.
+  \topsep=0pt   % No additional separator before.
+  \parskip=0pt  % No paragraph separator.
+  \interlinepenalty=10000  % Prevent a page break to occur in a quote block.
+  \leftskip=0pt 
+  \rightskip=0pt 
+  \parfillskip=0pt
+  \itshape  % Make quotations in italic.
+  \list{}{
+    \leftmargin 5em   % this is the adjusting screw
+    \rightmargin 5em  % this is the adjusting screw
+  }
+  \item
+  \relax
+  }
+  {\endlist}
+
+
+\newenvironment{implyenumerate}
+    {\begin{enumerate}[align=left,leftmargin=!,labelindent=5pt,itemindent=-15pt]
+    }
+    {
+    \end{enumerate}
+    }
+  
+
+
+
+%solution for custom numbering in theorems and lemmata:
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric
+  }
+  {\endinnercustomgeneric}
+}
+\newcustomtheorem{customthm}{Theorem}
+\newcustomtheorem{customlemma}{Lemma}
+\newcustomtheorem{customcor}{Corollary}
+\newcustomtheorem{customprop}{Proposition}
+\newcustomtheorem{customexample}{Examples}
+\newcustomtheorem{customremark}{Remark}
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+
+
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+{\scshape\fillast\LARGE\bfseries}
+{\thechapter .}
+{0.5em}
+{}
+
+\titleformat*{\section}{\large\bfseries}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhead[LE]{\scshape Chapter \thechapter: \leftmark }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+\fancyhead[RO]{\scshape Section \thesection: \rightmark }
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{\iffootnote{0pt}{0.3pt}}
+
+\fancyfoot[C]{\thepage} %the ref is just for proofreading/editing purposes, will be removed later.
+
+\titleformat{\part}[display]
+{\centering\scshape\huge}
+{Part \thepart}
+{0.5em}
+{}
+
+
+
+
+
+
+\usepackage{adjustbox}
+
+% https://tex.stackexchange.com/questions/253910/reference-to-enumerate-item-with-manually-set-label
+% this is just for chapter 34 that dumb reference
+\newcounter{dummy}
+\makeatletter
+\newcommand\myitem[1][]{\item[#1]\refstepcounter{dummy}\def\@currentlabel{#1}}
+\makeatother
+
+
+
+%%%hyperref and Friends go at the end
+\usepackage[bookmarks=true, colorlinks=true, linkcolor=blue, citecolor= red,hypertexnames=false]{hyperref}
+\usepackage[all]{hypcap}
+\newcommand{\parref}[1]{\hyperref[#1]{#1}} %to ref paragraphs.
+
+% this lets you use asterisks, daggers, etc. as footnotes https://tex.stackexchange.com/questions/631768/how-to-use-a-symbol-in-a-footnote
+\usepackage[symbol]{footmisc}

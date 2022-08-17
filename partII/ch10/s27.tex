@@ -1,0 +1,113 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Separability}\label{sec:27}
+
+\newparagraph Let $k$ be a field and $K$ an extension\footnote{By an extension of a field we mean an extension field; by a finite extension, a finite algebraic extension.} of $k$. A transcendency basis $\{x_\lambda\}_{\lambda \in \Lambda}$ of $K$ over $k$ is called a \defemph{separating transcendency basis}\index{separating transcendency basis} if $K$ is separably algebraic over the field $k(\ldots, x_\lambda, \ldots)$. We say that $K$ is \defemph{separately generated}\index{separably generated} over $k$ if it has a separating transcendency basis.
+
+Put $r(K) = \rank_K \Omega_{K/k}$. Let $L$ be a finitely generated extension of $K$. We want to compare $r(L)$ and $r(K)$. Suppose first that $L = K(t)$. There are four typical cases.
+\begin{enumerate}[label = Case \arabic*.]
+    \item \defemph{$t$ is transcendental over $K$}. Then \[\Omega_{K[t]/k} = (\Omega_{K/k} \otimes_K K[t]) \oplus K[t] \dd t\] by \ref{26.J}, so by localization we get \[\Omega_{L/k} = (\Omega_{K/k} \otimes_K L) \oplus L \dd t,\] hence $r(L) = r(K) + 1$.
+    \item  \defemph{$t$ is separately algebraic over $K$}. Let $f(X)$ be the irreducible equation of $t$ over $K$. Then \[L = K[t] = K[X]/(f),\] $f(t) = 0$ and $f'(t) \ne 0$. By \ref{26.J} we have \[\Omega_{L/k} = (\Omega_{K/k} \otimes_K L + L \dd X)/L \delta f,\] where $\delta f = (\dd f)(t) + f'(t) \dd X$ in the notation of \ref{26.J}. As $f'(t)$ is invertible in $L$ we have $\Omega_{K/k} \otimes_K L \simeq \Omega_{L/k}$. Whence $r(L) = r(K)$. From this, or by direct computation, one sees that any derivation of $K$ into $L$ can be extended uniquely to a derivation of $L$.
+    \item \[\ch(k) = p,\quad t^p = a \in K,\quad t \not \in K,\quad d_{K/k}(a) = 0.\] Then $L = K[t] = K[X]/(X^p - a)$. We have $\delta(X^p - a) = 0$, therefore \[\Omega_{L/k} \simeq \Omega_{K[X]/k} \otimes L \simeq (\Omega_{K/k} \otimes_K L) \oplus L \dd t\]and $r(L) = r(K) + 1$.
+    \item \defemph{Same as in case 3 with the exception that $d_{K/k} a \ne 0$}. Then \newline $\delta(X^p - a) \ne 0$, and so $r(L) = r(K)$.
+\end{enumerate}
+
+\begin{partheorem}
+\label{thm:059}
+\begin{enumerate}
+    \item[i)] Let $k$ be a field, $K$ an extension of $k$ and $L$ a finitely generated extension of $K$. Then \[\rank_L \Omega_{L/k} \ge \rank_K \Omega_{K/k} + \TrDeg_K L.\]
+    \item[ii)] The equality holds in i) if $L$ is separately generated over $K$. 
+    \item[iii)] Let $L$ be a finitely generated extension of a field $k$. Then \newline $\rank_L \Omega_{L/k} \ge \TrDeg_k L$, where the equality holds iff $L$ is separately generated over $k$. In particular, $\Omega_{L/k} = 0$ iff $L$ is separably algebraic over $k$. 
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof}
+Since any finitely generated extension of $K$ is obtained by repeating extensions of the four types just discussed, the assertions i) and ii) are now obvious. As for iii), the inequality is a special case of i). Suppose that $\Omega_{L/k} = 0$, i.e. that $r(L) = 0$. Then $r(K) = 0$ for any $k \subseteq K \subseteq L$. Therefore the cases 1, 3 and 4 of \ref{27.A} cannot happen for $L$ and $K$. This means that $L$ is separately algebraic over $k$. Suppose next, that $r(L) = \TrDeg_K L = r$. Let $x_1, \ldots, x_r \in L$ be such that $\{\dd x_1, \ldots, \dd x_r\}$ is a basis of $\Omega_{L/k}$ over $L$. Then we have $\Omega_{L/k(x_1, \ldots, x_r)} = 0$ by Th.\ref{thm:057}, so $L$ is separately algebraic over $k(x_1, \ldots, x_r)$. Since $r = \TrDeg_k L$ the elements $x_i$ must form a transcendency basis of $L$ over $k$. 
+\end{proof}
+
+\begin{remark}
+Let $L = k(x_1, \ldots, x_n)$ and $\TrDeg_k L = r$, and put\[\ideal p = \{f(X) \in k[X_1, \ldots, X_n] \mid f(x_1, \ldots, x_n) = 0\}.\]
+Let $f_1, \ldots, f_s$ generate the idea $\ideal p$. Then $L$ is separately generated over $k$ iff the Jacobian matrix $\partial(f_1, \ldots, f_s)/\partial(x_1, \ldots, x_n)$ has rank $n - r$, as one can easily check. If this is the case, and if the minor determinant \newline $\partial(f_1, \ldots, f_{n - r})/\partial(x_{r + 1}, \ldots, x_n) \ne 0$, then $\dd x_1, \ldots, \dd x_r$ form a basis of $\Omega_{L/k}$, and the above proof shows that $\{x_1, \ldots, x_r\}$ is a separating transcendency basis of $L/k$. 
+\end{remark}
+
+\begin{parlemma}
+\label{lem:27.1}
+Let $k$ be a field and $K$ an algebraic extension of $k$. Then the following are equivalent: 
+
+\begin{enumerate}[label= (\arabic*)]
+    \item $K$ is separably algebraic over $k$;
+    \item the ring $K \otimes_k k'$ is reduced for any extension $k'$ of $k$;
+    \item ditto for any algebraic extension $k'$ of $k$;
+    \item ditto for any finite extension $k'$ of $k$. 
+\end{enumerate}
+\end{parlemma}
+
+\begin{proof}
+Each of these properties holds iff it holds for any finite extension $K'$ of $k$ contained in $K$. So we may assume that $[K : k] < \infty$.
+\begin{implyenumerate}
+    \item[$(1) \implies (2)$] If $K$ is finite and separable over $k$ then $K = k(t)$ with some $t \in K$. Let $f(X)$ be the irreducible equation of $t$ over $k$. Then $K \simeq k[X]/(f)$, hence $K \otimes k' \simeq k'[X]/(f)$, and since $f(X)$ has no multiple factors in $k'[X]$ (because it decomposes into distinct linear factors ${\overline k}[X]$, where $\overline k$ is the algebraic closure of $k$), $K \otimes k'$ is reduced. (More precisely, it is a direct product of finite separable extensions of $k'$.)
+    \item[$(2) \implies (3)\implies (4)$] is trivial.
+    \item[$(4) \implies (1)$] Suppose that $\ch(k) = p$ and that $K$ contains an inseparable element $t$ over $k$. Then the irreducible equation $f(X)$ of $t$ over $k$ is of the form $f(X) = g(X^p)$ with some $g \in k[X]$. Let $a_0, \ldots, a_n$ be the coefficients of $g(X)$ and put $k' = k(a_0^{1/p}, \ldots, a_n^{1/p})$. Then $f(X) = g(X^p) = h(X)^p$ with $h(X) \in k'[X]$ and $k(t) \otimes_k k' = k'[X]/(h(X)^p)$ has nilpotent elements. Since $k$ is a field we can view $k(t) \otimes_k k'$ as a subring of $K \otimes_k k'$, so the condition $(4)$ does not hold.  
+\end{implyenumerate}
+\end{proof}
+
+\begin{pardefinition}
+Let $k$ be a field and $A$ a $k$-algebra. We say that $A$ is \defemph{separable}\index{separable algebra} (over $k$) if, for any algebraic extension $k'$ of $k$, the ring $A \otimes_k k'$ is reduced.
+\end{pardefinition}
+
+The following properties are immediate consequences of the definition. 
+
+\begin{enumerate}
+    \item[1)] If $A$ is separable, then any subalgebra of $A$ is also separable.
+    \item[2)] If all finitely generated subalgebras of $A$ are separable, then $A$ is separable.
+    \item[3)] If, for any finite extension $k'$ of $k$, the ring $A \otimes_k k'$ is reduced, then $A$ is separable. 
+\end{enumerate}
+
+\begin{parlemma}
+\label{lem:27.2}
+If $k'$ is a separately generated extension of a field $k$, and if $A$ is a reduced $k$-algebra, then $A \otimes_k k'$ is reduced.
+\end{parlemma}
+
+\begin{proof}
+Enough to consider the case of a separably algebraic extension and the case of a purely transcendental extension. We may also assume that $A$ is finitely generated over $k$. Then $A$ is Noetherian and reduced, so the total quotient ring $\Phi A$ of $A$ is a direct product of a finite number of fields, and $A \otimes_k k' \subseteq \Phi A \otimes_k k'$. Thus we may assume that $A$ is a field. Then $A \otimes_k k'$ is reduced by Lemma~\ref{lem:27.1} in the separately algebraic case, and is a subring of a rational function field over $A$ in the purely transcendental sense. 
+\end{proof}
+
+\begin{corollary}
+If $k$ is a perfect field, then a $k$-algebra $A$ is separable iff it is reduced. In particular, any extension field $K$ of $k$ is separable over $k$. 
+\end{corollary}
+
+\begin{lemma}
+\label{lem:27.3}
+Let $k$ be a field of characteristic $p$, and $K$ be a finitely generated extension of $k$. Then the following are equivalent: 
+
+\begin{enumerate}[label = (\arabic*)]
+    \item $K$ is separable over $k$;
+    \item the ring $K \otimes_k k^{1/p}$ is reduced;
+    \item $K$ is separably generated over $k$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[$(3) \implies (1)$] If $K$ is separably generated over $k$, then $k' \otimes_k K$ is reduced for any extension $k'$ of $k$ by Lemma~\ref{lem:27.2}.
+    \item[$(1) \implies (2)$] Trivial.
+    \item[$(2) \implies (3)$] Let $K = k(x_1, \ldots, x_n)$. We may suppose that $\{x_1, \ldots, x_r\}$ is a transcendency basis of $K/k$. Suppose that $x_{r + 1}, \ldots, x_q$ are separable over $k(x_1, \ldots, x_r)$ while $x_{q + 1}$ is not. Put $y = x_{q + 1}$ and let $f(Y^p)$ be the irreducible equation of $y$ over $k(x_1, \ldots, x_r)$. Clearing the denominators of the coefficients of $f$ we obtain a polynomial $F(X_1, \ldots, X_r, Y^p)$ is irreducible in $k[X_1, \ldots, X_r, Y]$, such that $F(x_1, \ldots, x_r, y^p) = 0$. Then there must be at least one $X_i$ such that $\partial F/\partial X_i \ne 0$, for otherwise we would have $F(X, Y^p) = G(X, Y)^p$ with $G \in k^{1/p}[X_1, \ldots, X_r, Y]$, so that \[k(x_1, \ldots, x_r, y) \otimes_k k^{1/p} \simeq k^{1/p}(x_1, \ldots, x_r)[Y]/(G[X,Y]^p)\] would have nilpotent elements. Therefore we may suppose that \newline $\partial F/\partial X_1 \ne 0$. Then $x_1$ is separately algebraic over $k(x_2, \ldots, x_r, y)$, hence the same holds for $x_{r + 1}, \ldots, x_q$ also. Exchanging $x_1$ with $y = x_{q + 1}$ we have that $x_{r + 1}, \ldots, x_{q + 1}$ are separable over $k(x_1, \ldots, x_r)$. By induction on $q$ we see that we can choose a separating transcendency basis of $K/k$ from the set $\{x_1, \ldots, x_n\}$. 
+\end{implyenumerate}
+\end{proof}
+
+\begin{parproposition}
+Let $k$ be a field and $A$ a separable $k$-algebra. Then, for any extension $k'$ of $k$ (algebraic or not), the ring $A \otimes_k k'$ is reduced and is a separable $k'$-algebra. 
+\end{parproposition}
+
+\begin{proof}
+Enough to prove that $A \otimes_k k'$ is reduced. We may assume that $k'$ contains the algebraic closure $\overline k$ of $k$. Since $A \otimes \overline k$ is reduced by assumption, and since any finitely generated extension of $\overline k$ is separately generated by Lemma~\ref{lem:27.3}, the ring $A \otimes_k k' = (A \otimes_k \overline k) \otimes_{\overline k} k'$ is reduced by Lemma~\ref{lem:27.2}. 
+\end{proof}
+
+\begin{exercises}
+\begin{enumerate}[label=\arabic*.]
+    \item\label{exe:27.01} (MacLane) Let $k$ be a field of characteristic $p$ and $K$ an extension of $k$. Then $K$ is separable over $k$ iff $K$ and $k^{1/p}$ are \defemph{linearly disjoint}\index{linearly disjoint} over $k$, that is, iff the canonical homomorphism $K \otimes_k k^{1/p}$ onto the subfield $K(k^{1/p})$ of $K^{1/p}$ is an isomorphism.
+    \item\label{exe:27.02} Let $k$ and $K$ be as above, and suppose that $K$ is finitely generated over $k$. Then there exists a finite extension $k'$ of $k$, contained in $k^{p^{-\infty}}$, such that $K(k')$ is separable over $k'$. 
+\end{enumerate}
+\end{exercises}
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Finitely Generated Extensions}\label{sec:14}
+
+\begin{partheorem}\label{thm:022}
+Let $A$ be a Noetherian ring and let $A[X_1, \ldots, X_n]$ be a polynomial ring in $n$ variables. Then \[\dim A[X_1, \ldots, X_n]=\dim A+n.\]
+\end{partheorem}
+
+\begin{proof}
+Enough to prove the case $n=1$. Put $B=A[X]$. Let $\ideal{p}$ be a prime ideal of $A$ and let $P$ be a prime ideal of $B$ which that $\Ht(P /\ideal{p}B)=1$. In fact, localizing $A$ and $B$ by the multiplicative set $A-\ideal{p}$ we can assume that $\ideal{p}$ is a maximal ideal, and then $B / \ideal{p} B=(A / \ideal{p})[X]$ is a polynomial ring in one variable over a field. Therefore $B / \ideal{p} B$ is a principal ideal domain and every maximal ideal has height one. Thus $\Ht(P / \ideal{p} B)=1$ Since $B$ is free over $A$ we have $\Ht(P)=\Ht(p)+1$ by Th.\ref{thm:019} (2). As the map $\Spec(B) \longrightarrow \Spec(A)$ is surjective, we obtain $\dim B=\dim A+1$.
+\end{proof}
+
+\begin{corollary}\label{cor:14.01}
+Let $k$ be a field. Then $\dim k[x_1, \ldots, x_n]=n$, and the ideal $(X_1, \ldots, X_i)$ is a prime ideal of height $i$, for $1 \leqslant i \leqslant n$.
+\end{corollary}
+
+\begin{proof}
+Since \[(0) \subset (X_1) \subset(X_1, X_2) \subset \cdots \subset(X_1, \ldots, X_i) \subset \cdots \subset(X_1, \ldots, X_n)\] is a prime chain of length $n$ and since $\dim k[X_1, \ldots, X_n]=n$, the assertion is obvious.
+\end{proof}
+
+\newparagraph
+A ring $A$ is said to be \defemph{catenary}\index{catenary} if, for each pair of prime ideals $\ideal{p}, \ideal{q}$ with $\ideal{p} \supset \ideal{q}$, $\Ht(\ideal{p} / \ideal{q})$ is finite and is equal to the length of any maximal prime chain between $\ideal{p}$ and $\ideal{q}$. (When $A$ is Noetherian, the condition $\Ht(p / q)<\infty$ is automatically satisfied.) Thus if $A$ is a Noetherian domain the following conditions are equivalent:
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $A$ is catenary,
+    \item for any pair of prime ideals $\ideal{p}, \ideal{q}$ such that $\ideal{p} \supset \ideal{q}$, we have\newline $\Ht(\ideal{p})=\Ht(\ideal{q})+\Ht(\ideal{p}/\ideal{q})$,
+    \item for any pair of prime ideals $\ideal{p}, \ideal{q}$ such that $\ideal{p} \supset \ideal{q}$ with $\Ht(\ideal{p} / \ideal{q})=1$, we have $\Ht(\ideal{p})=\Ht(\ideal{q})+1$.
+\end{enumerate}
+
+If $A$ is catenary, then clearly any localization $S^{-1}A$ and any homomorphic image $A / I$ of $A$ are also catenary.
+
+A ring $A$ is said to be \defemph{universally catenary}\index{universally catenary}\index{catenary!universally \indexline} (u.c. for short) if $A$ is Noetherian and if every $A$-algebra of finite type is catenary. Since any $A$-algebra of finite type is a homomorphic image of $A[X_1, \ldots, X_n]$ for some $n$, a Noetherian ring $A$ is universally catenary iff $A[X_1, \ldots, X_n]$ is catenary for every $n \geqslant 0$.
+
+If $A$ is u.c., so are the localizations of $A$, the homomorphic images of $A$ and any $A$-algebras of finite type.
+
+\begin{partheorem}\label{thm:023}
+Let $A$ be a Noetherian domain, and let $B$ be a finitely generated overdomain of $A$. Let $P \in \Spec(B)$ and $\ideal{p}=P \cap A$. Then we have
+\[\tag{14.*}\label{cond:14.*}\Ht(P) \leqslant \Ht(\ideal{p})+\TrDeg_{\kappa(\ideal{p})}\kappa(P)\]
+And the equality holds if $A$ is universally catenary, or if $B$ is a polynomial ring $A[X_1, \ldots, X_n]$, (Here, $\TrDeg_AB$ means the transcendence degree of the quotient field of $B$ over that of $A$, and $\kappa(P)$ is the quotient field of $B / P$.)
+\end{partheorem}
+
+\begin{proof}
+Let $B=A[x_1, \ldots, x_n]$. B y induction on $n$ it is enough to consider the case $n=1$. So let $B=A[x]$. Replacing $A$ by $A_{\ideal{p}}$, and $B$ by $B_{\ideal{p}}=A_{\ideal{p}}[x]$, we assume that $(A, \ideal{p})$ is a local ring. Put $k=\kappa(\ideal{p})=A / \ideal{p}$ and $I=\{f(X) \in A[X] \mid f(x)=0\}$. Thus $B=A[X]/I$.
+\begin{enumerate}[label = Case \arabic*.]
+    \item $I=(0)$. Then $B=A[X]$, $\TrDeg_AB=1$ and $B / \ideal{p}B=k[X]$. Therefore $\Ht(P / \ideal{p}B)=1$ or $0$ according as $P \supset \ideal{p}B$ (then $\TrDeg_k\kappa(P)=0$) or $P=\ideal{p}B$ (then $\TrDeg_k\kappa(P)=1$). In other words $\Ht(P/\ideal{p}B)=1-\TrDeg_k\kappa(P)$. On the other hand, $\Ht(P)=\Ht(\ideal{p})+\Ht(P / \ideal{p} B)$ by Th.\ref{thm:019}. Thus the equality holds in \ref{cond:14.*}.
+    \item $I \neq(0)$. Then $\TrDeg_AB=0$. Let $P^*$ be the inverse image of $P$ in $A[X]$, so that $P=P^*/I$ and $\kappa(P)=\kappa(P^*)$. Since $A$ is a subring of $B=A[X]/I$ we have $A \cap I=(0)$. Therefore, if $K$ denotes the quotient field of $A$ then \[\Ht(I)=\Ht(IK[X]) \leqslant \dim K[X]=1.\] Since $I \neq(0)$ we have $\Ht(I)=1$. Hence $\Ht(P) \leqslant \Ht(P^*)-\Ht(I)=\Ht(P^*)-1$, where the equality holds if $A$ is u.c.. On the other hand we have \[\Ht(P^*)=\Ht(\ideal{p})+1\TrDeg_k\kappa(P^*)\] by case 1, and $\kappa(P^*)=\kappa(P)$. Our assertions follow immediately from these.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+We shall call the inequality $(*)$ the \defemph{dimension inequality}\index{dimension!\indexline inequality}. If $B$ is a finitely generated overdomain of $A$ and if the equality in $(*)$ holds for any prime ideal of $B$ then we say that the \defemph{dimension formula holds}\index{dimension!\indexline formula} between $A$ and $B$.
+\end{definition}
+
+\begin{parcorollary}\label{cor:14.02}
+A Noetherian ring $A$ is universally catenary iff the following is true: $A$ is catenary, and for any prime $\ideal{p}$ of $A$ and for any finitely generated over-domain $B$ of $A / \ideal{p}$, the dimension formula holds between $A / \ideal{p}$ and $B$.
+\end{parcorollary} 
+
+\begin{proof}
+If $A$ (hence $A /\ideal{p}$) is u.c., then the condition holds by the theorem. Conversely, suppose the condition holds. Let $B$ be any $A$-algebra of finite type and let $Q'\supset Q$ be prime ideals of $B$. We have to show that all maximal prime chains between $Q'$ and $Q$ have the same length. Replacing $B$ by $B/Q$ and $A$ by $A/A\cap Q$ we can assume that $B$ is a finitely generated overdomain of $A$. We are going to prove that for any prime ideals $P$ and $P'$ of $B$ such that $P \supset P'$ we have $\Ht(P)=\Ht(P')+\Ht(P/P')$. Put $\ideal{p}=P\cap A$, $\ideal{p}'=P'\cap A$ and $n=\TrDeg_AB$. Then \[\Ht(P)=\Ht(\ideal{p})+n-\TrDeg_{\kappa(\ideal{p})}\kappa(P),\,\, \Ht(P')=\Ht(\ideal{p}')+n-\TrDeg_{\kappa(\ideal{p}')}\kappa(P'),\] and by the assumption applied to $B/P'$ and $A / \ideal{p}'$, we also have \[\Ht(P / P')=\Ht(\ideal{p}/\ideal{p}')+\TrDeg_{\kappa(\ideal{p}')}\kappa(P')-\TrDeg_{\kappa(\ideal{p})}\kappa(P).\] Since $A$ is catenary we have $\Ht(\ideal{p})=\Ht(\ideal{p}')+\Ht(\ideal{p} / \ideal{p}')$. It follows that \newline $\Ht(P)=\Ht(P')+\Ht(P / P')$.
+\end{proof}
+
+\begin{parexample}
+All Noetherian rings that appear in algebraic geometry are catenary. And many algebraists had in vain tried to know if all Noetherian rings are catenary, untill Nagata constructed counterexamples in 1956 (cf.\cite[p.203, Example 2]{nagata1975local}). In particular, he produced a Noetherian local domain which is catenary but not universally catenary. We will sketch here his construction in its simplest form.
+
+Let $k$ be a field and let $S=k[[x]]$ be the formal power series ring over $k$ in one variable $x$. Take an element $z=\sum_{i=1}^\infty a_i x^i$ of $S$ which is algebraically independent over $\kappa(x)$. (It is well known that the quotient field of $S$ has an infinite transcendence degree over $\kappa(x)$. Cf. e.g. \cite[Commutative Algebra, Vo1.II, p.220.]{zariski2014commutative}) Put 
+\[z_j=\dfrac{\bigg(z-\displaystyle \sum_{i<j} a_i x^i\bigg)}{x^{j-1}} \text{ for } j=1,2, \ldots,\] (note that $z_1=z$), and let $R$ be the subring of $S$ which is generated over $k$ by $x$ and by all the $z_j$'s: $R=k[x, z_1, z_2, \ldots]$. Consider the ideals $\ideal{m}=(x)$ and $\ideal{n}=(x-1, z_1, z_2, \ldots)$ of $R$. Since $x(z_{j+1}+a_j)=z_j$ we have $z_j \in\ideal{m}$ in for all $j$, and $\ideal{m}$ is a maximal ideal of $R$ with $R /\ideal{m}=k$. The local ring $R_{\ideal{m}}$ is a subring of $S$ and $\ideal{m}R_{\ideal{m}}=xR_{\ideal{m}}\subset xS$. Hence $\bigcap_nx^nR\subseteq\bigcap_nx^nS=(0)$. Then it is easy to see that any ideal ($\neq (0)$) of $R_{\ideal{m}}$ is of the form $x^iR_{\ideal{m}}$. Thus $R_{\ideal{m}}$ is Noetherian, and is a regular local ring of dimension $1$. On the other hand, $R$ is a subring of the rational function field in two variables $k(x,z)$, and so we have \[R/(x-1) = k[x,z_1,z_2,\ldots]/(x-1)\cong k[z],\] hence $\ideal{n}=(x-1, z)$ and $R/\ideal{n}\cong k$. The local ring $R_{\ideal{n}}$ contains $x^{-1}$ and hence it is a localization of the ring $R[x^{-1}] = k[x,x^{-1},z]$. This shows that $R_{\ideal{n}}$ is Noetherian. Clearly $R_{\ideal{n}}$ is a regular local ring of dimension $2$. Let $B$ be the localization of $R$ with respect to the multiplicatively closed subset $(R-\ideal{m})\cap(R-\ideal{n})$. Then $\ideal{m}B$ and $\ideal{n}B$ are the only maximal ideals of $B$ by \ref{1.B}, and the local rings $B_{\ideal{m}B} = R_{\ideal{m}}$ and $B_{\ideal{n}B} = R_{\ideal{n}}$ are Noetherian. It follows easily (using \ref{1.H}) that any ideal of $B$ is finitely generated. Thus $B$ is a semi-local Noetherian domain. Put $I = \rad(B)$ and $A=k+I$. Then $A$ is a subring of $B$, and it is easy to see that $(A,I)$ is a local ring. As \[B/I \cong B/\ideal{m}B \oplus B/\ideal{n}B \cong k \oplus k\] the ring $B$ is a finite $A$-module. It follows (e.g. by Eakin's theorem cited in \ref{2.D}) that $A$ is also Noetherian. We have $\Ht(\ideal{m}B) = 1$ and $\Ht(\ideal{n}B) = 2$, hence $\dim A = \dim B = 2$ by \ref{13.C} Th.\ref{thm:020} (1). If $A$ were u.c. then we would have \[\Ht(\ideal{m}B) = \Ht(\ideal{m}B\cap A)=\Ht_A(I)=\dim A = 2\] by the dimension formula. Therefore $A$ is not u.c.. But $A$ is catenary because it is a local domain of dimension $2$. 
+\end{parexample}
+
+\begin{partheorem}\label{thm:024}
+Let $A = k[X_1,\ldots,X_n]$ be a polynomial ring over a field $k$, and let $I$ be an ideal of $A$ with $\Ht(I)=r$. Then we can choose $Y_1,\ldots,Y_n\in A$ in such a way that
+\begin{enumerate}[label=\arabic*)]
+    \item $A$ is integral over $k[Y] = k[Y_1,\ldots,Y_n]$, and
+    \item $I\cap k[Y] = (Y_1,\ldots,Y_r)$,
+\end{enumerate}
+\end{partheorem}
+\begin{proof}
+Induction on $r$. If $r= 0$ then $I = (0)$ and we can take $Y_i=X_i$. When $r = 1$, let $Y_1=f(X)$ be any non-zero element of $I$. Write $f(x) = \sum_{i=1}^sa_iM_i(X)$, where $0 \neq a_i\in k$ and $M_i(X)$ are distinct monomials in $X_1,\ldots,X_n$ and take $n$ positive integers $d_1=1,d_2,\ldots,d_n$. If $M(X) = \prod X_i^{a_i}$ then let us call the integer $\sum a_id_i$ the weight of the monomial $M(X)$. By a suitable choice of $d_2,\ldots,d_n$ we can see to it that no two of the monomials $M_1,\ldots,M_s$ that appear in $f(X)$ have the same weight. (If $p$ is a given prime number, we can take $d_2=p^{\nu_2},\ldots,d_s = p^{\nu_s}$ where $\nu_i-\nu_{i-1}\for{i = 2,\ldots,s;\nu_1 = 0}$ are large integers. This remark will be useful for some applications.) Put $Y_i =X_i-X_1^{d_i}\for{i=2,\ldots,n}$. Then \[Y_1 = f(X) = f(X_1,Y_2+X_1^{d_2},\ldots,Y_n+X_1^{d_n})=a_iX_1^e+g(X_1,\ldots,Y_2,\ldots,Y_n)\] where $g$ is a polynomial whose degree in $X_1$ is less than $e$ and $a_i$ is the coefficient of the term with highest weight in $f(X)$. Then $X_1$ is integral over $k[Y]$, and hence $X_i=Y_i+X_1^{d_i}\for{i = 2,...,n}$ are also integral over $k[Y]$. The ideal $(Y_1)$ of $k[Y]$ is prime of height $1$, $(Y_1)\subseteq I\cap k[Y]$, and $\Ht(I\cap k[y]) = \Ht(I) = 1$ by Th.\ref{thm:020} (3). (Note that $k[Y]$ is integrally closed and so the going-down theorem holds between $k[X]$ and $k[Y]$.) Therefore $(Y_1) = I\cap k[Y]$, as wanted. When $r > 1$, let $J$ be an ideal of $k[X]$ such that $J\subset I$, $\Ht(J) =r-1$. (The existence of such $J$ is easy to prove for any Noetherian ring and for any ideal $I$ of height $r$. Take $f_1 \in I$ from outside of the minimal prime ideals, and $f_2\in I$ from outside of the minimal prime over-ideals of $(f_1)$, and $f_3\in I$ from outside of the minimal prime over-ideals of $(f_1,f_2)$, and so on, and put $J = (f_1,\ldots,f_{r-1})$. Th.\ref{thm:018} is the basis of this construction.) By induction hypothesis there exist $Z_1,\ldots,Z_n\in k[X]$ such that $k[X]$ is integral over $k[Z]$ and that $k[Z]\cap J=(Z_1,\ldots,Z_{r-1})$. Put $I' = I\cap k[Z]$. Then $\Ht(I') = \Ht(I) = r$, and so $I'\supset(Z_1,\ldots, Z_{r-1})$. Thus we can choose an element $0\neq f(Z_r,\ldots,Z_n)$ of $I'$. Following the method we used for the case $r = 1$, we put \[Y_i = Z_i\for{i<r},\quad  Y_r=f(Z_r,\ldots,Z_n),\quad Y_{r+j}=Z_{r+j}-Z_r^{rk}\for{1\leqslant j\leqslant n-r}.\] Then, for a suitable choice of $e_1,\ldots,e_{n-r}$, $k[Z]$ is integral over $k[Y]$. Moreover, $I\cap k[Y]$ contains the prime ideal $(Y_1,\ldots,Y_r)$ of height $r$ and so coincides with it. The proof is completed.
+\end{proof}
+
+\begin{remark}
+The above proof shows that we can choose the $Y,_i$'s in such a way that $Y_{r+1},\ldots,Y_n$ have the form $Y_{r+j}=X_{r+j}+F_j(X_1,\ldots,X_r)$, where $F_j$ is a polynomial with coefficients in the prime subring $k_0$ of $k$ (i.e. the canonical image of $\bZ$ in $k$). If $\ch(k) = p > 0$ then we can see to it that\newline  $F_j(X_1,\ldots,X_R)\in k_0[X_1^p,\ldots,X_r^p]$ for all $j$.
+\end{remark}
+
+\begin{parcorollary}[Normalization theorem of E.Noether]\label{cor:14.03}\index{normalization theorem}
+Let \newline $A = k[x_1,\ldots,x_n]$ be a finitely generated algebra over a field $k$. Then there exist $y_1,\ldots,y_r\in A$ which are algebraically independent over $k$ such that $A$ is integral over $k[y_1,\ldots,y_r]$. We have $r = \dim A$. If $A$ is a domain we also have $r=\TrDeg_kA$.
+\end{parcorollary}
+
+\begin{proof}
+Write $A = k[X_1,\ldots,X_n]/I$, and put $\Ht(I) =n- r$. According to the theorem there exist elements $Y_1,\ldots,Y_n$ of $k[X_1,\ldots,X_n]$ such that $k[X]$ is integral over $k[Y]$ and that $I\cap k[Y] = (Y_{r+1},\ldots,Y_n)$. Putting \[y_i = Y_i \mod I\for{1\leqslant i\leqslant r}\] we get the required result. The equality $r = \dim A$ follows from Th.\ref{thm:020}. The last assertion is obvious, as $A$ is algebraic over $k(y_1,\ldots,y_r)$.
+\end{proof}
+
+\begin{corollary}\label{cor:14.04}
+Let $k$ be an algebraically closed field. Then any maximal ideal $\ideal{m}$ of $k[X_1,\ldots,X_n]$ is of the form $\ideal{m} = (X_1-a_1,\ldots,X_n-a_n)\for{a_i\in k}$.
+\end{corollary}
+
+\begin{proof}
+Since $0 = \dim(A/\ideal{m}) = \TrDeg_kA/\ideal{m}$, we get $A/\ideal{m}\cong k$. Hence \newline $X_i = a_i\pmod{\ideal{m}}$ for some $a_i\in k$ for each $i$. Since $(X_1-a_1,\ldots,X_n-a_n)$ is obviously a maximal ideal, it is $\ideal{m}$.
+\end{proof}
+
+\begin{parcorollary}\label{cor:14.05}
+Let $A$ be a finitely generated algebra over a field $k$. Then
+\begin{enumerate}[label = (\arabic*)]
+    \item if $A$ is an integral domain, we have $\dim(A/\ideal{p}) + \Ht(\ideal{p}) = \dim A$ for any prime ideal $\ideal{p}$ of $A$, and
+    \item $A$ is universally catenary.
+\end{enumerate}
+\end{parcorollary}
+
+\begin{proof}
+\begin{enumerate}[label = (\arabic*)]
+    \item Take $y_1,\ldots,y_r\in A$ as in Cor.\ref{cor:14.03}, and put $\ideal{p}'=\ideal{p}\cap k[y]$. Then $\dim A =r$, $\dim(A/\ideal{p}) = \dim(k[y]/\ideal{p}')$ and $\Ht(\ideal{p})=\Ht(\ideal{p}')$. As $k[y]$ is isomorphic to the polynomial ring in $r$ variables, we have $\Ht(\ideal{p}') + \dim(k[y]/\ideal{p}') = r$ by the theorem.
+    \item It suffices to prove that $k$ is universally catenary. This is a consequence of (1) and \ref{14.D}, but we will give a direct proof. We are going to prove $k[X_1,\ldots,X_n]$ is catenary. Let $P\supset Q$ be prime ideals of $k[X] = k[X_1,\ldots,X_n]$. Then we have
+    \begin{align*}
+        \Ht(P)&=n-\dim(k[X]/P)\\
+        \Ht(Q)&=n-\dim(k[X]/Q),\\
+        \text{and by (1) }\Ht(P/Q)&=\dim(k[X]/Q)-\dim(k[X]/P).
+    \end{align*}
+    Therefore $\Ht(P/Q) = \Ht(P) - \Ht(Q)$.
+\end{enumerate}
+\end{proof}
+
+
+\begin{parcorollary}[Dimension of intersection in an affine space]\label{cor:14.06}
+Let $\ideal{p}_1$ and $\ideal{p}_2$ be prime ideals in a polynomial ring $R = k[X_1,\ldots,X_n]$ over a field $k$, with $\dim(R/\ideal{p}_1) =r$, $\dim(R/\ideal{p}_2) = s$. Let $\ideal{q}$ be any minimal prime over-ideal of $\ideal{p}_1+\ideal{p}_2$. Then $\dim(R/\ideal{q})\geqslant r +s -n$. (In geometric terms this means that, if $V_1$ and $V_2$ are irreducible closed sets of dimension $r$ and $s$ respectively, in an affine $n$-space $\Spec(k[X_1,\ldots,X_n])$. Then any irreducible component of $V_1\cap V_2$ has dimension not less than $r +s - n$.)
+\end{parcorollary}
+
+\begin{proof}
+Let $Y_1,\ldots,Y_n$ be another set of $n$ indeterminates and let $\ideal{p}_2'$ be the image of $\ideal{p}_2$ in $k[Y_1,\ldots,Y_n]$ by the isomorphism $k[X]\cong k[Y]$ over $k$ which maps $X_i$ to $Y_i\for{1\leqslant i\leqslant n}$. Let $I$ be the ideal of $k[X,Y] = k[X_1,\ldots,X_n,Y_1,\ldots,Y_n]$ generated by $\ideal{p}_1$ and $\ideal{p}_2'$ and $D$ the ideal $(X_1-Y_1,\ldots,X_n-Y_n)$ of $k[X,Y]$. Then \[k[X,Y]/I \cong (R/\ideal{p}_1)\otimes_k(R/\ideal{p}_2),\quad k[X,Y]/D \cong k[X].\] Take $\xi_1,\ldots,\xi_r\in R/\ideal{p}_1$, and $\eta_1,\ldots,\eta_s\in R/\ideal{p}_2$ such that $R/\ideal{p}_1$ (resp. $R/\ideal{p}_2$) is integral over $k[\xi]$ (resp. over $k[\eta]$). Then $k[X,Y]/I$ is integral over $k[\xi,\eta]$ which is a polynomial ring in $r+s$ variables. Thus \[\dim(k[X,Y]/I) = \dim k[\xi,\eta] = r+s.\] Writing $k[X,Y]/I = k[x,y]$ we have \[k[X,Y]/(D + I) = k[x,y]/(x_1-y_1,\ldots,x_n-y_n).\] Since \[k[X,Y]/(I + D) \cong k[X]/(\ideal{p}_1+\ideal{p}_2),\] the prime $\ideal{q}$ of $k[X]$ corresponds to a minimal prime over-ideal $Q$ of $I+D$ in $k[X,Y]$ such that $k[X]/\ideal{q} \cong k[X,Y]/Q$. Then $Q/I$ is a minimal prime over-ideal of $(x_1-y_1,\ldots,x_n-y_n)$ of $k[x,y]$, hence $\Ht(Q/I)\leqslant n$ by Th.\ref{thm:018}. Therefore \[\dim k[X]/\ideal{q}=\dim k[x,y]/(Q/I) = \dim k[x,y] - \Ht(Q/I)\geqslant r+s-n\] by the preceding corollary.
+\end{proof}
+
+\begin{partheorem}[Zero-point theorem of Hilbert]\label{thm:025}\index{Hilbert!\indexline zero point theorem}
+Let $k$ be a field, $A$ be a finitely generated $k$-algebra and $I$ be a proper ideal of $A$. Then the radical of $I$ is the intersection of all maximal ideals containing $I$.
+\end{partheorem}
+
+\begin{proof}
+Let $N$ denote the intersection of all maximal ideals containing $I$, and suppose that there is an element $a\in N$ which is not in the radical of $I$. Put $S = \{1,a,a^2,\ldots\}$ and $A' =S^{-1}A$. Then $IA'\neq(1)$, so there is a maximal ideal $P'$ of $A'$ containing $IA'$. Since $A'$ is also finitely generated over $k$, we have $0 = \dim A'/P' = \TrDeg_kA'/P'$. Putting $A\cap P' = P$ we have $k\subseteq A/P\subseteq A'/P'$, hence $0 = \TrDeg_kA/P = \dim A/P$. Thus $P$ is a maximal ideal of $A$ containing $I$, and $a\notin P$, contradiction.
+\end{proof}
+
+\begin{remark}
+The theorem can be stated as follows: if $A$ is a $k$-algebra of finite type, then the correspondence which maps each closed set $V(I)$ of $\Spec(A)$ to $V(I)\cap\Omega(A)$ is a bijection between the closed sets of $\Spec(A)$ and the closed sets of $\Omega(A)$. When $k$ is algebraically closed and $A \cong k[X_1,\ldots,X_n]/I$ one can identify $\Omega(A)$ with the algebraic variety in $k^n$ defined by the ideal $I$ (i.e. the set of zero-points of $I$ in $k^n$). 
+\end{remark}
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Eakin's Theorem}\label{sec:35}
+
+A module is said to be \defemph{Noetherian}\index{Noetherian!\indexline module} (resp. \defemph{Artinian}\index{Artinian!\indexline module}) if the ascending (resp. descending) chain condition for submodules holds. It is easy to see that if \[0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0\] is exact and if $M'$ and $M''$ are Noetherian (resp. Artinian), so is $M$. A module is Noetherian iff all submodules are finitely generated.
+
+A module is called \defemph{faithful}\index{faithful module} if $\Ann(M) = (0)$.
+
+\begin{lemma}
+Let $A$ be a ring and $M$ an $A$-module. If $M$ is faithful and Noetherian, then $A$ is a Noetherian ring. 
+\end{lemma}
+
+\begin{proof}
+Let $M = A \omega_1 + \ldots + A \omega_n$. Then $A$ is embedded in $M^n$ as an $A$-module by the map $a \mapsto (a \omega_1 + \ldots + a \omega_n)$. Since $M^n$ is Noetherian, so is $A$. 
+\end{proof}
+
+\begin{theorem}[E. Formaneck \cite{formanek1973faithful}]\label{thm:080}
+Let $A$ be a ring and $B$ be a faithful and finite $A$-module. If the ascending chain condition holds for the submodules of the form $IB$, where $I$ is an ideal of $A$, then $A$ is Noetherian. 
+\end{theorem}
+
+\begin{proof}
+It suffices to prove that $B$ is Noetherian $A$-module. Assume the contrary. Then the set \[\{IB \mid I \text { is an ideal of } A \text { and } B/IB \text { is a non-Noetherian } A\text{-module}\}\] is not empty, hence it has a maximal element $I_0 B$. Replacing $B$ and $A$ by $B/I_0 B$ and $A/\Ann(B/I_0 B)$, we assume that $B$ is not Noetherian but $B/IB$ is Noetherian for every non-zero ideal $I$ of $A$. Put \[\Gamma = \{N \mid N \text { is a submodule of } B \text { and } B/N \text { is faithful}\}.\] If $B = A \omega_1 + \ldots + A \omega_n$ then a submodule $N$ of $B$ belongs to $\Gamma$ iff \newline$\{a \omega_1, \ldots, a \omega_n\} \not \subset N$ for every $0 \ne a \in A$. Therefore we can use Zorn to conclude that $\Gamma$ has a maximal element $N_0$. Replacing $B$ for $B/N_0$ we get the situation where 
+\begin{enumerate}[label = (\arabic*)]
+    \item $B$ is not Noetherian (for, otherwise $A$ and our original $B$ would be Noetherian),
+    \item $B/IB$ is Noetherian for every non-zero ideal $I$ of $A$, and
+    \item $B/N$ is not faithful for every non-zero module $N$ of $B$. 
+\end{enumerate}
+But this is absurd. In fact, there exists (1) a submodule $N$ of $B$ which is not finite over $A$. Then there exists $0 \ne a \in A$ such that $a B \subset N$ by (3). Since $B/a B$ is Noetherian, the $A$-module $N/a B$ must be finitely generated. Therefore $N$ itself is finite over $A$, contradiction.
+\end{proof}
+
+\begin{corollary}[Eakin]
+If $B$ is a Noetherian ring and $A$ is a subring of $B$ such that $B$ is finite over $A$, then $A$ is Noetherian.
+\end{corollary}
+\end{document}

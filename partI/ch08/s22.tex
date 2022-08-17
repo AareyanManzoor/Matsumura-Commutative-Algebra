@@ -1,0 +1,62 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Theorems of Generic Flatness}\label{sec:22}
+
+\begin{parlemma}
+\label{lem:22.01}
+    Let $A$ be a Noetherian domain, $B$ an $A$-algebra of finite type and $M$ a finite $B$-module. Then there exists $0\neq f \in A$ such that $M_f = M\otimes_A A_f$ is $A_f$-free (where $A_f$ is the localization of $A$ with respect to $\brc{1, f, f^2, \dots}$). 
+\end{parlemma}
+\begin{proof}
+    We may suppose that $M \neq 0$. Then, by \ref{7.E} Th.~\ref{thm:010} there exists a chain of submodules $0=M_0\subset M_1 \subset \dots \subset M_n=M$ with $M_i/M_{i-1}\simeq B/\ideal p_i$, $\ideal p_i\in \Spec(B)$. Since an extension of free modules is again free, it suffices to prove the lemma for the case that $B$ is a domain and $M=B$, If the canonical map $A\longrightarrow B$ has a non-trivial kernel then $B_f = 0$ for any non-zero element $f$ of the kernel, and our assertion is trivial. So we may assume that $A$ is a subring of the domain $B$. Let $K$ be the quotient field of $A$. Then $B\otimes K = BK$ is a domain (contained in the quotient field of $B$) and is finitely generated as an algebra over $K$. Hence $\dim BK = \TrDeg_K BK < \infty$. Put $n = \dim BK$. We use induction on $n$. By the normalization theorem (\ref{14.G}), the ring $BK$ contains $n$ algebraically independent elements $y_1, \dots, y_n$ such that $BK$ is integral over $K[y]$. We may assume that $y_i \in B$. Since $B$ is finitely generated over $A$ there exists $0 \neq g \in A$ such that $B_g = B\cdot A_g$ is integral over $A_g[y]$. Replacing $A$ and $B$ by $A_g$ and $B_g$ respectively, and putting $C = A[y]$, we have that $B$ is a finite module over the polynomial ring $C$. Let $b_1, \dots, b_n$ be a maximal set of linearly independent elements over $C$ in $B$. Then we have an exact sequence \[0\longrightarrow C^m\longrightarrow B\longrightarrow B'\longrightarrow 0\] where $B'$ is a finitely generated torsion $C$-module. Since $\br{C/\ideal{p}}\otimes K = CK/\ideal{p}K$ has a smaller dimension than $n=\dim CK$ for any non-zero prime ideal $\ideal{p}$ of $C$, there exists by the induction assumption a non-zero element $f$ of $A$ such that ${B'}_f$ is $A_f$-free.
+\end{proof}
+An important special case of the lemma is the following:
+\begin{theorem}
+\label{thm:052}
+    Let $A$ be a Noetherian domain and $B$ an $A$-algebra of finite type. Suppose that the canonical map $\phi: A\varrightarrow{} B$ is injective. Then there exists $0 \neq f \in A$ such that $B_f$ is $A_f$-free and $\neq$ 0. Thus, the map \newline $\SpecInduced{\phi}: \Spec(B)\varrightarrow{}\Spec(A)$ is faithfully flat over the non-empty open set \newline $D(f) = \Spec(A) - V(f)$ of $\Spec(A)$, that is, $(\SpecInduced{\phi})^{-1}(D(f)) \varrightarrow{} D(f)$ is faithfully flat. 
+\end{theorem}
+
+\begin{parlemma}
+\label{lem:22.02}
+    Let $B$ be a Noetherian ring and let $U$ be a subset of $\Spec(B)$. Then $U$ is open iff the following conditions are satisfied.
+    \begin{enumerate}[label=(\arabic*)]
+    \item $U$ is stable under generalization,
+    \item if $P \in U$ then $U$ contains a non-empty open set of the irreducible closed set $V(P)$.
+    \end{enumerate}
+\end{parlemma}
+\begin{proof}
+    Assume the conditions, and let $F$ be the complement of $U$ and \newline $P_i\for{1\le i\le s}$ be the generic points of the irreducible components of the closure $\overline{F}$ of $F$. Then (2) implies that $P_i$ cannot lie in $U$. Hence $P_i \in F$, and so $F=\overline{F}$ by (1). 
+\end{proof}
+\begin{theorem}
+\label{thm:053}
+    Let $A$ be a Noetherian ring, $B$ an $A$-algebra of finite type and $M$ a finite $B$-module, Put $U = \brc{P \in \Spec(B) \mid M_P \text{ is flat over } A}$. Then $U$ is open in $\Spec(B)$. 
+\end{theorem}
+\begin{remark}
+\label{rem:22.01}
+    The set $U$ may be empty.
+\end{remark}
+\begin{remark}
+\label{rem:22.02}
+    It follows from \ref{6.I} Th.~\ref{thm:008} that a flat morphism of finite type between Noetherian preschemes is an open map. Therefore the image of $U$ in $\Spec(A)$ is open in $\Spec(A)$. 
+\end{remark}
+\begin{proof}
+    Let $P\supset Q$ be prime ideals of $B$ with $M_p$ flat over $A$. For any $A$-module $N$ we have $N\otimes_A M_Q = \br{N\otimes_A M_Q}\otimes_B B_Q$ therefore $M_Q$ is flat over $A$ and the condition (1) of Lemma \ref{lem:22.02} is verified for $U$. As for the condition (2), let $P \in U$ and put $\ideal{p}=P\cap A$ and $\overline{A} = A/\ideal{p}$. Let $Q\in V(P)$. Then $\ideal{p}B_Q \subseteq \rad(B_Q)$, so we can apply the local criterion of flatness that $M_Q$ is flat over $A$ iff $M_Q/\ideal{p}M_Q$ is flat over $A$ and $\Tor^A_1(M_Q, \overline{A})=0$. Applying Lemma \ref{lem:22.01} to $(\overline{A}, B/\ideal{p}B, M/\ideal{p}M)$ we see that there exists a neighborhood of $P$ in $V(\ideal{p}B)$ such that $M_Q/\ideal{p}M_Q$ is flat over $A$ for each point $Q$ in it. On the other hand, since \[0 = \Tor^A_1(M_P,\overline{A})=\Tor^A_1(M,\overline{A})\otimes_B B_P\] and since $\Tor_1^A(M,\overline{A})$ is a finite $B$-module, there exists a neighbourhood of $P$ in $\Spec(B)$ in which $\Tor^A_1(M_Q, \overline{A})=0$. Therefore there exists a non-empty open set of $V(P)$ in which $M_Q$ is $A$-flat for all points $Q$, in other words the set $U$ in question contains a non-empty open set of $V(P)$. Thus the theorem is proved.
+\end{proof}
+
+\newparagraph
+Let $\underline{P}$ be a property on Noetherian local rings and let $P(A)$ denote the set $\brc{\ideal p \in \Spec(A) \mid A_\ideal p \text{ has the property } \underline{P}}$. Consider the following statement. 
+\begin{enumerate}[label=(NC), ref=(NC)]
+    \item\label{cond:NC} If $A$ is a Noetherian ring and if, for every $p\in \Spec(A)$, $P(A/p)$ contains a non-empty open set of $\Spec(A/\ideal p)$, then $P(A)$ is open in $\Spec(A)$. 
+\end{enumerate}
+While Lemma~\ref{lem:22.02} of \ref{22.B} was topological, \ref{cond:NC} is ring-theoretical and its validity of course depends on $\underline{P}$. Both are inventions of Nagata (NC means Nagata criterion), who proved \ref{cond:NC} for $\underline{P} = \text{regular}$ (cf. p.245). As an example we prove 
+\begin{proposition*}
+    \ref{cond:NC} is valid for $\underline{P} = \mathrm{CM}$.
+\end{proposition*}
+\begin{proof}
+    $\mathrm{CM}(A)$ is stable under generalization. We will prove (2) of Lemma~\ref{lem:22.02}. If $P \in \mathrm{CM}(A)$ and $\Ht P = n$, we can take an $A_P$-regular sequence $y_1, \dots, y_n$ from $P$. Replacing $A$ by $A_a$, with suitable $a \in A - P$, we may assume that $y_1,\dots, y_n$ is an $A$-regular sequence and $I =\sum y_iA$ is a $P$-primary ideal. Then for $Q\in V(P)$, $A_Q$ is CM iff $A_Q/ IA_Q$ is so. Hence we can replace $A$ by $A/I$ and assume that $(0)$ is $P$-primary. So we have $P^r = 0$ for some $r > 0$. Since $P^i/P^{i+1}$ is a finite $A/P$-module for each $0\le i< r$, we may assume (replacing $A$ by some $A_a$) that the $P^i/P^{i+1}$ are free $A/P$-modules. Then it is easy to see that a sequence $x_1, \dots, x_n \in A$ is $A$-regular if it is $A/P$-regular. By the hypothesis of \ref{cond:NC} we may assume further that $A/P$ is CM. Then \[\depth A_Q = \depth A_Q/PA_Q = \dim A_Q/PA_Q = \dim A_Q\] hence $Q\in\mathrm{CM}(A)$. 
+\end{proof}
+
+\begin{exercise*}
+    If $A$ is a homomorphic image of a CM ring, then $\mathrm{CM}(A)$ is open. 
+\end{exercise*}
+\end{document}

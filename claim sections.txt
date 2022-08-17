@@ -1,0 +1,59 @@
+Hello, this is where people will claim sections. 
+
+I have included the page numbers of each section(from the original book) so that people have an idea of how long each section is. 
+
+Please pick one section at a time, and then after you are done with it, you can pick another one. 
+
+We are going to aim to finish the first draft within 8th of august, pick only as much as you can do by that time. If you later think you cannot finish your section by this time, that is fine, just ask for help in this document.
+
+claiming example: ``s1- Aareyan'' and 
+asking for help examples: ``s1-Aareyan %cant finish it in time, can someone help?''
+after done example: ``s1-Aareyan %done except for proofreading''
+
+make sure to read the style guide before typing, and also our operators[preamble], as we prefer to use macros whenever possible. This makes editing and making global changes much simpler.
+
+The ocr pdf of this book is pinned in the discord. There is a latex scan of this in mathpix.tex. This is very inacurate and is more to reduce work then to rely completely on.
+
+s1-(1-13) rokabe, done
+s2-(13-17) Manan %some ref/citations need to be added, done otherwise
+s3-(17-25) Yohan % Finished
+s4-(25-31) sw3aterCS %ready for proofreading, please add citations
+s5-(31-38) zxcvly   %ready for proofreading
+s6-(38-49) twiceshy %ready for proofreading
+s7-(49-52) Whoever %done
+s8-(52-57) Whoever%done
+s9-(57-61) Whoever%done
+s10-(61-67) Whoever%done
+s11-(67-71) Whoever%done
+s12-(71-78) Whoever%done
+s13-(78-83) Whoever%done
+s14-(83-95) Whoever%done
+s15-(95-106) Whoever%done
+s16-(106-115) Whoever%done
+s17-(115-127) Aareyan%done
+s18-(127-141) Invictus%cant finish it in time, can someone help %Aareyan finishing it up%done 
+s19-(141-145) Aareyan%done + remarks page
+s20-(145-152) Sai
+s21-(152-156) George %ready for proofreading
+s22-(156-161) wordslinger %ready for proofreading
+s23-(161-172) George %ready for proofreading
+s24-(172-177) George %ready for proofreading
+s25-(177-180) rokabe, done
+s26-(180-190) Aareyan%done
+s27-(190-197) George %ready for proofreading
+s28-(197-213) Aareyan %done
+s29-(213-222) George %ready for proofreading
+s30-(222-231) George %ready for proofreading
+s31-(231-245) Aareyan%done
+s32-(245-249) George %ready for proofreading
+s33-(249-258) Aareyan%done
+s34-(258-261) George %ready for proofreading
+s35-(261-263) George %ready for proofreading
+s36-(263-265) wordslinger%done
+s37-(265-269) wordslinger%done
+s38-(269-278) wordslinger%done, citation needed!
+s39-(278-281) George %ready for proofreading
+s40-(281-293) George %ready for proofreading
+s41-(293-299) Whoever%done
+s42-(299-306) Whoever%done
+s43-(306-311) Whoever%done

@@ -1,0 +1,75 @@
+\usepackage{fontspec} 
+\setmainfont{Open Dyslexic} 
+\usepackage{filecontents}
+
+%create a lua script file
+\begin{filecontents*}{luaFunctions.lua}
+
+function createReplaceTable()    
+    replaceTable = {}
+
+    -- create a table with all ASCII chars
+    -- the name and(!) the value of each table item is the ASCII char
+    -- this is important if the char shouldn't be replaced
+    -- the table have 128 items each filled with the corresponding char
+    for i = 1, 128, 1 do    
+       replaceTable[string.char(i-1)] = string.char(i-1)
+    end
+end
+
+function parseString(input)
+    outputString = ""
+
+    -- for each char in the given string we replace
+    -- the char with the content of the table item
+    -- because the table items have the same name like the chars
+    -- we have access to the table item via the given char
+    for i = 1, string.len(input) do
+        char = input:sub(i, i)
+        outputString = outputString..rotateString(char)
+    end
+
+    tex.print(outputString)
+end
+
+function parseFile(fileName)
+    -- open file
+    local input = io.open('lorem.txt', 'r')
+
+    -- parse each line
+    for line in input:lines() do
+        parseString(line)
+    end
+end
+
+function rotateString(c)
+    if c == " " then
+      return c
+    end
+    local ang = math.random(-10,10)
+    local dp = math.random(-.5,.5)
+    return "\\raisebox{" .. dp .. "pt}{\\rotatebox[origin=c]{" .. ang .. "}{" .. c .. "}}"
+end
+
+function fillReplaceTable()
+    -- here we fill/override the replacements for each ASCII char
+    replaceTable["L"] = "\\textbf{\\large L}\\marginpar{\\tiny 'L'(\\stepcounter{counterForL}\\#\\thecounterForL)}"
+    replaceTable["o"] = "\\underline{o}"
+    replaceTable["e"] = ""
+end
+
+\end{filecontents*}    
+
+% read the external lua file to declare the functions,
+% but without execute the Lua commands and functions
+\directlua{dofile("luaFunctions.lua")}
+
+%create and fill the tables
+\directlua{createReplaceTable()}
+\directlua{fillReplaceTable()}
+
+% latex commands to execute the lua functions
+\def\parseString#1{\directlua{parseString("#1")}}
+\def\parseFile#1{\directlua{parseFile("#1")}}
+%%%%
+\usepackage{sfmath}

@@ -1,0 +1,43 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Unique Factorization}\label{sec:19}
+
+\newparagraph Let $A$ be an integral domain. An element $a \neq 0$ of $A$ is said to be \defemph{irreducible}\index{irreducible!\indexline element} if it is a non-unit of $A$ and if it
+is not a product of two non-units of $A$. The ring $A$ is called a \defemph{unique factorization domain}\index{UFD} (UFD) if every non-zero element is a product of a unit and of a finite number of irreducible elements and if such a representation is unique up to order and units, $A$ Noetherian domain in which every irreducible element generates a prime ideal is UFD.
+\begin{theorem}\label{thm:047}
+ A Noetherian domain $A$ is UFD iff every prime ideal of height $1$ is principal.
+\end{theorem}
+\begin{proof}
+ Suppose that the condition holds. Let $\pi$ be an irreducible element and let $\ideal{p}$ be a minimal prime overideal of $\pi A$. Then $\Ht(\ideal{p})=1$ by Th. \ref{thm:018}, so that $\ideal{p}$ is principal: $\ideal{p}=a A$. Then $\pi= au$ with some $u$, which must be a unit by the irreducibility of $\pi$. Thus $\pi A= \ideal{p}$. As we remarked above, this means that $A$ is UFD. The converse is left to the reader.
+\end{proof}
+
+\begin{parlemma}
+Let $A$ be a Noetherian domain and let $x \neq 0$ be an element such that $x A$ is prime. Put $A_x=S^{-1} A$, where $S=$ $\{1, x, x^2, \ldots\}$. Then $A$ is UFD iff $A_x$ is so.
+\end{parlemma} 
+
+Proof is easy and is left to the reader.
+
+\begin{theorem}[Auslander-Buchsbaum, 1959]\label{thm:048}
+ A regular local ring $(A, \ideal{m})$ is UFD.
+\end{theorem}
+
+\begin{proof}(Kaplansky) We use induction on $\dim A$. If $\dim A=0$ then $A$ is a field, and if $\dim A=1$ then $A$ is a principal ideal domain. Suppose $\dim A>1$. Let $x \in m-m^2$. Then $xA$ is prime, hence we have only to prove that $A_x$ is UFD. Let $\ideal{p}'$ be a prime ideal of height $1$ in $A_x$ and put $\ideal{p}=\ideal{p}' \cap A$. Then $\ideal{p}'=\ideal{p} A$. Since $A$ is a regular local ring, the A-module $\ideal{p}$ has a resolution of finite length \[\tag{19.1}\label{eqn:19.1} 0\varrightarrow{} F_n\varrightarrow{}F_{n-1}\varrightarrow{} \dots \varrightarrow{}F_0 \varrightarrow{} \ideal{p}\varrightarrow{} 0\] with $F_i$ finite and free. If $P$ is a prime ideal of $A_x$, the local ring $(A_x)_P= A_{(A\cap P)}$ is a UFD by induction assumption. Therefore $\ideal{p}'(A_x)_P$ is principal. So we have \[\ProjDim \, \ideal{p}' = \sup_P (\ProjDim\, \ideal{p}'(A_x)_P)=0 \] by \ref{18.B} Lemma \ref{lem:18.05}, i.e. $\ideal{p}'$ is projective. Localizing \ref{eqn:19.1} with respect to\newline $S=\{1, x, x,\dots \}$, we see \[\tag{19.2}\label{eqn:19.2} 0\varrightarrow{} F_n' \varrightarrow{} F_{n-1}' \varrightarrow{} \dots \varrightarrow{}F_0' \varrightarrow{}\ideal{p}' \varrightarrow{} 0\] is exact, where $F_i'=F_i \otimes A_x$ are finite and free over $A_x$. If we decompose \ref{lem:18.05} into short exact sequences
+\[\tag{19.3}\label{eqn:19.3} \begin{tikzcd}
+0 \arrow[r]& K_0' \arrow[r]& F_0' \arrow[r] &\ideal{p}' \arrow[r]& 0\\
+0 \arrow[r]& K_1' \arrow[r]& F_1' \arrow[r] &K_0' \arrow[r]& 0\\
+ && \dots &&\\
+0 \arrow[r]& F_n' \arrow[r]& F_{n-1}' \arrow[r] & K_{n-1}' \arrow[r]& 0
+\end{tikzcd}
+\]
+then each $K_i'$ must be projective, Hence the short exact sequences of \ref{eqn:19.3} split. It follows that
+\[\bigoplus_{i\text{ even}} F_i' \simeq \bigoplus_{i\text{ odd}} F_i'\oplus \ideal{p}\]
+Thus, we have finite free $A_x$-modules $F$ and $G$ such that $F \simeq G \oplus \ideal{p}'$. Put $\rank\, G = r$. Since $\ideal{p}' $ is a non-zero ideal of the integral domain $A_x$ we have $\rank \ideal{p}'=1$ and rank $F=r+1$. From this we can conclude that $\ideal{p}'$ is free (hence principal), in the following way. Take the $(r+1)$-ple exterior products of $F$ and $G+\ideal{p}'$, respectively. Then
+\[
+A_x=\bigwedge^{r+1} ~F \simeq \bigwedge^{r+1}(G \oplus \ideal{p}')=\ideal{p}'
+\]
+because $\bigwedge^i \ideal{p}'=0$ for all $i>1$ (this last assertion can be seen by localization: if $M$ is a projective module of rank $1$ over a ring $B$, then \[\Big(\bigwedge^iM\Big)_P=\bigwedge^i M_P \simeq \bigwedge^i B_P=0\] for $i>1$ and for all $P \in \Spec(B)$, so $\bigwedge^i M=0 .)$
+\end{proof}
+
+
+\end{document}

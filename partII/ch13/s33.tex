@@ -1,0 +1,176 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Formal Fibres and \texorpdfstring{$G$}{G}-Rings}\label{sec:33}
+
+\newparagraph In this section all rings are tacitly assumed to be Noetherian
+
+\begin{definition} Let $A$ be a ring containing a field $k$. We say that $A$ is geometrically regular over $k$ if, for any finite extension $k'$ of $k$, the ring $A \otimes_k k'$ is regular. This is equivalent to saying that ``$A_m$ is geometrically regular over $k$ for each $\ideal{m} \in \Omega(A)$'', because if $\ideal{m}' \in \Omega(A \otimes k')$ and $\ideal{m}=\ideal{m}' \cap A$ then $(A \otimes k')_{\ideal{m}}$, is a localization of $A_{\ideal{m}} \otimes_k k'$.
+\end{definition}
+
+We say that a homomorphism $\phi: A \varrightarrow{} B$ is \defemph{regular}\index{regular!\indexline homomorphism} (or that $B$ is regular over $A$) if it is flat and if for each $\ideal{p} \in\Spec(A)$ the fibre $B \otimes_A \kappa(\ideal{p})$ is geometrically regular over $\kappa(\ideal{p})$. This is equivalent to saying that
+
+\begin{quote}
+$B$ is flat, and for any finite extension $L$ of $\kappa(\ideal{p})$, the ring $B \otimes_A L=(B \otimes_A \kappa(\ideal{p})) \otimes_{\kappa(\ideal{p})} L$ is a regular ring. 
+\end{quote}
+
+
+A Noetherian ring $A$ is called a \defemph{$G$-ring}\index{G-ring@$G$-ring} if for any $\ideal{p} \in \Spec(A)$, the canonical map $A_\ideal{p} \varrightarrow{}\completion{(A_\ideal{p})}$ of the local ring $A_\ideal{p}$ into its completion is regular. (The fibres of $A_{\ideal{p}} \varrightarrow{}\completion{(A_\ideal{p})}$ are called the formal fibres of $\completion{A}_\ideal{p}$ ) It is clear that, if $A$ is a $G$-ring, then any localization $S^{-1} A$ and any homomorphic image $A/I$ of $A$ are $G$-rings.
+
+Th.\ref{thm:068} implies that a Noetherian complete local ring is a $G$-ring.
+
+\begin{parlemma}\label{lem:33.01} Let $A \varrightarrow{\phi} B\varrightarrow{\psi} C$ be homomorphisms of rings.
+\begin{enumerate}
+    \item If $\phi$ and $\psi$ are regular, so is $\psi \phi$.
+    \item If $\psi \phi$ is regular and if $\psi$ is faithfully flat, then $\phi$ is regular.
+\end{enumerate}
+\end{parlemma}
+\begin{proof} 
+\begin{enumerate}
+    \item Clearly $\psi \phi$ is flat. Let $\ideal{p} \in \Spec(A), K=\kappa(\ideal{p})$ and $L=$ a finite extension of $K $. Put $B_{(L)} = B\otimes_A L$ and $C_{(L)}=C \otimes_A L_0$ It is easy to see that
+    \[
+    \psi_L=\psi \otimes \id_L:B_{(L)} \varrightarrow{} C_{(L)}
+    \]
+    is regular, Moreover, if $P' \in \Spec(C_{(L)})$ and $P=P' \cap B_{(L)}$, then $B_{(L)P}$ is a regular local ring (as $\phi$ is regular). Then
+    $C_{(L)P'}$ is regular by \ref{21.D} Th.\ref{thm:051}(ii) as it is flat over $B'_{(L)P}$.
+    \item Again the flatness of $\phi$ is obvious. Using the same notation as above, for any $P \in \Spec(B_{(L)})$ there exists $P' \in$ Spec $(C_{(L)})$ lying over $P$ (because $\psi_L$ is f.f. ), and the local ring $C_{(L)P'}$ is regular and flat over $B_{(L)P}$. Therefore the local ring $B_{(L)P}$ is regular by \ref{21.D} Th.\ref{thm:051}(i).
+\end{enumerate}
+\end{proof}
+
+\begin{lemma} \label{lem:33.02}
+Let $\phi: A \varrightarrow{} B$ be a faithfully flat, regular homomorphism, Then:
+\begin{enumerate}
+    \item $A$ is regular (resp. normal, resp. C.M., resp. reduced) iff $B$ has the same property.
+
+    \item If $B$ is a $G$-ring, so is $A$.\end{enumerate}
+\end{lemma}
+
+\begin{proof}(1)
+\begin{enumerate}
+    \item follows from \ref{21.D} and \ref{21.E}.
+
+    \item Suppose $B$ is a $G$-ring, and let $\ideal{p} \in \Spec(A)$. Take a prime ideal $P$ of $B$ lying over $\ideal{p}$, and consider the commutative diagram
+    \begin{center}
+\begin{tikzcd}
+\completion {(A_{\ideal p})} \arrow[rr, "f^\ast"]  &  & \completion {(B_P)}      \\
+                                                   &  &                          \\
+A_{\ideal p} \arrow[uu, "\alpha"'] \arrow[rr, "f"] &  & B_P \arrow[uu, "\beta"']
+\end{tikzcd}
+\end{center}
+where $f$ is the local homomorphism derived from $\phi$, and $\alpha$ and $\beta$ are the natural maps, Since $f$ and $\beta$ are flat, $\completion{f}\alpha=\beta f$ is flat also. Then, by the local criterion of flatness Th.\ref{thm:049}(5), $\completion{f}$ is flat (hence faithfully flat). On the other hand $\completion{f} \alpha = \beta f$ is regular as $f$ and $\beta$ are so, hence by Lemma \ref{lem:33.01} we see that $\alpha$ is regular, which was to be proved.
+\end{enumerate}
+\end{proof} 
+
+\begin{partheorem}\label{thm:075} Let $A$ be a Noetherian ring. If, for every maximal ideal $\ideal{m}$ of $A$, the natural map $A_{\ideal{m}} \varrightarrow{}\completion{(A_{\ideal{m}})} $ is regular, then $A$ is a $G$-ring.
+\end{partheorem}
+
+\begin{proof}
+We can assume that $A$ is a local ring with $A \varrightarrow{} \completion{A}$ regular. Then $\completion{A}$ is a $G$-ring by Th.\ref{thm:068}, Hence $A$ is a $G$-ring by Lemma \ref{lem:33.02}
+\end{proof}
+
+\begin{partheorem}\label{thm:076} \footnote{We may replace J-1 by J-2 in the theorem in view of Lemma \ref{lem:33.04} below.}
+\begin{enumerate}
+    \item Let $A, B$ be Noetherian rings and $f: A \varrightarrow{} B$ be a faithfully flat and regular homomorphism. If $B$ is J-1 (i.e. $\Reg(B)$ is open in $\Spec(B)$), so is $A$.
+
+    \item A semi-local $G$-ring is J-1.
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item Put $X=\Spec(B)$ and $Y=\Spec(A)$. Then the canonical map\newline $f: X \varrightarrow{} Y$ is submersive by Th.\ref{thm:007}. On the other hand we have \newline $f^{-1}(\Reg(A))=\Reg(B)$ by Lemma \ref{lem:33.02} (i). Since $\Reg(B)$ is open in $Y,\, \Reg(A)$ must be open in $X$.
+
+    \item Apply the above to $A \varrightarrow{} \completion{A}$ and use Th.\ref{thm:074}.\end{enumerate}
+\end{proof}
+
+\begin{parlemma}\label{lem:33.03} A Noetherian semi-local ring A is a $G$-ring iff, for any local domain $C$ which is a localization of a finite A-algebra $B$ with respect to a maximal ideal, and for any prime ideal $Q$ of $C^*$ with $Q \cap C=(0)$, the local ring $\completion{C}_Q$ is regular.
+\end{parlemma}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[``Only if''.] Let $A$ be a $G$-ring. Then the image of $A$ in $B$ is also a $G$-ring, hence we may assume that $A \subseteq B$. We may also assume that $B$ is a domain. Let $L=\Phi B$ and $K=\Phi A$. Since $\completion{B}=B\otimes_A \completion{A}$ and since $\completion{C}$ is a component of $\completion{B}$, we have
+    \[\completion{C}_Q = (L\otimes_B \completion{B})_{Q'} = (L\otimes_K (K\otimes_A\completion{A}))_{Q'}=(L\otimes_K \completion{A}_\ideal{q})_{Q'}\]
+    with $Q'= Q\completion{C}_Q \cap (L\otimes \completion{B}) $ and $\ideal{q}=Q\cap \completion{A}$. Since $\completion{A}_\ideal{q}$ is geometrically regular over $K$ we see that $\completion{C}_Q$ is regular.
+    \item[``If''.] Let $\ideal{p} \in \Spec(A)$ and let $L$ be a finite extension
+    of $\kappa(\ideal{p})$. Then it is clear that we can find a finite $A$-algebra $B$ such that $A / \ideal{p} \subseteq B \subseteq L$ and $\Phi B=L$. We have \[L \otimes_A \completion{A}=L \otimes_B(B \otimes_A \completion{A})=L \otimes_B \completion{B},\] and the local rings of this ring are of the form $ \completion{B}_Q$ with $Q \cap B=(0)$, hence regular.
+\end{implyenumerate}
+\end{proof}
+
+\begin{lemma}\label{lem:33.04}
+ Let $A \varrightarrow{} B$ be a regular homomorphism and let $A'$ be an $A$-algebra of finite type. Put $B'=A' \otimes A^B$. Then $A' \varrightarrow{} B'$ is regular,
+\end{lemma}
+\begin{proof}
+ Let 
+ \begin{itemize}
+     \item $P' \in \Spec(A')$, 
+     \item $P=P' \cap A$,
+     \item $k=\kappa(P)$
+     \item $K=\kappa(P')$
+     \item $L$ be a finite extension of $K$
+ \end{itemize}
+ Then \[L \otimes_{A'} B'=L \otimes_A B=L \otimes_k(k \otimes_A B).\] Since $K$ is finitely generated over $k$, $L$ is also finitely generated over $k$. Thus there exists a finite radical extension $k'$ of $k$ such that $L(k')$ is separably generated over $k'$. Put $M=L(k'), \, T=k' \otimes_A B $. By assumption $T$ is a regular ring. We have \[M \otimes_{A'} B'=M \otimes_A B=M \otimes_{k'} (k' \otimes_A B)=M \otimes_{k'} T,\] and $M$ is finitely generated and separable over $k'$. Then it is easy to see that the homomorphism $T \varrightarrow{} M \otimes_{k'} T$ is regular, and since $T$ is regular the ring $M \otimes_{A'} B'=M \otimes_{k'} T$ is regular by Lemma \ref{lem:33.02}. Since $M \otimes_{A'} B'=M \otimes_L(L \otimes_{A'} B')$ is flat over $L \otimes_A B'$, the ring $L \otimes_{A'} B'$ is regular by Th.\ref{thm:051}.
+\end{proof}
+
+\begin{parlemma}\label{lem:33.05} Let $A$ be a Noetherian ring and put $X=\Spec(A)$. Let $Z$ be a non-empty, locally closed set in $X .$
+Then $Z$ contains a point $\ideal{p}$ such that $\dim(A / \ideal{p}) \leqslant 1 .$ (Geometrically speaking, $Z$ contains either a `point' or a `curve'.)
+\end{parlemma}
+\begin{proof}Shrinking $Z$ if necessary, we may suppose that $Z$ is
+of the form \newline $D(f) \cap V(P)$ with $f \in A$ and $P \in X$ such that $f \notin P$.
+Then $Z$ is homeomorphic to $\Spec((A / P)_{\overline{f}})$ where $\overline{f}$ is the image
+of $f \in A / P$. Let $\ideal{m}$ be a maximal ideal of the ring $(A / P)_{\overline{f}}$,
+and let $\ideal{p}$ be the inverse image of $\ideal{m}$ in $A$. Then
+\[A_f / \ideal{p} A_f=(A / P)_{\overline{f}} / \ideal{m}=\text{ a field,}\]
+hence if $g$ is the image of $f$ in $A / \ideal{p}$ then $A_f / \ideal{p} A_f=(A / \ideal{p})[g^{-1}]$
+is a field. This means that all non-zero prime ideals of the
+Noetherian domain $A / \ideal{p}$ contain $g$, which is impossible if
+$\dim A / \ideal{p}>1$ because a Noetherian domain of dimension $>1$ has
+infinitely many prime ideals of height $1$ (cf. \ref{1.B} and \ref{12.I})\end{proof}
+
+\begin{partheorem}[Grothendieck.]\label{thm:077} Let $A$ be a $G$-ring and $B$
+a finitely generated $A$-algebra. Then $B$ is a $G$-ring.
+\end{partheorem} 
+\begin{proof}\phantom{,}
+\begin{enumerate}[label = Step \Roman*.]
+    \item We may assume that $B=A[t]$. Let $P$ be a maximal ideal of $B$ and put $\ideal{p}=P \cap A$. We are to prove that $B_P\varrightarrow{} \completion{(B_P)}$ is regular. Since $B_P$ is a localization of $A_{\ideal{p}}[t]$. we may assume that $A$ is a local ring and $P \cap A=\rad(A)$. Put $\ideal{m}=\rad(A)$.
+    
+    \item The map $B \varrightarrow{} B'=B \otimes_A \completion{A}$ induced by $A \varrightarrow{} \completion{A}$ is regular by Lemma \ref{lem:33.04} and f.f., and if $P'$ is a maximal ideal of $B'$ lying over $P$, the proof of Lemma \ref{lem:33.02}(ii) shows that $B_P \varrightarrow{}\completion{(B_P)}$ is regular if $B' P' \varrightarrow{}\completion{(B'_{P'})}$ is regular. The ring $B'= A[t] \otimes_A \completion{A}$ is of the form $\completion{A}[t]$. So we may assume that $(A, \ideal{m})$ is a complete local ring, $B=A[t]$ and $P$ is a maximal ideal of $B$ lying over $\ideal{m}$. Putting $C=B_P$, we want to show that $C \varrightarrow{} \completion{C}$ is regular, in other words (Th.\ref{thm:075}) that $C$ is a $G$-ring. By Lemma \ref{lem:33.03} it suffices to show the following: if $D$ is a finite $C$-algebra which is a domain, and if $Q$ is a prime ideal of $\completion{D}$ with $Q \cap D=(0)$, then the local ring $\completion{D}_Q$ is regular. The various rings considered are related as follows.
+    \[A=\completion{A}\varrightarrow{}B=A[t] \varrightarrow{}C=B_P \varrightarrow{\text{finite}} D \varrightarrow{}\completion{D}\varrightarrow{}\completion{D}_Q\]
+    Denote the kernel of $C\varrightarrow{}D$ by $I$. Since $D$ is a domain, $I$ is a prime ideal. Replacing $A$ by $A /(A \cap I)$, $B$ by $B(B \cap I)$ and $P$ by $P / I$, we may further assume that $A$ is a complete local domain.
+
+    \item Put $X=\Spec(D)$ and $X'=\Spec(\completion{D})$, and let $f: X' \varrightarrow{} X$ be the canonical map. It suffices to prove $f^{-1}(\Reg(X))=\Reg(X')$. Indeed, since $D$ is a domain we have $f(Q)=Q \cap D=(0) \in \Reg(X)$, and our goal was $Q \in \Reg(X')$.
+    
+    \item Proof of $f^{-1}(\Reg(X))=\Reg(X')$.
+
+Suppose that they are not equal. Since the complete local ring $A$ is J-2 by Th.\ref{thm:074} $ B=A[t]$ and $C=B_P$ are also J-2. Hence D is J-1, i.e., $\Reg(X)$ is open in $X$. On the other hand $\Reg(X')$ is open in $X'$ by Th.\ref{thm:074}. So $f^{-1}(\Reg(X)) \cap \Sing(X')$ is locally closed, and we have assumed that the intersection is not empty. We want to derive a contradiction from this.
+
+By Lemma 5 there exists $\ideal{p}' \in f^{-1}(\Reg(X)) \cap \Sing(X')$ such that \newline $\dim(\completion{D} / \ideal{p}') \leqslant 1$. The prime $\ideal{p}'$ of $\completion{D}$ is not a maximal ideal, because otherwise $f(\ideal{p}')=D \cap \ideal{p}'$ would be a maximal ideal of $D$ and \newline $f(\ideal{p}') \in \Reg(X)$ would imply that $D_f(\ideal{p}')$ is regular. Then $\completion{D}_{ \ideal{p}'}=\completion{D}_{f(\ideal{p}')}$ must be regular, contrary to the assumption that $\ideal{p}' \in \Sing(X)$. Therefore we have $\dim(\completion{D} / \ideal{p}')=1$.
+
+Put $\ideal{p}=\ideal{p}' \cap D$. Then $D_\ideal{p}$ is regular and $\completion{D}_{\ideal{p}'}$ is not regular, and $D_\ideal{p} \varrightarrow{} \completion{D}_{\ideal{p}'}$ is faithfully flat. Hence, by Th.\ref{thm:051}, $\completion{D}_{ \ideal{p}'} \otimes_D(D / \ideal{p})$ is not regular. Replacing $\completion{D}$ by $\completion{D} / \ideal{p} \completion{D}$, $D$ by $D / \ideal{p},\, C$ by $C / C \cap \ideal{p}$ etc., we may assume that $\ideal{p}=(0)$.
+
+Thus we have finite
+\[A=\completion{A} \hookrightarrow B=A[t] \varrightarrow{} C=B_P \xhookrightarrow{\text{finite}}D \varrightarrow{} \completion{D} / \ideal{p}' .\]
+We distinguish two cases.
+\end{enumerate}
+\begin{enumerate}[label = Case \arabic*.]
+    \item $\completion{D} / \ideal{p}'$ is finite over $A$. Then $D$ is also finite over A, hence $D$ is complete. Thus $\completion{D}=D$, hence $\ideal{p}'=(0)$ and $\completion{D}_{\ideal{p}'}$ is a field, contrary to the assumption $\ideal{p}' \in \Sing(X')$.
+    
+    \item $\completion{D} / \ideal{p}'$ is not finite over $A$. Put $E=\completion{D} / \ideal{p}',\ideal{m}_A=\rad(A), \ideal{m}_E=\rad(E)$ etc.. Since $P$ is a maximal ideal of $B=A[t]$, lying over $\ideal{m}_A$ the residue field $C / \ideal{m}_C$ is finite over $A / \ideal{m}_A$. Moreover, $E / \ideal{m}_E$ is a homomorphic image of $\completion{D} / \ideal{m}_{\completion{D}}=D / \ideal{m}_D$ and $D / \ideal{m}_D$ is finite over $C / \ideal{m}_C$. Hence $E / \ideal{m}_E$ is finite over $A / \ideal{m}_A$. Therefore, if $\ideal{m}_A E$ contains a power of $\ideal{m}_E$ then $E / \ideal{m}_A E$ is also finite over $A / \ideal{m}_A$, and $E$ itself must be finite over $A$ by the Lemma at the end of \S\ref{sec:28}. Thus $\ideal{m}_A E$ does not contain any power of $\ideal{m}_E$. But $E$ is a Noetherian local domain of dimension $1$, so we must have $\ideal{m}_A E=(0)$. Hence also $\ideal{m}_A=(0)$,i.e. $A$ is a field. Then we get $\dim D \leqslant 1$ by construction. Therefore $\dim\completion{D}=1$ and $P'$ (not being maximal) must be a minimal prime of $\completion{D}$. Now $D$ is a Nagata ring by Th.\ref{thm:072}, hence $\completion{D}$ is reduced. Therefore $\completion{D}_{\ideal{p}'}$ is a field and we get a contradiction again.
+\end{enumerate}
+\end{proof}
+
+\begin{partheorem}\label{thm:078} Let $A$ be a $G$-ring which is J-2. Then $A$ is a Nagata ring.\end{partheorem}
+
+\begin{proof} Let $\ideal{p} \in \Spec(A)$, and let $K$ be the quotient field of $A / \ideal{p},\, L$ a finite extension of $K$ and $B$ the integral closure of $A$ in $L$. We have to prove that $B$ is finite over $A$. Let $A'$ be a finite $A-$algebra such that $A / \ideal{p}\subseteq A' \subseteq B$ and $\phi A' \times L$. Then $A'$ is a $G$-ring by Th.\ref{thm:076} and is J-2. Thus, replacing $A$ by $A'$, the problem is reduced to proving that a Noetherian J-2 domain which is a $G$-ring is N-1 (i.e. the integral closure $B$ of $A$ in $K=\Phi A$ is finite over $A$). Put $X=\Spec(A)$. Then $\Reg(X)$ is non-empty and open in $X$, and is of course contained in $\Nor(X)$. So, by Lemma \ref{lem:31.04} we have only to show that $A_{\ideal{m}}$ is $N-1$ for each maximal ideal $\ideal{m}$ of $A$. But $A_{\ideal{m}}$ is reduced and $A_{\ideal{m}} \varrightarrow{}\completion{(A_{\ideal{m}})}$ is regular, so by Lemma \ref{lem:33.02} the ring $\completion{(A_{\ideal{m}}}$ is reduced. Therefore $A_{\ideal{m}}$ is N-1 by \ref{31.E}\end{proof}
+
+\begin{partheorem}[Analytic normality of normal $G$-rings.]\label{thm:079}
+
+Let $A$ be a $G$-ring and $I$ an ideal of $A$. Let $B$ denote the $I$-adic completion of $A$. Then the canonical map $A \varrightarrow{} B$ is regular. Consequently, $B$ is normal (resp. regular, resp. C.M., resp. reduced) if $A$ is so.\end{partheorem}
+
+\begin{proof} It is clear from the definition that $A \varrightarrow{} B$ is regular iff, for any maximal ideal $\ideal{m}'$ of $B$, the map $A_{\ideal{m}} \varrightarrow{} B_{\ideal{m}'}\, (\ideal{m}=\ideal{m}' \cap A$ is regular. Now, since $\ideal{m}'$ is maximal, $\ideal{m}$ is a maximal ideal of $A$ containing $I$ by \ref{24.A}. Furthermore the local rings $A_{\ideal{m}}$ and $B_{\ideal{m}'}$ have the same completion (cf. \ref{24.D}). Thus in the diagram
+\[A_\ideal{m} \varrightarrow{h} B_{\ideal{m}'} \varrightarrow{g} \completion{(B_{\ideal{m}})} =\completion{(A_\ideal{m})}\]
+$g h$ is regular and $g$ is f.f., so that $h$ is regular by Lemma \ref{lem:33.01}. Thus $A \varrightarrow{} B$ is regular. The second assertion
+follows from this by Lemma \ref{lem:33.02}.\end{proof}
+
+
+
+\end{document}

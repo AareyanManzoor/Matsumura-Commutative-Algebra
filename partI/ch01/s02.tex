@@ -1,0 +1,46 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Noetherian Rings and Artinian Rings}\label{sec:02}
+\newparagraph
+A ring is called \defemph{Noetherian}\index{Noetherian!\indexline ring} (resp. \defemph{Artinian}\index{Artinian!\indexline ring}) if the ascending chain condition (resp. descending chain condition) for ideals holds in it. A ring $A$ is Noetherian iff every ideal of $A$ is a finite $A$-module.
+
+If $A$ is a Noetherian ring and $M$ a finite $A$-module, then the ascending chain condition for submodules holds in $M$ and every submodule of $M$ is a finite $A$-module. From this, it follows easily that a finite module $M$ over a Noetherian ring has a projective resolution \[\dots\longrightarrow X_i\longrightarrow X_{i-1}\longrightarrow\dots\longrightarrow X_0\longrightarrow M\longrightarrow 0\]such that each $X_i$ is a finite free $A$-module. In particular, $M$ is of finite presentation.
+
+A polynomial ring $A[X_1,\dots,X_n]$ over a Noetherian ring $A$ is again Noetherian. Similarly for a formal power series ring $A[[X_1,\dots,X_n]]$. If $B$ is an $A$-algebra of finite type and if $A$ is Noetherian, then $B$ is Noetherian since it is a homomorphic image of $A[X_1,\dots,X_n]$ for some $n$.
+
+\newparagraph
+Any proper ideal $I$ of a Noetherian ring has a primary decomposition, i.e., $I=\ideal{q}_1\cap\cdots\cap \ideal{q}_r$ with primary ideals $\ideal{q}_i$. (We shall discuss this topic again in Chap. 5)
+
+\begin{parproposition*}
+A ring $A$ is Artinian iff the length of $A$ as $A$-module is finite.
+\end{parproposition*}
+\begin{proof}
+If $\mathrm{length}_A(A)<\infty$ then $A$ is certainly Artinian (and Noetherian). Conversely, suppose $A$ is Artinian. Then $A$ has only a finite number of maximal ideals. Indeed, if there were an infinite sequence of maximal ideals $\ideal{p}_1,\ideal{p}_2,\dots$ then \[\ideal{p}_1\supset \ideal{p}_1\ideal{p}_2\supset \ideal{p}_1\ideal{p}_2\ideal{p}_3\supset\cdots\]would be a strictly descending infinite chain of ideals, contradicting the hypothesis. Let $\ideal{p}_1,\dots,\ideal{p}_r$ be all the maximal ideals of $A$ (we may assume $A\neq 0$, so $r>0$), and put $I=\ideal{p}_1\cdots \ideal{p}_r$. The descending chain \[I\supseteq I^2\supseteq I^3\supseteq\cdots \]stops, so there exists $s>0$ such that $I^s=I^{s+1}$. Put $((0):I^s)=J$. Then \[(J:I)=(((0):I^s):I)=((0):I^{s+1})=J.\]We claim $J=A$. Suppose the contrary, and let $J'$ be a minimal member of the set of ideals strictly containing $J$. Then $J'=Ax+J$ for any $x\in J'\setminus J$. Since $I=\rad(A)$, the ideal $Ix+J$ is not equal to $J'$ by \hyperref[NAK]{NAK}. So we must have $Ix+J=J$ by the minimality of $J'$, hence $Ix\subseteq J$ and $x\in (J:I)=J$, a contradiction. Thus $J=A$, i.e. $1\cdot I^s\subseteq (0)$, i.e. $I^s=(0)$.
+
+Consider the descending chain \[A\supseteq\ideal{p}_1\supseteq\ideal{p}_1\ideal{p}_2\supseteq\cdots\supseteq\ideal{p}_1\cdots\ideal{p}_{r-1}\supseteq I\supseteq I\ideal{p}_1\supseteq I\ideal{p}_1\ideal{p}_2\supseteq\cdots\supseteq I^2\supseteq I^2\ideal{p}_1\supseteq\cdots\supseteq I^s=(0).\]Each factor module of this chain is a vector space over the field $A/\ideal{p}_i=k_i$ for some $i$, and its subspaces correspond bijectively to the intermediate ideals. Thus, the descending chain condition in $A$ implies that this factor module is of finite dimension over $k_i$, therefore it is of finite length as $A$-module. Since $\mathrm{length}_A(A)$ is the sum of the length of the factor modules of the chain above, we see that $\mathrm{length}_A(A)$ is finite.
+\end{proof}
+
+A ring $A\neq 0$ is said to have dimension zero if all prime ideals are maximal (cf. \ref{12.A}).
+
+\begin{corollary*}
+A ring $A\neq 0$ is Artinian iff it is Noetherian and of dimension zero.
+\end{corollary*}
+\begin{proof}
+If $A$ is Artinian, then it is Noetherian since $\mathrm{length}_A(A)<\infty$. 
+Let $p$ be any prime ideal of $A$. In the notation of the above proof, we have $(\ideal{p}_1\cdots\ideal{p}_r)^s=I^s=(0)\subseteq\ideal{p}$, hence $\ideal{p}=\ideal{p}_i$ for some $i$. Thus $A$ is of dimension zero. 
+To prove the converse, let $(0)=\ideal{q}_1\cap\cdots\cap\ideal{q}_r$ be a primary decomposition of the zero ideal in $A$, and let $\ideal{p}_i=$ the radical of $\ideal{q}_i$. Since $\ideal{p}_i$ is finitely generated over $A$, there is a positive integer $n$ such that $\ideal{p}_i^n\subseteq\ideal{q}_i\for{1\leq i\leq r}$. Then $(\ideal{p}_1\cdots\ideal{p}_r)^n=(0)$. After this point we can imitate the last part of the proof of the proposition to conclude that $\mathrm{length}_A(A)<\infty$.
+\end{proof}
+
+\newparagraph
+I.S. Cohen proved that a ring is Noetherian iff every prime ideal is finitely generated (cf. \cite{nagata1975local}, p.8). Recently P.M. Eakin \cite{eakin1968the} proved that, if $A$ is a ring and $A'$ is a subring over which $A$ is finite, then $A'$ is Noetherian if (and of course only if) $A$ is so. (The theorem was independently obtained by Nagata, but the priority is Eakin's.)
+
+%I don't think this should be a subsection but I can't think of another way to get a heading
+\subsection*{Exercises to Chapter 1.}
+\begin{enumerate}
+    \item Let $I$ and $J$ be ideals of a ring $A$. What is the condition for $V(I)$ and $V(J)$ to be disjoint?
+    \item Let $A$ be a ring and $M$ an $A$-module. Define the \defemph{support of }\index{support}$M$, $\Supp(M)$, by \[\Supp(M)=\{p\in\Spec(A)\mid M_{\ideal{p}}\neq 0\}.\] If $M$ is finite over $A$, we have $\Supp(M)=V(\Ann(M))$ so that the support is closed in $\Spec(A)$.
+    \item Let $A$ be a Noetherian ring and $M$ a finite $A$-module. Let $I$ be an ideal of $A$ such that $\Supp(M)\subseteq V(I)$. Then $I^nM=0$ for some $n>0$.
+\end{enumerate}
+
+\end{document}

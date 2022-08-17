@@ -1,0 +1,285 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Formal Smoothness I}\label{sec:28}
+
+\newparagraph The notion of formal smoothness is due to Grothendieck \cite{egaIV}.It is closely connected with the differentials, and it throws new light to the theory of regular local rings. It can also be used in proving the Cohen structure theorems of complete local rings.
+
+As a motivation for the definition of formal smoothness, we begin by a brief discussion of a typical theorem of Cohen.
+\begin{definition}
+Let $(A, \ideal{m}, K)$ be a local ring. A \defemph{coefficient field}\index{coefficient!\indexline field} $K'$ of $A$ is a subfield of $A$ which is mapped isomorphically onto $K=A / \ideal{m}$ by the natural map \newline $A \varrightarrow{} A/\ideal{m} .$
+\end{definition}
+
+I. S. Cohen proved that any Noetherian complete local ring which contains a field contains at least one coefficient field. To find a coefficient field is equivalent to finding a homomorphism $u: K \varrightarrow{} A$ such that $r u=\id_K$, where $r: A \varrightarrow{} K$ is the natural map. Since $A$ is complete, we have $A=\varprojlim A/\ideal{m}^i$. Therefore it is enough to find a system of homomorphisms $u_i: K \varrightarrow{} A/\ideal{m}^i\for{i=1,2, \ldots}$ such that $r_i u_{i+1}=u_i$ for all $i$, where $r_i: A / \ideal{m}^{i+1} \varrightarrow{} A / \ideal{m}^i$ is the natural map. Thus, the natural approach will be to try to ``lift'' a given homomorphism $u_i: K \varrightarrow{} A/\ideal{m}^i$ to $u_{i+1}: K \varrightarrow{} A/\ideal{m}^{i+1}$. If this is always possible then one can start with $u_1=\id_K: K \varrightarrow{} A/\ideal{m}=$ $K$ and construct $u_i$ step by step.
+
+\begin{parconvention}
+Throughout the remainder of the book, we shall use the phrase topological ring to mean a \defemph{topological ring} whose topology is defined by the powers of an ideal, and such ideal will be called an ideal of definition. When $A$ is a topological ring, by a discrete $A$-module $M$ we shall mean an $A$-module such that $I M=(0)$ for some open ideal $I$ of $A$. When $A$ is a local or semi-local ring and $M=\rad(A)$, the topology of $A$ will be the $M$-adic topology unless the contrary is explicitly stated.
+\end{parconvention} 
+
+\begin{pardefinition}
+Let $k$ and $A$ be topological rings and $g: k \varrightarrow{} A$ be a continuous homomorphism. We say that $A$ is \defemph{formally smooth}\label{def:28.formally smooth}\index{formally!\indexline smooth (= f.s.)} (f.s. for short) over $k$, or that $A$ is a \defemph{f.s. $k$-algebra}, if the following condition is satisfied: (FS) For any discrete ring $C$, for any ideal $N$ of $C$ with $N^2=(0)$ and for any continuous homomorphisms $u: k \varrightarrow{} C$ and $v: A \varrightarrow{} C / N$ ($C / N$ being viewed as a discrete ring) such that the diagram
+
+\[\tag{28.*}\label{eqn:28.*} \begin{tikzcd} A \arrow[r,"v"] & C/N\\ k \arrow[u,"g"] \arrow[r,"u"] &C \arrow[u,"q"]\end{tikzcd}\] (where $q$ is the natural map) is commutative, there exists a homomorphism \newline $v': A \varrightarrow{} C$ such that $v=q v'$ and $u=v'g$. \[\begin{tikzcd} A\arrow[rr,"v"] \arrow[rrd,"v'"] && C/N \\ k\arrow[u,"g"] \arrow[rr,"u"] &&C\arrow[u,"q"]\end{tikzcd}\]
+\end{pardefinition}
+
+\begin{remark}
+If $v'$ exists, then we say that $v$ can be lifted to $A \varrightarrow{} C$ over $k$, and $v'$ is called a lifting of $v$ over $k$. A lifting $v'$ is automatically continuous, for the continuity of $v$ implies the existence of an ideal of definition $I$ of $A$ with $v(I)=0$. Thus $v'(I) \subseteq N$ and $v'(I^2)=0$. But $I^2$ is also an ideal of definition of $A$, so $v'$ is continuous. (Similarly, the continuity of $u$ in (\ref{eqn:28.*}) follows from that of vg.) It follows that, if (FS) holds, then it remains true when we replace ``$N^2=0$'' by ``N is nflpotent''. In fact, if $N^m=0$, then we can lift $v: A\varrightarrow{}C / N$ successively to $A \varrightarrow{} C / N^2$, to $A \varrightarrow{} C / N^3$, and so on, and finally to $A \varrightarrow{} C / N^m=C$.
+
+Let now $C$ be a complete and separated topological ring and $N$ an ideal of definition of $C$. Consider a commutative diagram (\ref{eqn:28.*}) with $u$ and $v$ continuous. Then, if $A$ is f.s. over $k$, one can lift $v$ to $v': A \varrightarrow{} C$. In fact one can lift $v$ successively to $A \varrightarrow{} C / N^2$, to $A \varrightarrow{} C / N^3$ and so on, and then to $A \varrightarrow{} C=\varprojlim C / N^i$
+\end{remark}
+
+\begin{pardefinition}
+ When $A$ is f.s. over $k$ for the discrete topologies on $k$ and $A$, we say that $A$ is \defemph{smooth}\index{smooth} over $k$. Thus smoothness implies formal smoothness for any adic topologies on $A$ and $k$ such that $g: k \varrightarrow{} A$ is continuous.
+\end{pardefinition}
+
+\begin{example}
+\begin{enumerate}[label = \arabic*.]
+  \item Let $k$ be a ring and $A=k[\ldots, X_{\lambda}, \ldots]$ be a polynomial ring over $k$. Then $A$ is smooth over $k$. This is clear from the definition.
+  \item Let A be a Noetherian $k$-algebra with $I$-adic topology ($I$ = an ideal of $A$) and let $\completion{A}$ denote the completion of $A$. Suppose $A$ is f.s. over $k$. Then the $I\completion{A}$-adic ring $\completion{A}$ is f.s., over $k$. In fact, a continuous homomorphism $v$ from $\completion{A}$ to a discrete $C / N$ factors through $\completion{A} / I^n \completion{A}=A / I^n$ for some $n$, and $A \varrightarrow{} A / I^n$ $\varrightarrow{} C / N$ can be lifted to $A \varrightarrow{} A / I^m \varrightarrow{} C$ for some $m \equiv n$. Using $A / I^m=\completion{A} / I^m \completion{A}$ we get a homomorphism $\completion{A} \varrightarrow{} \completion{A} / I^m \completion{A}\varrightarrow{}C$, which lifts the given $\completion{A} \varrightarrow{} C / N$.
+  \item In particular, if $k$ is a Noetherian ring with discrete topology and if $B=k[[X_1, \ldots, X_n]]$ is the formal power series ring with $\sum_1^n B$-adic topology, then $B$ is f.s. over $k$, because it is the completion of $A=k[X_1, \ldots, X_n]$ with respect to the $\sum X_i A$-adic topology and $A$ is smooth over $k$.
+\end{enumerate}
+\end{example}
+
+\newparagraph \defemph{Formal smoothness is transitive}: if $B$ is a f.s. $A$-algebra and A is a f.s. $k$-algebra, then $B$ is f.s. over $k$.
+
+\begin{proof}
+\[
+\begin{tikzcd}
+	B && {C/N} \\
+	A && C \\
+	k
+	\arrow["g", from=3-1, to=2-1]
+	\arrow["{g'}", from=2-1, to=1-1]
+	\arrow["v", from=1-1, to=1-3]
+	\arrow[from=2-3, to=1-3]
+	\arrow["u"', from=3-1, to=2-3]
+	\arrow["w"', dashed, from=2-1, to=2-3]
+	\arrow["{v'}", dashed, from=1-1, to=2-3]
+\end{tikzcd}\]
+In the diagram one first lifts $vg'$ to $w:A\varrightarrow{}C$, and then lifts $v$ to \newline $v':B\varrightarrow{}C$
+\end{proof}
+
+\newparagraph \defemph{Localization}. Let A be a ring and $S$ a multiplicative set in A. Then $S^{-1} ~A$ is smooth over $A$.
+
+\begin{proof}
+Consider a commutative diagram
+\[
+    \begin{tikzcd}
+        S^{-1}A \arrow[r,"v"] &C/N\\
+        A\arrow[u,"g"] \arrow[r,"u"] &C\arrow[u,"q"]
+    \end{tikzcd}
+\]
+where $g$ and $q$ are the natural maps and $N^2=0$. Then $v$ can be lifted to $v': s^{-1} A \varrightarrow{} C'$ iff $u(s)$ is invertible in $C$ for every $s \in S$. But, since $N \subseteq \rad(C)$, an element $x$ of $C$ is a unit iff $q(x)$ is a unit in $C / N$. And $q u(s)=vg(s)$ is certainly invertible in $C / N$ as $g(s)$ is so in $S^{-1}A$.
+\end{proof}
+
+\newparagraph \defemph{Change of base}. Let $k, A$ and $k'$ be topological rings, and $k \varrightarrow{} A$ and $k \varrightarrow{} k'$ be continuous homomorphisms. Let $A'$ denote the ring $A \otimes_k k'$ with the topology of tensor product (cf. \ref{23.F}). If $A$ is f.s, over $k$, then $A'$ is $f, s$, over $k'$.
+
+\begin{proof}Look at the commutative diagram
+\[\begin{tikzcd}
+	A & {A'} && {C/N} \\
+	k & {k'} && C
+	\arrow["p", from=1-1, to=1-2]
+	\arrow[from=2-1, to=1-1]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-2, to=1-2]
+	\arrow["u"', from=2-2, to=2-4]
+	\arrow["v", from=1-2, to=1-4]
+	\arrow["q"', from=2-4, to=1-4]
+\end{tikzcd}\]
+One lifts the continuous homomorphism $vp$ to $w: A \varrightarrow{} C$, and puts \[v'=w \otimes u: A \otimes_k k'=A' \varrightarrow{} C\] to obtain a lifting of $v$.
+\end{proof} 
+
+\newparagraph Let $k$ be a field and A be a $k$-algebra. Consider a commutative diagram of rings
+\[\begin{tikzcd}
+	A & {C/N} \\
+	k & C
+	\arrow[from=2-1, to=1-1]
+	\arrow["v", from=1-1, to=1-2]
+	\arrow[from=2-2, to=1-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+with $N^2=0$, and put $E=\{(a, c) \in A \times C \mid v(a)=q(c)\}$. Then $E$ is a k-subalgebra of $A \times C$, and is an extension of the $k$-algebra $A$ by $N$: \[ 0 \varrightarrow{} N \varrightarrow{} E \varrightarrow{p} A \varrightarrow{} 0\] with $p(a, c)=a$. The homomorphism $v: A \varrightarrow{} C / N$ lifts to $v': A \varrightarrow{} C$ iff the extension \[0 \varrightarrow{} N \varrightarrow{} E \varrightarrow{} A \varrightarrow{} 0\] splits over $k$ (cf. \ref{25.D}). Since $k$ is a field, the extension algebra $E$ is isomorphic to $A \oplus N$ as $k-$module, so it is a Hochschild extension (cf. \ref{25.C}) and defines a symmetric cocycle $f: A \times A \varrightarrow{} N$. We define a complex of $A-$modules (the ``modified Hochschild complex'') \[P_\bullet' = P_\bullet'(A/k): P_3' \varrightarrow{d_3} P_2' \varrightarrow{d_2}P_1'\] as follows: \[P_3' = (A\otimes_k A\otimes_k A\otimes_k A)\oplus (A\otimes_k A\otimes_k A),\, P_2' =A\otimes_k A\otimes_k A,\, P_1'=A\otimes_k A\] (the $A$-module structure on $P_1'$ being defined by the first factor),
+\[\begin{aligned}
+d_3(1\otimes a \otimes b \otimes c+1\otimes y \otimes z)& = a\otimes b \otimes c - 1 \otimes ab \otimes c +1\otimes a \otimes b \\&-c \otimes a \otimes b+ 1 \otimes y \otimes z - 1\otimes z \otimes y.
+\end{aligned}\]
+and
+\[d_2(1\otimes a \otimes b)= a\otimes b -1\otimes ab + b\otimes a\]
+For any $A$-module $N$ we define the cochain complex
+\[
+\Hom_A(P_\bullet', N): \Hom_A(P_3', N)\longleftarrow\Hom_A(P_2', N)\longleftarrow\Hom_A(P_1', N)
+\]
+and we denote its cohomology (at the middle term) by $H_k^2(A, N)^s$, the letter s indicating the cohomology with respect to
+symmetric cocycles, This cohomology vanishes iff any symmetric cocycle $f: A \times A \varrightarrow{} N$ is a coboundary, i.e.
+\[f(a, b)=a h(b)-h(a b)+b h(a)\] for some function $h: A \varrightarrow{} N$.
+Therefore, $A$ is smooth over $k$ iff $H_k^2(A, N)^s=0$ for all $A$-modules $N$.
+
+Suppose now that $A$ is a field $K$. Then every extension of $K$-modules splits, so we have $P_2' \simeq \Im(d_3) \oplus H_2(P_\bullet') \oplus \Im(d_2)$ as $K$-module.
+\[\begin{tikzcd}
+	&& \bullet \\
+	\bullet && \bullet \\
+	\bullet && \bullet &&& \bullet \\
+	\bullet && \bullet &&& {\Im d_2}
+	\arrow[no head, from=2-1, to=3-1]
+	\arrow[no head, from=3-1, to=4-1]
+	\arrow[no head, from=4-1, to=4-3]
+	\arrow[from=3-1, to=4-3]
+	\arrow["{d_3}", from=2-1, to=3-3]
+	\arrow[no head, from=3-3, to=4-3]
+	\arrow[no head, from=2-3, to=3-3]
+	\arrow[no head, from=1-3, to=2-3]
+	\arrow["{d_2}", from=1-3, to=3-6]
+	\arrow[from=2-3, to=4-6]
+	\arrow[no head, from=4-3, to=4-6]
+	\arrow[from=3-6, to=4-6]
+	\arrow["{H_2}", curve={height=-6pt}, from=2-3, to=3-3]
+	\arrow["{\Im d_2}", curve={height=-6pt}, from=3-3, to=4-3]
+\end{tikzcd}\]
+
+It follows that $H_k^2(K, N)^s \simeq \Hom_K(H_2(P'_\bullet), N)$. If these are zero for all $N$ then $H_2(P'_\bullet)=0$, and conversely.
+\begin{parproposition}
+ Let $k$ be a field and $K$ an exterision field of $k$. If $k$ is separable over $k$ then it is smooth over
+$k$. (The converse is also true and will be proved in Th.\ref{thm:062}.)
+\end{parproposition}
+\begin{proof}
+Suppose first that $k$ is finitely generated over $k$. Then it is separably generated over $k$ by \ref{27.F}. If $K$ is purely transcendental over $k$ then it is smooth over $k$ by \ref{28.D} Example 1, by \ref{28.F} and by \ref{28.E}. If $K$ is separably algebraic over $k$ then $K=k(t)=k[X] /(f(X))$ with $f(t)=0, \,f'(t)\neq 0$. If $C$ is a $k$-algebra, if $N$ is an ideal of $C$ with $N^2=0$ and if $v: k \varrightarrow{} C / N$ is a homomorphism of $k$-algebras, then $v$ can be lifted to $k \varrightarrow{} C$ iff there exists $x \in C$ satisfying \[f(x)=0\text{ and }x \bmod N=v(t).\] Take a pre-image $y$ of $v(t)$ in $C$, and let $n$ be an element of $N$. Then \[f(y+n)=f(y)+f'(y) n,\,f(y) \in N,\] and $f'(y)$ is a unit in $C$ because $f'(v(t))=v(f'(t))$ is a unit in $C / N$. Thus, if we put $x=y+n$ with $n=-f(y) / f'(y)$, then we get $f(x)=0$. So $k$ is smooth over $k$ in this case also. By the transitivity any separably generated extension is smooth.
+
+In the general case, we have
+\begin{align*}
+K/k\text{ is separable}\iff& L/k\text{ is separably generated for any finitely}\\
+&\text{generated subsextension } L/k\text{ of } K/k\\
+\implies & L/k\text{ is smooth for any such } L/k\\
+\iff & H_2(P'_\bullet(L/k))=0 \text{ for any such } L/k.
+\end{align*}
+But, since tensor product and homology commute with inductive limits, and since $K=\varinjlim L$, we have \[H_2(P'_\bullet(K / k))=\varinjlim H_2(P'_\bullet (L / k))=0 .\] Therefore $K$ is smooth over $k$ by \ref{28.H}\end{proof}
+
+\begin{remark}
+ It is also possible to give a non-homological proof of the proposition. The above proof is due to Grothendieck and has the merit of treating the cases of $\ch(k)=0$ and of $\ch(k)=p$ in a unified manner.
+\end{remark}
+\begin{partheorem}[I.S Cohen]\label{thm:060}
+ Let $(A,\ideal{m},K)$ be a complete and separated local ring containing a field $k$. Then $A$ has a coefficient field. If $k$ is separable over $k$ then $A$ has a coefficient field which contains $k$.
+\end{partheorem}
+\begin{proof}
+If $k$ is separable over $k$(e.g. if $\ch(K)=0$) then it is smooth over $k$. Therefore one can lift $\id_K: K \varrightarrow{} A/\ideal{m}$ to a homomorphism of $k$-algebras \newline $K \varrightarrow{} A=\lim A/\ideal{m}^i$ (cf. \ref{28.A}). In the general case let $k_0$ be the prime field in $k_0$ Then $K$ is separable over $k_0$ as the latter is perfect (\ref{27.E} Cor.). Hence $A$ has a coefficient field.
+\end{proof}
+\begin{corollary}\label{cor:28.01}
+Let $(A, \ideal{m}, K)$ be a complete and separated local ring containing a field, and suppose that $\ideal{m}$ is finitely generated over $A$. Then $A$ is Noetherian.
+\end{corollary}
+\begin{proof}
+ If $\ideal{m}=(x_1, \ldots, x_n)$ and if $K'$ is a coefficient field of $A$, then any element of $A$ can be developed into a formal power series in $x_1, \ldots, x_n$ with coefficients in $K'$. So $A$ is a homomorphic image of $K[[X_1, \ldots, X_n]]$, hence Noetherian.
+\end{proof}
+
+\begin{corollary}\label{cor:28.02}
+Let $(A, \ideal{m}, K)$ be a complete regular local ring of dimension $d$ containing a field. Then $A \simeq K[[X_1, \ldots, X_d]]$.
+\end{corollary}
+\begin{proof}
+ By the preceding proof we have $A \simeq K[[X_1, \ldots, X_d]] / P$ with some prime ideal $P$. Comparing the dimensions we get $P=(0)$.
+\end{proof}
+
+\begin{partheorem}\label{thm:061}
+Let $(A, \ideal{m}, K)$ be a Noetherian local ring containing a field $k$, and suppose that $A$ is formally smooth over $k$. Then $A$ is regular.
+\end{partheorem}
+\begin{proof}
+ Let $k_0$ be the prime field in $k$. Then $k$ is f.s. over $k_0$, hence $A$ is f.s. over $k_0$ also. Thus we may assume that $k$ is perfect. Let $K'$ be a coefficient field, containing $k$, of the complete local ring $A/\ideal{m}^2$; let $\{x_1, \ldots, x_d\}$ be a minimal basis of $M$. Then there is an isomorphism of $k$-algebras $v_1: A/\ideal{m}^2 \simeq K'[X_1, \ldots, X_d] / J^2$ where $J=(X_1, \ldots, X_d)$. Let $v: A \varrightarrow{} K'[X] / J^2$ be the composition of $v_1$ with the natural map $A \varrightarrow{} A/\ideal{m}^2$. By the formal smoothness one can lift $v$ to a homomorphism of $k$-algebras \[v'_n: A \varrightarrow{} K'[X] / J^{n+1}\text{ for }n= 2,3, \ldots .\] Since $v(x_i)\for{1 \leqslant i \leqslant d}$ generate $J / J^2=\overline{J} / \overline{J}^2$ (where $\overline{J}=J / J^{n+1})$, the elements $v_n'(x_i)$ generate $\overline{J}$ by \hyperref[NAK]{NAK}. Then \[
+ \begin{aligned}
+ K'[X] / J^{n+1}&=v_n'(A)+\overline{J}^2\\&=v_n'(A)+\sum_i v_n'(x_i)(v_n'(A)+\vec{J}^2)\\&=v_n'(A)+\overline{J}^3\\&=\ldots\\&=v_n'(A)+\overline{J}^{n+1}\\&=v_n'(A),\end{aligned}\] i.e. $v_n'$ is surjective. Hence we obtain \[\length(A / m^{n+1}) \geqslant \length(K'[x_1, \ldots, x_d] / J^{n+1})= \binom{d+n}{d}\]proving $\dim A \geqslant d$. As $m$ is generated by $d$ elements the local ring $A$ is regular.
+\end{proof}
+
+\begin{partheorem}\label{thm:062}
+Let $k$ be a field and $k$ a subfield. Then $K$ is smooth over $k$ iff it is separable over $k$.
+\end{partheorem}
+
+\begin{proof} 
+ The ``if'' part was already proved in \ref{28.I}. To prove the ``only if'', let $K$ be smooth over $k$ and let $k'$ be a finite algebraic extension of $k$. Then $K \otimes_k k'$ is a $k$-algebra of finite rank, hence it is a direct product of Artinian local rings: $K \otimes_k k'=A_1 \times \ldots \times A_r$. Moreover, $K \otimes k'$ is smooth over $k'$ by base change, and it follows easily that each $A_i$ is smooth over $k'$. Then each $A_i$ is regular (hence is a field) by Th. \ref{thm:061}, whence $K \otimes k'$ is reduced.
+\end{proof}
+
+\begin{parproposition}
+ Let $(A, \ideal{m}, K)$ be a Noetherian local ring containing a field $k$, and let $\completion{A}$ denote the completion of $A$. Suppose $K$ is separable over $k$. Then the following are equivalent:
+ \begin{enumerate}[label = (\arabic*)]
+     \item A is regular;
+     \item $\completion{A} \simeq K[[X_1, \ldots, X_d]]$ as $k$-algebras, $(d=\dim A)$;
+     \item A is formally smooth over $k$.
+ \end{enumerate}
+\end{parproposition}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[$(1) \implies (2)$] The complete local ring $\completion{A}$ is regular and contains a coefficient field containing $k$, so (2) follows from the proofs of \ref{cor:28.01} and \ref{cor:28.02}.
+    \item[$(2) \implies (3)$] It follows from the definition that $A$ is f.s. over $k$ iff $\completion{A}$ is so. On the other hand $k[[X_1, \ldots, X_d]]$ is f.s. over $k$ (cf. \ref{28.D}), hence also over $k$ by the transitivity.
+    \item[$(3)\implies (1)$] has been proved already.
+\end{implyenumerate}
+\end{proof}
+
+\newparagraph Let $(A, \ideal{m})$ be a local ring containing a field $k$. If $B$ is a finite A-algebra then $B / \ideal{m} B$ is a finite $A / \ideal{m}$-algebra, hence Artinian. Hence $B$ is a semi-local ring. In particular if $k'$ is any finite extension of $k$, then $A'=A \otimes_k k'$ is a semi-local ring.
+
+We say that \defemph{$A$ is geometrically regular over $k$}\index{geometrically regular} if the semi-local ring $A'=A \otimes_k k'$ is regular for every finite extension $k'$ of $k$. If the residue field of $A$ is separable over $k$, the preceding proposition shows that
+
+$A$ is regular $\iff$ $A$ is f.s. over $k$ $\iff$ $A'$ is f.s. over $k'$ $\iff$ $A'$ is regular.
+
+Thus geometrical regularity is equivalent to regularity for such A. But in general these two are not equal. 
+
+\begin{proposition}
+Let $(A, \ideal{m}, K)$ be a Noetherian local ring containing a field $k$. If $A$ is f.s, over $k$, then $A$ is geometrically regular over $k$. The converse is also true if $L$ is finitely generated over $k$.
+
+(Remark: actually the converse is always true, so that geometrical regularity and formal smoothness are the same thing; cf. \cite[22.5.8]{egaIV})
+\end{proposition}
+
+\begin{proof}
+The first assertion is immediate from Th.\ref{thm:061}. As for the second, take a finite radical extension\footnote{By a radical extension of a field $k$ we mean a purely inseparable extension of $K$ if $\ch(k)=p$, and $k$ itself if $\ch(k)=0$.} $k'$ of $k$ such that $K(k')$ is separable over $k^p$ (cf. exercise \hyperref[exe:27.02]{27.02}). The ring $A'=A \otimes_k k'$ is a Noetherian local ring with residue field $K(k')$, and is regular by assumption. Thus $A'$ is f.s. over $k'$ by the preceding proposition. Thus our proposition is proved by the following lemma.
+\end{proof}
+
+\begin{parlemma}\label{lem:28.01}
+Let $A$ be a topological ring containing a field $k$, and let $k'$ be a $k$-algebra (with discrete topology). Put $A'=A \otimes_k k'$. Then $A$ is f.s., over $k$ if (and only if) $A'$ is f.s. over $k'$.
+\end{parlemma}
+\begin{proof} 
+Let $C$ be a discrete $k$-algebra, $N$ an ideal of $C$ with $N^2=0$ and $v: A \varrightarrow{} C / N$ a continuous homomorphism of $k-$algebras. Then \[v'=v \otimes\id_k: A' \varrightarrow{} C / N \otimes_k k'=(C \otimes k') /(N \otimes k')\] is a continuous homomorphism of $k'$-algebras, so there is a lifting \newline $w:A' \varrightarrow{} C'=C \otimes k'$ of $v'$ over $k'$. Choose a $k-$submodule $V$ of $k'$ such that $k'=k \oplus v$. Then $C'=C \oplus(C \otimes V)$ and $C \otimes V$ is a $C$-submodule of $C'$. Write $w(a)=u(a)+r(a)\for{u(a) \in C, r(a) \in C \otimes V}$ for $a \in A$, since \[w(a) \bmod N \otimes k'=v(a) \in C / N\] we have $r(a) \in N \otimes V$. Thus $r(a) r(b)=0$ for $a, b \in A$. It follows that $u: A \varrightarrow{} C$ is a $k$-algebra homomorphism which lifts $v$.
+\end{proof}
+
+\newparagraph (Structure of complete local rings: unequal characteristic case) Let $(A, \ideal{m}, k)$ be a local ring. There are four possibilities:
+\begin{enumerate}[label = \Roman*)]
+    \item $\ch(A)=0, \ch(k)=0 ;$ 
+    \item $\ch(A)=p, \ch(k)=p$;
+    \item $\ch(A)=0, \ch(k)=p ;$
+    \item $\ch(A)=p^n>p, \ch(k)=p$.
+\end{enumerate}
+(If $A$ is an integral domain then the last possibility is excluded.) If I) or II) occurs (so-called equal characteristic case) then $A$ contains a field, and conversely, A subring $R$ of $A$ is called a \defemph{coefficient ring}\index{coefficient!\indexline ring} if it satisfies the following conditions:
+\begin{enumerate}[label = \arabic*)]
+  \item $R$ is a Noetherian complete local ring with maximal ideal $\ideal{m}\cap R$;
+
+  \item we have $R / \ideal{m} \cap R \simeq A/\ideal{m}=k$ by the canonical map (i.e. $A=R+\ideal{m}$)
+  
+  \item $R \cap \ideal{m}=pR$, where $p=\ch(k)$.
+\end{enumerate}
+
+Therefore, $R$ is nothing but a coefficient field in the equal characteristic case. In case III, $\rad(R)=p R$ is not nilpotent, hence $R$ must be a regular local ring of dimension $1$ , i.e, a principal valuation ring. In case IV the ring $R$ is an Artinian ring
+
+\begin{theorem*}[I.S.Cohen]\label{thm:cohen}
+Let $A$ be a complete, separated local ring. Then $A$ has a coefficient ring $R$. In case IV, $R$ is of the form $R=W / p^n W$, where $W$ is a complete principal valuation ring with maximal ideal $pW$.
+\end{theorem*}
+
+In the equal characteristic case it was proved in Th.60. By lack of space we omit the proof of the unequal characteristic case. A concise proof can be found in \cite[pp. 45-48]{samuel1953algebre}. Grothendieck's proof (which depends on the theory of formal smoothness) is in \cite{egaIV}.
+
+The above theorem has two important corollaries: 
+\begin{corollary}\label{cor:28.03}
+Let $(A, \ideal{m})$ be a complete, separated local ring such that $\ideal{m}$ is finitely generated. Then $A$ is a homomorphic image of a complete regular local ring. Consequently, $A$ is not only Noetherian but also universally catenarian.
+\end{corollary}
+(cf. theorem \ref{thm:033} and theorem \ref{thm:036})
+\begin{corollary}\label{cor:28.04}
+Let $(A, \ideal{m})$ be a Noetherian complete local \defemph{domain}. Then $A$ contains a complete regular local ring $A_0$ over which $A$ is finite,
+\end{corollary}
+
+\begin{proof}[Proof of $1.4$] Let $R$ be a coefficient ring of $A$. Since $A$ is an integral domain, $R$ is either a field or a principal valuation ring with maximal ideal $pR$. Choose a system of parameters $x_1, \ldots, x_r$ of $A$ which is arbitrary in the first case and is such that $x_1=p$ in the second case. Put $A_0=R[[x_1, \ldots,x_r]] \subseteq A_0$ (We have $A_0=R[[x_2, \ldots, x_r]]$ if $x_1=p \in R_0$) Then $A_0$ is a Noetherian complete local ring with maximal ideal $\ideal{m}_0=\sum_1^r x_i A_0$. Since $A=R+\ideal{m}$ and since $\ideal{m}^\nu \subseteq \ideal{m}_0 A$ for large $V, ~A/\ideal{m}_0A$ is finite over $A_0 / \ideal{m}_0$.Then $A$ is finite over $A_0$ by the lemma below. Hence $\dim A=\dim A_0=r$ by \ref{13.C} Th.\ref{thm:020}, and as $M_0$ is generated by $r$ elements, $A_0$ is regular.
+\end{proof}
+
+\begin{lemma}\label{lem:28.02}
+Let $A$ be a ring, $I$ an ideal of $A$ and $M$ an $A$-module. Suppose that 
+\begin{enumerate}[label = (\alph*)]
+    \item $A$ is complete and separated in the $I$-adic topology,
+    \item $M$ is separated in the $I$-adic topology and
+    \item $M/IM$ is finite over $A$ (or what is the same thing, over $A/I$).
+\end{enumerate}
+ Then $M$ is finite over $A$.
+\end{lemma} 
+
+Proof is easy and left to the reader.
+
+\end{document}

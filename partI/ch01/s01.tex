@@ -1,0 +1,168 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{General Rings}\label{sec:01}
+
+\newparagraph
+Let $A$ be a ring and $\ideal a$ an ideal of $A$. Then the set of elements $x\in A$, some powers of which lie in $\ideal a$, is an ideal of $A$, called the \defemph{radical}\index{radical!\indexline of ideal} of $\ideal a$.
+
+An ideal $\ideal p$ is called a \defemph{prime ideal}\index{prime ideal} of $A$ if $A/\ideal p$ is an integral domain; in other words, if $\ideal p\ne A$ and if $A-\ideal p$ is closed under multiplication. If $\ideal p$ is prime, and if $\ideal a$ and $\ideal b$ are ideals not contained in $\ideal p$, then $\ideal{ab}\not\sse\ideal p$.
+
+An ideal $\ideal q$ is called \defemph{primary}\index{primary!\indexline ideal} if $\ideal q\ne A$ and if the only zero divisors of $A/\ideal q$ are nilpotent elements, i.e. $xy\in\ideal q,~x\notin\ideal q$ implies $y^n\in\ideal q$ for some $n$. If $\ideal q$ is primary then its radical $\ideal p$ is prime (but the converse is not true), and $\ideal p$ and $\ideal q$ are said to belong to each other. If $\ideal q$ ($\ne A$) is an ideal containing some power $\ideal m^n$ of a maximal ideal $\ideal m$, then $\ideal q$ is a primary ideal belonging to $\ideal m$.
+
+The set of the prime ideals of $A$ is called the \defemph{spectrum}\index{spectrum} of $A$ and is denoted by $\Spec(A)$; the set of the maximal ideals of $A$ is called the \defemph{maximal spectrum}\index{maximal spectrum} of $A$ and we denote it by $\Omega(A)$. The set $\Spec(A)$ is topologized as follows. For any $M\sse A$, put $V(M) = \brc{\ideal p\in\Spec(A): M\sse\ideal p}$ and take as the closed sets in $\Spec(A)$ all subsets of the form $V(M)$. This topology is called the \defemph{Zariski topology}. If $f\in A$, we put $D(f)=\Spec(A)-V(f)$ and call it an \defemph{elementary open set}\index{elementary open set} of $\Spec(A)$. The elementary open sets form a basis of open sets of the Zariski topology in $\Spec(A)$.
+
+Let $f:A\longrightarrow B$ be a ring homomorphism. To each $P\in\Spec(B)$, we associate the ideal $P\cap A$ (i.e. $f\inv(P)$) of $A$. Since $P\cap A$ is prime in $A$, we then get a map $\Spec(B)\longrightarrow\Spec(A)$, which is denoted by $\SpecInduced f$. The map $\SpecInduced f$ is continuous, as one can easily check. It does not necessarily map $\Omega(B)$ into $\Omega(A)$. When $P\in\Spec(B)$ and $\ideal p=P\cap A$, we say that $P$ \defemph{lies over}\index{lies over} $\ideal p$.
+
+\newparagraph
+Let $A$ be a ring, and let $I,\ideal p_1,\ldots,\ideal p_r$ be ideals in $A$. Suppose that all but possibly two of the $\ideal p_i$'s are prime ideals. Then, if $I\not\sse\ideal p_i$ for each $i$, the ideal $I$ is not contained in the set-theoretical union $\bigcup_i\ideal p_i$.
+
+\begin{proof}
+Omitting those $\ideal p_i$ which are contained in some other $\ideal p_j$, we may suppose that there are no inclusion relations between the $\ideal p_i$'s. We use induction on $r$. When $r=2$, suppose $I\sse\ideal p_1\cup\ideal p_2$. Take $x\in I-\ideal p_2$ and $s\in I-\ideal p_1$. Then $x\in\ideal p_1$, hence $s+x\notin\ideal p_1$, therefore both $s$ and $s+x$ must be in $\ideal p_2$. Then $x\in\ideal p_2$ and we get a contradiction.
+
+When $r>2$, assume that $\ideal p_r$ is prime. Then $I\ideal p_1\cdots\ideal p_{r-1}\not\sse\ideal p_r$; take an element $x\in I\ideal p_1\cdots\ideal p_{r-1}$ which is not in $\ideal p_r$. Put $S=I-(\ideal p_1\cup\cdots\cup\ideal p_{r-1})$. By the induction hypothesis $S$ is not empty. Suppose $I\sse\ideal p_1\cup\cdots\cup\ideal p_r$. Then $S$ is contained in $\ideal p_r$. But if $s\in S$ then $s+x\in S$ and therefore $s$ and $s+x$ are in $\ideal p_r$, hence $x\in\ideal p_r$, a contradiction.
+\end{proof}
+
+\begin{remark}\label{rem:01.01}
+When $A$ contains an infinite field $k$, the condition that $\ideal p_3,\ldots,\ideal p_r$ be prime is superfluous, because the ideals are $k$-vector spaces and $I=\bigcup_i(I\cap\ideal p_i)$ cannot happen if $I\cap\ideal p_i$ are proper subspaces of $I$.
+\end{remark}
+
+\newparagraph
+Let $A$ be a ring, and $I_1,\ldots,I_r$ be ideals of $A$ such that $I_i+I_j=A\for{i\ne j}$. Then
+$I_1\cap\cdots\cap I_r = I_1I_2\cdots I_r$ and
+\[A/\bigg(\bigcap_iI_i\bigg) \cong (A/I_1)\times\cdots\times(A/I_r)\]
+
+\newparagraph
+Any ring $A\ne0$ has at least one maximal ideal. In fact, the set \newline $M=\{\text{ideal }J\text{ of } A: 1\notin J\}$ is not empty since $(0)\in M$, and one can apply Zorn's lemma to find a maximal element of $M$. It follows that $\Spec(A)$ is empty iff $A=0$.
+
+If $A\ne0$, $\Spec(A)$ has also minimal elements (i.e. $A$ has minimal prime ideals). In fact, any prime $\ideal p\in\Spec(A)$ contains at least one minimal prime. This is proved by reversing the inclusion-order of $\Spec(A)$ and applying Zorn's lemma.
+
+If $J\ne A$ is an ideal, the map $\Spec(A/J)\longrightarrow\Spec(A)$ obtained from the natural homomorphism $A\longrightarrow A/J$ is an order-preserving bijection from $\Spec(A/J)$ onto $V(J)=\brc{\ideal p\in\Spec(A): \ideal p\supseteq J}$. Therefore $V(J)$ has maximal as well as minimal elements. We shall call a minimal element of $V(J)$ a minimal prime over-ideal of $J$.
+
+\newparagraph
+A subset $S$ of a ring $A$ is called a \defemph{multiplicative subset} of $A$ if $1\in S$ and if the products of elements of $S$ are again in $S$.
+
+Let $S$ be a multiplicative subset of $A$ not containing 0, and let $M$ be the set of the ideals of $A$ which do not meet $S$. Since $(0)\in M$ the set $M$ is not empty, and it has a maximal element $\ideal p$ by Zorn's lemma. Such an ideal $\ideal p$ is prime; in fact, if $x\notin\ideal p$ and $y\notin\ideal p$, then both $Ax+\ideal p$ and $Ay+\ideal p$ meet $S$, hence there exist $a,b\in A$ and $s,s'\in S$ such that $ax\equiv s,~by\equiv s'\pmod{\ideal p}$. Then $abxy\equiv ss'\pmod{\ideal p}$, $ss'\in S$, therefore $ss'\notin\ideal p$ and hence $xy\notin\ideal p$, Q.E.D. A maximal element of $M$ is called a \defemph{maximal ideal with respect to the multiplicative set $S$}.
+
+We list a few corollaries of the above result.
+\begin{enumerate}[label=(\roman*)]
+
+    \item If $S$ is a multiplicative subset of a ring $A$ and if $0\notin S$, then there exists a prime $\ideal p$ of $A$ with $\ideal p\cap S\ne\varnothing$.
+    
+    \item The set of nilpotent elements in $A$, \[\nil(A) = \brc{a\in A \mid a^n=0 \text{ for some }n>0}\] is the intersection of all prime ideals of $A$ (hence also the intersection of all minimal primes of $A$ by \ref{1.D}).
+    
+    \item Let $A$ be a ring and $J$ a proper ideal of $A$. Then the radical of $J$ is the intersection of prime ideals of $A$ containing $J$.
+    
+\end{enumerate}
+
+\begin{proof}
+(i) is already proved. (ii): Clearly any prime ideal contains $\nil(A)$. Conversely, if $a\notin\nil(A)$, then $S=\brc{1,a,a^2,\ldots}$ is multiplicative and $0\notin S$, therefore there exists a prime $\ideal p$ with $a\notin\ideal p$. (iii) is nothing but (ii) applied to $A/J$.
+\end{proof}
+
+We say a ring $A$ is \defemph{reduced}\index{reduced!\indexline ring} if it has no multiplicative elements except 0, i.e. if $\nil(A)=(0)$. This is equivalent to saying that $(0)$ is an intersection of prime ideals. For any ring $A$, we put $\reduced{A}=A/\nil(A)$. The ring $\reduced{A}$ is of course reduced.
+
+\newparagraph
+Let $S$ be a multiplicative subset of a ring $A$. Then the \defemph{localization}\index{localization} (or \defemph{quotient ring}\index{quotient ring} or \defemph{ring of fractions}\index{ring of fractions}) of $A$ with respect to $S$, denoted by $S\inv A$ or by $A_S$, is the ring
+\[S\inv A = \brc{\frac as: a\in A,~s\in S}\]
+where equality is defined by
+\[\frac as = \frac{a'}{s'}
+\iff s''(s'a-sa') = 0 \text{ for some }s''\in S\]
+and the addition and multiplication are defined by the usual formulas about fractions. We have $S\inv A=0$ iff $0\in S$. The natural map $\phi:A\longrightarrow S\inv A$ given by $\phi(a)=a/1$ is a homomorphism, and its kernel is $\brc{a\in A\mid \exists s\in S: sa=0}$. The $A$-algebra $S\inv A$ has the following universal mapping property: if $f:A\longrightarrow B$ is a ring homomorphism such that the images of the elements of $S$ are invertible in $B$, then there exists a unique homomorphism $f_S:S\inv A\longrightarrow B$ such that $f=f_S\circ\phi$, where $\phi:A\longrightarrow S\inv A$ is the natural map. Of course, one can use this property as a definition of $S\inv A$. It is the basis of all functorial properties of localization.
+
+If $\ideal p$ is a prime (resp. primary) ideal of $A$ such that $\ideal p\cap S=\varnothing$, then $\ideal p(S\inv A)$ is prime (resp. primary). Conversely, all the prime and the primary ideals of $S\inv A$ are obtained in this way. For any ideal $I$ of $S\inv A$ we have $I=(I\cap A)(S\inv A)$. If $J$ is an ideal of $A$, then we have $J(S\inv A)=S\inv A$ iff $J\cap S\ne\varnothing$. The canonical map $\Spec(S\inv A)\longrightarrow\Spec(A)$ is an order-preserving bijection and homomorphism from $\Spec(S\inv A)$ onto the subset $\brc{\ideal p\in\Spec(A): \ideal p\cap S=\varnothing}$ of $\Spec(A)$.
+
+\newparagraph
+Let $S$ be a multiplicative subset of a ring $A$ and let $M$ be an $A$-module. One defines $S\inv M=\brc{\frac xs:x\in M,~s\in S}$ in the same way as $S\inv A$. The set $S\inv M$ is an $S\inv A$-module, and there is a natural isomorphism of $S\inv A$-modules
+\[S\inv M \cong S\inv A \otimes_A M\]
+given by $x/s\mapsto(1/s)\otimes x$.
+
+If $M$ and $N$ are $A$-modules, we have
+\[S\inv(M \otimes_A N) = (S\inv M) \otimes_{S\inv A} (S\inv N).\]
+When $M$ is \defemph{of finite presentation}\index{finite presentation}\index{presentation}, i.e. when there is an exact sequence of the form $A^m\longrightarrow A^n\longrightarrow M\longrightarrow 0$, we have also
+\[S\inv(\Hom_A(M,N)) = \Hom_{S\inv A}(S\inv M,S\inv N)\]
+
+\newparagraph
+When $S=A-\ideal p$ with $\ideal p\in\Spec(A)$, we write $A_{\ideal p},~M_{\ideal p}$ for $S\inv A,~S\inv M$.
+
+\begin{lemma}\label{lem:01.01}
+If $x\in M$ is mapped to $0\in M_{\ideal p}$ for all $\ideal p\in\Omega(A)$, then $x=0$. In other words, the natural map
+\[M \longrightarrow \prod_{\text{all max. }\ideal p}M_{\ideal p}\]
+is injective.
+\end{lemma}
+
+\begin{proof}
+$x=0$ in $M_{\ideal p}$ $\iff$ $s\in A-\ideal p$ such that $sx=0$ in $M$ $\iff$ $\Ann(x) = \brc{a\in A:ax=0}\not\sse \ideal p$. Therefore, if $x=0$ in $M_{\ideal p}$ for all maximal ideals $\ideal p$, the annihilator $\Ann(x)$ of $x$ is not contained in any maximal ideal and hence $\Ann(x)=A$. This implies $x=1\cdot x=0$.
+\end{proof}
+
+\begin{lemma}\label{lem:01.02}
+When $A$ is an integral domain with quotient field $K$, all localizations of $A$ can be viewed as subrings of $K$. In this sense, we have
+\[A = \bigcap_{\text{all max. }\ideal p}A_{\ideal p}.\]
+\end{lemma}
+
+\begin{proof}
+Given $x\in K$, we put $D=\brc{a\in A:ax\in A}$; we might call $D$ the ideal of denominators of $x$. Then $x\in A$ iff $D=A$, and $x\in A_{\ideal p}$ iff $D\not\sse\ideal p$. Therefore, if $x\notin A$, there exists a maximal ideal $\ideal p$ such that $D\sse\ideal p$, and $x\notin A_{\ideal p}$ for this $\ideal p$.
+\end{proof}
+
+\newparagraph
+Let $f:A\longrightarrow B$ be a ring homomorphism and $S$ a multiplicative subset of $A$; put $S'=f(S)$. Then the localization $S\inv B$ of $B$ as an $A$-module coincides with ${S'}\inv B$:
+\begin{equation}\label{eqn:1.I.1}
+{S'}\inv B = S\inv B = (S\inv A) \otimes_A B
+\end{equation}
+In particular, if $I$ is an ideal of $A$ and if $S'$ is the image of $S$ in $A/I$, one obtains
+\begin{equation}\label{eqn:1.I.2}
+{S'}\inv(A/I) = S\inv A/I(S\inv A)
+\end{equation}
+In this sense, dividing by $I$ commutes with localization.
+
+\newparagraph
+Let $A$ be a ring and $S$ a multiplicative subset of $A$; let $A \varrightarrow fB\varrightarrow gS\inv A$ be homomorphisms such that $g\circ f$ is the natural map and for any $b\in B$ there exists $s\in S$ with $f(s)b\in f(A)$. Then $S\inv B=f(S)\inv B=S\inv A$, as one can easily check. In particular, let $A$ be a domain, $\ideal p\in\Spec(A)$ and $B$ a subring of $A_{\ideal p}$ such that $A\sse B\sse A_{\ideal p}$. Then $A_{\ideal p}=B_P\cong B_{\ideal p}$, where $P=\ideal pA_{\ideal p}\cap B$ and $B_{\ideal p}=B\otimes A_{\ideal p}$.
+
+\newparagraph
+A ring $A$ which has only one maximal ideal $\ideal m$ is called a \defemph{local ring}\index{local ring}, and $A/\ideal m$ is called the \defemph{residue field}\index{residue field} of $A$. When we say that ``$(A,\ideal m)$ is a local ring'' or ``$(A,\ideal m,k)$ is a local ring'', we mean that $A$ is a local ring, that $\ideal m$ is the unique maximal ideal of $A$ and that $k$ is the residue field of $A$. When $A$ is an arbitrary ring and $\ideal p\in\Spec(A)$, the ring $A_{\ideal p}$ is a local ring with maximal ideal $\ideal pA_{\ideal p}$. The residue field of $A_{\ideal p}$ is denoted by $\kappa(\ideal p)$. Thus $\kappa(\ideal p)=A_{\ideal p}/\ideal pA_{\ideal p}$, which is the quotient field of the integral domain $A/\ideal p$ by (\ref{eqn:1.I.2}).
+
+If $(A,\ideal m,k)$ and $(B,\ideal m',k')$ are local rings, a homomorphism $\psi:A\longrightarrow B$ is called a local homomorphism if $\psi(\ideal m)\sse\ideal m'$. In this case $\psi$ induces a homomorphism $k\longrightarrow k'$.
+
+Let $A$ and $B$ be rings and $\psi:A\longrightarrow B$ a homomorphism. Consider the map $\SpecInduced\psi:\Spec(B)\longrightarrow\Spec(A)$. If $P\in\Spec(B)$ and $\SpecInduced\psi(P)=P\cap A=\ideal p$, we have $\psi(A-\ideal p)\sse B-P$, hence $\psi$ induces a homomorphism $\psi_P:A_{\ideal p}\longrightarrow B_P$, which is a local homomorphism since $\psi_P(\ideal pA_{\ideal p})\sse\psi(\ideal p)B_P\sse PB_P$. Note that $\psi_P$ can be factored as \[A_{\ideal p}\longrightarrow B_{\ideal p}=A_{\ideal p}\otimes_AB\longrightarrow B_P\] and $B_P$ is the localization of $B_{\ideal p}$ by $PB_P\cap B_{\ideal p}$. In general, $B_{\ideal p}$ is not a local ring, and the maximal ideals of $B_{\ideal p}$ which contain $\ideal pB_{\ideal p}$ correspond to the pre-images of $\ideal p$ in $\Spec(B)$. ($B_{\ideal p}$ can have maximal ideals other than these.) But if $B_{\ideal p}$ is a local ring, then $B_{\ideal p}=B_P$, because if $(R,\ideal m)$ is a local ring then $R-\ideal m$ is the set of units of $R$ and hence $R_{\ideal m}=R$.
+
+\begin{pardefinition}
+Let $A\ne0$ be a ring. The \defemph{Jacobson radical}\index{Jacobson radical}\index{radical!\indexline of ring (= Jacobson radical)} of $A$, $\rad(A)$, is the intersection of all maximal ideals of $A$.
+\end{pardefinition}
+
+Thus, if $(A,\ideal m)$ is a local ring then $\ideal m=\rad(A)$. We say that a ring $A\ne0$ is a \defemph{semi-local ring}\index{semi-local ring} if it has only a finite number of maximal ideals, say $\ideal m_1,\ldots,\ideal m_r$. (We express this situation by saying ``$(A,\ideal m_1,\ldots,\ideal m_r)$ is a semi-local ring''.) In this case, $\rad(A)=\ideal m_1\cap\ldots\cap\ideal m_r=\prod_i\ideal m_i$ by \ref{1.C}.
+
+Any element of the form $1+x,~x\in\rad(A)$, is a unit in $A$, because $1+x$ is not contained in any maximal ideal. Conversely, if $I$ is an ideal and if $1+x$ is a unit for each $x\in I$, we have $I\sse\rad(A)$.
+
+\begin{parlemma}[NAK]\label{lem:01.03}\label{NAK}\footnote{This simple but important lemma is due to T. Nakayama, G. Azumaya and W. Krull. Priority is obscure, and although it is usually called the Lemma of Nakayama, late Prof. Nakayama did not like the name.}
+Let $A$ be a ring, $M$ a finite $A$-module and $I$ an ideal of $A$. Suppose that $IM=M$. Then there exists $a\in A$ of the form $a=1+x,~x\in I$, such that $aM=0$. Moreoever, if $I\sse\rad(A)$, then $M=0$.
+\end{parlemma}
+
+\begin{proof}
+Let $M=Aw_1+\ldots+Aw_s$. We use induction on $s$. Put $M'=M/Aw_s$. By induction hypothesis, there exists $x\in I$ such that $(1+x)M'=0$, i.e., \newline $(1+x)M\sse Aw_s$ (when $s=1$, take $x=0$). Since $M=IM$, we have
+\[(1+x)M = I(1+x)M \sse I(Aw_s) = Iw_s\]
+hence we can write $(1+x)w_s=yw_s$ for some $y\in I$. Then $(1+x-y)(1+x)M=0$, and $(1+x-y)(1+x)\equiv 1\pmod{I}$, proving the first assertion. The second assertion follows from this and from \ref{1.L}.
+\end{proof}
+
+This lemma is often used in the following form.
+
+\begin{corollary}\label{cor:01.01}
+Let $A$ be a ring, $M$ an $A$-module, $N$ and $N'$ be submodules of $M$, and $I$ an ideal of $A$. Suppose that $M=N+IN'$, and that either (a) $I$ is nilpotent, or (b) $I\sse\rad(A)$ and $N'$ is finitely generated. Then $M=N$.
+\end{corollary}
+
+\begin{proof}
+In case (a) we have
+\[M/N = I(M/N) = I^2(M/N) = \ldots = 0\]
+In case (b), apply lemma \ref{lem:01.03} to $M/N$.
+\end{proof}
+
+\newparagraph
+In particular, let $(A,\ideal m,k)$ be a local ring and $M$ an $A$-module. Suppose that either $\ideal m$ is nilpotent or $M$ is finite. Then $G\sse M$ generates $M$ iff its image $\overline G$ in $M/\ideal mM=M\otimes k$ generates $M\otimes k$. In fact, if $N$ is the submodule generated by $G$, and if $\overline G$ generates $M\otimes k$, then $M=N+\ideal mM$, whence $M=N$ by the corollary. Since $M\otimes k$ is a vector space over the field $k$, it has a basis, say $\overline G$, and if we lift $\overline G$ arbitrarily to $G\sse M$ (i.e. choose a pre-image for each element of $\overline G$), then $G$ is a system of generators of $M$. Such a system of generators is called a \defemph{minimal basis}\index{minimal!\indexline basis} of $M$. Note that a minimal basis is not necessarily a basis of $M$ (but it is so in an important case, cf. \ref{3.G}).
+
+\newparagraph
+Let $A$ be a ring and $M$ an $A$-module. An element $a\in A$ is said to be \defemph{$M$-regular}\index{regular!\indexline element} if it is not a zero-divisor on $M$, i.e., if $M\varrightarrow{} aM$ is injective. The set of $M$-regular elements is a multiplicative subset of $A$.
+
+Let $S_0$ be the set of $A$-regular elements. Then $S_0\inv A$ is called the \defemph{total quotient ring}\index{total quotient ring} of $A$. In this book, we shall denote it by $\Phi A$. When $A$ is an integral domain, $\Phi A$ is nothing but the quotient field of $A$.
+
+\newparagraph
+Let $A$ be a ring and $\alpha:\bZ\longrightarrow A$ be the canonical homomorphism from the ring of integers $\bZ$ to $A$. Then $\Ker(\alpha)=n\bZ$ for some $n\ge0$. We call $n$ the \defemph{characteristic}\index{characteristic} of $A$ and denote it by $\ch(A)$. If $A$ is local, the characteristic $\ch(A)$ is either 0 or a power of a prime number.
+
+\end{document}

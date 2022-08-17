@@ -1,0 +1,71 @@
+\documentclass[../main]{subfiles}
+
+%TeXromancers title page template
+%by derivada.schwarziana
+
+\begin{document}
+
+\input{_BOOKINFO}    %BOOK INFO GOES HERE -- please update _BOOKINFO.tex for new books
+\input{colorpalette} %colors
+
+%title page
+\newpage
+\thispagestyle{empty}
+
+
+\begin{tikzpicture}[remember picture,overlay]
+%uses the calc library
+    \node (title)
+        [shape=rectangle, 
+         outer sep=2em,
+         inner sep=2em,
+         minimum height=18em, 
+         minimum width=\paperwidth, 
+         align=flush right, 
+         text=black,
+         text width=0.8\paperwidth,
+         anchor=north
+        ] 
+        at ($(current page.center)!0.6!(current page.north)$)
+        {
+        \fontsize{5em}{4em}
+        \fontfamily{lmss}
+        \selectfont
+        \booktitle\par
+        };
+        
+    \node (author)
+        [
+         inner sep=0.75em,
+         align=flush right,
+         text=black,
+         anchor=east
+        ]
+        at ($(title.north east)-(0.125\paperwidth,0)$)
+        {
+        \fontsize{3em}{2.5em}
+        \fontfamily{lmss}
+        \selectfont
+        \bookauthor\par
+        };
+    \node (coverinfo)
+        [text=black]
+        at ($(current page.center)!0.825!(current page.south)$)
+        {
+        \fontsize{1.5em}{1em}
+        \fontfamily{lmss}
+        \selectfont
+        \bookcoverTeXromancers\par
+        };
+    \node
+        [text=black]
+        at ($(current page.center)!0.9!(current page.south)$)
+        {
+        \includegraphics[height=3em]{texromancers_gray.pdf}
+        \raisebox{1.1em}{
+        \fontsize{1.5em}{1em}\selectfont\TeX{}romancers\par
+        }
+        };
+\end{tikzpicture}
+
+\end{document}

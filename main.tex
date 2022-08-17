@@ -1,0 +1,46 @@
+\documentclass[twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage[totoc]{idxlayout} % package for including index page in the table of content
+\makeindex
+\usepackage{tocbibind}%include toc in toc
+\input{preamble}
+\input{operators[preamble]}
+
+\input{dyslexic-font} %for dyslexic version, comment out if not using that.
+\begin{document}
+
+\subfile{cover/frontcover}
+\subfile{cover/seriespage}
+\subfile{cover/titlepage}
+\subfile{cover/copyrightpage}
+
+\pagestyle{plain}
+\subfile{intro/prefacenew}
+\subfile{intro/preface}
+\subfile{intro/preface2}
+\subfile{intro/conventions}
+%\subfile{intro/linksParagraph}
+
+\tableofcontents
+
+\pagestyle{fancy}
+\subfile{partI/partI}
+\subfile{partII/partII}
+\subfile{appendix/appendix}
+
+\pagestyle{plain}
+\setstretch{1}
+
+\renewcommand*{\bibfont}{\small}
+\printbibliography[
+heading=bibintoc,
+title={bibliography}
+]
+\setstretch{1}
+{\footnotesize
+\printindex\label{index}
+}
+\setstretch{1.5}
+\subfile{cover/backcover}
+\end{document}

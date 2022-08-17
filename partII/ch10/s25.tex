@@ -1,0 +1,58 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Extension of Ring by a Module}\label{sec:25}
+
+\newparagraph
+Let $C$ be a ring and $N$ an ideal of $C$ with $N^2=(0)$; put $C'=C/N$. Then the $C$-module $N$ can be viewed as a $C'$-module. Conversely, suppose that we are given a ring $C'$ and a $C'$-module $N$. By an \defemph{extension of $C'$ by $N$}\index{extension!\indexline of ring by module} we mean a triple $(C,\ep,i)$ of a ring $C$, a surjective ring homomorphism $\ep:C\longrightarrow C'$ and a map $i:N\longrightarrow C$, such that:
+\begin{enumerate}
+    \item $\Ker(\ep)$ is an ideal whose square is zero (hence a structure of $C'$-module on $\Ker(\ep)$).
+    \item The map $i$ is an isomorphism from $N$ onto $\Ker(\ep)$ as $C'$-modules.
+\end{enumerate}
+Therefore, identifying $N$ with $i(N)$, we get $C'\cong C/N$, $\, N^2=(0)$. An extension is often represented by the exact sequence \[0\longrightarrow N\varrightarrow iC\varrightarrow\ep C'\longrightarrow0.\] Two extensions $(C,\ep,i)$ and $(C_1,\ep_1,i_1)$ are said to be isomorphic if there exists a ring homomorphism $f:C\longrightarrow C_1$ such that $\ep_1f=\ep$ and $fi=i_1$. Such $f$ is necessarily unique.
+
+\newparagraph
+Given $C'$ and $N$, we can always construct an expression as follows: take the additive group $C'\oplus N$, and define a multiplication in this set by the formula
+\[(a,x)(b,y) = (ab,ay+bx)
+\for{a,b\in C',\,x,y\in N}\]
+This is bilinear and associative, and has $(1,0)$ as the unit element. Hence we get a ring structure on $C'\oplus N$. We denote this ring by $C'* N$. By the obvious definitions $\ep(a,x) = a$ and $i(x) = (0,x)$ the ring $C'*N$ becomes an extensions of $C'$ by $N$, which is called the \defemph{trivial extension}\index{trivial extension}\index{extension!trivial \indexline}.
+
+An extension $(C,\ep,i)$ of $C'$ by $N$ is isomorphic to $C'*N$ iff there exists a section, i.e., a ring homomorphism $s:C'\longrightarrow C$ satisfying $\ep s=\id_{C'}$. In this case, the extension $(C,\ep,i)$ is also said to be trivial, or to be split.
+
+\newparagraph
+Let us briefly mention the Hochschild extensions. An extension $(C,\ep,i)$ is called a \defemph{Hochschild extension}\index{Hochschild extension} if the exact sequence of additive groups \[0\longrightarrow N\varrightarrow iC\varrightarrow\ep C'\longrightarrow0\] splits, i.e. if there exists an additive map $s:C'\longrightarrow C$ such that $\ep s=\id_{C'}$. Then $C$ is isomorphic to $C'\oplus N$ as additive groups, while the multiplication is given by
+\[(a,x)(b,y) = (ab,ay+bx+f(a,b))\for{a,b\in C',\, x,y\in N}\]
+where the map $f:C'\times C'\longrightarrow N$ is symmetric, bilinear, and satisfies the cocycle condition (corresponding to the associativity in $C$)
+\[af(b,c) - f(ab,c) + f(a,bc) - f(a,b)c = 0.\]
+Conversely, any such function $f(a,b)$ gives rise to a Hochschild extension. Moreover, the extension is trivial iff there exists a function $g:C'\longrightarrow N$ satisfying
+\[f(a,b) = ag(b) - g(ab) + g(a)b\]
+
+\newparagraph
+Let $A$ be a ring, and let \[0\longrightarrow N\varrightarrow iC\varrightarrow\ep C'\longrightarrow0\] be an extension of a ring $C'$ by a $C'$-module $N$ such that $C$ and $C'$ are $A$-algebras and $\ep$ is a homomorphism of $A$-algebras. Then $C$ is called an extension of the $A$-algebra $C'$ by $N$. The extension is said to be $A$-trivial, or to split over $A$, if there exists a homomorphism of $A$-algebras $s:C'\longrightarrow C$ with $\ep s=\id_{C'}$.
+
+\newparagraph
+Let \[E:0\longrightarrow M\varrightarrow iC\varrightarrow\ep C'\longrightarrow0\]
+be an extension and let $g:M\longrightarrow N$ be a homomorphism of $C'$-modules. Then there exists an extension \[g_*(E):0\longrightarrow N\longrightarrow D\longrightarrow C'\longrightarrow0\]
+of $C'$ by $N$ and a ring homomorphism $f:C\longrightarrow D$ such that
+\begin{center}
+\begin{tikzcd}
+    0 \arrow[r] & M \arrow[r] \arrow[dd, "g"] & C \arrow[r] \arrow[dd, "f"] & C' \arrow[r] \arrow[dd, "\id"] & 0 \\
+                &                             &                             &                                &   \\
+    0 \arrow[r] & N \arrow[r]                 & D \arrow[r]                 & C' \arrow[r]                   & 0
+\end{tikzcd}
+\end{center}
+is commutative. Such an extension $g_*(E)$ is unique up to isomorphisms. The ring $D$ is obtained as follows: we view the $C'$-module $N$ as a $C$-module and form the trivial extension $C*N$. Then
+\[M' = \brc{(x,-g(x)): x\in M}\]
+is an ideal of $C*N$, and we put $D=(C*N)/M'$. Thus, as an additive group, $D$ is the amalgamated sum of $C$ and $N$ with respect to $M$. The uniqueness of $g_*(E)$ follows from this construction.
+
+Similarly, if $h:C''\longrightarrow C'$ is a ring homomorphism, then there exists an extension \[h_*(E):0\longrightarrow M\longrightarrow E\longrightarrow C''\longrightarrow0\] of $C''$ by $M$ and a ring homomorphism $f:E\longrightarrow C$ such that the diagram
+\begin{center}
+\begin{tikzcd}
+    0 \arrow[r] & M \arrow[dd, "\id"] \arrow[r] & E \arrow[dd, "f"] \arrow[r] & C'' \arrow[dd, "h"] \arrow[r] & 0 \\
+                &                               &                             &                               &   \\
+    0 \arrow[r] & M \arrow[r]                   & D \arrow[r]                 & C' \arrow[r]                  & 0
+\end{tikzcd}
+\end{center}
+is commutative. Moreover, such $h_*(E)$ is unique up to isomorphisms.
+
+\end{document}

@@ -1,0 +1,125 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Cohen-Macaulay Rings}\label{sec:16}
+
+\newparagraph Let $(A,\ideal{m})$ be a Noetherian local ring and $M$ a finite $A$-module. We know that $\depth M \leqslant \dim M$ provided that $M \neq 0$. We say that $M$ is \defemph{Cohen-Macaulay}\index{Cohen-Macaulay (= C.M.)} (briefly, C.M.) if $M=0$ or if $\depth M=\dim M$. If the local ring $A$ is C.M. as $A$-module then we call A a \defemph{Cohen-Macaulay} ring.
+
+\begin{theorem}\label{thm:030}
+Let $(A,\ideal{m})$ be a Noetherian local ring and $M$ a finite $A$-module. Then:
+\begin{enumerate}[label=\roman*)]
+    \item if $M$ is a C.M. module and $P \in \Ass(M)$, then we have $\depth M=\dim A/P$. Consequently $M$ has no embedded primes;
+    \item if $a_1, \ldots, a_r$ is an $M$-regular sequence in $\ideal{m}$ and $M'=M / \underline{a} M$, then \[M\text{ is C.M. }\iff M'\text{ is C.M.;}\]
+    \item if $M$ is C.M., then for every $P \in \Spec(A)$ the $A_P$-module $M_p$ is C.M., and if $M_P \neq 0$ we have \[\depth_P(M)=\depth_{A_P} M_P.\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}[label=\roman*)]
+    \item Since $\Ass(M) \neq \emptyset$, $M$ is not $0$ and so $\depth M=\dim M$. Since $P \in \Supp(M)$ we have $\dim M \geqslant \dim A / P$, and $\dim A / P \geqslant \depth M$ by Th.\ref{thm:029}.
+    \item By \hyperref[NAK]{NAK} we have $M=0$ iff $M'=0$, Suppose $M \neq 0$. Then \newline $\dim M'=\dim M-r$ by Lemma \ref{lem:15.04}, and $\depth M'=\depth M-r$.
+    \item We may assume that $M_P \neq 0$. Hence $P \supseteq \Ann(M)$. We know that \[\dim M_P \geqslant \depth_{A_P}M_P \geqslant \depth_P(M).\] So we will prove $\depth_P(M)=\dim M_P$ by induction on $\depth_P(M)$. If $\depth(M)=0$ then $P$ is contained in some $P' \in \Ass(M)$, but \newline $\Ann(M) \subseteq P\subseteq P'$ and the associated primes of $M$ are the minimal prime over-ideals of $\Ann(M)$ by i). Hence $P=P'$, and $\dim M_P=0$. Next suppose $\depth_P(M)>0$; take an $M$-regular element $a \in P$ and put \newline $M_1=M / a M$. Since localization preserves exactness, the element $a$ is $M_P$-regular. Therefore we have \[\dim(M_1)_P=\dim M_P / aM_P=\dim M_P-1\] and $\depth_P(M_1)=\depth_P(M)-1$. Since $M_1$ is C.M. by ii), by induction hypothesis we have $\dim(M_1)_P=\depth_P(M_1)$. We are done.
+\end{enumerate}
+\end{proof}
+
+\begin{partheorem}\label{thm:031}
+Let $(A, \ideal{m})$ be a C.M. local ring. Then:
+\begin{enumerate}[label=\roman*)]
+    \item for every proper ideal $I$ of $A$, we have \[\Ht I=\depth_I(A)=\grade I,\, \Ht I+\dim A / I=\dim A;\]
+    \item $A$ is catenary;
+    \item for every sequence $a_1, \ldots, a_r$ in $\ideal{m}$, the following conditions are equivalent:
+    \begin{enumerate}[label=(\arabic*)]
+        \item the sequence $a_1, \ldots, a_r$ is $A$-regular,
+        \item $\Ht (a_1, \ldots, a_i)=1\for{1 \leqslant i \leqslant r}$,
+        \item $\Ht(a_1, \ldots, a_r)=r$,
+        \item there exist $a_{r+1}, \ldots, a_n$ $(n=\dim A)$ in $\ideal{m}$ such that $\{a_1, \ldots, a_n\}$ is a system of parameters of $A$.
+    \end{enumerate}
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof}\phantom{,}
+\begin{enumerate}
+    \item[iii)]\begin{implyenumerate}
+        \item[$(1)\implies(2)$] is easy by Th.\ref{thm:018}.
+        \item[$(2) \implies (3)$] is trivial.
+        \item[$(3) \implies (4)$] trivial if $\dim A=r$. If $\dim A>r$ then $\ideal{m}$ is not a minimal prime over-ideal of $(a_1, \ldots, a_r)$, so we can take $a_{r+1} \in \ideal{m}$ which is not in any minimal prime over-ideal of $(a_1, \ldots, a_r)$. Then \newline $\Ht(a_1, \ldots, a_{r+1})=r+1$, and we can continue. [Thus these implications are true for any Noetherian local ring.]
+        \item[$(4) \implies (1)$] It suffices to show that every system of parameters $x_1, \ldots, x_n$ of $A$ is an $A$-regular sequence. If $P \in \Ass(A)$ then $\dim A / P=n$, hence $x_1 \notin P$. Therefore $x_1$ is $A$-regular. Put $A'=A /(x_1)$. Then $A'$ is a C.M. local ring of dimension $n-1$ by Th.\ref{thm:030}, and the images of $x_2, \ldots, x_n$ in $A'$ form a system of parameters of $A'$. Thus $x_2$, $\ldots, x_n$ is $A'$-regular.
+    \end{implyenumerate}
+    \item[i)] Let $\Ht(I)=r$. Then one can choose $a_1, \ldots, a_r \in I$ in such a way that $\Ht (a_1, \ldots, a_i)=i$ holds for $1 \leqslant i \leqslant r$. Then the sequence $a_1, \ldots, a_r$ is $A$-regular by iii). Hence $r \leqslant\grade I$. Conversely if $b_1, \ldots, b_s$ is an $A$-regular sequence in $I$ then $\Ht(b_1, \ldots, b_s)=s \leqslant \Ht I$. Hence $\grade I= \Ht I$. Since $\Ht I=\inf\{\Ht P \mid P \in V(I)\}$ and \[\dim A / I=\sup \{\dim A / P \mid P \in V(I)\},\] if $\Ht P=\dim A-\dim A / P$ holds for all prime ideals $P$ then we will have $\Ht I=\dim A-\dim A/I$ in general. So let $P$ be a prime ideal. Put $\dim A=\depth A=n$, $\Ht P=r$. By Th.\ref{thm:030} iii) $A_P$ is a C.M. ring and $\Ht P=\dim A_P=\depth_P(A)$. So we can find an $A$-regular sequence $a_1, \ldots, a_r$ in $P$. Then $A /(a_1, \ldots, a_r)$ is C.M. of dimension $n-r$, and $P$ is a minimal prime over-ideal of $(\underline{a})$. Therefore $\dim A / P=n-r$ by Th.\ref{thm:030} i).
+    \item[ii)] If $P \supset Q$ are two prime ideals of $A$, since $A_P$ is C.M. we have \[\dim A_P=\Ht QA_P+\dim A_P / Q A_P,\, \text{ i.e. } \Ht P-\Ht Q=\Ht(P / Q).\] Therefore $A$ is catenary.
+\end{enumerate}
+
+\end{proof}
+
+\newparagraph We say a Noetherian ring $A$ is \defemph{Cohen-Macaulay}\index{Cohen-Macaulay (= C.M.)} if $A_P$ is a C.M. local ring for every prime ideal of $A$. By Th.\ref{thm:030} this is equivalent to saying that $A_{\ideal{m}}$ is a C.M. local ring for every maximal ideal $\ideal{m}$.
+
+Let $A$ be a Noetherian ring and $I$ an ideal; let $\Ass_A(A / I)=\{P_1, \ldots, P_s\}$. We say that $I$ is \defemph{unmixed}\index{unmixed ideal} if $\Ht(P_i)=\Ht(I)$ for all $i$. We say that the \defemph{unmixedness theorem holds in $A$}\index{unmixedness theorem} if the following is true: if $I=(a_1, \ldots, a_r)$ is an ideal of height $r$ generated by $r$ elements, where $r$ is any non-negative integer, then $I$ is unmixed. (Note that such an ideal is unmixed iff $A / I$ has no embedded primes.) The condition implies in particular (for $r=0$) that $A$ has no embedded primes. If $I$ is as above and if it possesses an embedded prime $P$, let $\ideal{m}$ be a maximal ideal containing $P$. Then in $A_{\ideal{m}}$ the ideal $IA_{\ideal{m}}$ has $PA_{\ideal{m}}$ as embedded prime. Therefore, the unmixedness theorem holds in $A$ if it holds in $A_{\ideal{m}}$ for all maximal ideals $\ideal{m}$.
+
+\begin{theorem}\label{thm:032}
+Let $A$ be a Noetherian ring. Then $A$ is C.M. iff the unmixedness theorem holds in $A$.
+\end{theorem}
+
+\begin{proof}
+Suppose the unmixedness theorem holds in $A$. Let $P$ be a prime ideal of height $r$. Then we can find $a_1, \ldots, a_r \in P$ such that $\Ht (a_1, \ldots, a_1)=i$ for $1 \leqslant i \leqslant r$. The ideal $(a_1, \ldots, a_i)$ is unmixed by assumption, so $a_{i+1}$ lies in no associated primes of $A /(a_1, \ldots, a_i)$. Thus $a_1, \ldots, a_r$ is an $A$-regular sequence in $P$, hence \[r \leqslant \depth(A) \leqslant \depth A_P \leqslant \dim A_P=r,\] so that $A_P$ is a C.M. local ring.
+
+Conversely, suppose $A$ is C.M.. To prove the unmixedness theorem we may localize, so we assume that $A$ is a C.M. local ring. We know that the ideal $(0)$ is unmixed. Let $(a_1, \ldots, a_r)$ be an ideal of height $r>0$. Then $a_1, \ldots, a_r$ is an $A$-regular sequence by Th.\ref{thm:031}, hence $A /(a_1, \ldots, a_r)$ is C.M. by Th.\ref{thm:030} and so $(a_1, \ldots, a_r)$ is unmixed.
+\end{proof}
+
+\begin{partheorem}\label{thm:033}
+Let $A$ be a Cohen-Macaulay ring. Then the polynomial ring $A[x_1, \ldots, x_n]$ is also Cohen-Macaulay. As a consequence, any homomorphic image of a C.M. ring is universally catenary.
+\end{partheorem} 
+
+\begin{proof}
+Enough to consider the case of $n=1$. Let $P$ be a prime ideal of $B=A[X]$, and put $\ideal{p}=P \cap A$. We want to prove that the local ring $B_P$ is C.M.. Since $B_P$ is a localization of $A_{\ideal{p}}[X]$ and since $A_{\ideal{p}}$ is C.M., we may assume that $A$ is a C.M. local ring and $\ideal{p}$ is the maximal ideal. Then $B / \ideal{p} B=k[X]$, where $k$ is a field. Therefore we have either $P=\ideal{p}B$, or $P=\ideal{p}B+f B$ where $f=f(X) \in B$ is a monic polynomial of positive degree. As $B$ is flat over $A$, so is $B^P$. It follows that any $A$-regular sequence $a_1, \ldots, a_r$ $(r=\dim A)$ in $P$ is also $B_P$-regular. If $P=\ideal{p}B$ we have $\dim B_P=\dim A$ by \ref{13.B} Th.\ref{thm:019}, and as $\depth B_P \geqslant \dim A$ we see that $B_P$ is C.M.. If $P=\ideal{p}B+f B$ then $\dim B_P=\dim A+1$ by Th.\ref{thm:019}, and since any monic polynomial is a non-zero divisor in $A /(a_1, \ldots, a_r)[X]$ we have $\depth B_P \geqslant r+1=\dim B_P$. Thus $B_P$ is C.M. in this case also. The last assertion is obvious.
+\end{proof}
+
+\begin{parexample}
+A polynomial ring $k[x_1, \ldots, x_n]$ over a field $k$ is C.M. by Th.\ref{thm:033}. (Macaulay proved the unmixedness theorem for polynomial rings before 1916. Kaplansky says ``In many aspects Macaulay was far ahead of his time, and some aspects of his work won full appreciation only recently''.)
+\end{parexample}
+
+\begin{example}
+Let $A=k[x, y]$ be a polynomial ring in two variables $x,y$ over a field $k$, and put $B=k[x^2, x y, y^2, x^3, x^2 y,x y^2, y^3]$. Then $A$ and $B$ have the same quotient field and $A$ is integral over $B$. Put $\ideal{m}=(x A+y A) \cap B$. Then we have $x^4 \notin x^3 B$ and $x^4 \ideal{m} \subseteq x^3 B$, so that $\ideal{m} \in\Ass_B(B / x^3 B)$. It follows that the local ring $B_{\ideal{m}}$ is not Cohen-Macaulay.
+\end{example}
+
+\begin{parproposition}
+Let $A$ be a C.M. ring, and $J=(a_1,\ldots, a_r)$ be an ideal of height $r$. Then $A / J^\nu$ is C.M., and hence $J^\nu$ is unmixed, for every $\nu>0$. 
+\end{parproposition}
+
+\begin{proof}
+We may assume that $A$ is local. Let $k$ be its residue field and put $d=\dim A / J$. Since $a_1, \ldots, a_r$ is an $A$-regular sequence, $J^\nu / J^{\nu+1}$ is isomorphic to a free $A / J$-module by Th.\ref{thm:027}. Since $A / J$ is C.M. with $\depth A / J=d$, and since \[\depth A=A/J=\depth_{A/J}A/J,\] we have $\Ext_A^i(k,A/J)=0\for{i<d}$. Then $\Ext_A^i(k, J^\nu/ J^{\nu+1})=0\for{i<d}$ and by induction on $\nu$ we get \newline $\Ext_A^1(k, A/J^\nu)=0\for{i<d}$. Therefore $\depth A / J^\nu \geqslant d=\dim A / J^\nu$, so that $A / J^\nu$ is C.M..
+\end{proof}
+
+\begin{exercise}
+\begin{enumerate}[label = \arabic*.]
+    \item\label{ex:ch06.1} Find an example of a Noetherian local ring $A$ and a finite $A$-module $M$ such that $\depth M>\depth A$. Also find $A, M$ and \newline $P \in \Spec(A)$ such that $\depth M_P>\depth_P(M)$.
+    \item\label{ex:ch06.2} Show that, if $A$ is a Noetherian local ring (or Noetherian graded ring) which is a catenary domain, and if $a_1, \ldots,a_r$ are elements of the maximal ideal (resp. homogeneous elements of positive degree) such that $\Ht(a_1,\ldots,a_r)=r$, then $\Ht (a_1, \ldots, a_i)=i$ for each $1 \leqslant i \leqslant r$ [The condition that $A$ is a domain is necessary. In fact, if \[A=k[X, Y, Z] /(X,Y) \cap(Z)=k[x, y, z],\] then $\Ht(x, y+z)=2$ and $\Ht(x)=0$ .]
+    \item\label{ex:ch06.3} Let $(A, \ideal{m}, k)$ be a local ring and $u: M \longrightarrow N$ a homomorphism of finite $A$-modules. We say that $u$ is \defemph{minimal}\index{minimal!\indexline homomorphism} if $u\otimes 1_k: M \otimes k \longrightarrow N \otimes k$ is an isomorphism. Show that
+    \begin{enumerate}
+        \item $u$ is minimal $\iff$ $u$ is surjective and $\Ker(u) \subseteq \ideal{m} M$;
+        \item for any finite $A$-module $M$ there exists a minimal homomorphism $u:F\longrightarrow M$ with $F$ free;
+        \item if $0 \longrightarrow K \varrightarrow{v} F \varrightarrow{u} M \longrightarrow 0$ is exact with $u$ minimal and with $K$ and $F$ free, then the homomorphisms \[v_*: \Ext_A^i(k, K) \longrightarrow \Ext_A^i(k, F)\for{i=0,1,2, \ldots}\] induced by $v$ are zero. [Hint: If $k=A^n$, $F=A^m$ and $v$ is represented by a $n \times m$ matrix $(c_{i j})$, then $c_{i j} \in \ideal{m}$, and $v_*$ is represented by the same matrix on $\Ext_A^i(k, K) \cong \Ext_A^i(k, A)^n$ .]
+    \end{enumerate}
+    \item\label{ex:ch06.4} Let $A$ be a Noetherian local ring and $M$ be a finite $A$-module having finite projective dimension. Then one has the following formula due to Auslander-Buchsbaum: \[\ProjDim M+\depth M=\depth A.\]
+    [Hint: Use induction on $\ProjDim M$. For the case $\ProjDim M=1$, use exercise 3 above.]
+    \item\label{ex:ch06.5} Let $A$ be as above and let $P\in\Spec A$. Show that
+    \begin{enumerate}
+        \item $\depth A\leqslant\depth_P(A)+\dim A/P$,
+        \item Put $\codepth A=\dim A-\depth A$. Then \[\codepth A\geqslant\codepth A_p.\]
+    \end{enumerate}
+\end{enumerate}
+\end{exercise}
+
+\underline{Further References.}:
+
+The concept of depth has striking applications in
+unexpected areas:
+\begin{enumerate}[label=\arabic*.]
+    \item \cite{hartshorne1962complete}
+    
+    For instance he proves that, if $A$ is a Noetherian local ring and if $\Spec(A)-\ideal{m}$ is disconnected, then $\depth A\leq1$.
+    \item \cite{buchsbaum1973what}
+    
+    They show that if $C_\bullet : 0\longrightarrow F_n\longrightarrow F_{n-1}\longrightarrow\cdots F_0$ is a complex of finite free modules over a Noetherian ring, and if $E_i$ denote the matrix of the map $F_i \longrightarrow F_{i-1}$, then the exactness of $C_\bullet$ can be fully expressed in terms of the ranks of the modules and maps and $\depth I_i$, where $I_i$ is the ideal generated by certain minors of the matrix $E_i\for{1\leqslant i\leqslant n}$. For applications of their theorem, cf. \cite{eisenbud1975some}
+\end{enumerate}
+ 
+\end{document}

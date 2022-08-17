@@ -1,0 +1,42 @@
+\documentclass[../main]{subfiles}
+
+\begin{document}
+
+\section{Excellent Rings}\label{sec:34}
+
+\begin{pardefinition}
+We say that $A$ is \defemph{excellent}\index{excellent ring} (resp. \defemph{quasi-excellent}\index{quasi-excellent ring}) if the following conditions (resp. (1), (3), (4)) are satisfied:
+
+\begin{enumerate}[label = (\arabic*)]
+    \item $A$ is Noetherian;
+    \item $A$ is universally catenary (cf. \ref{14.B});
+    \item $A$ is a $G$-ring (cf. \ref{33.B});
+    \item $A$ is J-2 (cf. \ref{32.B} Th.\ref{thm:073}).
+\end{enumerate}
+\end{pardefinition}
+
+Each of these conditions is stable under the two important operations on rings: the localization and the passage to a finitely generated algebra. (Stability of J-2 under localization follows from criterion (3) of Th.\ref{thm:073}.) Thus the class of (quasi-)excellent rings is stable under these operations. Note also that (2), (3), (4) are conditions on $A/P$, $P \in \Spec(A)$. Thus a Noetherian ring $A$ is (quasi-)excellent iff $A_{\text{red}}$ is so. 
+
+A quasi-excellent ring is a Nagata ring (Th.\ref{thm:078}).
+
+If $A$ is a local ring and if it satisfies (1) and (3) then it is quasi-excellent (Th.\ref{thm:076}, Th.\ref{thm:077}, Th.\ref{thm:073}). In the general case, note that the conditions (2) and (3) are of local nature (in the sense that if they hold for $A_{\ideal p}$ for all $\ideal p \in \Spec(A)$, then they hold for $A$), while (4) is not.
+
+\newparagraph Noetherian complete semi-local rings are excellent (\ref{28.P}, Th.\ref{thm:068}, Th.\ref{thm:074}). In particular, formal power series rings over a field are excellent. Convergent power series rings over $\bR$ or $\bC$ are excellent (cf. Th.\ref{thm:102} and the remark after that). It is easy to see that a Dedekind domain (i.e. Noetherian normal domain of dimension one) of characteristic zero is excellent. On the other hand, there exists a regular local ring of dimension one and of characteristic $p$ which is not excellent. [Take a field $k$ of char. $p$ with $[k : k^p] = \infty$, put $R = k[[x]]$ and let $A$ be the subring of $R$ consisting of the power series $\sum a_i x^i$ such that $[k^p(a_0, a_1, \ldots) : k^p] < \infty$. Then $A$ is regular and $\completion A = R$. Since $R^p \subseteq A$ the quotient field $\Phi R$ is purely inseparable over $\Phi A$. Thus $A$ is not a $G$-ring, not even a Nagata ring by Th.\ref{thm:071}.]
+
+Let $K$ be a field, $\ch(K) \ne 2$. Then there exists a regular local ring $R$ of dimension $2$ containing $K$ and a prime element $z$ of $R$ such that $S = R[z^{1/2}]$ is a normal local ring whose completion $\completion S$ has zero-divisors. (\cite[p.210, (E7.1)]{nagata1975local}) Thus $R$ is not Nagata.
+
+C. Rotthaus (cf. \cite{rotthaus1977nicht}) constructed a regular local ring $R$ of dimension three which contains a field and which is Nagata but not quasi-excellent. 
+
+The ring $A$ of \ref{14.E} is a $G$-ring which is not u.c. 
+
+\newparagraph One can ask the following questions:
+
+\begin{enumerate}[label=(\Alph*)]
+    \item\label{que:34.A} If $A$ is quasi-excellent, is $A[[X]]$ quasi-excellent?
+    \myitem[(A')]\label{que:34.Aprime} If $A$ is as above and $I$ is an ideal, is the $I$-adic completion $\completion A$ of $A$ quasi-excellent? 
+    \setcounter{enumi}{1}
+    \item If $(A,I)$ is a complete Zariski ring with $A/I$ quasi-excellent, is $A$ also quasi-excellent?\label{que:34.B}
+\end{enumerate}
+
+Of course \ref{que:34.A} and \ref{que:34.Aprime} are equivalent, and \ref{que:34.B} is stronger. These questions are still open in the general case, cf. \S\ref{sec:43}.
+\end{document}

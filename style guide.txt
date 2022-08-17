@@ -1,0 +1,43 @@
+%under construction, please dont start TeXing before this is up
+
+Carefully read the operators[preamble].tex. This contains everything we have macro'd and we will require the usage of said macros to ensure that things are easier to change globally.
+
+use `` '' for quotations.
+
+always use \[\] for displaymode instead of $$ $$
+
+Capitalize people's name, e.g. ``Noetherian, Artinian''
+
+use \in for ``x\in X'' type of stuff, the og book used something epsilon looking due to limitations of typewritter.
+
+\cong for isomorphic
+
+\mid instead of | for a slight amount of space in set builders
+
+Use:
+\otimes for tensor and \bigotimes for big tensor
+\oplus for direct sum and \bigoplus for big direct sum
+\cap for intersections and \bigcap for big intersections 
+\cup for unions and \bigcup for big unions
+
+use \overline for overlines and \widetilde for tildes respectively.
+
+The original book has a lot of things inline that should not be. Use your judgement here to make things that look awkward inline into display mode. I think a good rule for this is, if the equation has 2 or more equals (or > or < etc), then it probably should be display mode. If there are a lot of fractions then that is also a good thing to display mode.
+
+The original book does not have a bibliography. I want to fix this, so if when typing up your section you encounter something that is a reference like this, add the details to reference-req.txt and I will add it to the bib and add a citation.
+
+use the theorem etc environments in the preamble.
+
+the numbering works as follows: theorems are globally numbered (so independent of chapter section etc), while the rest are going to be numbered per section. label theorems as \label{thm:xxx} (so for theorem 3, it would be thm:003) ,
+
+propositions/corollary/lemma/remark do \label{pro/cor/lem/rem:xx.xx} (so for section 4 lemma 1, this would be lem:04.01). when the text references these do \ref{} with the same convention. Do not worry if its not labeled yet, it will be at some point and the error will fix itself.
+
+Some sections have unlabelled lemmas etc, but we will have everything labeled. Everything runs on its own counter. Just use the appropriate environment and this will work out. If for some reason you need something other than the default numbering, then we have a class of custom theorems in the preamble which will help with this.
+
+For paragraphs, notice that Matsumura labeled some paragraphs. To do this, whenever you see labels such as 7.E, use \newparagraph (no need to do \label, its automatic) to define a new label and use \ref{7.E} to reference it. NOTE for section with single digit number, don't put 0 in front when referencing. If this label is followed immediately by an environment (like theorem/corollary/lemma/proposition), use \begin{partheorem} \begin{parcorollary} etc. for that environment. 
+
+Use \emph{} whenever something is emphasized in Matsumura, i.e underlined, use \defemph{} when the underline is a definition
+
+use either \longrightarrow or \varrightarrow{} for function maps
+
+use A^C instead of C(A) for the complement of A

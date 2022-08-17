@@ -1,0 +1,251 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Homological Theory}\label{sec:18}
+
+\newparagraph Let $A$ be a ring. The projective (resp. injective) dimension of an $A$-module $M$ is the length of a shortest projective (resp. injective) resolution of $M$. 
+
+\begin{lemma}\leavevmode\label{lem:18.01}
+\begin{enumerate}[label=(\roman*)]
+    \item An $A$-module is projective iff $\Ext_A^1(M,N)=0$ for all $A$-modules $N$. 
+    \item $M$ is injective iff $\Ext_A^1(A/I,M)=0$ for all ideals $I$ of $A$.\label{itm:second} 
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Immediate from the definitions. In \ref{itm:second} we use the fact (which is proven by Zorn's lemma) that if any homomorphism $f\colon N \varrightarrow{} M$ can be extended to any $A$-module $N'$ containing $N$ such that $N'=N+A\xi$ for some $\xi \in N'$, then $M$ is injective.
+\end{proof}
+\begin{lemma}\label{lem:18.02}
+Let $A$ be a ring and $n$ be a non-negative integer. Then the following conditions are equivalent$\colon$
+\begin{enumerate}[label=(\arabic*)]
+    \item \label{lem:18.02.1}$\ProjDim M \leq n$ for all $A$-modules $M$,
+    \item \label{lem:18.02.2}$\ProjDim M \leq n$ for all finite $A$-modules $M$,
+    \item \label{lem:18.02.3}$\InjDim M \leq n$ for all $A$-modules $M$,
+    \item \label{lem:18.02.4}$\Ext_A^{n+1}(M,N)=0$ for all $A$-modules $M$ and $N$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[(1) $\implies$ (2)] trivial.
+    \item[(2) $\implies$ (3)] take an exact sequence \[0 \varrightarrow{} M \varrightarrow{} U_0 \varrightarrow{} U_1 \varrightarrow{} \cdots \varrightarrow{} U_{n-1}\varrightarrow{} C \varrightarrow{} 0\] with $U_j$ injective for all $j$. Let $I$ be any ideal. Then we have\newline $\Ext_A^1 (A/I,C) \cong \Ext_A^{n+1}(A/I,M)$, which is zero by ii) since $A/I$ is a finite $A$-module.
+    \item[(4) $\implies$ (1)] is proved similarly, with ``projective'' instead of ``injective'' and with the arrows reversed.
+    \item[(3) $\implies$ (1)] is trivial, as one can calculate $\Ext_A^*(M,N)$ using an injective resolution of $N$. 
+\end{implyenumerate}
+\end{proof}
+
+By virtue of Lemma $\ref{lem:18.02}$ we have \[\sup_M(\ProjDim M)=\sup_M(\InjDim M).\] We call this common value (which may be $\infty$) the \defemph{global dimension}\index{global dimension} of $A$ and denote it by $\GlDim A$. (In EGA it is denoted by $\DimCoh (A).)$
+
+\begin{parlemma}\label{lem:18.03}
+Let $A$ be a \defemph{Noetherian} ring and $M$ a finite $A$-module. Then $M$ is projective iff $\Ext_A^1(M,N)=0$ for all finite $A$-modules $N$. 
+\end{parlemma}
+\begin{proof}
+Take a resolution \[0 \varrightarrow{} R \varrightarrow{i} F \varrightarrow{} M \varrightarrow{} 0\] with $F$ finite and free. Then $R$ is also finite, hence we have $\Ext^1(M,R)=0$. Thus $\Hom(F,R) \varrightarrow{} \Hom(R,R)\varrightarrow{} 0$ is exact, and so there exists $s: F \varrightarrow{} R$ with $s \circ i=\id_R$, i.e. the sequence \[0 \varrightarrow{} R \varrightarrow{} F \varrightarrow{} M \varrightarrow{} 0\] splits. Then $M$ is a direct summand of a free module.
+\end{proof}
+
+\begin{lemma}\label{lem:18.04}
+Let $(A,\ideal{m}, k)$ be a Noetherian local ring, and $M$ be a finite $A$-module. Then
+\[\ProjDim M \leqslant n \iff \Tor_{n+1}^A(M,k)=0.\]
+\end{lemma}
+
+\begin{proof}
+$\implies$ trivial.
+
+$\impliedby$ The general case is easily reduced to the case $n=0$. If $\Tor_1(M,K)$, let \[0 \varrightarrow{} R \varrightarrow{} F \varrightarrow{u} M \varrightarrow{} 0\] be exact with $u$ minimal (cf. chapter 6 exercise \ref{ex:ch06.3}). Then \[0 \varrightarrow{} R \otimes k \varrightarrow{} F \otimes k \varrightarrow{\overline{u}} M \otimes k \varrightarrow{} 0\] is exact and $\overline{u}$ is an isomorphism, hence $R \otimes k=0$ and so $R=0$ by \hyperref[NAK]{NAK}. Therefore $M$ is free, as wanted. 
+\end{proof}
+
+\begin{lemma}\leavevmode\label{lem:18.05}
+\begin{enumerate}[label=(\Roman*)]
+    \item \label{lem:18.05.1} Let $A$ be a Noetherian ring and $M$ a finite $A$-module. Then \begin{enumerate}[label=(\roman*)]
+        \item $\ProjDim M$ is equal to the supremum of $\ProjDim M_p$ (as $A_p$-module) for the maximal ideals $p$ of $A$, and\label{lem:18.05.1.1}
+        \item we have $\ProjDim M \leqslant n$ iff $\Tor_{n+1}^A(M,A/p)=0$ for all maximal ideals $p$ of $A$.\label{lem:18.05.1.2}
+    \end{enumerate}
+    \item \label{lem:18.05.2} The following conditions about a Noetherian ring $A$ are equivalent:
+    \begin{enumerate}[label = (\arabic*)]
+        \item $\text{gl}. \hspace{0.55 mm} \dim A \leqslant n$,\label{lem:18.05.2.1}
+        \item $\ProjDim M \leqslant n$ for all finite $A$-modules $M$,\label{lem:18.05.2.2}
+        \item $\InjDim M \leqslant n$ for all finite $A$-modules $M$,\label{lem:18.05.2.3} 
+        \item $\Ext_A^{n+1}(M,N)=0$ for all finite $A$-modules $M$ and $N$, \label{lem:18.05.2.4}
+        \item $\Tor_{n+1}^A(M,N)=0$ for all finite $A$-modules $M$ and $N$. \label{lem:18.05.2.5}
+    \end{enumerate}
+    \item\label{lem:18.05.3} For any Noetherian ring $A$, we have 
+    \[\GlDim A=\sup_{\max.\ideal{p}}\GlDim(A_\ideal{p}).\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(I) The assertion (i) follows from \ref{3.E} and Lemma \ref{lem:18.02}, while (ii) follows from (i) and Lemma \ref{lem:18.04}.
+
+
+(II) We already saw $(2)\iff (1) \iff (3)$ in Lemma \ref{lem:18.02}, and $(3)\implies (4)$ and $(2) \implies (5)$ are trivial. Moreover, (5) implies (2) by (1) above, and \newline $(4) \implies (2)$ is easy to see by Lemma \ref{lem:18.03}.
+
+(III) follows from (I) and (II).
+\end{proof}
+\begin{theorem}\label{thm:041}
+Let $(A,\ideal{m},k)$ be a Noetherian local ring. Then \newline $\GlDim A \leqslant n \iff \Tor_{n+1}^A(k,k)=0.$ Consequently, we have \newline $\GlDim A=\ProjDim k$ (as $A$-module). 
+\end{theorem}
+\begin{proof}
+$\Tor_{n+1}(k,k)=0 \implies \ProjDim k \leqslant n \implies \Tor_{n+1}(M,k)=0$ for all $M \implies \ProjDim M \leqslant n$ for all finite $M \implies \GlDim A \leqslant n.$ 
+\end{proof}
+\begin{parlemma}\label{lem:18.06}
+Let $(A,\ideal{m},k)$ be a Noetherian local ring and $M$ a finite $A$-module. If $\ProjDim M = r < \infty$ and if $x$ is an $M$-regular element in $\ideal{m},$ then $\ProjDim(M/xM)=r+1.$ 
+\end{parlemma}
+\begin{proof}
+The sequence \[0 \varrightarrow{} M \varrightarrow{x} M \varrightarrow{} M/xM \varrightarrow{} 0\] is exact by assumption, therefore the sequences 
+\[0 \varrightarrow{} \Tor_i(M/xM,k)\varrightarrow{} 0\hspace{5 mm}(i>r+1)\]
+and
+\[\Tor_{r+1}(M,k)=0\varrightarrow{} \Tor_{r+1}(M/xM,k)\varrightarrow{} \Tor_r(M,k)\varrightarrow{x}\Tor_r(M,k)\]
+are also exact. Since $k=A/\ideal{m}$ is annihilated by $x$, the $A$-module $\Tor_r(M,k)$ is also annihilated by $x.$ Therefore $\Tor_{r+1}(M/xM,k)\cong \Tor_r(M,k)\neq 0$ and $\Tor_i (M/xM,k)=0$ for $i>r+1.$ In view of $\ref{lem:18.05}$ we then have \newline $\ProjDim M/xM=r+1.$
+\end{proof}
+\begin{theorem}\label{thm:042}
+Let $(A,\ideal{m},k)$ be a regular local ring of dimension $n.$ Then \newline $\GlDim A=n.$
+\end{theorem}
+\begin{proof}
+Let $\{x_1,\dots,x_n\}$ be a regular system of parameters. Then the sequence $x_1,\dots,x_n$ is $A$-regular and $k=A/\Sigma x_1A,$ hence we have $\ProjDim k=n$ by \ref{lem:18.06}. So the theorem follows from \ref{thm:041}.
+\end{proof}
+\begin{corollary}[Hilbert's Syzygy Theorem]\index{Hilbert!\indexline syzygy theorem}
+Let $A=k[X_1,\dots,X_n]$ be a polynomial ring over a field $k$. Then $\GlDim A = n$
+\end{corollary}
+\begin{proof}
+Proof. This follows from Th.\ref{thm:022}, Th.\ref{thm:040}, Th.\ref{thm:042} and Lemma \ref{lem:18.05}.
+
+\end{proof}
+
+We are going to prove a converse (due to Serre) of Th.\ref{thm:042}, namely that a Noetherian local ring of finite global dimension is regular (Th.\ref{thm:045}). This is more important than Th.\ref{thm:042}, and its proof is also more difficult, Roughly speaking there are two different proofs: one is due to Nagata (simplified by Grothendieck) and uses induction on dim A. This proof is shorter and does not require big tools (cf. EGA IV pp.46-48 \cite{egaIV}). The other is due to Serre and uses Koszul complex and minimal resolution; it has the merit of giving more information about the homology groups $\Tor_{i}(k, k)$. Here we shall follow Serre's proof. We begin with explaining the necessary homological techniques, which are useful in other situations also.
+
+\newparagraph \defemph{Koszul Complex}. Let $A$ be a ring. $A$ complex (or more precisely, a chain complex) $M_\bullet$ is a sequence
+\[
+ M_\bullet : \dots \varrightarrow{} M_{n} \varrightarrow{\mathrm{d}} M_{n-1} \varrightarrow{\mathrm{d}} \dots \varrightarrow{\mathrm{d}} M_{0} \varrightarrow{\mathrm{d}} 0
+\]
+of $A$-modules and $A$-linear maps such that $\dd^{2}=0$. The module $M_i$ is called the $i$-dimensional part of the complex and the map $\dd$ is called the differentiation. If $L_\bullet$ and $M_\bullet$ are two complexes, their tensor product $L_\bullet\otimes M_\bullet$ is, by definition, the complex such that \[(L_\bullet \otimes M_\bullet)_{n}=\displaystyle\bigoplus_{p+q=n} L_{p} \otimes_{A} M_{q}\] and such that $\dd:(L_\bullet \otimes M_\bullet)_{n}\varrightarrow{}(L_\bullet \otimes M_\bullet)_{n-1}$ is defined on $L_{p} \otimes M_{q}$ by the formula \[\dd(x \otimes y)=\dd_{L}(x) \otimes y+(-1)^{p} x \otimes \dd_{M}(y).\]
+
+Let $x_{1}, \dots, x_{n} \in A$, and let $A e_{i}$ be a free A-module of rank one with a specified basis $e_{i}$ for $i=1, \dots, n$. Let 
+\[K_{\bullet}(x_{i}): 0 \varrightarrow{} A e_{i} \varrightarrow{x_i} A \varrightarrow{} 0\]
+denote the complex defined by
+\[K_p(x_i) = \begin{cases} 0 &, p\neq 1,0 \\ Ae_i &, p=1\\ A & p=0\end{cases}\]
+and by $\dd(e_{i})=x_{i} \cdot$ Then $H_{0}(K_{\bullet}(x_{i}))=A / x_{i} A$ and $H_{1}(K_{\bullet}(x_{i})) \simeq \Ann(x_{i})$. For any complex $C_\bullet$, we put \[C_\bullet(x_{1}, \dots, x_{n})=C_\bullet \otimes K_\bullet(x_{1}) \otimes \dots \otimes K_\bullet(x_{n}).\] 
+If $M$ is an $A$-module we view it as a complex M. with $M_{n}=0\for{n \neq 0}$ and $M_{0}=M$, and we put \[K_{\bullet}(x_{1}, \dots, x_{n}, M)=M_\bullet \otimes K_\bullet(x_{1}) \otimes \dots \otimes K_\bullet(x_{n}).\] If there is no danger of confusion we denote them by $C_\bullet(\underline{x})$ and by $K_\bullet (\underline{x}, M)$ respectively. These complexes are called \defemph{Koszul complexes}\index{Koszul complex}. We have $k_{p}(x_{1}, \dots, x_{n}, M)=0$ for $n<p$, while
+\[
+K_{p}(x_{1}, \dots, x_{n}, M)= \bigoplus_{\substack{p \text{ of the } \alpha_i\text{'s are =1}\\ \text{and the rest are }=0}} M\otimes [K_{\alpha_1}(x_1)\otimes \dots \otimes K_{\alpha_n} (x_n)]
+\]
+for $0 \leqslant p \leqslant n$. Put $e_{i_{1} \dots i_{p}}=u_{1} \otimes \dots \otimes u_{n}$, where \[u_i =\begin{cases}e_i & i\in \{i_1,\dots , i_p\}\\ 1&\text{otherwise}\end{cases}\] Then
+\[\begin{aligned}
+K_{0}(x_{1}, \dots, x_{n}, M)&=M,\\
+K_p(x_1,\dots,x_n,M) &= \bigoplus_{1\leq i_1<\dots<i_p\leq n} Me_{i_1\dots i_p} \simeq M^{\binom{n}{p}} \for{1\leq p\leq n}
+\end{aligned}\]
+\[\tag{18.1}\label{eqn:18.1}\dd(m e_{i_{1}} \dots i_{p})=\sum_{r=1}^{p}(-1)^{r-1} x_{i_{r}} e_{i_{1} \dots \hat{i}_{r} \dots i_{p}}\]
+(where $m \in M_{1}$ and $\hat{i}_{r}$ indicates that $i_{r}$ is omitted there).
+The formula \ref{eqn:18.1} for the operator $\dd$ can be put into another
+form: let \[\sum_{ i_{1}<\dots<i_{p} }m_{i_1 \dots i_{p}} e_{i_{1} \dots i_{p}}\] be an arbitrary
+element of $K_{p}(\underline{x}, M)$, and extend the $m_{i_{1} \dots i_{p}}$'s to an alternating function of the indices (i.e. such that $m_{\dots i \dots i\dots }=0$
+and $m_{\dots i \dots j \dots}=-m_{\dots j \dots i \dots}$). Then we have
+
+\[\tag{18.2}\label{eqn:18.2} \dd\bigg(\sum_{i_1<\dots<i_p}m_{i_1 \dots i_{p}} e_{i_{1} \dots i_{p}} \bigg)=\sum_{j=1}^n x_j\bigg( \sum_{i_1<\dots<i_{p-1}}m_{i_1 \dots i_{p-1}} e_{i_{1} \dots i_{p-1}}\bigg)\]
+
+There is another interpretation of the Koszul complex.
+Let \[F=A X_{1}+\dots+AX_{n}\] be a free $A$-module of rank $n$ with a
+basis $\{X_{1}, \dots, X_{n}\}$. Then the exterior product $\bigwedge^{P} F$ is a
+free module of rank $\displaystyle\binom{n}{p}$ with \[\{x_{i_{1}} \wedge \dots \wedge x_{i_{p}} \mid 1 \leqslant i_{1}<\dots<i_{p} \leqslant n\}\]
+as a basis, so that there is an isomorphism of A-modules $M \otimes_{A} \bigwedge^{p} F\varrightarrow{} K_{p}(\underline{x}, M)$ which maps $X_{i_{1}} \wedge \dots \wedge X_{i_{p}}$ to $e_{i_{1} \dots i_{p}}$.
+Thus we can define $K_\bullet(\underline{x}, M)$ to be the complex $M \otimes L_\bullet$ with $L_{p}=\bigwedge^PF$ and with
+\[\dd(X_{i_1}\wedge\dots \wedge X_{i_p}) = \sum_{r=1}^p (-1)^{r-1} x_{i_r} X_{i_1}\wedge\dots \wedge\widehat{X}_{i_r} \wedge\dots\wedge X_{i_p}\]
+ If we adopt this definition then we have to check $\dd^{2}=0$ on $L_\bullet$, which is straightforward anyway.
+
+For any $x \in A$, we have an exact sequence of complexes
+\[\tag{3} 0 \varrightarrow{} A \varrightarrow{} K_\bullet (x) \varrightarrow{} A' \varrightarrow{}0\]
+where $A'$ is the factor complex $K_\bullet(x) / A$, therefore $(A')_{1} \simeq A$ and $(A')_{n}=0$ for $n \neq 1$. Let $C_\bullet$ be any complex. Then tensoring the exact sequence (3) with $C_\bullet$ we get
+\[\tag{4}
+0 \varrightarrow{} C_\bullet\varrightarrow{}C_\bullet(x) \varrightarrow{} C'_\bullet\varrightarrow{}0 \for{C'_\bullet=C_\bullet \otimes A'}
+\]
+which is again exact. The complex $C'$ is obtained from $C$ by increasing the dimension by one: $C'_{p}=C_{p-1}$ and $\dd_p' = \dd_{p-1}$. Thus $H_{p}(C') \varrightarrow{} H_{p-1}(C)$, and we get a long exact sequence
+\[\begin{aligned}\dots &\varrightarrow{}& H_{p+1}(C_\bullet) &\varrightarrow{}& H_{p+1}(C_\bullet (x))& \varrightarrow{}& H_p(C_\bullet) &\varrightarrow{\delta_p}& H_p(C_\bullet)&\varrightarrow{}& \\ \dots &\varrightarrow{\delta_1}&H_1(C_\bullet)&\varrightarrow{}&H_1(C_\bullet(x))&\varrightarrow{}&H_0(C_\bullet)&\varrightarrow{\delta_0}&H_0(C_\bullet)&\varrightarrow{}&H_0(C_\bullet(x))&\varrightarrow{}&0\end{aligned}\]
+One immediately checks that the connecting homomorphism $\delta_{p}$ is the multiplication by $(-1)^{p} x$. Therefore we get
+
+\begin{lemma}\label{lem:18.07}
+If $C_\bullet$ is a complex with $H_{p}(C_\bullet)=0$ for all $p>0$, then $H_{p}(C_\bullet(x))=0$ for all $p>1$ and
+\[
+0 \varrightarrow{} H_{1}(C_\bullet(x)) \varrightarrow{} H_{0}(C_\bullet) \varrightarrow{x} H_{0}(C_\bullet) \varrightarrow{} H_{0}(C_\bullet(x)) \varrightarrow{} 0
+\]
+is exact. If, in particular, $x$ is $H_{0}(C_\bullet)$-regular, then we have $H_{p}(C_\bullet(x))=0$ for all $p>0$ and $H_{0}(C_\bullet(x))=H_{0}(C) / xH_{0}(C)$.
+\end{lemma} 
+
+\begin{theorem}\label{thm:043} Let $A$ be a ring, $M$ an $A$-module and $x_{1}, \dots, x_{n}$ an $M$-regular sequence in $A$. Then we have
+\[
+H_{p}(K_\bullet(\underline{x}, M))=0\for{p>0}, \quad H_{0}(K_\bullet(\underline{x}, M))=M / \sum_{1}^{n} x_{i} M_{1}
+\]
+\end{theorem}
+\begin{corollary} Let $A$ be a ring and $x_{1}, \dots, x_{n}$ be an $A$-regular sequence in $A$. Then $K_\bullet(x_{1}, \dots, x_{n}, A)$ is a free resolution of the $A$-module $A /(x_{1}, \dots, x_{n})$.
+\end{corollary}
+
+\newparagraph \defemph{Minimal Resolution}\index{minimal!\indexline resolution}. Let $(A, \ideal{m}, k)$ be a Noetherian local ring. We recall (chapter 6 exercise \ref{ex:ch06.3}) that a homomorphism $u:L \varrightarrow{} M$ is called \defemph{minimal} if \[\overline{u}=u \otimes \id_{k}: \overline{L}=L \otimes k \varrightarrow{} \overline{M}=M \otimes k\] is an isomorphism, or equivalently, if $u$ is surjective with $\Ker(u) \subseteq m L$. Let $M$ be a finite $A$-module. $A$ free resolution of $M$,
+\[\cdots\varrightarrow{} L_i \varrightarrow{\mathrm{d}_i} L_{i-1} \varrightarrow{}\cdots \varrightarrow{\mathrm{d}_1}L_0\varrightarrow{\mathrm{d}_0}M\varrightarrow{}0\]
+is called a minimal resolution if $\dd_{i}: L_{i} \varrightarrow{} \Ker(\dd_{i-1})$ is minimal for each $i \geq 0$. In this case the complex \[L_\bullet\otimes k:\,\cdots\varrightarrow{} \overline{L}_i \varrightarrow{\overline{\mathrm{d}}_i} \overline{L}_{i-1} \varrightarrow{}\cdots \varrightarrow{\overline{\mathrm{d}}_1}\overline{L}_0,\] where $\overline{L}_{i}=L_{i} \otimes k=L_{i} / \ideal{m} L_{i}$, has trivial differentiation (i.e. all $\overline{\mathrm{d}}_{1}=0)$. Therefore we have $\Tor_{1}^{A}(M, k) \simeq \overline{L}_{1}$ for all $i$, and so rank $L_{i}=\rank_{k} \Tor_{i}^{A}(M, k)$. In particular, all $L_{i}$ are finite over $A$.
+
+\begin{lemma}\label{lem:18.08} Let $M$ be a finite module over a Noetherian local ring $A$. Then a minimal resolution of $M$ exists, and is unique up to (non-canonical) isomorphisms.
+\end{lemma}
+\begin{proof}
+The existence is easy to see: one constructs a minimal resolution step by step, using minimal basis. To prove the uniqueness, let $L_\bullet \varrightarrow{} M$ and $L'_\bullet \varrightarrow{} M$ be two minimal resolutions of $M$. Since $L_\bullet$ is a projective resolution there exists a homomorphism $f : L_\bullet\varrightarrow{} L'_\bullet$ of complexes over M. Since
+\[\begin{tikzcd}
+L_1\arrow[d,"f_1"] \arrow[r,"\dd_1"] &L_0 \arrow[d,"f_0"]\arrow[r,"\varepsilon"] &M\arrow[d,"\id"]\\ L_1' \arrow[r]& L_0' \arrow[r,"\varepsilon'"] &M
+\end{tikzcd}\]
+is commutative and since $\varepsilon$ and $\varepsilon'$ are minimal, the map $\overline{f}_{0}$ is an isomorphism. Since both $L_{0}$ and $L_{0}'$ are free, the map $f_{0}$ is then defined by a square matrix $T$ with $\det T \notin \ideal{m}$. Then $f_{0}$ itself is an isomorphism. Repeating the same reasoning we prove inductively that all $f_{i}$ are isomorphisms.
+\end{proof}
+
+\begin{exercise} Let $L_\bullet \varrightarrow{} M$ be a minimal resolution and $P_\bullet\varrightarrow{} M$ be an arbitrary free resolution. Then we have $P_\bullet \simeq L_\bullet \oplus W_\bullet$ with some acyclic complex $W_\bullet$.
+\end{exercise}
+
+\begin{lemma}\label{lem:18.09} Let \[\cdots\varrightarrow{} L_{1} \varrightarrow{\dd_{i}} L_{i-1}\varrightarrow{}\cdots \varrightarrow{\dd_{1}} L_{0}\varrightarrow{\varepsilon}M \varrightarrow{} 0\] be a minimal resolution of $M$, and
+\[
+\cdots \varrightarrow{} F_{i} \varrightarrow{\dd_{i}'} F_{i-1} \varrightarrow{} \cdots \varrightarrow{\dd_1'} F_{0}
+\]
+be a complex with an augmentation $\varepsilon': F_{0} \varrightarrow{} M$, such that
+\begin{enumerate}[label = \roman*)]
+    \item each $F_{i}$ is finite and free over $A$,
+    \item $\overline{\varepsilon}': \overline{F}_{0} \varrightarrow{} \overline{M}$ is injective, and
+    \item $\dd_{i}'(F_{i}) \subseteq \ideal{m} F_{i-1}$ for each $i>0$, and $\dd_{i}'$ induces an injection\newline $\overline{F}_{i} \varrightarrow{}(\ideal{m} / \ideal{m}^{2}) \otimes F_{i-1}$. 
+\end{enumerate}
+ Then there exists a homomorphism of complexes over $M$
+\[
+f: F_\bullet \varrightarrow{} L_\bullet
+\]
+such that each $f_{i}$ maps $F_{i}$ isomorphically onto a direct summand of $L_{i}$. Consequently, we have
+\[\rank F_i \leq \rank L_i = \rank_k \Tor_i^A (M,k). \]
+\end{lemma}
+\begin{proof} Since $L_\bullet$ is a resolution and since each $F_{i}$ is free, there exists a homomorphism $f: F_\bullet \varrightarrow{} L_\bullet$ over $M$. We have to prove that, for each $i$, there exists an $A$-linear map $g_{i}: L_{i}\varrightarrow{} F$ with $g_{i} f_{i}= \id_{F_i}$. Since both $F_{i}$ and $L_{i}$ are free, we can easily see that such $g_{i}$ exists iff $\overline{f}_{i}: \overline{F}_{i}\varrightarrow{}\overline{L}_{i}$ is injective. Using the assumptions we prove inductively that $\overline{f}_{i}$ is injective, for $i=0,1,2, \dots$.
+\end{proof}
+
+\begin{partheorem}\label{thm:044} Let $(A, \ideal{m}, k)$ be a Noetherian local ring and let \newline $s=\rank_{k} \ideal{m}/\ideal{m}^2$. Then we have
+\[
+\rank_k \Tor_1^A(k,k)\geq \binom{s}{1} \quad \text{for } 0\leq i \leq s
+\]
+\end{partheorem}
+\begin{proof}
+Take a minimal basis $\{x_{1}, \dots, x_{s}\}$ of $\ideal{m}$, and consider the Koszul complex $F_\bullet=K_\bullet(x_{1}, \dots, x_{s}, A)$. There is an obvious augmentation $F_{0}=A \varrightarrow{} k=A / \ideal{m}$, which satisfies the condition ii) of Lemma \ref{lem:18.09}. By the definition of\newline  $\dd_{p}: F_{p} \varrightarrow{} F_{p-1}$ it is clear that $\dd_{p}(F_{p}) \subseteq \ideal{m}F_{p-1}$. Moreover, we have \[\overline{F}_{p}=k \otimes F_{p}= K_p(x_1,\dots ,x_s; k)\text{ and } \ideal{m}/\ideal{m}^2 \otimes_A F_{p-1} =\ideal{m}/\ideal{m}^2\otimes_k K_{p-1}(\underline{x};k).\]
+Since the residue classes of the $x_{i}$'s modulo $\ideal{m}^{2}$ form a $k-$ basis of $\ideal{m} / \ideal{m}^{2}$, the formula (2) of \ref{18.D} implies that $\dd_{p}$ induces an injection $\overline{F}_{p} \varrightarrow{} \ideal{m} / \ideal{m}^{2} \otimes F_{p-1}$. Thus the conditions of Lemma \ref{lem:18.09} are all satisfied. Therefore we have
+\[\binom{s}{p} = \rank_A F_p \leq \rank_k \Tor_p^A(k,k)\]
+\end{proof}
+\begin{partheorem}\label{thm:045}
+A Noetherian local ring $A$ is regular iff the global dimension of $A$ is finite.
+\end{partheorem}
+\begin{proof}
+We have already proved the 'only-if' part in Th.\ref{thm:042}. So suppose that $(A, \ideal{m}, k)$ is a Noetherian local ring with $\GlDim A=n<\infty$. Put $\rank_{k} \ideal{m}/ \ideal{m}^{2}=s$. Then $\Tor_{s}^{A}(k, k) \neq 0$ by Th.\ref{thm:044}, hence  $\GlDim A \geq s$. On the other hand, it follows from the formula $\ProjDim M +\depth M = \depth A $ of Auslander-Buchsbaum (chapter 6 exercise \ref{ex:ch06.4}) and from Th.\ref{thm:041} that $\GlDim A = \ProjDim k = \depth A $. Therefore we get
+
+\[\dim A \leq \rank_{k} m / m^{2} \leq \GlDim A=\depth A \leq \dim A .\] Whence $\dim A=\rank_{k} \ideal{m} / \ideal{m}^{2}$, which means $A$ is regular.\end{proof}
+
+\begin{corollary} If A is a regular local ring then $A_{\ideal{p}}$ is regular for any $\ideal{p} \in \Spec(A)$.
+\end{corollary}
+\begin{proof}
+Let $M$ be an $A_{\ideal{p}}$-module. As an $A$-module it has a projective resolution of finite length: \[0 \varrightarrow{} P_{n} \varrightarrow{} \dots \varrightarrow{} P_{0} \varrightarrow{} M\varrightarrow{} 0,\quad n \leq \GlDim A.\] By $f$, latness of $A_{p}$ the sequence \[0 \varrightarrow{}(P_{n})_{\ideal{p}} \varrightarrow{} \dots \varrightarrow{}(P_{0})_{\ideal{p}} \varrightarrow{} M_{\ideal{p}}=M \varrightarrow{} 0\] is exact, and gives a projective resolution of $M$ as $A_{\ideal{p}}$-module. Hence \newline $\GlDim A_{\ideal{p}} \leq \GlDim A<\infty$.
+\end{proof} 
+\begin{definition}
+A ring $A$ is called a \defemph{regular ring}\index{regular!\indexline ring} if $A_{\ideal{p}}$ is a regular local ring for every maximal ideal $\ideal{p}$ of $A$. In view of the above Corollary, this is equivalent to saying that $A_{\ideal{p}}$ is a regular local ring for every $\ideal{p} \in \Spec(A)$.
+\end{definition}
+
+\begin{partheorem}\label{thm:046} Let $A$ be a regular local ring, and $B$ a
+domain containing $A$ which is a finite $A$-module. Then $B$ is flat
+(hence free) over $A$ iff $B$ is Cohen-Macaulay, In particular,
+if $B$ is regular then it is a free $A$-module.
+\end{partheorem} 
+
+\begin{proof}Suppose $B$ is flat over $A$. Then $B$ is C.M. as $A$ is so. (For, if $P$ is a maximal ideal of $B$ then $\dim B_{P} \leqslant \dim A$ by \ref{13.C}, while any $A$-regular sequence is also $B_{P}$-regular by the flatness and hence depth $B_{P} \geqslant \depth A$.) Conversely, suppose $B$ is Cohen-Macaulay. Since $A$ is normal the going-down theorem holds between $A$ and $B$ by \ref{5.E}, so if $\ideal{m}$ is the maximal ideal of $A$ we have $\Ht(\ideal{m}B)=\Ht(\ideal{m})$ by Th.\ref{thm:019}(3). By the unmixedness theorem in $B$, any regular system of parameters of $A$ is a $B$-regular sequence. Therefore the depth of $B$ as $A$-module is equal to $\dim A=\depth A$, and by the formula of Auslander-Buchsbaum (chapter 6 exercise \ref{ex:ch06.4}) we have $\ProjDim \dd_{A}=0$, i.e. $B$ is $A$-free.
+\end{proof}
+
+
+\end{document}

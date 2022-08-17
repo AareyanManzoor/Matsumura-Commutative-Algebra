@@ -1,0 +1,159 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{\texorpdfstring{$M$}{M}-regular Sequences}\label{sec:15}
+
+\newparagraph Let $A$ be a ring, $M$ be an $A$-module and $a_1, \ldots, a_r$ be a sequence of elements of $A$. We write $(\underline{a})$ for the ideal $(a_1, \ldots, a_r)$, and $\underline{a}M$ for the submodule $\sum a_i M=(\underline{a})M$.
+
+We say $a_1, \ldots, a_r$ is an \defemph{$M$-regular sequence}\index{regular!\indexline sequence} (or simply $M$-sequence) if the following conditions are satisfied:
+\begin{enumerate}[label=(\arabic*)]
+    \item for each $1 \leqslant i \leqslant r$, $a_i$ is not a zero-divisor on $M/(a_1, \ldots, a_{i-1}) M$, and
+    \item $M \neq\underline{a}M$.
+\end{enumerate}
+When all $a_i$ belong to an ideal $I$ we say $a_1, \ldots, a_r$ is an \defemph{$M$-regular sequence} in $I$. If, moreover, there is no $b \in I$ such that $a_1, \ldots, a_r$, $b$ is $M$-regular, then $a_1, \ldots, a_r$ is said to be a \defemph{maximal $M$-regular sequence} in $I$. Notice that the notion of $M$-regular sequence depends on the order of the elements in the sequence.
+
+\begin{lemma}\label{lem:15.01}
+Suppose that $a_1, \ldots, a_r$ is $M$-regular and \[a_1 \xi_1+\cdots+a_r \xi_r=0\for{\xi_i \in M}.\] Then $\xi_i \in \underline{a}M$ for all $i$.
+\end{lemma} 
+\begin{proof}
+Induction on $r$. For $r=1, a_1 \xi_1=0$ implies $\xi_1=0$. Let $r>1$. Since $a_r$ is $M/(a_1, \ldots, a_{r-1})M$-regular we have $\xi_r=\sum_{i=1}^{r-1} a_i\eta_i$, hence \newline $\sum_{i=1}^{r-1} a_i(\xi_i+a_r \eta_i)=0$. By induction hypothesis, for $i<r$ we get \newline $\xi_i+a_r \eta_i \in(a_1, \ldots, a_{r-1})M$, so that $\xi_i \in(a_1, \ldots, a_r) M$.
+\end{proof}
+
+\begin{theorem}\label{thm:026}
+Let $A$, $M$ be as above and $a_1, \ldots, a_r \in A$ be an $M$-regular sequence. Then for every sequence $\nu_1, \ldots, \nu_r$ of integers $>0$, the sequence $a_1^{\nu_1}, \ldots, a_r^{\nu_r}$ is $M$-regular.
+\end{theorem}
+
+\begin{proof}
+It suffices to prove that $a_1^\nu, a_2, \ldots, a_r$ is $M$-regular, because then $a_2, \ldots, a_r$ will be $M/a_1^{\nu}M$-regular and we can repeat the argument. We use induction on $\nu$, the case $\nu=1$ being true by assumption. Let $\nu>1$ and assume that $a_1^{\nu-1}, a_2, \ldots, a_r$ is $M$-regular. $a_1^\nu$ is certainly $M$-regular. Let $i>1$ and assume that $a_1^\nu, a_2, \ldots, a_{i-1}$ is an $M$-regular sequence. Let \[a_i\omega=a_1^\nu\xi_1+a_2\xi_2+\cdots+a_{i-1}\xi_{i-1}.\] Then $\omega=a_1^{\nu-1} n_1+a_2\eta_2+\cdots+a_{i-1}\eta_{i-1}$ by the induction hypothesis. So \[a_1^{\nu-1}(a_1 \xi_1-a_i \eta_1)+a_2(\xi_2-a_i \eta_2)+\cdots+a_{i-1}(\xi_{i-1}-a_i \eta_{i-1})=0,\] hence $a_1 \xi_1-a_i \eta_1 \in(a_1^{\nu-1}, a_2, \ldots, a_{i-1})M$ by Lemma \ref{lem:15.01}. It follows that \newline $a_i \eta_1 \in(a_1, a_2, \ldots, a_{i-1})M$, hence $\eta_1 \in(a_1, \ldots, a_{i-1}) M$ and so $\omega \in(a_1^\nu, a_2, \ldots, a_{i-1})M$.
+\end{proof} 
+
+\newparagraph Let $A$ be a ring, $X_1, \ldots, X_n$ be indeterminates over $A$ and $M$ be an $A$-module. An element of $M \otimes_A A[X_1, \ldots, X_n]$ can be viewed as a polynomial $F(X)=F(X_1, \ldots, X_n)$ with coefficients in $M$. Therefore we write $M[X_1, \ldots, X_n]$ for $M \otimes_A A[X_1, \ldots, X_n]$. If $a_1, \ldots, a_n \in A$ then $F(a) \in M$.
+
+Let $a_1, \ldots, a_n \in A$, $I=(\underline{a})$. We say that $a_1, \ldots, a_n$ is an \defemph{$M$-quasiregular sequence} if the following condition is satisfied.
+\begin{enumerate}[label = (15.$\ast$), ref= cond:15.*]
+    \item For every $\nu>0$ and for every homogeneous polynomial $F(X) \in M[X_1, \ldots, X_n]$ of degree $\nu$ such that $F(a) \in I^{\nu+1} M$, we have $F \in IM[X]$
+\end{enumerate}
+Obviously this concept does not depend on the order of the elements. But $a_1, \ldots, a_i\for{i<n}$ need not be $M$-quasiregular. The condition $(*)$ can be stated in the following form.
+\begin{enumerate}[label = (15.$\ast\ast$), ref= cond:15.**]
+    \item If $F(X) \in M[X_1, \ldots, X_n]$ is homogeneous and $F(a)=0$, then the coefficients of $F$ are in $IM$.
+\end{enumerate}
+Define a map \[\phi:(M / I M)[X_1, \ldots, X_n] \longrightarrow \gr^IM=\bigoplus_{\nu \geqslant 0} I^\nu M/I^{\nu+1} M\] as follows. If $F(X) \in M[X]$ is homogeneous of degree $\nu$, let $\psi(F)=$ the image of $F(a)$ in $I^\nu M / I^{\nu+1} M$. Then $\psi$ is a degree-preserving additive map from $M[X]$ to $\gr^I(M)$, and since it maps $IM[X]$ to $0$ it induces $\phi:(M/IM)[X]\longrightarrow\gr^I(X)$. This is clearly surjective, and $(*)$ is equivalent to
+\begin{enumerate}[label = (15.$\ast\ast\ast$), ref= cond:15.***]
+    \item $\phi$ is an isomorphism: $(M/IM)[X_1,\ldots,X_n]\cong\gr^I(M)$.
+\end{enumerate}
+
+\begin{theorem}\label{thm:027}
+Let $A$ be a ring, $M$ an $A$-module, $a_1,\ldots,a_n\in A$ and $I=\underline{a}M$. Then
+\begin{enumerate}
+    \item if $a_1,\ldots,a_n$ is $M$-quasiregular and $x\in A$, $IM:x=IM$, then \newline $I^\nu M:x=I^\nu M$ for all $\nu>0$,
+    \item if $a_1,\ldots,a_n$ is $M$-regular then it is $M$-quasiregular;
+    \item if $M$, $M/a_1M$, $M/(a_1,a_2)M, \ldots, M/(a_1,\ldots,a_{n-1})M$ are separated in the $I$-adic topology, then the converse of ii) is also true.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+The separation condition of iii) is satisfied in either of the following cases:
+\begin{enumerate}
+    \item[$(\alpha)$] $A$ is Noetherian, $M$ is finitely generated and $I\subseteq\rad(A)$, 
+    \item[$(\beta)$] $A$ is a graded ring $A=\bigoplus_{\nu\geqslant0}A_\nu$, $M$ is a graded $A$-module $M=\bigoplus_{\nu\geqslant0}M_\nu$ and each $a_i$ is homogeneous of degree $>0$.
+\end{enumerate}
+\end{remark}
+
+\begin{proof}
+\begin{enumerate}
+    \item Induction on $\nu$. Let $\nu>1$, $\xi\in M$ and suppose $x\xi\in I^\nu M$. Then $\xi\in I^{\nu-1}M$, hence there exists a homogeneous polynomial $F(X) \in M[X_1,\ldots, X_n]$ of degree $\nu-1$ such that $\xi=F(a)$. Since \newline $x\xi = xF(a) \in I^\nu M$, the coefficients of $F$ are in $IM: x = IM$. Therefore $\xi = F(a) \in I^\nu M$.
+    \item Induction on $n$. For $n = 1$ it is easy to check. Let $n>1$. By induction hypothesis is $a_1, \ldots, a_{n-1}$ is $M$-quasiregular. Let $F(X) \in M[X_1, \ldots, X_n]$ be homogeneous of degree $\nu$ such that $F(a)=0$. We will prove $F \in IM[X]$ by induction on $\nu$. Write \[F(X)=G(x_1, \ldots, X_{n-1})+X_n H(X_1, \ldots, X_n).\] Then $G$ and $H$ are homogeneous of degree $\nu$ and $\nu-1$, respectively. By i) we have \[H(a)\in(a_1, \ldots, a_{n-1})^\nu M: a_n=(a_1, \ldots, a_{n-1})^\nu M \subseteq I^\nu M,\] therefore by the induction hypothesis on $\nu$ we have $H \in IM[X]$. Since $H(a) \in(a_1, \ldots, a_{n-1})^\nu M$ there exists $h(X) \in M[X_1, \ldots, X_{n-1}]$ which is homogeneous of degree $\nu$ such that $H(a)=h(a)$. Putting \[G(X_1, \ldots, X_{n-1})+a_nh(X_1, \ldots, X_{n-1})=g(X)\]
+    we have $g(a_1, \ldots, a_{n-1})=0$, hence by the induction hypothesis on $n$ we have $g \in IM[X]$, hence $G \in IM[X]$ and so $F \in I M[X]$.
+    \item If $a_1 \xi=0$ then $\xi \in I M$, hence $\xi=\sum a_i \eta_i$ and $\sum a_1 a_i \eta_i=0$, hence $\eta_i \in IM$ and $\xi \in I^2 M$. In this way we see $\xi \in\bigcap_\nu I^\nu M=0$. Thus $a_1$ is $M$-regular. Put $M_1=M / a_1 M$. If $a_2,\ldots, a_n$ is $M_1$-quasiregular then our assertion will be proved by induction on $n$. ($M \neq I M$ follows from the separation condition.) Let $F(X_2, \ldots, X_n) \in M[X_2, \ldots, X_n]$ be homogeneous of degree $\nu$ such that $F(a_2, \ldots, a_n) \in a_1M$. Put $F(a_2, \ldots, a_n)=a_1\omega$, and assume $\omega \in I^i M$. Then $\omega=G(a_1, \ldots, a_n)$ for some homogeneous polynomial of degree $i$, and
+    \begin{enumerate}[label = (15.$\dagger$)]
+       \item $F(a_2, \ldots, a_n)=a_1 G(a_1, \ldots, a_n)$.\label{cond:15.dag}
+    \end{enumerate}
+    If $i<\nu-1$ then $G \in IM[X]$ and so $\omega \in I^{i+1}$. We thus conclude that $\omega \in I^{\nu-1} M$. If $i=\nu-1$ in \ref{cond:15.dag}, then $F(X_2, \ldots, X_n)-X_1 G(X)\in IM[X]$, and since $F$ does not contain $X_1$ we have $F \in IM[X]$. Therefore $F \mod a_1 M[X] \in(a_2, \ldots, a_n) M_1[X]$.
+\end{enumerate}
+\end{proof}
+
+The theorem shows that, under the assumptions of iii), any permutation of an $M$-regular sequence is $M$-regular.
+
+\begin{examples*}
+\begin{enumerate}
+    \item Let $k$ be a field and $A=k[X, Y, Z]$. Put $a_1=X(Y-1)$, $a_2=Y$ and $a_3=Z(Y-1)$. Then $a_1, a_2, a_3$ is an $A$-regular sequence, while $a_1, a_3, a_2$ is not.
+    \item There exists a non-Noetherian local ring $(A, \ideal{m})$ such that $\ideal{m}=(x_1, x_2)$ where $x_1, x_2$ is an $A$-regular sequence but $x_2$ is a zero-divisor in $A$. (Cf. \cite{dieudonne1966on})
+\end{enumerate} 
+\end{examples*}
+
+\newparagraph If $a_1, a_2, \ldots \in A$ is an $M$-regular sequence then the sequence of submodules $a_1M,(a_1, a_2) M, \ldots$ is strictly increasing, hence the sequence of ideals $(a_1),(a_1, a_2), \ldots$ is also strictly increasing. If $A$ is Noetherian such a sequence must stop. Therefore each $M$-regular sequence in $I$ can be extended to a maximal $M$-regular sequence in $I$. The next theorem shows that any two maximal $M$-regular sequences in $I$ have the same length if $M$ is finitely generated.
+
+\begin{theorem}\label{thm:028}
+Let $A$ be a Noetherian ring, $M$ a finite $A$-module and $I$ an ideal of $A$ with $I M \neq M$. Let $n>0$ be an integer. Then the following are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+    \item $\Ext_A^i(N, M)=0\for{i<n}$ for every finite $A$-module $N$ with $\Supp(N) \subseteq V(I)$;
+    \item $\Ext_A^i(A / I, M)=0\for{i<n}$;
+    \item there exists a finite $A$-module $N$ with $\Supp(N)=V(I)$ such that \newline $\Ext_A^i(N, M)=0$ $(i<n)$;
+    \item there exists an $M$-regular sequence $a_1, \ldots, a_n$ of length $n$ in $I$.
+\end{enumerate} 
+\end{theorem}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[$(1)\implies(2)\implies(3)$] is trivial.
+    \item[$(3)\implies(4)$]We have $\Ext_A^0(N, M)=\Hom_A(N, M)=0$. If no elements of $I$ are $M$-regular, then $I$ is contained in the join of the associated primes of $M$, hence in one of them by \ref{1.B}: $I\subseteq P$ for some $P \in \Ass(M)$. Then there exists an injection $A / P \longrightarrow M$. Localizing at $P$ we get $\Hom_{A_P}(k, M_P) \neq 0$, where $k=A_P/PA_P$. Since $P \in V(I)=\Supp(N)$, we have $N_P \neq 0$ and so $N_P / P_P=N \otimes_A k \neq 0$ by \hyperref[NAK]{NAK}. Then $\Hom_k(N \otimes k, k) \neq 0$. Therefore $\Hom_{A_P}(N_P, M_P) \neq0$. But the left hand side is a localization of $\Hom_A(N, M)$, which is $0$. This is a contradiction, therefore there exists an $M$-regular element $a_1 \in I$. If $n>1$, put $M_1=M / a_1 M$. From the exact sequence
+    \[\tag{15.$\ast \dagger$} \label{cond:15.*dag}0\longrightarrow M\varrightarrow{a_1}M\longrightarrow M_1\longrightarrow 0
+    \]
+    we get the long exact sequence \[\cdots\longrightarrow\Ext_A^i(N, M)\longrightarrow\Ext_A^i(N, M_1) \longrightarrow \Ext_A^{i+1}(N, M) \longrightarrow \cdots\] which shows that $\Ext_A^i(N, M_1)=0\for{i<n-1}$. So by induction on $n$ there exists an $M_1$-regular sequence $a_2, \ldots, a_n$ in $I$.
+    \item[$(4)\implies(1)$] Put $M_1=M / a_1 M$. Then $\Ext_A^i(N, M_1)=0\for{i<n-1}$ by induction on $n$. From \ref{cond:15.*dag} we get exact sequences \[0 \longrightarrow \Ext_A^i(N, M) \varrightarrow{a_1}\Ext_{A}^{i}(N, M)\quad(i<n).\] But $\Supp(N)=V(\Ann(N)) \subseteq V(I)$, hence $I \subseteq$ radical of $\Ann(N)$, and so $a_1^r N=0$ for some $r>0$. Therefore $a_1^r$ annihilates $\Ext_A^i(N, M)$ as well. Thus we have $\Ext_A^i(N, M)=0\for{i<n}$.
+\end{implyenumerate}
+\end{proof}
+
+Under the assumptions of the theorem, we call the length of the maximal $M$-regular sequences in $I$ the \defemph{$I$-depth}\index{depth} of $M$ and denote it by $\depth_I(M)$. The theorem shows that \[\depth_I(M)=\min \{i \mid \Ext_A^i(A / I, M) \neq 0\}.\] When $(A,\ideal{m})$ is a local ring we write $\depth M$ or $\depth_AM$ for $\depth_{\ideal{m}}(M)$ and call it simply the \defemph{depth} of $M$. Thus $\depth M=0$ iff $\ideal{m} \in \Ass(M)$. If $A$ is an arbitrary Noetherian ring and $P \in \Spec(A)$, we have \[\depth M_P=0 \iff P A_P \in\Ass_{A_P}(M_P) \iff P \in\Ass_A(M)\implies \depth_P(M)=0.\] In general we have $\depth_{A_P}(M_P) \geqslant \depth_P(M)$, because localization preserves exactness. When $I M=M$ we $\depth_I(M)=\infty$. For instance $\depth_I(M)=0$ if $M=0$.
+
+\newparagraph D. Rees introduced the notion of \defemph{grade}, which is closely related to depth, in 1957. (\cite{rees1957the}) Let $A$ be a Noetherian ring, $M\neq0$ be a finite $A$-module and $I=\Ann(M)$. Then he puts \[\grade M=\inf\{i \mid \Ext_A^i(M, A) \neq 0\}.\] According to the above theorem, we have \[\grade M=\depth_I(A), \quad I=\Ann(M).\] Also, it follows from the definition that $\grade M\leqslant\ProjDim M.$ When $I$ is an ideal of $A$, $\grade(A/I)$ is called the \defemph{grade}\index{grade} of $I$. [Thus $\grade I$ can have two meanings according to whether $I$ is viewed as an ideal of as a module. When confusion can arise, the $\depth$ notation should be used.] The grade of an ideal $I$ is $\depth_I(A)$, the length of a maximal $A$-sequence in $I$. If $a_1,\ldots,a_r$ is an $A$-regular sequence it is easy to see that $\Ht(a_1,\ldots,a_r)=r$. Therefore $\grade I\leqslant\Ht I.$
+
+\begin{proposition}
+Let $A$ be a Noetherian ring, $M$ ($\neq0$) and $N$ be finite $A$-module, $\grade M=k$ $\ProjDim N=l<k$. Then \[\Ext_A^i(M,N)=0\for{i<k-l}.\]
+\end{proposition}
+
+\begin{proof}
+Induction on $l$. If $l=0$ then $N$ is a direct summand of a free module. Since our assertion holds for $A$ by definition, it holds for $N$ also. If $l > 0$ take an exact sequence \[0 \longrightarrow N' \longrightarrow L \longrightarrow N \longrightarrow 0\] with $L$ free. Then $\ProjDim N'=l-1$ and our assertion is proved by induction.
+\end{proof}
+
+\begin{parlemma}[Ischebeck]\label{lem:15.02}
+Let $(A, \ideal{m})$ be a Noetherian local ring and $M \neq 0$ and $N \neq 0$ be finite $A$-modules. Put $\depth M=k$, $\dim N=r$. Then \[\Ext_A^i(N, M)=0\for{i<k-r}.\]
+\end{parlemma} 
+\begin{proof}
+Induction on $r$. If $r=0$ then $\Supp(N)=\{\ideal{m}\}$ and the assertion follows from Th.\ref{thm:028}. Let $r>0$. By Th.\ref{thm:010} we can easily reduce to the case $N=A / P$, $P \in \Spec(A)$. Since $r=\dim A / P>0$ we can pick $x \in\ideal{m}-P$, and then \[0 \longrightarrow N \varrightarrow{x}N \longrightarrow N' \longrightarrow 0\] is exact, where $N'=A /(P+A x)$ has dimension $<r$. Then using induction hypothesis we get exact sequences \[0 \longrightarrow \Ext_A^i(N, M) \varrightarrow{x} \Ext_A^i(N, M) \longrightarrow \Ext_A^{i+1}(N', M)=0\] for $i<k-r$, and these $\Ext$ must vanish by \hyperref[NAK]{NAK}.
+\end{proof}
+
+\begin{theorem}\label{thm:029}
+Let $(A, \ideal{m})$ be a Noetherian local ring and let $M \neq 0$ be a finite $A$-module. Then we have \[\depth M \leqslant \dim(A / P)\text{ for every }P \in \Ass(M).\]
+\end{theorem}
+
+\begin{proof}
+If $P \in \Ass(M)$ then $\Hom_A(A / P, M) \neq 0$, hence $\depth M\leqslant \dim(A / P)$ by Lemma \ref{lem:15.02}.
+\end{proof}
+
+\begin{parlemma}\label{lem:15.03}
+Let $A$ be a ring, and let $E$ and $F$ be finite $A$-modules. Then $\Supp(E \otimes F)=\Supp(E) \cap \Supp(F)$.
+\end{parlemma} 
+
+\begin{proof}
+For $P \in \Spec(A)$ we have \[(E \otimes F)_{P}=(E \otimes_{A} F) \otimes_{A} A_{P}= E_P \otimes_{A_P}F_P.\] Therefore the assertion is equivalent to the following: Let $(A, \ideal{m}, k)$ be a local ring and $E$ and $F$ be finite $A$-modules. Then $E \otimes F \neq 0 \iff E \neq 0$ and $F \neq 0$. Now $\implies$ is trivial. Conversely, if $E \neq 0$ and $F \neq 0$ then $E \otimes k=E /\ideal{m}E \neq 0$ by \hyperref[NAK]{NAK}. Similarly $F \otimes k \neq 0$. Since $k$ is a field we get \[(E \otimes F) \otimes k=(E \otimes k) \otimes_{k}(F \otimes k) \neq 0,\] so $E \otimes F \neq 0$.
+\end{proof} 
+
+
+\begin{lemma}\label{lem:15.04}
+Let $A$ be a Noetherian local ring and $M$ be a finite $A$-module. Let $a_1,\ldots, a_r$ be an $M$-regular sequence. Then \[\dim M/(a_1, \ldots, a_r) M=\dim M-r.\]
+\end{lemma} 
+
+\begin{proof}
+We have $\dim M / \underline{a}M \geqslant \dim M-r$ by Th.\ref{thm:017}. On the other hand, suppose $f$ is an $M$-regular element. We have \[\Supp(M / f M)=\Supp(M) \cap \Supp(A / f A)=\Supp(M) \cap V(f)\] by Lemma \ref{lem:15.03}, and $f$ is not in any minimal element of $\Supp(M)$, in other words $V(f)$ does not contain any irreducible component of $\Supp(M)$. Hence $\dim(M / f M)<\dim M$. This proves $\dim M / \underline{a}M \leqslant\dim M-r$.
+\end{proof}
+
+\begin{proposition}
+Let A be a Noetherian ring, $M$ a finite $A$-module and $I$ an ideal. Then \[\depth_I(M)=\inf \{\depth M_P \mid P \in V(I)\}.\]
+\end{proposition}
+
+\begin{proof}
+Let $n$ denote the value of the right hand side. If $n=0$ then $\depth M_P=0$ for some $P \supseteq I$, and then $I \subseteq P \in \Ass (M)$. Thus $\depth_I(M)=0$. If $0<n<\infty$, then $I$ is not contained in any associated prime of $M$, and so there exists by \ref{1.B} an $M$-regular element $a \in I$. Put $M'=M/aM$ Then \[\depth(M'_P)=\depth M_P / aM_P=\depth M_P-1\text{ for } P \supseteq I,\] and $\depth_I(M')=\depth_I(M)-1$. Therefore our assertion is proved by induction on $n$. If $n=\infty$ then $PM_{P}=M_P$ for all $P\in V(I)$. If $I M \neq M$ we would have $(M / I M)_P \neq 0$ for every \[P \in\Supp(M / I M)=V(I) \cap \Supp(M).\] If $P$ is a minimal element of $\Supp(M/IM)$ then $\Supp_{A_P}(M / IM)_{P}=\{PA_P\}$, hence the $A_P$-module $(M/IM)_P=M_P / I M_P$ is coprimary in $M_P$ and \newline $P^sM_P \subseteq IM_P$ for some $s>0$ by \ref{8.B}. Hence $PM_P \neq M_P$, contradiction. Therefore $IM=M$ and $\depth_I(M)=\infty$.
+\end{proof}
+
+\end{document}

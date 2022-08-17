@@ -1,0 +1,191 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Formal Smoothness II}\label{sec:30}
+\begin{pardefinition}
+Let $\Lambda \varrightarrow{g} k \varrightarrow{f} A$ be continuous homomorphisms of topological rings. (cf. \ref{28.B}) We say that $A$ is \defemph{formally smooth over $k$ relative to $\Lambda$}\index{formally!\indexline smooth relative to} (f.s. over $k$ rel.$\Lambda$, for short) if, given any commutative diagram 
+\begin{center}
+\begin{tikzcd}
+                        &  & A \arrow[rr, "v"]                 &  & C/N               \\
+\Lambda \arrow[rr, "g"] &  & k \arrow[u, "f"'] \arrow[rr, "i"] &  & C \arrow[u, "j"']
+\end{tikzcd}
+\end{center}
+where $C$ and $C/N$ are discrete rings, $N$ an ideal of $C$ with $N^2 = 0$ and the homomorphisms are continuous, the map $v$ can be lifted to a $k$-algebra homomorphism $A \longrightarrow C$ whenever it can be lifted to a $\Lambda$-algebra homomorphism $A \longrightarrow C$.
+\end{pardefinition}
+
+\begin{theorem}
+\label{thm:065}
+Let $\Lambda \varrightarrow{g} k \varrightarrow{f} A$ be as above. Then the following are equivalent: 
+
+\begin{enumerate}[label= (\arabic*)]
+    \item $A$ is f.s. over $k$ rel. $\Lambda$;
+    \item for any $A$-module $N$ such that $IN = 0$ for some open ideal $I$ of $A$, the map $\Der_\Lambda(A, N) \longrightarrow \Der_\Lambda(k, N)$ induced by $f$ is surjective; 
+    \item $\Omega_{k/\Lambda} \otimes_k (A/I) \longrightarrow \Omega_{A/\Lambda} \otimes_A (A/I)$ is left-invertible for any open ideal $I$ of $A$. 
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$(1) \implies (2)$: Put $C = (A/I) \ast N$, take $D \in \Der_\Lambda(k, N)$ and define $i : k \longrightarrow C$ by $i(\alpha) = (v f(\alpha), D f(\alpha))\for{\alpha \in k}$ where $v : A \longrightarrow A/I$ is the natural map. Then $v$ can be lifted to the $\Lambda$-homomorphism $a \mapsto (v(a), 0) \in C$, hence it can also be lifted to a $k$-homomorphism $a \mapsto (v(a), D'(a))$, and then $D' : A \longrightarrow N$ is a derivation satisfying $D = D'f$. $(2) \implies (1)$ is also easy, and $(2) \iff (3)$ is obvious.
+\end{proof}
+
+\begin{partheorem}
+\label{thm:066}
+Let $\Lambda \longrightarrow k \longrightarrow A$ be as above, let $J$ be the ideal of definition of $A$ and suppose $A$ is formally smooth over $\Lambda$. Then $A$ is f.s. over $k$ iff
+\[
+\Omega_{k/\Lambda} \otimes_k (A/J) \longrightarrow \Omega_{A/\Lambda} \otimes_A (A/J)
+\]
+is left-invertible. 
+\end{partheorem}
+
+\begin{proof}
+By assumption, $A$ is f.s. over $k$ iff it is f.s. over $k$ rel. $\Lambda$. On the other hand, for any open ideal $I$ of $A$ the $A/I$-module $\Omega_{A/\Lambda} \otimes (A/I)$ is projective by \ref{29.B} Lemma \ref{lem:29.1}. Thus the condition (3) of the preceding theorem is equivalent to the present condition by \ref{29.B} Lemma \ref{lem:29.2}. 
+\end{proof}
+
+\begin{corollary}
+Let $(A, \ideal m, K)$ be a regular local ring containing a field $k$. Then $A$ is f.s. over $k$ iff
+\[
+\Omega_k \otimes_k K \longrightarrow \Omega_A \otimes_A K
+\]
+is injective.
+\end{corollary}
+
+\begin{proof}
+Since $A$ is f.s. over the prime field in $k$, the assertion follows from the theorem.
+\end{proof}
+
+\begin{parlemma}\label{lem:30.01}
+Let $k$ be a field of characteristic $p$. Let $F = \{k_\alpha\}$ be a family of subfields of $k$, directed downwards\index{directed downwards} (i.e. for any two members of $F$ there exists a third which is contained in both of them), such that $k^p \subseteq k_\alpha \subseteq k$, $\bigcap_\alpha k_\alpha = k^p$. Let $u_\alpha : \Omega_k \longrightarrow \Omega_{k/k_\alpha}$ be the canonical homomorphisms. Then $\bigcap_\alpha \Ker(u_\alpha) = (0)$.
+\end{parlemma}
+
+\begin{proof}
+Let $(x_i)$ be a $p$-basis over $k$. Then $\Omega_k$ is a free $k$-module with $(\dd x_i)$ as a basis. Suppose that $0 \ne \sum_1^n c_i \dd x_i \in \bigcap_\alpha \Ker(u_\alpha)$. Then the monomials $\{x_1^{\nu_1} \ldots x_n^{\nu_n} \mid 0 \le \nu_i < p\}$ must be linearly dependent over $k_\alpha$ for all $\alpha$. But since they are linearly independent over $k^p$ and since $\bigcap k_\alpha = k^p$, it is easily seen that they are linearly indep. over some $k_\alpha$. 
+\end{proof}
+
+\begin{theorem}
+\label{thm:067}
+Let $(A, \ideal m, K)$ be a regular local ring containing a field $k$ of characteristic $p$. Let $F = \{k_\alpha\}$ be as in the above lemma. Then $A$ is f.s. over $k$ iff $A$ is f.s. over $k$ rel. $k_\alpha$ for all $\alpha$. 
+\end{theorem}
+
+\begin{proof}
+``Only-if'' is trivial. Conversely, suppose the condition holds, and look at the commutative diagram
+
+\begin{center}
+\begin{tikzcd}
+\Omega_k \otimes_k K \arrow[rr, "w"] \arrow[d, "u_\alpha'"'] &  & \Omega_A \otimes K \arrow[d]  \\
+\Omega_{k/k_\alpha} \otimes K \arrow[rr, "w_\alpha"]         &  & \Omega_{A/k_\alpha} \otimes K
+\end{tikzcd}
+\end{center}
+
+Here $w_\alpha$ is injective by Th.\ref{thm:065} and $u_\alpha' = u_\alpha \otimes 1_K$. Thus \[\Ker(w) \subseteq \bigcap \Ker(u_\alpha') = \Big(\bigcap \Ker(u_\alpha)\Big) \otimes K = (0).\]
+\end{proof}
+
+\begin{partheorem}[Grothendieck]
+\label{thm:068}
+Let $A$ be a Noetherian \emph{complete} local ring and $\ideal p$ be a prime ideal of $A$; put $B = A_{\ideal p}$ and let $\completion B$ denote the completion of $B$. Let ${\ideal q}' \in \Spec(B)$ and let $L = \kappa({\ideal q}') = B_{{\ideal q}'}/{\ideal q}' B_{{\ideal q}'}$. Then for any prime ideal $Q$ of $\completion B$ lying over ${\ideal q}'$, the `local ring of $Q$ on the fibre' ${\completion B}_Q \otimes_B L = {\completion B}_Q/{\ideal q}' {\completion B}_Q$ (cf. \ref{21.A}) is formally smooth (hence geometrically regular) over $L$.
+\end{partheorem}
+
+\begin{proof}\phantom{,}
+\begin{enumerate}[label = Step \Roman*.]
+    \item Put
+    \begin{itemize}
+        \item  ${\ideal q} = {\ideal q}' \cap A$,
+        \item  $\overline A = A/{\ideal q}$,
+        \item $\overline B = B/{\ideal q} B = B/{\ideal q}'$,
+        \item  $\completion {\overline B} = (\text {the completion of the local ring } \overline B) = {\completion B}/{\ideal q}' \completion B$
+        \item  and $\overline Q = Q/{\ideal q}' \completion B$.
+    \end{itemize}
+    Then the `local ring of $Q$ on the fibre' remains the same when we replace $A$, $B$, $\completion B$, $Q$ by $\overline A$, $\overline B$, $\completion {\overline B}$, $\overline Q$ respectively. Thus we may assume that $A$ is an integral domain and $Q \cap B = {\ideal q}' = (0)$.
+    \item (Reduction to the case that $B$ is regular).
+    Let: 
+    \begin{itemize}
+        \item $R$ be a complete regular local ring $R \subseteq A$ over which $A$ is finite.
+        \item ${\ideal p}_0 = {\ideal p} \cap R$,
+        \item $S = R_{{\ideal p}_0}$ and
+        \item $B' = A_{{\ideal p}_0}$
+    \end{itemize} Then $B'$ is finite over $S$, and $B = A_{\ideal p}$ is a localization of the semi-local ring $B'$ by a maximal ideal. Hence $\completion B$ is a localization (and a direct factor) of $\completion {B'} = B' \otimes_S {\completion S}$. Let $L$ (resp. $K$) be the quotient field of $A$, $B'$ and $B$ (resp. $R$ and $S$).
+    \begin{center}
+    \begin{tikzcd}
+                       &  &                                                 & \completion {B'} \arrow[r, equals] & B' \otimes_S {\completion S} \arrow[rr] &                                             & \completion B         &             \\
+    A \arrow[rr]           &  & A_{{\ideal p}_0} \arrow[r, equals] & B' \arrow[rr] \arrow[u]                         &                                         & A_{\ideal p} \arrow[r, equals] & B \arrow[r] \arrow[u] & L           \\
+    R \arrow[rr] \arrow[u] &  & R_{{\ideal p}_0} \arrow[r, equals] & S \arrow[rrrr] \arrow[u]                        &                                         &                                             &                       & K \arrow[u]
+    \end{tikzcd}
+    \end{center}
+
+    We are given $Q \in \Spec(\completion B)$ such that $Q \cap B = (0)$. Then ${\completion pB_Q}$ is a localization of \[L \otimes_{B'} \completion {B'} = L \otimes_S {\completion S} = L \otimes_K (K \otimes_S {\completion S}),\] and $L$ is a finite extension of the field $K$. In general if $T$ is a $K$-algebra, if $M \in \Spec(L \otimes_K T)$ and $m = M \cap T$, and if $T_m$ is f.s. over $K$, then $(L \otimes T)_M$ is a localization of $L \otimes_K T_m$ and hence is f.s. over $L$. Thus it suffices to show that ${\completion S}_{Q \cap {\completion S}}$ is f.s. over $K$. Thus the problem is reduced to proving that, if $R$ is a complete regular local ring with quotient field $K$, if $\ideal p \in \Spec(R)$ and $S = R_{\ideal p}$, and if $Q$ is a prime ideal of $\completion S$ such that $Q \cap S = (0)$, then ${\completion{S_Q}}$ is f.s. over $K$. 
+    \item The local ring $\completion {S_Q}$ is regular, so if $\ch(K) = 0$ we are done. If $\ch(K) = p$ we apply the preceding theorem. In this case $R$ is an equicharacteristic complete regular local ring, hence $R = k[[X_1, \ldots, X_n]]$ for some subfield $k$ of $R$. Let $\{k_\alpha\}$ be the family of all subfields $k_\alpha$ of $k$ such that $[k : k_\alpha] < \infty$ and $k^p \subseteq k_\alpha \subseteq k$. Put 
+    \begin{itemize}
+        \item $R_\alpha = k_\alpha[[X_1^p, \ldots, X_n^p]]$,
+        \item  ${\ideal p}_\alpha = R_\alpha \cap \ideal p$,
+        \item $S_\alpha = (R_\alpha)_{\ideal p_\alpha}$ and
+        \item $K_\alpha = \Phi R_\alpha = k_\alpha((X_1^p, \ldots, X_n^p)).$
+    \end{itemize}
+    Then $\bigcap_\alpha k_\alpha = k^p$, hence it is elementary to see that $\bigcap_\alpha K_\alpha = K^p$ (see below). By the preceding theorem we have only to show that, for each $\alpha$, $\completion {S_Q}$ is f.s. over $K$ rel. $K_Q$. 
+
+    Since $R^p \subseteq R_\alpha \subseteq R$, $\ideal p$ is the only prime ideal of $R$ lying over ${\ideal p}_\alpha$. Hence \[S = R_{\ideal p} = R_{{\ideal p}_\alpha} = R \otimes_{R_\alpha} S_\alpha,\] and so $S$ is finite over $S_\alpha$. Therefore $\completion S = S \otimes_{S_\alpha} \completion {S_\alpha}$. Suppose we are given diagram 
+
+\begin{center}
+\begin{tikzcd}
+\completion {S_\alpha} \arrow[rr] &  & \completion S \arrow[rr, "v"] &  & C/N         \\
+S_\alpha \arrow[u] \arrow[rr]     &  & S \arrow[u] \arrow[rr, "u"]   &  & C \arrow[u]
+\end{tikzcd}
+\end{center}
+
+where $N^2 = (0)$ and $u$ and $v$ are homomorphisms, and a lifting $v' : \completion S \longrightarrow C$ of $v$ over $S_\alpha$. Put $v^\ast = v' \mid \completion {S_\alpha}$ and $v'' = u \otimes v^{\ast \ast}$: $\completion S = S \otimes_{S_\alpha} \completion {S_\alpha} \longrightarrow C$. Then $v''$ is a lifting of $v$ over $S$. Thus $\completion S$ is formally smooth over $S$ rel. $S_\alpha$ with respect to the discrete topology. Then it follows immediately from the definition that $\completion {S_Q}$ is f.s. over $K$ rel. $K_\alpha$ as a discrete ring, hence a fortiori as a local ring. 
+\end{enumerate}
+\end{proof}
+
+\newparagraph A digression. Let $A$ be a ring and $M$ an $A$-module. We say that $M$ is \defemph{injectively free}\index{injectively free} if, for any non-zero element $x$ of $M$, there exists a linear form $f \in \Hom_A(M, A)$ with $f(x) \ne 0$ (in other words, if the canonical map from $M$ to its double dual is injective). 
+
+\begin{lemma}
+Let $B$ be an $A$-algebra which is injectively free as an $A$-module. Then $B[X_1, \ldots, X_n]$ (resp. $B[[X_1, \ldots, X_n]]$) is injectively free over $A[X_1, \ldots, X_n]$ (resp. $A[[X_1, \ldots, X_n]]$).
+\end{lemma}
+
+\begin{proof}
+Just extend a suitable $A$-linear map $\ell : B \longrightarrow A$ to $B[X_1, \ldots, X_n]$ (resp. $B[[X_1, \ldots, X_n]]$) by letting it operate on the coefficients. 
+\end{proof}
+
+\begin{lemma}
+Let $A \subset B$ be integral domains, and suppose $B$ is injectively free over $A$. Let $K$ and $L$ be the quotient fields of $A$ and $B$ respectively, and $X$ be an indeterminate. Then
+\[
+\Phi(B[[X]]) \cap K((X)) = \Phi(A[[X]])
+\]
+\end{lemma}
+
+\begin{proof}
+$\supseteq$ is trivial. To see $\subseteq$, let $\xi \in \Phi(B[[X]]) \cap K((X))$. As an element of $K((X))$ we can write (the Laurent expansion)
+\[
+\xi = X^m(r_0 + r_1 X + r_2 X^2 + \ldots)\for{ m \in \bZ, \, r_i \in K}
+\]
+We may assume $m = 0$. Since $\xi \in \Phi(B[[X]])$, there exists $0 \ne \phi \in B[[X]]$ such that $\phi \xi = \psi \in B[[X]]$. Write
+\[
+\phi = \sum_0^\infty \alpha_i X^i, \quad \psi = \sum_0^\infty \beta_k X^k \for{ \alpha_i, \beta_j \in B}.
+\]
+Then $\sum_{i + j = k} \alpha_i r_j = \beta_k$. Take a linear map $\ell : B \longrightarrow A$ with $\ell(\alpha_i) \ne 0$ for some $i$. Then $\sum_{i + j = k} \ell(\alpha_i) r_j = \beta_k$. Writing $\ell(\phi) = \sum \ell(\alpha_j) X^i$ and $\ell(\psi) = \sum \ell(\beta_k) X^k$ we therefore get $\ell(\phi) \ne 0$ and $\xi = \ell(\psi)/\ell(\phi) \in \Phi(A[[X]])$. 
+\end{proof}
+
+\begin{proposition}\label{prop:30.01}
+Let $k$ be a field and $\{k_\alpha\}$ a family of subfields of $k$. Put $k_0 = \bigcap_\alpha k_\alpha$. Then we have 
+\[
+\bigcap_\alpha k_\alpha ((X_1, \ldots, X_n)) = k_0((X_1, \ldots, X_n))
+\]
+\end{proposition}
+
+\begin{proof}
+When $n = 1$, the uniqueness of the Laurent expansion proves the assertion. Induction on $n$. Put
+\begin{itemize}
+    \item $A = k_0[[X_1, \ldots, X_{n - 1}]]$,
+    \item $B_\alpha = k_\alpha[[X_1, \ldots, X_{n - 1}]]$
+    \item $K = \Phi A = k_0 ((X_1, \ldots, X_{n - 1}))$
+    \item $ L_\alpha = \Phi B_\alpha = k_\alpha ((X_1, \ldots, X_{n - 1})).$
+\end{itemize}
+Then we have
+\[
+\bigcap_\alpha k_\alpha ((X_1, \ldots, X_n)) \subseteq \bigcap_\alpha L_\alpha ((X_n)) = \Big(\bigcap_\alpha L_\alpha\Big)((X_n)) = K((X_n))
+\]
+by the induction hypothesis, whence
+\[
+\begin{aligned}
+\bigcap_\alpha k_\alpha ((X_1, \ldots, X_n)) & \subseteq k_\alpha ((X_1, \ldots, X_n)) \cap K((X_n)) \\ & = \Phi(B_\alpha [[X_n]]) \cap K([[X_n]]) \\ & = \Phi(A[[X_n]]) \\ & = k_0((X_1, \ldots, X_n)).
+\end{aligned}\]
+\end{proof}
+\end{document}

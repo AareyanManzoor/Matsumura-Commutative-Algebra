@@ -1,0 +1,71 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Homomorphisms and Dimension}\label{sec:13}
+
+\newparagraph Let $\phi: A \longrightarrow B$ be a homomorphism of rings. Let $\ideal{p} \in\Spec(A)$, and put $\kappa(\ideal{p})=A_{\ideal{p}} /\ideal{p}A_{\ideal{p}}$. Then $\Spec(B\otimes_A\kappa(\ideal{p}))$ is called the \defemph{fibre} over $\ideal{p}$ (of the canonical map $\SpecInduced{\phi}: \Spec(B) \longrightarrow\Spec(A)$). There is a canonical homeomorphism between $(\SpecInduced{\phi})^{-1}(\ideal{p})$ and $\Spec(B \otimes \kappa(\ideal{p}))$. If $P$ is a prime ideal of $B$ lying over $\ideal{p}$, the corresponding prime of $B \otimes \kappa(p)=B_{\ideal{p}} / \ideal{p}B_{\ideal{p}}$ is $PB_{\ideal{p}} / \ideal{p}B_{\ideal{p}}$; denote it by $P^*$. Then the local ring $(B \otimes_A \kappa(\ideal{p}))_{P^*}$ can be identified with $B_{\ideal{p}} / \ideal{p}B_{\ideal{p}}=B_P\otimes_A \kappa(\ideal{p})$; in fact, we have $(B_{\ideal{p}})_{PB_{\ideal{p}}}=B_P$ and so \[(B \otimes \kappa(\ideal{p}))_{P^*}=(B_{\ideal{p}} / \ideal{p}B_{\ideal{p}})_{PB_{\ideal{p}}/\ideal{p}B_{\ideal{p}}}=B_P /\ideal{p}B_P\] by \ref{1.I}. Now we have the following theorem.
+
+\begin{partheorem}\label{thm:019}
+Let $\phi: A\longrightarrow B$ be a homomorphism of Noetherian rings; let $P \in \Spec(B)$ and $\ideal{p}=P \cap A$. Then
+\begin{enumerate}[label=(\arabic*)]
+    \item $\Ht(P)\leqslant\Ht(\ideal{p})+\Ht(P/\ideal{p}B)$, in other words \[\dim(B_P) \leqslant \dim(A_{\ideal{p}})+\dim(B_P \otimes \kappa(\ideal{p}))\]
+
+    \item the equality holds in (1) if the going-down theorem holds for $\phi$ (e.g. if $\phi$ is flat);
+
+    \item if $\SpecInduced{\phi}:\Spec(B)\longrightarrow \Spec(A)$ is surjective and if the going-down theorem holds, then we have i) $\dim(B) \geqslant \dim(A)$, and ii) $\Ht(I)=\Ht(IB)$ for any ideal $I$ of $A$.
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof}
+\begin{enumerate}[label=(\arabic*)]
+    \item  Replacing $A$ and $B$ by $A_{\ideal{p}}$ and $B_P$, we may suppose that $(A, \ideal{p})$ and $(B, P)$ are local rings such that $P \cap A=\ideal{p}$. We have to prove \[\dim(B) \leqslant \dim(A)+\dim(B /\ideal{p}B).\] Let $a_1, \ldots, a_r$ be a system of parameters of $A$ and put $I=\sum a_i A$. Then $\ideal{p}^n \subseteq I$ for some $n>0$, so that $\ideal{p}^n B \subseteq I B \subseteq \ideal{p} B$. Thus the ideals $\ideal{p}B$ and $IB$ have the same radical. Therefore it follows from the definition that $\dim(B/\ideal{p}B)=\dim(B/IB)$. If $\dim(B/IB)=s$ and if $\{\overline{b}_1, \ldots, \overline{b}_s\}$ is a system of parameters of $B / I B$, then $b_1, \ldots, b_s, a_1, \ldots, a_r$ generate an ideal of definition of $B$. Hence $\dim(B) \leqslant r+s$.
+    \item  We use the same notation as above. If $\Ht(P /\ideal{p}B)=s$ there exists a prime chain of length $s,\quad P=P_0 \supset P_1 \supset \cdots P_s$, such that $P_s \supseteq\ideal{p}B$. As \[\ideal{p}=P \cap A \supseteq P_i \cap A \supseteq \ideal{p},\] all the $P_i$ lie over $\ideal{p}$. If $\Ht(\ideal{p})=r$ then there exists a prime chain $\ideal{p} \supset\ideal{p}_1\supset\cdots\supset\ideal{p}_r$ in $A$, and by going-down there exists a prime chain $P_s=Q_0 \supset Q_1 \supset \cdots \supset Q_r$ of $B$ such that $Q_i \cap A=\ideal{p}_i$. Thus \[P=P_0 \supset P_1 \supset \cdots\supset P_s \supset Q_1 \supset \cdots\supset Q_r\] is a prime chain of length $r+s$, therefore $\Ht(P) \geqslant r+s$.
+    \item \begin{enumerate}[label = \roman*)]
+        \item follows from (2). 
+        \item Take a minimal prime over-ideal $P$ of $IB$ such that \newline $\Ht(P)=\Ht(I B)$, and put $\ideal{p}=P \cap A$. Then $\Ht(P / \ideal{p}B)=0$, hence by (2) we get \[\Ht(I B)=\Ht(P)=\Ht(\ideal{p})\geqslant \Ht(I).\] Conversely, let $\ideal{p}$ be a minimal prime over-ideal of I such that $\Ht(\ideal{p})=\Ht(I)$, and take a prime $P$ of $B$ lying over $\ideal{p}$. Replacing $P$ if necessary we may suppose that $P$ is a minimal prime over-ideal of $\ideal{p}B$. Then \[\Ht(I)=\Ht(\ideal{p})=\Ht(P)\geqslant \Ht(I B).\]
+    \end{enumerate}
+\end{enumerate}
+
+\end{proof}
+
+\begin{partheorem}\label{thm:020}
+Let $B$ be a Noetherian ring, and let $A$ be a Noetherian subring over which $B$ is integral. Then
+\begin{enumerate}[label=(\arabic*)]
+    \item $\dim(A)=\dim(B)$,
+    \item for any $P \in \Spec(B)$ we have $\Ht(P) \leqslant\Ht(P \cap A)$,
+    \item if, moreover, the going-down theorem holds between $A$ and $B$, then for any ideal $J$ of $B$ we have $\Ht(J)=\Ht(J \cap A)$.
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof}
+Since $P_1 \subset P_2$ implies $P_1 \cap A \subset P_2 \cap A$ by \ref{5.E} ii), we have \newline $\dim(B) \leqslant \dim(A)$. On the other hand the going-up theorem proves \newline $\dim(B) \geqslant \dim(A)$. Thus $\dim(B)=\dim(A)$. The inequality $\Ht(P) \leqslant \Ht(P \cap A)$ follows from Th.\ref{thm:019} (1), since $\Ht(P /(P \cap A) B)=0$ by \ref{5.E} ii). To prove (3), first take prime ideal $P$ of $B$ containing $J$ such that $\Ht(P)=\Ht(J)$. Then $\Ht(P)=\Ht(P \cap A)$ by Th.\ref{thm:019} (3), so that \[\Ht(J)=\Ht(P)=\Ht(P\cap A)\geqslant\Ht(J\cap A).\] Next let $\ideal{p}$ be a prime ideal of $A$ containing $J\cap A$ such that $\Ht(\ideal{p})=\Ht(J\cap A)$. Since $B/J$ is integral over the subring $A/J\cap A$, there exists a prime $P$ of containing $J$ and lying over $p$. Then \[\Ht(J \cap A)=\Ht(\ideal{p})=\Ht(P)\geqslant\Ht(J).\]
+\end{proof}
+
+\begin{partheorem}\label{thm:021}
+Let $\phi: A\longrightarrow B$ be a homomorphism of Noetherian rings and suppose that the going-up theorem holds for $\phi$. Let $\ideal{p}$ and $\ideal{q}$ be prime ideals of $A$ such that $\ideal{p}\supset \ideal{q}$. Then $\dim(B \otimes_A \kappa(\ideal{p})) \geqslant \dim(B \otimes_A\kappa(\ideal{q}))$.
+\end{partheorem}
+
+\begin{proof}
+Put $r=\dim(B\otimes_A \kappa(\ideal{q}))$ and $s=\Ht(\ideal{p}/\ideal{q})$.\newpage \InsertBoxL{1}{\parbox[b][8.5\baselineskip][c]{0.45\textwidth}{
+    \[
+        \arraycolsep=1.5pt
+        \begin{array}{lrcccc}
+            B \quad & Q_{r+s} & \supset & \cdots & \supset & Q_r \\
+             & & & & & \rotatebox{90}{$\subset$}\, \\
+             & & & & & \vdots\, \\
+             & & & & & \rotatebox{90}{$\subset$}\, \\
+             & & & & & Q_0 \\
+             & & & & & \\
+            A \quad & \ideal{p}=\ideal{p}_s & \supset & \cdots & \supset & \ideal{q} \\
+        \end{array}
+    \]
+}}Take a prime chain $Q_0 \subset \cdots \subset Q_r$ in $B$ such that $Q_i \cap A=\ideal{q}$ for all $i$, and a prime chain $\ideal{q}=\ideal{p}_0 \subset \ideal{p}_1 \subset \cdots \subset\ideal{p}_s=\ideal{p}$ in $A$. By going-up we can find a prime chain $Q_r \subset Q_{r+1} \subset \cdots \subset Q_{r+s}$ in $B$ such that $Q_{r+j} \cap A=\ideal{p}_j$ Then $Q_{r+s}$ lies over $\ideal{p}$ and $\Ht(Q_{r+s} / Q_0)\geqslant r+s$. Applying Th.\ref{thm:019} (1) to $A /\ideal{p} \longrightarrow  B / Q_0$ we get 
+\[\begin{aligned}\Ht(Q_{r+s} / Q_0) &\leqslant s+\Ht(Q_{r+s} /(Q_0+\ideal{p}B))\\ &\leqslant s+\Ht(Q_{r+s} /\ideal{p}B)\\ &\leqslant s+\dim(B \otimes \kappa(\ideal{p}))\end{aligned}.\] Thus $r \leqslant \dim(B \otimes \kappa(\ideal{p}))$.
+\end{proof}
+
+
+\begin{parremark}
+The local form of theorem \ref{thm:021} is inconvenient for applications in algebraic geometry. The global counterpart of the going-up theorem is the closedness of a morphism. Thus, we have the following geometric theorem: Let $f: X\longrightarrow Y$ be a closed morphism (e.g. a proper morphism) between Noetherian schemes, and let $y$ and $y'$ be points of $Y$ such that $y'$ is a specialization of $y$. Then $\dim f^{-1}(y') \geqslant \dim f^{-1}(y)$. The proof is essentially the same as above.
+\end{parremark}
+
+\end{document}

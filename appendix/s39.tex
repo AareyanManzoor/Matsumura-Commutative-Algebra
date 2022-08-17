@@ -1,0 +1,91 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Cartier's Equality and Geometric Regularity}\label{sec:39}
+\newparagraph Let $k \subseteq K \subseteq L$ be fields. The kernel of the natural map \newline $\Omega_{K/k} \otimes L \longrightarrow \Omega_{L/k}$ is denoted by $\Gamma_{L/K/k}$ and is called the \defemph{module of imperfection}\index{imperfection (module of)} for $L/K/k$. Thus we have the following exact sequence:
+\[
+0 \longrightarrow \Gamma_{L/K/k} \longrightarrow \Omega_{K/k} \otimes L \longrightarrow \Omega_{L/k} \longrightarrow \Omega_{L/K} \longrightarrow 0
+\]
+
+\begin{lemma}
+If $k \subseteq K \subseteq L' \subseteq L$ are fields, we have the following exact sequence.
+\[
+0  \longrightarrow \Gamma_{L'/K/k} \otimes_{L'} L \longrightarrow \Gamma_{L/K/k} \longrightarrow \Gamma_{L/L'/k} \longrightarrow \Omega_{L'/K} \otimes_{L'} L   \longrightarrow \Omega_{L/K} \longrightarrow \Omega_{L/L'} \longrightarrow 0
+\]
+\end{lemma}
+
+\begin{proof}
+Consider the following commutative diagram with exact rows:
+
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \Gamma_{L'/K/k} \otimes_{L'} L \arrow[d] \arrow[r] & \Omega_{K/k} \otimes L \arrow[d, equals] \arrow[r] & \Omega_{L'/k} \otimes L \arrow[d] \arrow[r] & \Omega_{L'/K} \otimes L \arrow[d] \arrow[r] & 0 \\
+0 \arrow[r] & \Gamma_{L/K/k} \arrow[r]                           & \Omega_{K/k} \otimes L \arrow[r]                                & \Omega_{L/k} \arrow[r]                      & \Omega_{L/K} \arrow[r]                      & 0
+\end{tikzcd}
+\end{center}
+
+For simplicity we write
+
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & X \arrow[r] \arrow[d] & Z \arrow[r] \arrow[d, equals] & A \arrow[r] \arrow[d, "f"] & B \arrow[r] \arrow[d, "g"] & 0 \\
+0 \arrow[r] & Y \arrow[r]           & Z \arrow[r]                                & A' \arrow[r]               & B' \arrow[r]               & 0
+\end{tikzcd}
+\end{center}
+
+Applying the `snake lemma' (cf. e.g. \cite[Ch. 1]{bourbaki1998commutative}) to the induced diagram
+
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & Z/X \arrow[r] \arrow[d] & A \arrow[r] \arrow[d] & B \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & Z/Y \arrow[r]           & A' \arrow[r]          & B' \arrow[r]          & 0
+\end{tikzcd}
+\end{center}
+
+we get the exact sequence \[0 \longrightarrow Y/X \longrightarrow \Ker \, f \longrightarrow \Ker \, g \longrightarrow 0,\] which shows the exactness of \[0 \longrightarrow X \longrightarrow Y \longrightarrow \Ker \, f \longrightarrow B \longrightarrow B' \longrightarrow \Coker \, g \longrightarrow 0.\] This is what we wanted.
+\end{proof}
+
+\begin{partheorem}[Cartier's equality]\index{Cartier's equality}
+\label{thm:092} 
+Let $L$ be a finitely generated extension of a field $K$. Then
+\[
+\rank_L \, \Omega_{L/K} = \TrDeg_K \, L + \rank_L \, \Gamma_{L/K}.
+\]
+\end{partheorem}
+
+\begin{proof}
+If $L \supseteq L' \supseteq K$ and if the theorem holds for $L/L'$ and for $L'/K$, then the validity of the theorem for $L/K$ is an immediate consequence of the lemma. On the other hand any finitely generated extension is composed of simple extensions of the following types: 
+\begin{enumerate}[label = (\arabic*)]
+    \item $L = K(\alpha)$ with $\alpha$ transcendental over $K$,
+    \item $L = K(\alpha)$ with $\alpha$ separably algebraic over $K$,
+    \item $L = K(\alpha)$, $\ch(K) = p$, $\alpha^p = a \in K$, $\alpha \not \in K$.
+\end{enumerate}
+Therefore it suffices to prove the theorem in each of these cases. Cases (1) and (2) are easy; cf. \ref{27.A}. In case (3) we have $L = K[X]/(X^p - a)$ and then \[\Omega_L = (\Omega_{K[X]} \otimes L)/L \dd a = (\Omega_K/K \dd a) \otimes L + L \dd \alpha,\quad \dd \alpha \ne 0.\] Since $\dd \alpha \ne 0$ in $\Omega_K$, we have $\rank \, \Gamma_{L/K} = \rank \, \Omega_{L/K} = 1$ and the theorem holds in this case also. 
+\end{proof}
+
+\begin{partheorem}\label{thm:093}
+Let $(A, \ideal m, K)$ be a Noetherian local ring containing a field $k$. Then $A$ is formally smooth over $k$ in the $\ideal m$-adic topology iff $A$ is geometrically regular over $k$. 
+\end{partheorem}
+
+\begin{proof}
+The `only if' part is known \ref{28.N}. In order to prove the `if' part we may assume, by \ref{28.N}, that $\ch(k) = p$. According to Cor. of Th.\ref{thm:066} it suffices to show that $\Omega_k \otimes K \longrightarrow \Omega_A \otimes K$ is injective. Therefore $x_1, \ldots, x_r$ be $p$-independent elements in $k$. We will show that $\dd x_1, \ldots, \dd x_r$ are linearly independent in $\Omega_A \otimes K$ over $K$. Put $\alpha_i = x_i^{1/p}$, $k' = k(\alpha_1, \ldots, \alpha_r)$. Then \[B = A \otimes_k k' = A[T_1, \ldots, T_r]/(T_1^p - x_1, \ldots, T_r^p - x_r)\] is a Noetherian local ring. Let $\ideal n$ and $L$ denote its maximal ideal and its residue field respectively. Since $L$ is smooth over the prime field the sequence \[0 \longrightarrow \ideal n/{\ideal n}^2 \longrightarrow \Omega_B \otimes L \longrightarrow \Omega_L \longrightarrow 0\] is exact by Th.\ref{thm:058}. Similarly the sequence \[0 \longrightarrow \ideal m/{\ideal m}^2 \longrightarrow \Omega_A \otimes K \longrightarrow \Omega_L \longrightarrow 0\] is exact. Consider the following commutative diagram:
+
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & \ideal n/{\ideal n}^2 \arrow[r]                                      & \Omega_B \otimes L \arrow[r]                      & \Omega_L \arrow[r]                                 & 0 \\
+            &                                                                      &                                                   &                                                    &   \\
+0 \arrow[r] & (\ideal m/{\ideal m}^2) \otimes_K L \arrow[uu, "\psi_1"] \arrow[r] & \Omega_A \otimes L \arrow[uu, "\psi_2"] \arrow[r] & \Omega_K \otimes L \arrow[uu, "\psi_3"'] \arrow[r] & 0
+\end{tikzcd}
+\end{center}
+By the snake lemma we get an exact sequence of $L$-modules
+\[
+0 \longrightarrow \Ker \, \psi_1 \longrightarrow \Ker \, \psi_2 \longrightarrow \Ker \, \psi_3 \longrightarrow \Coker \, \psi_1 \longrightarrow \Coker \, \psi_2 \longrightarrow \Coker \, \psi_3 \longrightarrow 0
+\]
+
+Since $A$ and $B$ are regular by hypothesis and have the same dimension, we have \[\rank \, \ideal n/{\ideal n}^2 = \dim A = \rank \, \ideal m/{\ideal m}^2,\] so that $\rank \, \Ker \, \psi_1 = \rank \, \Coker \, \psi_1 < \infty$. Since $L$ is finite algebraic over $K$ we also have $\rank \, \Ker \, \psi_3 = \rank \, \Coker \, \psi_3 < \infty$ by Cartier's equality. It follows from these and from the above exact sequence that $\rank \, \Ker \, \psi_2 = \rank \, \Coker \, \psi_2 < \infty$.
+
+On the other hand, we have $\Coker \, \psi_2 = \Omega_{B/A} \otimes L$ and \[\Omega_{B/A} = B \dd T_1 + \ldots + B \dd T_r = B^r\] by Th.\ref{thm:058}, hence $\rank \, \Ker \, \psi_2 = r$. Putting $J = (T_1^p - x_1, \ldots, T_r^p - x_r)$ we have the exact sequence \[J/J^2 \longrightarrow \Omega_{A[T_1, \ldots, T_r]} \otimes B = \Omega_A \otimes B + \sum B \dd T_i \longrightarrow \Omega_B \longrightarrow 0.\] It remains exact after tensoring with $L$ over $B$, so $\Ker \, \psi_2$ is generated by $\dd x_1, \ldots, \dd x_r$. Therefore $\dd x_1, \ldots, \dd x_r$ are linearly independent in $\Omega_A \otimes L$ over $L$ and a fortiori so in $\Omega_A \otimes K$ over $K$. 
+\end{proof}
+
+(This proof is due to \cite{faltings1978Ein})
+\end{document}

@@ -1,0 +1,129 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Going-up Theorem and Going-down Theorem}\label{sec:05}
+
+\newparagraph Let $\phi: A \longrightarrow B$ be a homomorphism of rings. We say that the \defemph{going-up theorem}\index{going-up theorem} holds for $\phi$ if the following condition is satisfied:
+
+\begin{enumerate}[label=(GU),ref=(GU)]
+    \item\label{cond:GU} for any $\ideal p, \ideal p' \in \Spec(A)$ such that $\ideal p \subset \ideal p'$, and for any $P\in \Spec(B)$ lying over $\ideal p$, there exists $P' \in \Spec(B)$ lying over $\ideal p'$ such that $P \subset P'$.
+\end{enumerate}
+
+Similarly, we say that the \defemph{going-down theorem}\index{going-down theorem} holds for $\phi$ if the following condition is satisfied:
+
+\begin{enumerate}[label=(GD),ref=(GD)]
+    \item\label{cond:GD} for any $\ideal p, \ideal p' \in \Spec(A)$ such that $\ideal p \subset \ideal p'$, and for any $P' \in \Spec(B)$ lying over $\ideal p'$, there exists $P \in \Spec(B)$ lying over $\ideal p$ such that $P \subset P'$.
+\end{enumerate}
+
+\newparagraph The condition \ref{cond:GD} is equivalent to:
+
+\begin{enumerate}[label=(GD'),ref=(GD')]
+    \item\label{cond:GDprime} for any $\ideal p \in \Spec(A)$, and for any minimal prime over-ideal $P$ of $\ideal pB$, we have $P \cap A = \ideal p$.
+\end{enumerate}
+
+\begin{proof}\phantom{,}
+\begin{implyenumerate}
+    \item[\ref{cond:GD}$\implies$\ref{cond:GDprime}] let $\ideal p$ and $P$ be as in \ref{cond:GDprime}. Then $P \cap A \supseteq \ideal p$ since $P \supseteq \ideal pB$. If $P \cap A \neq \ideal p$, by \ref{cond:GD} there exists $P_1 \in \Spec(B)$ such that $P_1 \cap A=\ideal p$ and $P \supset P_1$. Then $P \supset P_1 \supseteq \ideal pB$, contradicting the minimality of $P$.
+    \item[\ref{cond:GDprime}$\implies$\ref{cond:GD}] left to the reader.
+\end{implyenumerate}
+\end{proof}
+
+\begin{remark} Put $X=\Spec(A)$, $Y=\Spec(B)$, $\quad f=\SpecInduced{\phi}: Y \longrightarrow X$, and suppose $B$ is Noetherian. Then \ref{cond:GDprime} can be formulated geometrically as follows: let $\ideal p \in X$, put $X'=V(\ideal p) \subseteq X$ and let $Y'$ be an arbitrary irreducible component of $f\inv(X')$. Then $f$ maps $Y'$ generically onto $X'$ in the sense that the generic point of $Y'$ is mapped to the generic point $\ideal p$ of $X'$. \footnote{See \ref{6.A} and \ref{6.D} for the definitions of irreducible component and of generic point.}
+\end{remark}
+
+\begin{parexample}
+Let $k[x]$ be a polynomial ring over a field $k$, and put $x_1=x(x-1), \quad x_2=x^2(x-1)$. Then $k(x)=k(x_1, x_2)$, and the inclusion $k[x_1, x_2] \subseteq k[x]$ induces a birational morphism
+\[f: C=\Spec(k[x]) \longrightarrow C'=\Spec(k[x_1, x_2])\]
+where $C$ is the affine line and $C'$ is the affine curve $x_1^3-x_2^2+x_1 x_2=0$. The morphism $f$ maps the points $Q_1$ : $x=0$ and $Q_2: x=1$ of $C$ to the same point $P=(0,0)$ of $C'$, which is an ordinary double point of $C'$, and $f$ maps $C-\{Q_1, Q_2\}$ bijectively onto $C-\{P\}$
+\end{parexample}
+
+Let $y$ be another indeterminate, and put $B=k[x, y]$, $A=k[x_1, x_2, y]$. Then $Y=\Spec(B)$ is a plane and $X=\Spec(A)$ is $C' \times$ line; $X$ is obtained by identifying the lines $L_1$ : $x=0$ and $L_2: x=1$ on $Y \cdot$ Let $L_3 \subset Y$ be the line defined by $y=a x$, a $\neq 0$. Let $g: Y \longrightarrow X$ be the natural morphism. Then $g(L_3)=X'$ is an irreducible curve on $X$, and
+\[g^{-1}(X')=L_3 \cup\{(0, a),(1,0)\}\]
+Therefore the going-down theorem does not hold for $A \subset B$.
+
+\begin{partheorem}\label{thm:004}
+Let $\phi: A \longrightarrow B$ be a flat homomorphism of rings. Then the going-down theorem holds for $\phi$.
+\end{partheorem}
+
+\begin{proof} 
+Let $\ideal p$ and $\ideal p'$ be prime ideals in $A$ with $\ideal p' \subset \ideal p$, and let $P$ be a prime ideal of $B$ lying over $\ideal p$. Then $B_P$ is flat over $A_\ideal{p}$ by \ref{3.J}, hence faithfully flat since $A_{\ideal p} \longrightarrow B_P$ is local. Therefore $\Spec(B_P) \longrightarrow \Spec(A_{\ideal p})$ is surjective. Let $P'^*$ be a prime ideal of $B_P$ lying over $\ideal p'A_{\ideal p}$. Then $P'=P'^* \cap B$ is a prime ideal of $B$ lying over $\ideal p'$ and contained in $P$.
+\end{proof}
+
+
+\begin{partheorem}\label{thm:005} \footnote{This theorem is due to Krull, but is often called the Cohen-Seidenberg theorem} Let $B$ be a ring and $A$ a subring over which $B$ is integral. Then:
+
+\begin{enumerate}[label = \roman*)]
+  \item\label{th:02.05.Ei} The canonical map $\Spec(B) \longrightarrow \Spec(A)$ is surjective.
+
+  \item\label{th:02.05.Eii} There is no inclusion relation between the prime ideals of $B$ lying over a fixed prime ideal of $A$.
+
+  \item\label{th:02.05.Eiii} The going-up theorem holds for $A \subset B$.
+
+  \item\label{th:02.05.Eiv} If $A$ is a local ring and $\ideal p$ is its maximal ideal, then the prime ideals of $B$ lying over $\ideal p$ are precisely the maximal ideals of $B$.
+
+Suppose furthermore that $A$ and $B$ are integral domains and that $A$ is integrally closed (in its quotient field $\Phi A$ ). Then we also have the following.
+
+  \item\label{th:02.05.Ev} The going-down theorem holds for $A \subset B$.
+
+  \item\label{th:02.05.Evi} If $B$ is the integral closure of $A$ in a normal extension field $L$ of $K = \Phi A$, then any two prime ideals of $B$ lying over the same prime $\ideal p \in \Spec(A)$ are conjugate to each other by some automorphism of $L$ over $K$.
+
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof} 
+\begin{enumerate}
+\item[iv)] First let $M$ be a maximal ideal of $B$ and put $\ideal m = M \cap A$. Then $\overline{B}=B/M$ is a field which is integral over the subring $\overline{A}=A/\ideal m$. Let $0 \neq x \in \overline{A}$. Then $1 / x \in \overline{B}$, hence
+
+\[(1 / x)^n+a_1(1 / x)^{n-1}+\cdots+a_n=0 \text { for some } a_1 \in \overline{A_0}
+\]
+Multiplying by $x^{n-1}$ we get \[1 / x=-(a_1+a_2 x+\cdots+a_n x^{n-1})\in \overline{A}.\] Therefore $\overline{A}$ is a field, i.e. $\ideal m = M \cap A$ is the maximal ideal $\ideal p$ of $A$. Next, let $P$ be a prime ideal of $B$ with $P \cap A=\ideal p$. Then $\overline{B}=B / P$ is a domain which is integral over the field $\overline{A}=A / \ideal p$. Let $0 \neq y \in \overline{B}$; let \[y^n+a_1 y^{n-1}+\dots+a_n=0\for{a_i \in \overline{A}}\] be a relation of integral dependence for $y$, and assume that the degree $n$ is the smallest possible. Then $a_n$ $\neq 0$ (otherwise we could divide the equation by $y$ to get a relation of degree $n-1$). Then \[y^{-1}=-(y^{n-1}+a_1 y^{n-2}+\dots +a_{n-1}) / a_n \in \overline{B},\] hence $\overline{B}$ is a field and $P$ is maximal.
+
+
+  \item[i) and ii)] Let $\ideal p \in \Spec(A)$. Then \[B_{\ideal p}=B\otimes_AA_{\ideal p}=(A-\ideal p)^{-1}B\] is integral over $A_{\ideal p}$ and contains it as a subring. The prime ideals of $B$ lying over $\ideal p$ correspond to the prime ideals of $B_{\ideal p}$ lying over $\ideal p A_{\ideal p}$, which are the maximal ideals of $B_{\ideal p}$ by iv). Since $A_{\ideal p} \neq 0, B_{\ideal p}$ is not zero and has maximal ideals. Of course there is no inclusion relation between maximal ideals. Thus i) and ii) are proved.
+
+  \item[iii)] Let $\ideal p \subset \ideal p'$ be in $\Spec(A)$ and $P$ be in $\Spec(B)$ such that $P \cap A= \ideal p$. Then $B/P$ contains, and is integral over, $A /\ideal p$. By i) there exists a prime $P' / P$ lying over $\ideal p' / \ideal p$. Then $P'$ is a prime ideal of $B$ lying over $\ideal p'$.
+
+  \item[vi)] Put $G=$ Aut $(L / K)=$ the group of automorphisms of $L$ over $K$. First assume $L$ is finite over $K$. Then $G$ is finite: $G=\{\sigma_1, \ldots, \sigma_n\}$. Let $P$ and $P'$ be prime ideals of $B$ such that $P \cap A=P' \cap A$. Put $\sigma_i(P)=P_i$. (Note that $\sigma_i(B)=B$ so that $P_i \in \Spec(B)$.) If $P' \neq P_i$ for $i=1, \ldots, n$, then $P' \nsubseteq P_i$ by ii), and there exists an element $x \in P'$ which is not in any $P_i$ by $\ref{1.B}$. Put $y=(\prod_i\sigma_i(x))^q$, where $q=1$ if $\ch({K})=0$ and $q=p^{\nu}$ with sufficiently large $\nu$ if $\ch(K)=p$. Then $y \in {K}$, and since $A$ is integrally closed and ${y} \in B$ we get $y \in A$. But $y \notin P$ (for, we have $x \notin \sigma_i^{-1}(P)$ hence $\sigma_i(x) \notin P$ ) while y $\in P' \cap A=P \cap A$, contradiction.
+  
+  When $L$ is infinite over $K$, let $K'$ be the invariant subfield of $G$; then $L$ is Galois over $K'$, and $K'$ is purely inseparable over $K$. If $K' \neq K$, let $p=\ch(K)$. It is easy to see that the integral closure $B'$ of $A$ in $K'$ has one and only one prime $\ideal p'$ which lies over $\ideal p$, namely $\ideal p'=\{x \in B' \mid \exists q=p^\nu.$ such that $x^q \in \ideal p\}$. Thus we can replace $K$ by $K'$ and $\ideal p$ by $\ideal p'$ in this case. Assume, therefore, that ${L}$ is Galois over ${k}$. Let $P$ and $P'$ be in $\Spec(B)$ and let $P \cap A=P' \cap A= \ideal p$. Let $L$ be any finite Galois extension of ${K}$ contained in ${L}$, and put \[F(L')=\{\sigma \in G=\Aut(I / K) \mid \sigma(P \cap L')=P' \cap L'\}\]
+
+This set is not empty by what we have proved, and is closed in $G$ with respect to the Krull topology (for the Krull topology of an infinite Galois group, see \cite[p.233 exercise 19.]{lang2012algebra}) Clearly $F(L') \supseteq F(L'')$ if $L' \subseteq L''$. For any finite number of finite Galois extensions $L'_i\for{1 \leqslant i \leqslant n}$ there exists a finite Galois extension $L''$ containing all $L_i'$, therefore \newline $\bigcap_i F(L_i') \supseteq F(L'') \neq \varnothing$. As $G$ is compact this means $\bigcap_{\text{all } L'} F(L') \neq \varnothing$. If $\sigma$ belongs to this intersection we get $\sigma({P})={P}'$.
+\item[v)]Let 
+\begin{itemize}
+    \item ${L}_1=\Phi {B}$,
+    \item $ {K}=\Phi {A}$,
+    \item ${L}$ be a normal extension of $K$ containing $L_1$
+    \item $C$ denote the integral closure of $A$ (hence also of $B$ ) in $L$.
+    \item $P \in \Spec(B),$
+    \item $\ideal p=P \cap A,$
+    \item $\ideal p' \in \Spec(A)$ and
+    \item $\ideal p' \subset \ideal p$.
+\end{itemize}
+Take a prime ideal $Q' \in \Spec(C)$ lying over $\ideal p'$, and, using the going-up theorem for $A \subset C$, take $Q_1 \in \Spec(C)$ lying over $\ideal p$ such that $Q' \subset Q_1$.  Let $Q$ be a prime ideal of $C$ lying over $P$. Then by vi) there exists \newline $\sigma \in\Aut({L} / {K})$ such that $\sigma(Q_1)=Q$. Let $Q$ be a prime ideal of $C$ lying over $P$. Then by vi) there exists $\sigma \in \Aut(L/K)$ such that $\sigma (Q_1) = Q$. Put ${P}'=\sigma(Q') \cap B$. Then $P' \subset P$ and \[P' \cap A=\sigma(Q') \cap A=Q' \cap A=\ideal p'.\]
+
+\end{enumerate}
+
+\end{proof}
+
+
+\begin{remark}
+In the example of \ref{5.C}, the ring $B=k[x, y]$ is integral over ${A}={k}[{x}_1, {x}_2, {y}]$ since ${x}^2-{x}-{x}_1=0$. Therefore the going-up theorem holds for $A \subset B$ while the going-down does not.
+\end{remark}
+
+\begin{exercise*}
+\begin{enumerate}[label = \arabic*.]
+\item Let $A$ be a ring and $M$ an $A$-module. We shall say that $M$ is surjectively-free over $A$ if $A=\sum f(M)$ where sum is taken over\newline $f \in \Hom_A(M, A)$. Thus, free $\implies$ surjectively free. Prove that:
+\begin{itemize}
+    \item If $B$ is a surjectively free $A$-algebra, then 
+    \begin{enumerate}[label= (\roman*)]
+        \item for any ideal $I$ of $A$ we have $I B \cap A=I$, and
+        \item the canonical map $\Spec(B) \longrightarrow \Spec(A)$ is surjective.
+    \end{enumerate}
+    \item Prove also that, if $B$ is an $A$-algebra with retraction (i.e. an $A$-linear map $r: B \longrightarrow A$ such that $r \circ i=\id_A$ (where $i: A \longrightarrow B$ is the canonical map) is surjectively-free over $A$.
+\end{itemize} 
+\item Let $k$ be a field and $t$ and $X$ be two independent indeterminates. Put $A=k[t]_{(t)}$. Prove that $A[X]$ is free (hence faithfully flat) over $A$ but that the going-up theorem does not hold for $A \subset A[X]$. Hint: consider the prime ideal $(t X-1)$
+\item Let $B$ be a ring, $A$ be a subring and $\ideal p \in \Spec(A)$. Suppose that $B$ is integral over $A$ and that there is only one prime ideal $P$ of $B$ lying over $\ideal p$. Then $B_P=B_{\ideal p}$. (By $B_{\ideal p}$ we mean the localization of the $A$-module $B$ at $\ideal p$, i.e. $B_{\ideal p}= B \otimes_A A_{\ideal p}$. Show that $B_{\ideal p}$ is a local ring with maximal ideal $PB_{\ideal p}$.)
+\end{enumerate}
+\end{exercise*} 
+
+\end{document}

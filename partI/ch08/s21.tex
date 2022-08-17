@@ -1,0 +1,98 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Fibres of Flat Morphisms}\label{sec:21}
+
+\newparagraph Let $\phi : A \longrightarrow B$ be a homomorphism of Noetherian rings; let $P \in \Spec(B)$, $\ideal p = P \cap A$ and $\kappa(\ideal p) = $ the residue field of $A_{\ideal p}$. Then the `fibre\index{fibre} over $\ideal p$' is $\Spec(B \otimes_A \kappa(\ideal p))$, and `the local ring of $P$ on the fibre' is $B_P/\ideal p B_P = B_P \otimes_A \kappa(\ideal p)$ (cf. \ref{13.A}). Suppose $B$ is flat over $A$. Then we have
+\[
+\dim(B_P) = \dim(A_{\ideal p}) + \dim(B_P \otimes \kappa(\ideal p))
+\]
+by \ref{13.B} Th.\ref{thm:019}.
+
+\begin{partheorem}\label{thm:050}
+Let $(A, \ideal m, k)$ and $(B, \ideal n, k')$ be Noetherian local rings, and let $A \longrightarrow B$ a local homomorphism. Let $M$ be a finite $A$-module and $N$ be a finite $B$-module which is $A$-flat. Then
+\[
+\depth_B(M \otimes_A N) = \depth_A  M + \depth_{B \otimes k} (N \otimes k)
+\]
+\end{partheorem}
+
+\begin{proof}
+Induction on $n = \depth  M + \depth (N \otimes k)$. 
+\begin{enumerate}[label = Case \arabic*.]
+    \item $n = 0$. Then $\ideal m \in \Ass_A(M)$ and $\ideal n \in \Ass_B(N \otimes k)$, and we know (Th.\ref{thm:012}) that
+    \[
+    \Ass_B(M \otimes_A N) = \bigcup_{\ideal p \in \Ass_A(M)} \Ass_B(N \otimes A/\ideal     p)
+    \]
+    Hence $\ideal n \in \Ass_B(M \otimes N)$, i.e. $\depth_B(M \otimes N) = 0$. 
+    \item $\depth  M > 0$. Easy and left to the reader. 
+    \item $\depth(N \otimes k) > 0$. Take $y \in \ideal n$ which is $(N \otimes k)$-regular. By \ref{20.E} $y$ is $N$-regular and $N/y N$ is $A$-flat. From the exact sequence \[0 \varrightarrow{} N \varrightarrow{y} N \varrightarrow{} N/y N \varrightarrow{} 0\] it then follows that
+    \[
+    0 \varrightarrow{} M \otimes N \varrightarrow{y} M \otimes N \varrightarrow{} M \otimes (N/y N) \varrightarrow{} 0
+    \]
+    is exact. Putting $\overline N = N/y N$ we get $\depth_B(M \otimes N) - 1 = \depth_B(M \otimes \overline N)$, and $\depth_{B \otimes k} (N \otimes k) - 1 = \depth_{B \otimes k} (\overline N \otimes k)$. From these and from the induction hypothesis on $\overline N$ we get the desired formula. 
+\end{enumerate}
+\end{proof}
+
+\begin{parcorollary}
+Let $A \longrightarrow B$ be as above and suppose that $B$ is $A$-flat. Then we have
+\[
+\depth B = \depth A + \depth B \otimes k
+\]
+and
+\[
+B \text { is C.M.}\iff A \text { and } B \otimes k \text { is C.M..}
+\]
+\end{parcorollary}
+
+\begin{corollary}
+Let $A$ and $B$ be Noetherian rings and $A \longrightarrow B$ be a faithfully flat homomorphism. Let $i$ be a positive integer. Then
+\begin{enumerate}[label=(\arabic*)]
+    \item if $B$ satisfies the condition $(S_i)$ of \ref{17.I}, so does $A$;
+    \item if $A$ satisfies $(S_i)$ and if all fibres satisfy $(S_i)$ (i.e. $B \otimes \kappa(\ideal p)$ satisfies $(S_i)$ for every $\ideal p \in \Spec(A)$) then $B$ satisfies $(S_i)$. 
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\begin{enumerate}[label=(\arabic*)]
+    \item Given $\ideal p \in \Spec(A)$ which is minimal among prime ideals of $B$ lying over $\ideal p$, and put $k = \kappa(\ideal p)$. Then \[\dim B_P \otimes k = \depth  B_P \otimes k = 0,\] whence $\depth B_P = \depth A_{\ideal p}$ and $\dim B_P = \dim A_{\ideal p}$. Therefore \[\depth A_{\ideal p} = \dim B_P \ge \inf (i, \dim B_P) = \inf(i, \dim A_{\ideal p}).\]
+    \item Given $P \in \Spec(B)$, put $\ideal p = P \cap A$ and $k = \kappa(\ideal p)$. Then
+    \begin{align*}
+    \depth B_P & = \depth A_{\ideal p} + \depth (B_P \otimes k) \\ & \ge \inf(i, \dim A_{\ideal p}) + \inf(i, \dim (B_P \otimes k)) \\ & \ge \inf(i, \dim A_{\ideal p} + \dim(B_P \otimes k)) \\ & = \dim (i, \dim B_P).
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{partheorem}\label{thm:051}
+Let $(A, \ideal m, k)$ and $(B, \ideal n, k')$ be Noetherian local rings and $\phi : A \longrightarrow B$ a local homomorphism. Then: 
+
+\begin{enumerate}
+    \item if $B$ is flat over $A$ and regular, then $A$ is regular.
+    \item if $\dim B = \dim A + \dim B \otimes k$ holds, and if $B \otimes k = B/\ideal m B$ are regular, then $B$ is flat over $A$ and regular. 
+\end{enumerate}
+\end{partheorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item Since a flat base change commutes with homology, we have \[\Tor_q^A(k, k) \otimes_A B = \Tor_q^B (k \otimes B, k \otimes B) = 0\] for $q > \dim B$. Since $B$ is faithfully flat over $A$ this implies $\Tor_q^A(k, k) = 0$, hence $\GlDim A$ is finite, i.e. $A$ is regular. 
+    \item If $\{x_1, \ldots, x_r\}$ is a regular system of parameters of $A$ and if $y_1, \ldots, y_s \in \ideal n$ is such that their images form a regular system of parameters of $B/\ideal m B$, then $\{\phi(x_1), \ldots, \phi(x_r), y_1, \ldots, y_s\}$ generates $\ideal n$, and $r + s = \dim B$ by hypothesis. Thus $B$ is regular. To prove flatness it suffices, by the criterion (3') of Th.\ref{thm:049}, to prove $\Tor_1^A(k, B) = 0$. The Koszul complex $K_\bullet(x_1, \ldots, x_r; A)$ is a free resolution of the $A$-module $k$, hence we have \[\Tor_1^A(k, B) = H_1 (K_\bullet(\underline x; A) \otimes_A B) = H_1(K_\bullet(\underline x; B)).\] Since the sequence $\phi(x_1), \ldots, \phi(x_r)$ is a part of a regular system of parameters $B$ it is a $B$-regular sequence. Hence we have $H_1(K_\bullet(\underline x; B)) = 0$ for all $i > 0$, and we are done.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+Even if $B$ is regular and $A$-flat, the local ring $B \otimes k$ on the fibre is not necessarily regular. Example: put $k = $ a field, \[k[x, y] = k[X, Y]/((X - 1)^2 + Y^2 - 1),\, B = k[x,y]_{(x, y)},\, A = k[x]_{(x)}\text{ and }\ideal m = x A.\] Then $B \otimes (A/\ideal m) \simeq k[Y]/(Y^2)$ has nilpotent elements.
+\end{remark}
+
+\begin{parcorollary}
+Let $A$ and $B$ be Noetherian rings and $A \longrightarrow B$ be a faithfully flat homomorphism. Then: 
+
+\begin{enumerate}[label=\roman*)]
+    \item if $B$ satisfies $(R_i)$, so does $A$;
+    \item if $A$ and all fibres $B \otimes \kappa(\ideal p)$ ($\ideal p \in \Spec(A)$) satisfy $(R_i)$, then $B$ satisfies $(R_i)$;
+    \item if $B$ is normal (resp. C.M., resp. reduced), so is $A$. Conversely, if $A$ and all fibres are normal (resp. ...) then $B$ is normal (resp. ...).
+\end{enumerate}
+\end{parcorollary}
+
+\begin{proof}
+i) and ii) are immediate from Th.\ref{thm:051}. As for iii), it is enough to recall \ref{17.I} that \defemph{normal} $\iff$ $(R_1) + (S_2)$, \defemph{C.M.} $\iff$ all $(S_i)$, and \defemph{reduced} $\iff$ $(R_0) + (S_1)$.
+\end{proof}
+\end{document}

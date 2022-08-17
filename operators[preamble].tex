@@ -1,0 +1,107 @@
+%operators
+\DeclareMathOperator{\Spec}{Spec} %spectrum
+\DeclareMathOperator{\nil}{nil} %set of nilpotents
+\DeclareMathOperator{\Hom}{Hom} %Hom
+\DeclareMathOperator{\rad}{rad} %Jacobson radical
+\newcommand{\length}{\ell} %length
+\DeclareMathOperator{\Supp}{Supp} %support
+\DeclareMathOperator{\Tor}{Tor} %torsion
+\DeclareMathOperator{\Ext}{Ext} %Ext
+\DeclareMathOperator{\Aut}{Aut} %Automorphism group
+\DeclareMathOperator{\Ass}{Ass} %set of associated primes
+\DeclareMathOperator{\Ann}{Ann} %annihilator
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\depth}{depth}
+\DeclareMathOperator{\codepth}{codepth}
+\DeclareMathOperator{\grade}{grade}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Ht}{ht}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\ProjDim}{proj. dim}
+\DeclareMathOperator{\InjDim}{inj. dim}
+\DeclareMathOperator{\GlDim}{gl. dim}
+\DeclareMathOperator{\TrDeg}{tr. deg}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\DeclareMathOperator{\ch}{ch}
+\let\Im\relax   %remove original \Im command
+\DeclareMathOperator{\Im}{Im}
+\let\dim\relax  %remove original \dim command
+\DeclareMathOperator{\dim}{dim}
+\newcommand{\inv}{^{-1}}
+\newcommand{\hilbertd}{\mathrm{d}}
+\DeclareMathOperator{\Sing}{Sing}
+\DeclareMathOperator{\Tr}{tr}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\id}{id}
+\newcommand{\reduced}[1]{#1_{\text{red}}} % the reduced ring of A defined in chapter 1, page 5 of original book
+\DeclareMathOperator{\Nor}{Nor}
+\DeclareMathOperator{\DimCoh}{dim.coh}
+\DeclareMathOperator{\Exalcom}{Exalcom}
+\DeclareMathOperator{\Exalcomtop}{Exalcomtop}
+
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+
+\providecommand{\dd}[1]{\mathrm{d}#1} %differential
+\newcommand{\pdv}[2]{\dfrac{\partial #1}{\partial #2}} %partial derivative
+\newcommand{\dv}[2]{\dfrac{\dd #1}{\dd #2}} %regular derivative
+\newcommand{\dvn}[3]{\dfrac{\dd^#3 #1}{\dd^#3 #2}} %nth derivative
+
+\newcommand{\ideal}[1]{\mathfrak{#1}} %for lower case ideals, so p,m,a etc.
+\newcommand{\SpecInduced}[1]{#1^\ast} %induced maps between spectrum
+\newcommand{\completion}[1]{\widehat{#1}} %for I-adic completions of rings.
+\newcommand{\canonicalCompletion}{\varphi}
+\newcommand{\defemph}[1]{\textbf{#1}}
+%\renewcommand{\dots}{\dots}
+\renewcommand{\ldots}{\dots}
+
+\newcommand{\indexline}{---\ }
+
+
+
+%%use this to overset/underset things to arrows, and in general use \varrightarrow{} for maps 
+
+\makeatletter
+
+\def\@@varrightarrow#1#2#3{\begingroup%
+\setbox0=\hbox{$#1\xrightarrow[#3]{#2}$}%
+\setbox1=\hbox{$#1\longrightarrow$}%
+\ifdim\wd0<\wd1 \mathrel{\mathop{\longrightarrow}\limits^{#2}_{#3}}
+\else \xrightarrow[#3]{#2} \fi\endgroup}
+
+\def\@varrightarrow#1#2{\@@varrightarrow#1#2}
+
+% \varrightarrow[under material]{over material} puts material over and under a right arrow.
+% It automatically prints the longer option between an xrightarrow and a longrightarrow
+\newcommand\varrightarrow[2][]{\mathpalette\@varrightarrow{{#2}{#1}}}
+
+\newcommand{\biga}{\big} %parenthesis sizer
+\newcommand{\bigb}{\Big} %parenthesis sizer
+\newcommand{\bigc}{\bigg} %parenthesis sizer
+\newcommand{\bigd}{\Bigg} %parenthesis sizer
+\newcommand{\br}[1]{\left(#1\right)}
+\newcommand{\sbr}[1]{\left[#1\right]}
+\newcommand{\brc}[1]{\left\{#1\right\}}
+
+\newcommand{\sse}{\subseteq} %lazy rokabe
+
+\newcommand{\ep}{\varepsilon}
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\le}{\leqslant}
+
+%\newcommand{\xoverline}[1]{\mskip.5\thinmuskip\overline{\mskip-.5\thinmuskip {#1} \mskip-.5\thinmuskip}\mskip.5\thinmuskip} % overline short
+
+\providecommand{\for}[1]{
+\relax\if@display
+    \qquad(#1)
+  \else
+    \quad(#1)
+  \fi}
