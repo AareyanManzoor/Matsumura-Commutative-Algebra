@@ -28,7 +28,7 @@ A ring $A\neq 0$ is Artinian iff it is Noetherian and of dimension zero.
 \end{corollary*}
 \begin{proof}
 If $A$ is Artinian, then it is Noetherian since $\mathrm{length}_A(A)<\infty$. 
-Let $p$ be any prime ideal of $A$. In the notation of the above proof, we have $(\ideal{p}_1\cdots\ideal{p}_r)^s=I^s=(0)\subseteq\ideal{p}$, hence $\ideal{p}=\ideal{p}_i$ for some $i$. Thus $A$ is of dimension zero. 
+Let $\ideal{p}$ be any prime ideal of $A$. In the notation of the above proof, we have $(\ideal{p}_1\cdots\ideal{p}_r)^s=I^s=(0)\subseteq\ideal{p}$, hence $\ideal{p}=\ideal{p}_i$ for some $i$. Thus $A$ is of dimension zero. 
 To prove the converse, let $(0)=\ideal{q}_1\cap\cdots\cap\ideal{q}_r$ be a primary decomposition of the zero ideal in $A$, and let $\ideal{p}_i=$ the radical of $\ideal{q}_i$. Since $\ideal{p}_i$ is finitely generated over $A$, there is a positive integer $n$ such that $\ideal{p}_i^n\subseteq\ideal{q}_i\for{1\leq i\leq r}$. Then $(\ideal{p}_1\cdots\ideal{p}_r)^n=(0)$. After this point we can imitate the last part of the proof of the proposition to conclude that $\mathrm{length}_A(A)<\infty$.
 \end{proof}
 
@@ -39,7 +39,7 @@ I.S. Cohen proved that a ring is Noetherian iff every prime ideal is finitely ge
 \subsection*{Exercises to Chapter 1.}
 \begin{enumerate}
     \item Let $I$ and $J$ be ideals of a ring $A$. What is the condition for $V(I)$ and $V(J)$ to be disjoint?
-    \item Let $A$ be a ring and $M$ an $A$-module. Define the \defemph{support of }\index{support}$M$, $\Supp(M)$, by \[\Supp(M)=\{p\in\Spec(A)\mid M_{\ideal{p}}\neq 0\}.\] If $M$ is finite over $A$, we have $\Supp(M)=V(\Ann(M))$ so that the support is closed in $\Spec(A)$.
+    \item Let $A$ be a ring and $M$ an $A$-module. Define the \defemph{support of }\index{support}$M$, $\Supp(M)$, by \[\Supp(M)=\{\ideal{p}\in\Spec(A)\mid M_{\ideal{p}}\neq 0\}.\] If $M$ is finite over $A$, we have $\Supp(M)=V(\Ann(M))$ so that the support is closed in $\Spec(A)$.
     \item Let $A$ be a Noetherian ring and $M$ a finite $A$-module. Let $I$ be an ideal of $A$ such that $\Supp(M)\subseteq V(I)$. Then $I^nM=0$ for some $n>0$.
 \end{enumerate}
 
