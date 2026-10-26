@@ -16,7 +16,7 @@ Let $X$ be a Noetherian space. We say a subset $Z$ of $X$ is a \defemph{construc
 Z = \bigcup_{i=1} ^m &(U_i \cap F_i), &U_i \text{ open, } F_i\, \text{closed.}
 \end{aligned}
 \]
-(When $X$ is not Noetherian, the definition of a constructible set is more complicated, cf. \cite{egaIII}.)
+(When $X$ is not Noetherian, the definition of a constructible set is more complicated, cf. \cite{egaIII1}.)
 
 If $Z$ and $Z'$ are constructible in $X$, so are $Z\cup Z'$, $Z\cap Z'$ and $Z - Z'$. This is clear for $Z \cup Z'$. Repeated use of the formula
 \begin{align*}
@@ -43,7 +43,7 @@ X_0 \cap Z = \bigcup_{i=1} ^m (U_i \cap F_i),
 \]
 where $U_i$ is open in $X$, $F_i$ is closed and irreducible in $X$ and $U_i \cap F_i$ is not empty for each $i$. Then $\overline{U_i \cap F_i} = F_i$ since $F_i$ is irreducible, therefore $\overline{X_0 \cap Z} = \bigcup_i F_i$. If $X_0 \cap Z$ is dense in $X_0$, we have $X_0 = \bigcup_i F_i$ so that some $F_i$, say $F_1$, is equal to $X_0$. Then $U_1 \cap X_0 = U_1 \cap F_1$ is a non-empty open set of $X_0$ contained in $X_0 \cap Z$.
 
-(Sufficiency.) Suppose \ref{cond:06.*} holds. We prove the constructibility of $Z$ by induction on the smallness of $\overline{Z}$, using the fact that $X$ is Noetherian. The empty set being constructible, we suppose that $Z \ne \varnothing$ and that any subset $Z'$ of $Z$ which satisfies \ref{cond:06.*} is constructible. Let $\overline{Z} = F_1 \cup \cdots \cup F_r$ be the decomposition of $\overline{Z}$ into the irreducible components. Then $F_1 \cap Z$ is dense in $F_1$ as one can easily check, whence there exists, by \ref{cond:06.*}, a proper closed subset $F'$ of $F_1$ such that $F_1 - F \subseteq Z$. Then, putting $F^* = F' \cup F_2 \cup \cdots \cup F_r$, we have $Z= (F_1 - F') \cup (Z \cap F^*)$. The set $F_1 - F^*$ is locally closed in $X$. On the other hand $Z \cap F^*$ satisfies the condition \ref{cond:06.*} because, if $X_0$ is irreducible and if $\overline{Z \cap F^* \cap X_0} = X_0$, the closed set $F^*$ must contain $X_0$ and so $Z \cap F^* \cap X_0 = Z \cap X_0$. Since $\overline{Z \cap F^*} \subseteq F^* \subset \overline{Z}$, the set $Z \cap F^*$ is constructible by the induction hypothesis. Therefore $Z$ is constructible.
+(Sufficiency.) Suppose \ref{cond:06.*} holds. We prove the constructibility of $Z$ by induction on the smallness of $\overline{Z}$, using the fact that $X$ is Noetherian. The empty set being constructible, we suppose that $Z \ne \varnothing$ and that any subset $Z'$ of $Z$ which satisfies \ref{cond:06.*} and has $\overline{Z'}\subsetneq\overline{Z}$ is constructible. Let $\overline{Z} = F_1 \cup \cdots \cup F_r$ be the decomposition of $\overline{Z}$ into the irreducible components. Then $F_1 \cap Z$ is dense in $F_1$ as one can easily check, whence there exists, by \ref{cond:06.*}, a proper closed subset $F'$ of $F_1$ such that $F_1 - F' \subseteq Z$. Then, putting $F^* = F' \cup F_2 \cup \cdots \cup F_r$, we have $Z= (F_1 - F') \cup (Z \cap F^*)$. The set $F_1 - F'$ is locally closed in $X$. On the other hand $Z \cap F^*$ satisfies the condition \ref{cond:06.*} because, if $X_0$ is irreducible and if $\overline{Z \cap F^* \cap X_0} = X_0$, the closed set $F^*$ must contain $X_0$ and so $Z \cap F^* \cap X_0 = Z \cap X_0$. Since $\overline{Z \cap F^*} \subseteq F^* \subset \overline{Z}$, the set $Z \cap F^*$ is constructible by the induction hypothesis. Therefore $Z$ is constructible.
 \end{proof}
 
 \begin{parlemma}\label{lem:06.01}
@@ -121,7 +121,7 @@ s'\bigg(\sum_{\alpha = 1} ^m \pi_\alpha b_\alpha - s\bigg) = 0
 \]
 in $B$ for some $s' \in A - \ideal  p$. If $B_\lambda$ contains $b_1, \ldots, b_m$ we have $1 \in \ideal p (B_\lambda)_{\ideal p}$, therefore $\ideal p \not\in f_\lambda (Y_\lambda)$ for such $\lambda$. Thus we have proved $f(Y) = \bigcap f_\lambda (Y_\lambda)$. Since each $f_\lambda (Y_\lambda)$ is constructible by \ref{thm:006}, $f(Y)$ is pro-constructible.
 \end{proof}
-(Remark. \cite{egaIV} contains many other results on constructible sets, including generalization to non-Noetherian case.) %not underlined in the text so i don't think this should be in the remark environment
+(Remark. \cite{egaIV3} contains many other results on constructible sets, including generalization to non-Noetherian case.) %not underlined in the text so i don't think this should be in the remark environment
 
 \newparagraph Let $A$ be a ring and let $\ideal p, \ideal p' \in \Spec(A)$. We say that $\ideal p'$ is a \defemph{specialization}\index{specialization} of $\ideal p$ and that $\ideal p$ is a \defemph{generalization}\index{generalization} of $\ideal p'$ iff $\ideal p \sse \ideal p'$. If a subset $Z$ of $\Spec(A)$ contains all specializations (resp. generalizations) of its points, we say $Z$ is \defemph{stable}\index{stable} under specialization (resp. generalization). A closed (resp. open) set in $\Spec(A)$ is stable under specialization (resp. generalization). 
 
@@ -133,7 +133,7 @@ Let $A$ be a Noetherian ring and $X = \Spec(A)$. Let $Z$ be a pro-constructible 
 Let $Z = \bigcap E_\lambda$ with $E_\lambda$ constructible in $X$. Let $W$ be an irreducible component of $\overline{Z}$ and let $x$ be its generic point. Then $W \cap Z$ is dense in $W$, hence a fortiori $W \cap E_\lambda$ is dense in $W$. Therefore $W \cap E_\lambda$ contains a non-empty open set of $W$ by \ref{6.C}, so that $x \in E_\lambda$. Thus $ x \in \bigcap E_\lambda = Z$. This means $W \sse Z$ by our assumption, and so we obtain $Z = \overline{Z}$.
 \end{proof}
 
-\newparagraph Let $\phi: A \varrightarrow{} B$ be a homomorphism of rings, and put $X = \Spec(A)$, $Y= \Spec(B)$ and $f = \SpecInduced{\phi}: Y \varrightarrow{} X$. We say that $f$ is (or: $\phi$ is) \defemph{submersive}\index{submersive} if $f$ is surjective and if the topology of $X$ is the quotient of that of $Y$ (i.e. a subset of $X'$ is closed in $X$ iff $f\inv(X')$ is closed in $Y$). We say $f$ is (or: $\phi$ is) \defemph{universally submersive} if, for any $A$-algebra $C$, the homomorphism $\phi_C : C \varrightarrow{} B \otimes_A C$ is submersive. (Submersiveness and universal submersiveness for morphisms of preschemes are defined in the same way, \cite{egaIV} (15.7.8).)
+\newparagraph Let $\phi: A \varrightarrow{} B$ be a homomorphism of rings, and put $X = \Spec(A)$, $Y= \Spec(B)$ and $f = \SpecInduced{\phi}: Y \varrightarrow{} X$. We say that $f$ is (or: $\phi$ is) \defemph{submersive}\index{submersive} if $f$ is surjective and if the topology of $X$ is the quotient of that of $Y$ (i.e. a subset $X'$ of $X$ is closed in $X$ iff $f\inv(X')$ is closed in $Y$). We say $f$ is (or: $\phi$ is) \defemph{universally submersive} if, for any $A$-algebra $C$, the homomorphism $\phi_C : C \varrightarrow{} B \otimes_A C$ is submersive. (Submersiveness and universal submersiveness for morphisms of preschemes are defined in the same way, \cite{egaIV3} (15.7.8).)
 
 \begin{theorem} \label{thm:007}
 Let $A, B, \phi, X, Y$ and $f$ be as above. Suppose that 

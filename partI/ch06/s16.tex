@@ -30,7 +30,7 @@ Let $(A, \ideal{m})$ be a C.M. local ring. Then:
     \item for every sequence $a_1, \ldots, a_r$ in $\ideal{m}$, the following conditions are equivalent:
     \begin{enumerate}[label=(\arabic*)]
         \item the sequence $a_1, \ldots, a_r$ is $A$-regular,
-        \item $\Ht (a_1, \ldots, a_i)=1\for{1 \leqslant i \leqslant r}$,
+        \item $\Ht (a_1, \ldots, a_i)=i\for{1 \leqslant i \leqslant r}$,
         \item $\Ht(a_1, \ldots, a_r)=r$,
         \item there exist $a_{r+1}, \ldots, a_n$ $(n=\dim A)$ in $\ideal{m}$ such that $\{a_1, \ldots, a_n\}$ is a system of parameters of $A$.
     \end{enumerate}
@@ -60,7 +60,7 @@ Let $A$ be a Noetherian ring. Then $A$ is C.M. iff the unmixedness theorem holds
 \end{theorem}
 
 \begin{proof}
-Suppose the unmixedness theorem holds in $A$. Let $P$ be a prime ideal of height $r$. Then we can find $a_1, \ldots, a_r \in P$ such that $\Ht (a_1, \ldots, a_1)=i$ for $1 \leqslant i \leqslant r$. The ideal $(a_1, \ldots, a_i)$ is unmixed by assumption, so $a_{i+1}$ lies in no associated primes of $A /(a_1, \ldots, a_i)$. Thus $a_1, \ldots, a_r$ is an $A$-regular sequence in $P$, hence \[r \leqslant \depth(A) \leqslant \depth A_P \leqslant \dim A_P=r,\] so that $A_P$ is a C.M. local ring.
+Suppose the unmixedness theorem holds in $A$. Let $P$ be a prime ideal of height $r$. Then we can find $a_1, \ldots, a_r \in P$ such that $\Ht (a_1, \ldots, a_i)=i$ for $1 \leqslant i \leqslant r$. The ideal $(a_1, \ldots, a_i)$ is unmixed by assumption, so $a_{i+1}$ lies in no associated primes of $A /(a_1, \ldots, a_i)$. Thus $a_1, \ldots, a_r$ is an $A$-regular sequence in $P$, hence \[r \leqslant \depth_P(A) \leqslant \depth A_P \leqslant \dim A_P=r,\] so that $A_P$ is a C.M. local ring.
 
 Conversely, suppose $A$ is C.M.. To prove the unmixedness theorem we may localize, so we assume that $A$ is a C.M. local ring. We know that the ideal $(0)$ is unmixed. Let $(a_1, \ldots, a_r)$ be an ideal of height $r>0$. Then $a_1, \ldots, a_r$ is an $A$-regular sequence by Th.\ref{thm:031}, hence $A /(a_1, \ldots, a_r)$ is C.M. by Th.\ref{thm:030} and so $(a_1, \ldots, a_r)$ is unmixed.
 \end{proof}

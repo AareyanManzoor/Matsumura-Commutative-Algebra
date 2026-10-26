@@ -54,10 +54,10 @@ Let $A$ and $B$ be Noetherian rings and $A \longrightarrow B$ be a faithfully fl
 
 \begin{proof}
 \begin{enumerate}[label=(\arabic*)]
-    \item Given $\ideal p \in \Spec(A)$ which is minimal among prime ideals of $B$ lying over $\ideal p$, and put $k = \kappa(\ideal p)$. Then \[\dim B_P \otimes k = \depth  B_P \otimes k = 0,\] whence $\depth B_P = \depth A_{\ideal p}$ and $\dim B_P = \dim A_{\ideal p}$. Therefore \[\depth A_{\ideal p} = \dim B_P \ge \inf (i, \dim B_P) = \inf(i, \dim A_{\ideal p}).\]
+    \item Given $\ideal p \in \Spec(A)$, take $P\in\Spec(B)$ which is minimal among prime ideals of $B$ lying over $\ideal p$, and put $k = \kappa(\ideal p)$. Then \[\dim B_P \otimes k = \depth B_P \otimes k = 0,\] whence $\depth B_P = \depth A_{\ideal p}$ and $\dim B_P = \dim A_{\ideal p}$. Therefore \[\depth A_{\ideal p} = \depth B_P \ge \inf (i, \dim B_P) = \inf(i, \dim A_{\ideal p}).\]
     \item Given $P \in \Spec(B)$, put $\ideal p = P \cap A$ and $k = \kappa(\ideal p)$. Then
     \begin{align*}
-    \depth B_P & = \depth A_{\ideal p} + \depth (B_P \otimes k) \\ & \ge \inf(i, \dim A_{\ideal p}) + \inf(i, \dim (B_P \otimes k)) \\ & \ge \inf(i, \dim A_{\ideal p} + \dim(B_P \otimes k)) \\ & = \dim (i, \dim B_P).
+    \depth B_P & = \depth A_{\ideal p} + \depth (B_P \otimes k) \\ & \ge \inf(i, \dim A_{\ideal p}) + \inf(i, \dim (B_P \otimes k)) \\ & \ge \inf(i, \dim A_{\ideal p} + \dim(B_P \otimes k)) \\ & = \inf(i, \dim B_P).
     \end{align*}
 \end{enumerate}
 \end{proof}
@@ -67,7 +67,7 @@ Let $(A, \ideal m, k)$ and $(B, \ideal n, k')$ be Noetherian local rings and $\p
 
 \begin{enumerate}
     \item if $B$ is flat over $A$ and regular, then $A$ is regular.
-    \item if $\dim B = \dim A + \dim B \otimes k$ holds, and if $B \otimes k = B/\ideal m B$ are regular, then $B$ is flat over $A$ and regular. 
+    \item if $\dim B = \dim A + \dim B \otimes k$ holds, and if $A$ and $B \otimes k = B/\ideal m B$ are regular, then $B$ is flat over $A$ and regular.
 \end{enumerate}
 \end{partheorem}
 

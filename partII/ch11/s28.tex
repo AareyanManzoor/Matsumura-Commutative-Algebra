@@ -100,7 +100,7 @@ One lifts the continuous homomorphism $vp$ to $w: A \varrightarrow{} C$, and put
 \end{tikzcd}\]
 with $N^2=0$, and put $E=\{(a, c) \in A \times C \mid v(a)=q(c)\}$. Then $E$ is a k-subalgebra of $A \times C$, and is an extension of the $k$-algebra $A$ by $N$: \[ 0 \varrightarrow{} N \varrightarrow{} E \varrightarrow{p} A \varrightarrow{} 0\] with $p(a, c)=a$. The homomorphism $v: A \varrightarrow{} C / N$ lifts to $v': A \varrightarrow{} C$ iff the extension \[0 \varrightarrow{} N \varrightarrow{} E \varrightarrow{} A \varrightarrow{} 0\] splits over $k$ (cf. \ref{25.D}). Since $k$ is a field, the extension algebra $E$ is isomorphic to $A \oplus N$ as $k-$module, so it is a Hochschild extension (cf. \ref{25.C}) and defines a symmetric cocycle $f: A \times A \varrightarrow{} N$. We define a complex of $A-$modules (the ``modified Hochschild complex'') \[P_\bullet' = P_\bullet'(A/k): P_3' \varrightarrow{d_3} P_2' \varrightarrow{d_2}P_1'\] as follows: \[P_3' = (A\otimes_k A\otimes_k A\otimes_k A)\oplus (A\otimes_k A\otimes_k A),\, P_2' =A\otimes_k A\otimes_k A,\, P_1'=A\otimes_k A\] (the $A$-module structure on $P_1'$ being defined by the first factor),
 \[\begin{aligned}
-d_3(1\otimes a \otimes b \otimes c+1\otimes y \otimes z)& = a\otimes b \otimes c - 1 \otimes ab \otimes c +1\otimes a \otimes b \\&-c \otimes a \otimes b+ 1 \otimes y \otimes z - 1\otimes z \otimes y.
+d_3(1\otimes a \otimes b \otimes c+1\otimes y \otimes z)& = a\otimes b \otimes c - 1 \otimes ab \otimes c +1\otimes a \otimes bc \\&-c \otimes a \otimes b+ 1 \otimes y \otimes z - 1\otimes z \otimes y.
 \end{aligned}\]
 and
 \[d_2(1\otimes a \otimes b)= a\otimes b -1\otimes ab + b\otimes a\]
@@ -132,16 +132,16 @@ Suppose now that $A$ is a field $K$. Then every extension of $K$-modules splits,
 	\arrow[no head, from=4-3, to=4-6]
 	\arrow[from=3-6, to=4-6]
 	\arrow["{H_2}", curve={height=-6pt}, from=2-3, to=3-3]
-	\arrow["{\Im d_2}", curve={height=-6pt}, from=3-3, to=4-3]
+	\arrow["{\Im d_3}", curve={height=-6pt}, from=3-3, to=4-3]
 \end{tikzcd}\]
 
 It follows that $H_k^2(K, N)^s \simeq \Hom_K(H_2(P'_\bullet), N)$. If these are zero for all $N$ then $H_2(P'_\bullet)=0$, and conversely.
 \begin{parproposition}
- Let $k$ be a field and $K$ an exterision field of $k$. If $k$ is separable over $k$ then it is smooth over
+ Let $k$ be a field and $K$ an extension field of $k$. If $K$ is separable over $k$ then it is smooth over
 $k$. (The converse is also true and will be proved in Th.\ref{thm:062}.)
 \end{parproposition}
 \begin{proof}
-Suppose first that $k$ is finitely generated over $k$. Then it is separably generated over $k$ by \ref{27.F}. If $K$ is purely transcendental over $k$ then it is smooth over $k$ by \ref{28.D} Example 1, by \ref{28.F} and by \ref{28.E}. If $K$ is separably algebraic over $k$ then $K=k(t)=k[X] /(f(X))$ with $f(t)=0, \,f'(t)\neq 0$. If $C$ is a $k$-algebra, if $N$ is an ideal of $C$ with $N^2=0$ and if $v: k \varrightarrow{} C / N$ is a homomorphism of $k$-algebras, then $v$ can be lifted to $k \varrightarrow{} C$ iff there exists $x \in C$ satisfying \[f(x)=0\text{ and }x \bmod N=v(t).\] Take a pre-image $y$ of $v(t)$ in $C$, and let $n$ be an element of $N$. Then \[f(y+n)=f(y)+f'(y) n,\,f(y) \in N,\] and $f'(y)$ is a unit in $C$ because $f'(v(t))=v(f'(t))$ is a unit in $C / N$. Thus, if we put $x=y+n$ with $n=-f(y) / f'(y)$, then we get $f(x)=0$. So $k$ is smooth over $k$ in this case also. By the transitivity any separably generated extension is smooth.
+Suppose first that $K$ is finitely generated over $k$. Then it is separably generated over $k$ by \ref{27.F}. If $K$ is purely transcendental over $k$ then it is smooth over $k$ by \ref{28.D} Example 1, by \ref{28.F} and by \ref{28.E}. If $K$ is separably algebraic over $k$ then $K=k(t)=k[X] /(f(X))$ with $f(t)=0, \,f'(t)\neq 0$. If $C$ is a $k$-algebra, if $N$ is an ideal of $C$ with $N^2=0$ and if $v: K \varrightarrow{} C / N$ is a homomorphism of $k$-algebras, then $v$ can be lifted to $K \varrightarrow{} C$ iff there exists $x \in C$ satisfying \[f(x)=0\text{ and }x \bmod N=v(t).\] Take a pre-image $y$ of $v(t)$ in $C$, and let $n$ be an element of $N$. Then \[f(y+n)=f(y)+f'(y) n,\,f(y) \in N,\] and $f'(y)$ is a unit in $C$ because $f'(v(t))=v(f'(t))$ is a unit in $C / N$. Thus, if we put $x=y+n$ with $n=-f(y) / f'(y)$, then we get $f(x)=0$. So $K$ is smooth over $k$ in this case also. By the transitivity any separably generated extension is smooth.
 
 In the general case, we have
 \begin{align*}
@@ -156,10 +156,10 @@ But, since tensor product and homology commute with inductive limits, and since 
  It is also possible to give a non-homological proof of the proposition. The above proof is due to Grothendieck and has the merit of treating the cases of $\ch(k)=0$ and of $\ch(k)=p$ in a unified manner.
 \end{remark}
 \begin{partheorem}[I.S Cohen]\label{thm:060}
- Let $(A,\ideal{m},K)$ be a complete and separated local ring containing a field $k$. Then $A$ has a coefficient field. If $k$ is separable over $k$ then $A$ has a coefficient field which contains $k$.
+ Let $(A,\ideal{m},K)$ be a complete and separated local ring containing a field $k$. Then $A$ has a coefficient field. If $K$ is separable over $k$ then $A$ has a coefficient field which contains $k$.
 \end{partheorem}
 \begin{proof}
-If $k$ is separable over $k$(e.g. if $\ch(K)=0$) then it is smooth over $k$. Therefore one can lift $\id_K: K \varrightarrow{} A/\ideal{m}$ to a homomorphism of $k$-algebras \newline $K \varrightarrow{} A=\lim A/\ideal{m}^i$ (cf. \ref{28.A}). In the general case let $k_0$ be the prime field in $k_0$ Then $K$ is separable over $k_0$ as the latter is perfect (\ref{27.E} Cor.). Hence $A$ has a coefficient field.
+If $K$ is separable over $k$ (e.g. if $\ch(K)=0$) then it is smooth over $k$. Therefore one can lift $\id_K: K \varrightarrow{} A/\ideal{m}$ to a homomorphism of $k$-algebras \newline $K \varrightarrow{} A=\lim A/\ideal{m}^i$ (cf. \ref{28.A}). In the general case let $k_0$ be the prime field in $k$. Then $K$ is separable over $k_0$ as the latter is perfect (\ref{27.E} Cor.). Hence $A$ has a coefficient field.
 \end{proof}
 \begin{corollary}\label{cor:28.01}
 Let $(A, \ideal{m}, K)$ be a complete and separated local ring containing a field, and suppose that $\ideal{m}$ is finitely generated over $A$. Then $A$ is Noetherian.
@@ -185,11 +185,11 @@ Let $(A, \ideal{m}, K)$ be a Noetherian local ring containing a field $k$, and s
 \end{proof}
 
 \begin{partheorem}\label{thm:062}
-Let $k$ be a field and $k$ a subfield. Then $K$ is smooth over $k$ iff it is separable over $k$.
+Let $K$ be a field and $k$ a subfield. Then $K$ is smooth over $k$ iff it is separable over $k$.
 \end{partheorem}
 
 \begin{proof} 
- The ``if'' part was already proved in \ref{28.I}. To prove the ``only if'', let $K$ be smooth over $k$ and let $k'$ be a finite algebraic extension of $k$. Then $K \otimes_k k'$ is a $k$-algebra of finite rank, hence it is a direct product of Artinian local rings: $K \otimes_k k'=A_1 \times \ldots \times A_r$. Moreover, $K \otimes k'$ is smooth over $k'$ by base change, and it follows easily that each $A_i$ is smooth over $k'$. Then each $A_i$ is regular (hence is a field) by Th. \ref{thm:061}, whence $K \otimes k'$ is reduced.
+ The ``if'' part was already proved in \ref{28.I}. To prove the ``only if'', let $K$ be smooth over $k$ and let $k'$ be a finite algebraic extension of $k$. Then $K \otimes_k k'$ is a $K$-algebra of finite rank, hence it is a direct product of Artinian local rings: $K \otimes_k k'=A_1 \times \ldots \times A_r$. Moreover, $K \otimes k'$ is smooth over $k'$ by base change, and it follows easily that each $A_i$ is smooth over $k'$. Then each $A_i$ is regular (hence is a field) by Th. \ref{thm:061}, whence $K \otimes k'$ is reduced.
 \end{proof}
 
 \begin{parproposition}
@@ -204,7 +204,7 @@ Let $k$ be a field and $k$ a subfield. Then $K$ is smooth over $k$ iff it is sep
 \begin{proof}\phantom{,}
 \begin{implyenumerate}
     \item[$(1) \implies (2)$] The complete local ring $\completion{A}$ is regular and contains a coefficient field containing $k$, so (2) follows from the proofs of \ref{cor:28.01} and \ref{cor:28.02}.
-    \item[$(2) \implies (3)$] It follows from the definition that $A$ is f.s. over $k$ iff $\completion{A}$ is so. On the other hand $k[[X_1, \ldots, X_d]]$ is f.s. over $k$ (cf. \ref{28.D}), hence also over $k$ by the transitivity.
+    \item[$(2) \implies (3)$] It follows from the definition that $A$ is f.s. over $k$ iff $\completion{A}$ is so. On the other hand $K[[X_1, \ldots, X_d]]$ is f.s. over $K$ (cf. \ref{28.D}), hence also over $k$ by the transitivity.
     \item[$(3)\implies (1)$] has been proved already.
 \end{implyenumerate}
 \end{proof}
@@ -218,13 +218,13 @@ $A$ is regular $\iff$ $A$ is f.s. over $k$ $\iff$ $A'$ is f.s. over $k'$ $\iff$ 
 Thus geometrical regularity is equivalent to regularity for such A. But in general these two are not equal. 
 
 \begin{proposition}
-Let $(A, \ideal{m}, K)$ be a Noetherian local ring containing a field $k$. If $A$ is f.s, over $k$, then $A$ is geometrically regular over $k$. The converse is also true if $L$ is finitely generated over $k$.
+Let $(A, \ideal{m}, K)$ be a Noetherian local ring containing a field $k$. If $A$ is f.s. over $k$, then $A$ is geometrically regular over $k$. The converse is also true if $K$ is finitely generated over $k$.
 
 (Remark: actually the converse is always true, so that geometrical regularity and formal smoothness are the same thing; cf. \cite[22.5.8]{egaIV})
 \end{proposition}
 
 \begin{proof}
-The first assertion is immediate from Th.\ref{thm:061}. As for the second, take a finite radical extension\footnote{By a radical extension of a field $k$ we mean a purely inseparable extension of $K$ if $\ch(k)=p$, and $k$ itself if $\ch(k)=0$.} $k'$ of $k$ such that $K(k')$ is separable over $k^p$ (cf. exercise \hyperref[exe:27.02]{27.02}). The ring $A'=A \otimes_k k'$ is a Noetherian local ring with residue field $K(k')$, and is regular by assumption. Thus $A'$ is f.s. over $k'$ by the preceding proposition. Thus our proposition is proved by the following lemma.
+The first assertion is immediate from Th.\ref{thm:061}. As for the second, take a finite radical extension\footnote{By a radical extension of a field $k$ we mean a purely inseparable extension of $k$ if $\ch(k)=p$, and $k$ itself if $\ch(k)=0$.} $k'$ of $k$ such that $K(k')$ is separable over $k'$ (cf. exercise \hyperref[exe:27.02]{27.02}). The ring $A'=A \otimes_k k'$ is a Noetherian local ring with residue field $K(k')$, and is regular by assumption. Thus $A'$ is f.s. over $k'$ by the preceding proposition. Thus our proposition is proved by the following lemma.
 \end{proof}
 
 \begin{parlemma}\label{lem:28.01}
@@ -267,7 +267,7 @@ Let $(A, \ideal{m})$ be a complete, separated local ring such that $\ideal{m}$ i
 Let $(A, \ideal{m})$ be a Noetherian complete local \defemph{domain}. Then $A$ contains a complete regular local ring $A_0$ over which $A$ is finite,
 \end{corollary}
 
-\begin{proof}[Proof of $1.4$] Let $R$ be a coefficient ring of $A$. Since $A$ is an integral domain, $R$ is either a field or a principal valuation ring with maximal ideal $pR$. Choose a system of parameters $x_1, \ldots, x_r$ of $A$ which is arbitrary in the first case and is such that $x_1=p$ in the second case. Put $A_0=R[[x_1, \ldots,x_r]] \subseteq A_0$ (We have $A_0=R[[x_2, \ldots, x_r]]$ if $x_1=p \in R_0$) Then $A_0$ is a Noetherian complete local ring with maximal ideal $\ideal{m}_0=\sum_1^r x_i A_0$. Since $A=R+\ideal{m}$ and since $\ideal{m}^\nu \subseteq \ideal{m}_0 A$ for large $V, ~A/\ideal{m}_0A$ is finite over $A_0 / \ideal{m}_0$.Then $A$ is finite over $A_0$ by the lemma below. Hence $\dim A=\dim A_0=r$ by \ref{13.C} Th.\ref{thm:020}, and as $M_0$ is generated by $r$ elements, $A_0$ is regular.
+\begin{proof}[Proof of Corollary \ref{cor:28.04}] Let $R$ be a coefficient ring of $A$. Since $A$ is an integral domain, $R$ is either a field or a principal valuation ring with maximal ideal $pR$. Choose a system of parameters $x_1, \ldots, x_r$ of $A$ which is arbitrary in the first case and is such that $x_1=p$ in the second case. Put $A_0=R[[x_1, \ldots,x_r]] \subseteq A$ (We have $A_0=R[[x_2, \ldots, x_r]]$ if $x_1=p \in R$) Then $A_0$ is a Noetherian complete local ring with maximal ideal $\ideal{m}_0=\sum_1^r x_i A_0$. Since $A=R+\ideal{m}$ and since $\ideal{m}^\nu \subseteq \ideal{m}_0 A$ for large $\nu$, $A/\ideal{m}_0A$ is finite over $A_0 / \ideal{m}_0$. Then $A$ is finite over $A_0$ by the lemma below. Hence $\dim A=\dim A_0=r$ by \ref{13.C} Th.\ref{thm:020}, and as $\ideal{m}_0$ is generated by $r$ elements, $A_0$ is regular.
 \end{proof}
 
 \begin{lemma}\label{lem:28.02}

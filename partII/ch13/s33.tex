@@ -78,7 +78,7 @@ We can assume that $A$ is a local ring with $A \varrightarrow{} \completion{A}$ 
 
 \begin{proof}
 \begin{enumerate}
-    \item Put $X=\Spec(B)$ and $Y=\Spec(A)$. Then the canonical map\newline $f: X \varrightarrow{} Y$ is submersive by Th.\ref{thm:007}. On the other hand we have \newline $f^{-1}(\Reg(A))=\Reg(B)$ by Lemma \ref{lem:33.02} (i). Since $\Reg(B)$ is open in $Y,\, \Reg(A)$ must be open in $X$.
+    \item Put $X=\Spec(B)$ and $Y=\Spec(A)$. Then the canonical map\newline $f: X \varrightarrow{} Y$ is submersive by Th.\ref{thm:007}. On the other hand we have \newline $f^{-1}(\Reg(A))=\Reg(B)$ by Lemma \ref{lem:33.02} (i). Since $\Reg(B)$ is open in $X$, $\Reg(A)$ must be open in $Y$.\footnote{Editors: the original interchanges the ambient spaces $X$ and $Y$ in this last sentence.}
 
     \item Apply the above to $A \varrightarrow{} \completion{A}$ and use Th.\ref{thm:074}.\end{enumerate}
 \end{proof}
@@ -97,7 +97,7 @@ We can assume that $A$ is a local ring with $A \varrightarrow{} \completion{A}$ 
 \end{proof}
 
 \begin{lemma}\label{lem:33.04}
- Let $A \varrightarrow{} B$ be a regular homomorphism and let $A'$ be an $A$-algebra of finite type. Put $B'=A' \otimes A^B$. Then $A' \varrightarrow{} B'$ is regular,
+ Let $A \varrightarrow{} B$ be a regular homomorphism and let $A'$ be an $A$-algebra of finite type. Put $B'=A' \otimes_A B$. Then $A' \varrightarrow{} B'$ is regular.
 \end{lemma}
 \begin{proof}
  Let 
@@ -160,7 +160,7 @@ We distinguish two cases.
 
 \begin{partheorem}\label{thm:078} Let $A$ be a $G$-ring which is J-2. Then $A$ is a Nagata ring.\end{partheorem}
 
-\begin{proof} Let $\ideal{p} \in \Spec(A)$, and let $K$ be the quotient field of $A / \ideal{p},\, L$ a finite extension of $K$ and $B$ the integral closure of $A$ in $L$. We have to prove that $B$ is finite over $A$. Let $A'$ be a finite $A-$algebra such that $A / \ideal{p}\subseteq A' \subseteq B$ and $\phi A' \times L$. Then $A'$ is a $G$-ring by Th.\ref{thm:076} and is J-2. Thus, replacing $A$ by $A'$, the problem is reduced to proving that a Noetherian J-2 domain which is a $G$-ring is N-1 (i.e. the integral closure $B$ of $A$ in $K=\Phi A$ is finite over $A$). Put $X=\Spec(A)$. Then $\Reg(X)$ is non-empty and open in $X$, and is of course contained in $\Nor(X)$. So, by Lemma \ref{lem:31.04} we have only to show that $A_{\ideal{m}}$ is $N-1$ for each maximal ideal $\ideal{m}$ of $A$. But $A_{\ideal{m}}$ is reduced and $A_{\ideal{m}} \varrightarrow{}\completion{(A_{\ideal{m}})}$ is regular, so by Lemma \ref{lem:33.02} the ring $\completion{(A_{\ideal{m}}}$ is reduced. Therefore $A_{\ideal{m}}$ is N-1 by \ref{31.E}\end{proof}
+\begin{proof} Let $\ideal{p} \in \Spec(A)$, and let $K$ be the quotient field of $A / \ideal{p},\, L$ a finite extension of $K$ and $B$ the integral closure of $A$ in $L$. We have to prove that $B$ is finite over $A$. Let $A'$ be a finite $A$-algebra such that $A / \ideal{p}\subseteq A' \subseteq B$ and $\Phi A'=L$. Then $A'$ is a $G$-ring by Th.\ref{thm:077}\footnote{Editors: the original cites Theorem 76; the finite-type stability result used here is Theorem 77.} and is J-2. Thus, replacing $A$ by $A'$, the problem is reduced to proving that a Noetherian J-2 domain which is a $G$-ring is N-1 (i.e. the integral closure $B$ of $A$ in $K=\Phi A$ is finite over $A$). Put $X=\Spec(A)$. Then $\Reg(X)$ is non-empty and open in $X$, and is of course contained in $\Nor(X)$. So, by Lemma \ref{lem:31.04} we have only to show that $A_{\ideal{m}}$ is N-1 for each maximal ideal $\ideal{m}$ of $A$. But $A_{\ideal{m}}$ is reduced and $A_{\ideal{m}} \varrightarrow{}\completion{(A_{\ideal{m}})}$ is regular, so by Lemma \ref{lem:33.02} the ring $\completion{(A_{\ideal{m}})}$ is reduced. Therefore $A_{\ideal{m}}$ is N-1 by \ref{31.E}\end{proof}
 
 \begin{partheorem}[Analytic normality of normal $G$-rings.]\label{thm:079}
 

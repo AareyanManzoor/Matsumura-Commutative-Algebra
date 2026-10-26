@@ -51,7 +51,7 @@
 \newparagraph (\emph{Localization}) Let $A$ be a ring, and $S$ a multiplicative subset of $A$. Then $S^{-1}A$ is flat over $A$. 
 
 \begin{proof} 
-    Let $M$ be an $A$-module and $N$ a submodule. We have $M \otimes S^{-1}A = S^{-1}M$ and $N \otimes S^{-1}A = S^{-1}N.$ A typical element of $S^{-1}N$ is of the form $s/ x, x\in N, s \in S;$ if $x/ s = 0$ in $s^{-1}M,$ this means that there exists $s' \in S$ with $s'x = 0 $ in M, which is equivalent to saying that $s'x = 0$ in N, hence $x/ s =0$ in $S^{-1}N.$ Thus $0 \varrightarrow{} S^{-1}N \varrightarrow{} S^{-1}N$ is exact.
+    Let $M$ be an $A$-module and $N$ a submodule. We have $M \otimes S^{-1}A = S^{-1}M$ and $N \otimes S^{-1}A = S^{-1}N.$ A typical element of $S^{-1}N$ is of the form $x/s, x\in N, s \in S;$ if $x/s = 0$ in $S^{-1}M,$ this means that there exists $s' \in S$ with $s'x = 0$ in $M$, which is equivalent to saying that $s'x = 0$ in $N$, hence $x/s =0$ in $S^{-1}N.$ Thus $0 \varrightarrow{} S^{-1}N \varrightarrow{} S^{-1}M$ is exact.
 \end{proof}
 
 \newparagraph Let $\phi\colon A \varrightarrow{} B  $ be a flat homomorphism of rings, and let $M$ and $N$ be $A$-modules. Then $\Tor_i^A(M,N) \otimes_A B = \Tor_i^B (M_{(B)}, N_{(B)}) $. If $A$ is Noetherian and $M$ is finite over $A$, we also have $\Ext_A^i(M,N) \otimes_AB = \Ext_B^i(M_{(B)}, N_{(B)}) $. 
@@ -95,9 +95,9 @@ the latter being valid for $A$ Noetherian and $M$ finite.
 \end{parproposition}
 
 \begin{proof} 
-    We have only to prove that if $M$ is flat then it is free. We prove that any minimal basis of $M$ (c.f. \ref{1.N}) is a basis of M. For that purpose it suffices to prove that, if $x_1,\ldots ,x_n \in M$ are such that their images $\overline{x}_1, \ldots , \overline{x}_n$ in $M/ \ideal{m} = M \otimes_A k $ are linearly independent over $k$, then they are linearly independent over $A$. We use induction on $n$. When $n=1,$ let $ax=0$. Then there exist $y_1,\ldots ,y_r\in M$ and $b_1,\ldots ,b_r\in A$ such that $ab_i=0$ for all $i$ and such that $x = \sum b_iy_i$. Since $\overline{x} \neq 0$ in $M/ \ideal{m} $, not all $b_i$ are in $\ideal{m}$. Suppose $b_1 \not\in \ideal{m}.$ Then $b_1$ is a unit in $A$ and $ab_1=0$, hence $a=0$.
+    We have only to prove that if $M$ is flat then it is free. We prove that any minimal basis of $M$ (c.f. \ref{1.N}) is a basis of $M$. For that purpose it suffices to prove that, if $x_1,\ldots,x_n \in M$ are such that their images $\overline{x}_1,\ldots,\overline{x}_n$ in $M/\ideal{m}M = M \otimes_A k$ are linearly independent over $k$, then they are linearly independent over $A$. We use induction on $n$. When $n=1$, let $ax=0$. Then there exist $y_1,\ldots,y_r\in M$ and $b_1,\ldots,b_r\in A$ such that $ab_i=0$ for all $i$ and such that $x = \sum b_iy_i$. Since $\overline{x} \neq 0$ in $M/\ideal{m}M$, not all $b_i$ are in $\ideal{m}$. Suppose $b_1 \notin \ideal{m}$. Then $b_1$ is a unit in $A$ and $ab_1=0$, hence $a=0$.
     
-    Suppose $n>1$ and $\sum_n^{1} a_ix_i=0.$ Then there exists $y_1, \ldots y_r \in M$ and\newline $b_{ij}\in A\for{1 \le j \le r}$ such that $x_i = \sum_j b_{ij}y_j$ and $\sum_ia_ib_{ij}=0$. Since $x_n \not\in \ideal{m}$ for at least one $j$. Since $a_1b_{1j},\ldots ,a_nb_{nj}=0$ and $b_{nj}$ is a unit, we have 
+    Suppose $n>1$ and $\sum_{i=1}^n a_ix_i=0.$ Then there exist $y_1,\ldots,y_r \in M$ and\newline $b_{ij}\in A\for{1\le i\le n,\ 1 \le j \le r}$ such that $x_i = \sum_j b_{ij}y_j$ and $\sum_i a_ib_{ij}=0$. Since $x_n \notin \ideal{m}M$, we have $b_{nj}\notin\ideal{m}$ for at least one $j$. Since $a_1b_{1j}+\cdots+a_nb_{nj}=0$ and $b_{nj}$ is a unit, we have
     \[
         a_n = \sum_1^{n-1} c_ia_i \for{c_i = -b_{ij}/b_{nj}}.
     \] 
@@ -163,7 +163,7 @@ the latter being valid for $A$ Noetherian and $M$ finite.
 \end{example}
 
 \begin{example}
-Let $A = k[x,y]$ be as above and $B = k[x,y,z]$ with \newline $z^{2}=f(x,y) \in A$. Then $B = A \otimes Az$ as an $A$-module, so that $B$ is free, hence flat, over $A$. Geometrically, the surface $z^{2}=f(x,y)$ appears indeed to lie rather flatly over the $(x,y)$-plane. A word of caution: such intuitive pictures are not enough to guarantee flatness.
+Let $A = k[x,y]$ be as above and $B = k[x,y,z]$ with \newline $z^{2}=f(x,y) \in A$. Then $B = A \oplus Az$ as an $A$-module, so that $B$ is free, hence flat, over $A$. Geometrically, the surface $z^{2}=f(x,y)$ appears indeed to lie rather flatly over the $(x,y)$-plane. A word of caution: such intuitive pictures are not enough to guarantee flatness.
 \end{example}
 
 \newparagraph Let $A \varrightarrow{} B$ be a homomorphism of rings. Then the following conditions are equivalent:

@@ -7,7 +7,7 @@
 
 For any derivation $D$, $D^{-1}(0)$ is a subring of $A$ (in particular, $D(1)=0$: this follows from $1^2=1$.) If $A$ is a field, then $D^{-1}(0)$ is a subfield. 
 
-Let $k$ be a ring and $A$ a $k$-algebra. Then derivations $A \varrightarrow{} M$ which vanish on $k\cdot1_A$ are called \defemph{derivations over $k$}. The set of such derivations is denoted by $\Der_k(A, M)$. We write $\Der_k(A)$ for $\Der_k(A, A)$.
+Let $k$ be a ring and $A$ a $k$-algebra. Then derivations $A \varrightarrow{} M$ which vanish on $k\cdot1_A$ are called \defemph{derivations over $k$}. The set of such derivations is denoted by $\Der_k(A, M)$.\label{sym:Derk} We write $\Der_k(A)$ for $\Der_k(A, A)$.
 
 Suppose that $A$ is a ring whose characteristic is a prime number $p$, and let $A^p$ denote the subring $\{a^p \mid a \in A\}$. Then any derivation $D:A \varrightarrow{} M$ vanishes on $A^p$, for $D(a^p)=pa^{p-1} D(a) =0$.
 
@@ -25,7 +25,7 @@ Conversely, if $u: A \varrightarrow{} C$ is a homomorphism and $D: A \varrightar
 \varepsilon:& B \varrightarrow{} A & \lambda_1:& A \varrightarrow{} B & \lambda_2:&A\varrightarrow{}B\\
 &(a\otimes a') \mapsto aa' & &a\mapsto a\otimes 1 & & a \mapsto 1 \otimes a 
 \end{aligned}\]
-Once and for all, we make $B=A \otimes A$ an $A$-algebra via $\lambda_1$. We denote the kernel of $\varepsilon$ by $I_{A / k}$ or simply by $I$, and we put $I / I^2=\Omega_{A / k}$. The $B$-modules $I$, $I^2$ and $\Omega_{A/k}$ are also viewed as $A$-modules via $\lambda_1: A \varrightarrow{} B$. Then the $A$-module $\Omega_{A/k}$ is called the \defemph{module of differentials}\index{differential!\indexline module} (or \defemph{of Kähler differentials}) of $A$ over $k$.
+Once and for all, we make $B=A \otimes A$ an $A$-algebra via $\lambda_1$. We denote the kernel of $\varepsilon$ by $I_{A / k}$ or simply by $I$, and we put $I / I^2=\Omega_{A / k}$.\label{sym:differentials} The $B$-modules $I$, $I^2$ and $\Omega_{A/k}$ are also viewed as $A$-modules via $\lambda_1: A \varrightarrow{} B$. Then the $A$-module $\Omega_{A/k}$ is called the \defemph{module of differentials}\index{differential!\indexline module} (or \defemph{of Kähler differentials}) of $A$ over $k$.
 
 We have $\varepsilon \lambda_1=\varepsilon \lambda_2=\id_A$. Therefore, if we denote the natural homomorphism $B \varrightarrow{} B / I^2$ by $\nu$ and if we put $\dd^\ast=\lambda_2-\lambda_1$ and $\dd=\nu \dd^*$, then we get a derivation $\dd: A \varrightarrow{} \Omega_{A / k}$. Note that we have $B=\lambda_1(A) \oplus I$, hence $B / I^2=\nu \lambda_1(A) \oplus \Omega_{A / k}$ (as $A$-module). Identifying $\nu \lambda_1(A)$ with $A$, we get
 \[
@@ -89,7 +89,7 @@ Let $k, A$ and $B$ be rings and let $k \varrightarrow{\phi} A \varrightarrow{\ps
 \begin{enumerate}
     \item there is an exact sequence of natural homomorphisms of $B$-modules \[\Omega_{A / k} \otimes_A B\varrightarrow{v} \Omega_{B / k} \varrightarrow{u} \Omega_{B / A} \varrightarrow{} 0 ;\]
     
-    \item the map $v$ has a left inverse (or what amounts to the same, $v$ is injective and $\Im(v)$ is a direct summand of $\Omega_{B / A}$ as $B$-module) iff any derivation of $A$ over $k$ into any $B$-module $T$ can be extended to a derivation $B \varrightarrow{} T$.
+    \item the map $v$ has a left inverse (or what amounts to the same, $v$ is injective and $\Im(v)$ is a direct summand of $\Omega_{B / k}$ as $B$-module)\footnote{Editors: the original incorrectly prints $\Omega_{B/A}$ here; $v$ takes values in $\Omega_{B/k}$.} iff any derivation of $A$ over $k$ into any $B$-module $T$ can be extended to a derivation $B \varrightarrow{} T$.
 \end{enumerate}
 \end{partheorem}
 
@@ -120,7 +120,7 @@ Let the notation be as above.
 
 \begin{proof}
 \begin{enumerate}
-    \item The surjectivity of $v$ follows from that of $A \varrightarrow{} B$. Obviously the composite $v \delta=0$, So, as in the proof of the preceding theorem, it is enough to prove the exactness of \[\Hom_B(\ideal{m}/\ideal{m}^2, T)\longleftarrow\Hom_B(\Omega_{A / k} \otimes_A B, T)\longleftarrow\Hom_B(\Omega_{B / A}, T)\] for any $B$-module $T$. But we can rewrite it as follows: \[\Hom_A(\ideal{m}, T)\longleftarrow\Der_k(A, T)\longleftarrow\Der_k(A / \ideal{m}, T)\] where the first arrow is the map $D \mapsto D \mid \ideal{m} \for{D\in \Der_k(A, T)}$. Then the exactness is obvious.
+    \item The surjectivity of $v$ follows from that of $A \varrightarrow{} B$. Obviously the composite $v \delta=0$, So, as in the proof of the preceding theorem, it is enough to prove the exactness of \[\Hom_B(\ideal{m}/\ideal{m}^2, T)\longleftarrow\Hom_B(\Omega_{A / k} \otimes_A B, T)\longleftarrow\Hom_B(\Omega_{B / k}, T)\] for any $B$-module $T$.\footnote{Editors: the original's last Hom term incorrectly has $\Omega_{B/A}$; the universal property of differentials over $k$ gives $\Omega_{B/k}$.} But we can rewrite it as follows: \[\Hom_A(\ideal{m}, T)\longleftarrow\Der_k(A, T)\longleftarrow\Der_k(A / \ideal{m}, T)\] where the first arrow is the map $D \mapsto D \mid \ideal{m} \for{D\in \Der_k(A, T)}$. Then the exactness is obvious.
 
     \item A homomorphism of $B$-modules $N' \varrightarrow{} N$ is an isomorphism iff the induced map $\Hom_B(N', T) \longleftarrow \Hom_B(N, T)$ is an isomorphism for every $B$-module $T$. Applying this to the present situation we are led to prove that the natural map $\Der_k(A, T)\longleftarrow \Der_k(A / \ideal{m}^2,T)$ is an isomorphism for every $A/\ideal{m}$-module $T$, which is obvious.
 
@@ -133,6 +133,6 @@ Let the notation be as above.
 \end{parexample}
 
 \begin{exercise}\label{exe:26.04}
-    Let $B=k[X, Y] /(Y^2-X^3)=k[x, y]$ (= the affine ring of the plane curve $y^2=x^3$, which has a cusp at the origin). Calculate $\Omega_{B/k}$, and show that it is a $B$-module torsion.
+    Let $B=k[X, Y] /(Y^2-X^3)=k[x, y]$ (= the affine ring of the plane curve $y^2=x^3$, which has a cusp at the origin). Calculate $\Omega_{B/k}$, and show that it is a $B$-module with torsion.
 \end{exercise}
 \end{document}

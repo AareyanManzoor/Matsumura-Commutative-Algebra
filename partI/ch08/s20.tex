@@ -110,7 +110,7 @@ Considering the $k$-algebra homomorphism $\phi\colon A\longrightarrow B$ such th
 We apply the criterion $(3')$ of \ref{thm:049} to $A$, $I = \sum_1^n X_iA$ and $M = B$. The $A$-module $B$ is idealwise separated for $I$ as $IB\subseteq \rad(B)$. Since $A/I = k$ is a field we have only to prove $\Tor_1^A(k,B) = 0$. Now the Koszul complex $K.(X_1,\dots,X_n;A)$ is a free resolution of the $A$-module $k = A/I$ by Cor. to \ref{thm:043} So we have \[\Tor_i^A(k,B) = H_i(K.(X_1,\dots,X_n;A)\otimes_A B)= H_i(K(x_1,\dots,x_n;B)),\] which is zero for $i>0$ as $x_1,\dots,x_n$ is a $B$-regular sequence.
 \end{proof}
 
-\begin{parapplication}[EGA III (10.2.4)\cite{egaIII}]. Let $(A,\ideal m, k)$ and $(B,\ideal n, k')$ be Noetherian local rings and $A\longrightarrow B$ a local homomorphism. Let $u\colon M\longrightarrow N$ be a homomorphism of finite $B$-modules, and assume that $N$ is $A$-flat. Then the following are equivalent: \begin{enumerate}[label=(\alph*)]
+\begin{parapplication}[EGA $0_{\mathrm{III}}$ (10.2.4) \cite{egaIII1}]. Let $(A,\ideal m, k)$ and $(B,\ideal n, k')$ be Noetherian local rings and $A\longrightarrow B$ a local homomorphism. Let $u\colon M\longrightarrow N$ be a homomorphism of finite $B$-modules, and assume that $N$ is $A$-flat. Then the following are equivalent: \begin{enumerate}[label=(\alph*)]
     \item $u$ is injective, and $N/u(M)$ is $A$-flat;
     \item $\overline{u}\colon M\otimes_A k\longrightarrow N\otimes_A k$ is injective.
 \end{enumerate} \end{parapplication}
@@ -122,7 +122,7 @@ We apply the criterion $(3')$ of \ref{thm:049} to $A$, $I = \sum_1^n X_iA$ and $
 If $K$ denotes the kernel of $M\varrightarrow{f} M$, then $K = 0$ iff $K_P = 0$ for all maximal ideals $P$ of $B$. Similarly, by an obvious extension of \ref{3.J}, $M/fM$ is $A$-flat iff $M_P/fM_P$ is flat over $A_{P\cap A}$ for all maximal $P$. The assumptions are also stable under localization. So we may assume that $(A,\ideal m, k)$ and $(B,\ideal n, k')$ are Noetherian local rings and $A\longrightarrow B$ is a local homomorphism. Then the assertion follows from \ref{20.E}.
 \end{proof}
 
-\begin{parcorollary} Let $A$ be a Noetherian ring and $B = A[X_1,\dots,X_n]$ a polynomial ring over $A$. Let $f(X)\in B$ such that its coefficients generate over $A$ the unit ideal $A$. Then $f$ is not a zero-divisor of $B$, and $B/fB$ is $A$-flat.\end{parcorollary}
+\begin{corollary} Let $A$ be a Noetherian ring and $B = A[X_1,\dots,X_n]$ a polynomial ring over $A$. Let $f(X)\in B$ such that its coefficients generate over $A$ the unit ideal $A$. Then $f$ is not a zero-divisor of $B$, and $B/fB$ is $A$-flat.\end{corollary}
 
 \begin{parapplication} Let $A\longrightarrow B \longrightarrow C$ be local homomorphisms of Noetherian local rings and $M$ be a finite $C$-module. Suppose $B$ is $A$-flat. Let $k$ denote the residue field of $A$. Then $M$ is $B$-flat $\iff$ $M$ is $A$-flat and $M\otimes_A k$ is $B\otimes_A k$-flat. \end{parapplication}
 
@@ -133,5 +133,5 @@ If $K$ denotes the kernel of $M\varrightarrow{f} M$, then $K = 0$ iff $K_P = 0$ 
 \end{implyenumerate}
 \end{proof}
 
-For more applications of Th.\ref{thm:049}, cf. EGA III \cite{egaIII}.
+For more applications of Th.\ref{thm:049}, cf. EGA III \cite{egaIII1}.
 \end{document}

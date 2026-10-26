@@ -9,10 +9,10 @@ Let $C$ be a ring and $N$ an ideal of $C$ with $N^2=(0)$; put $C'=C/N$. Then the
     \item $\Ker(\ep)$ is an ideal whose square is zero (hence a structure of $C'$-module on $\Ker(\ep)$).
     \item The map $i$ is an isomorphism from $N$ onto $\Ker(\ep)$ as $C'$-modules.
 \end{enumerate}
-Therefore, identifying $N$ with $i(N)$, we get $C'\cong C/N$, $\, N^2=(0)$. An extension is often represented by the exact sequence \[0\longrightarrow N\varrightarrow iC\varrightarrow\ep C'\longrightarrow0.\] Two extensions $(C,\ep,i)$ and $(C_1,\ep_1,i_1)$ are said to be isomorphic if there exists a ring homomorphism $f:C\longrightarrow C_1$ such that $\ep_1f=\ep$ and $fi=i_1$. Such $f$ is necessarily unique.
+Therefore, identifying $N$ with $i(N)$, we get $C'\cong C/N$, $\, N^2=(0)$. An extension is often represented by the exact sequence \[0\longrightarrow N\varrightarrow iC\varrightarrow\ep C'\longrightarrow0.\] Two extensions $(C,\ep,i)$ and $(C_1,\ep_1,i_1)$ are said to be isomorphic if there exists a ring homomorphism $f:C\longrightarrow C_1$ such that $\ep_1f=\ep$ and $fi=i_1$. Such $f$ is necessarily an isomorphism.\footnote{Editors: the original says ``unique'', which is false in general. The exact sequences show that $f$ is an isomorphism; automorphisms inducing the identity on the kernel and quotient can arise from derivations of $C'$ into $N$.}
 
 \newparagraph
-Given $C'$ and $N$, we can always construct an expression as follows: take the additive group $C'\oplus N$, and define a multiplication in this set by the formula
+Given $C'$ and $N$, we can always construct an extension as follows: take the additive group $C'\oplus N$, and define a multiplication in this set by the formula
 \[(a,x)(b,y) = (ab,ay+bx)
 \for{a,b\in C',\,x,y\in N}\]
 This is bilinear and associative, and has $(1,0)$ as the unit element. Hence we get a ring structure on $C'\oplus N$. We denote this ring by $C'* N$. By the obvious definitions $\ep(a,x) = a$ and $i(x) = (0,x)$ the ring $C'*N$ becomes an extension of $C'$ by $N$, which is called the \defemph{trivial extension}\index{trivial extension}\index{extension!trivial \indexline}.
@@ -50,9 +50,10 @@ Similarly, if $h:C''\longrightarrow C'$ is a ring homomorphism, then there exist
 \begin{tikzcd}
     0 \arrow[r] & M \arrow[dd, "\id"] \arrow[r] & E \arrow[dd, "f"] \arrow[r] & C'' \arrow[dd, "h"] \arrow[r] & 0 \\
                 &                               &                             &                               &   \\
-    0 \arrow[r] & M \arrow[r]                   & D \arrow[r]                 & C' \arrow[r]                  & 0
+    0 \arrow[r] & M \arrow[r]                   & C \arrow[r]                 & C' \arrow[r]                  & 0
 \end{tikzcd}
 \end{center}
 is commutative. Moreover, such $h_*(E)$ is unique up to isomorphisms.
+\noindent\emph{Editors:} the original labels the lower middle object $D$; it is the given extension ring $C$.
 
 \end{document}

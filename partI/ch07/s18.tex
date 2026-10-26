@@ -28,11 +28,11 @@ Let $A$ be a ring and $n$ be a non-negative integer. Then the following conditio
     \item[(1) $\implies$ (2)] trivial.
     \item[(2) $\implies$ (3)] take an exact sequence \[0 \varrightarrow{} M \varrightarrow{} U_0 \varrightarrow{} U_1 \varrightarrow{} \cdots \varrightarrow{} U_{n-1}\varrightarrow{} C \varrightarrow{} 0\] with $U_j$ injective for all $j$. Let $I$ be any ideal. Then we have\newline $\Ext_A^1 (A/I,C) \cong \Ext_A^{n+1}(A/I,M)$, which is zero by ii) since $A/I$ is a finite $A$-module.
     \item[(4) $\implies$ (1)] is proved similarly, with ``projective'' instead of ``injective'' and with the arrows reversed.
-    \item[(3) $\implies$ (1)] is trivial, as one can calculate $\Ext_A^*(M,N)$ using an injective resolution of $N$. 
+    \item[(3) $\implies$ (4)] is trivial, as one can calculate $\Ext_A^*(M,N)$ using an injective resolution of $N$.
 \end{implyenumerate}
 \end{proof}
 
-By virtue of Lemma $\ref{lem:18.02}$ we have \[\sup_M(\ProjDim M)=\sup_M(\InjDim M).\] We call this common value (which may be $\infty$) the \defemph{global dimension}\index{global dimension} of $A$ and denote it by $\GlDim A$. (In EGA it is denoted by $\DimCoh (A).)$
+By virtue of Lemma $\ref{lem:18.02}$ we have \[\sup_M(\ProjDim M)=\sup_M(\InjDim M).\] We call this common value (which may be $\infty$) the \defemph{global dimension}\index{global dimension} of $A$ and denote it by $\GlDim A$.\label{sym:gldim} (In EGA it is denoted by $\DimCoh (A).)$
 
 \begin{parlemma}\label{lem:18.03}
 Let $A$ be a \defemph{Noetherian} ring and $M$ a finite $A$-module. Then $M$ is projective iff $\Ext_A^1(M,N)=0$ for all finite $A$-modules $N$. 
@@ -49,7 +49,7 @@ Let $(A,\ideal{m}, k)$ be a Noetherian local ring, and $M$ be a finite $A$-modul
 \begin{proof}
 $\implies$ trivial.
 
-$\impliedby$ The general case is easily reduced to the case $n=0$. If $\Tor_1(M,K)$, let \[0 \varrightarrow{} R \varrightarrow{} F \varrightarrow{u} M \varrightarrow{} 0\] be exact with $u$ minimal (cf. chapter 6 exercise \ref{ex:ch06.3}). Then \[0 \varrightarrow{} R \otimes k \varrightarrow{} F \otimes k \varrightarrow{\overline{u}} M \otimes k \varrightarrow{} 0\] is exact and $\overline{u}$ is an isomorphism, hence $R \otimes k=0$ and so $R=0$ by \hyperref[NAK]{NAK}. Therefore $M$ is free, as wanted. 
+$\impliedby$ The general case is easily reduced to the case $n=0$. If $\Tor_1(M,k)=0$, let \[0 \varrightarrow{} R \varrightarrow{} F \varrightarrow{u} M \varrightarrow{} 0\] be exact with $u$ minimal (cf. chapter 6 exercise \ref{ex:ch06.3}). Then \[0 \varrightarrow{} R \otimes k \varrightarrow{} F \otimes k \varrightarrow{\overline{u}} M \otimes k \varrightarrow{} 0\] is exact and $\overline{u}$ is an isomorphism, hence $R \otimes k=0$ and so $R=0$ by \hyperref[NAK]{NAK}. Therefore $M$ is free, as wanted.
 \end{proof}
 
 \begin{lemma}\leavevmode\label{lem:18.05}
@@ -130,14 +130,14 @@ for $0 \leqslant p \leqslant n$. Put $e_{i_{1} \dots i_{p}}=u_{1} \otimes \dots 
 K_{0}(x_{1}, \dots, x_{n}, M)&=M,\\
 K_p(x_1,\dots,x_n,M) &= \bigoplus_{1\leq i_1<\dots<i_p\leq n} Me_{i_1\dots i_p} \simeq M^{\binom{n}{p}} \for{1\leq p\leq n}
 \end{aligned}\]
-\[\tag{18.1}\label{eqn:18.1}\dd(m e_{i_{1}} \dots i_{p})=\sum_{r=1}^{p}(-1)^{r-1} x_{i_{r}} e_{i_{1} \dots \hat{i}_{r} \dots i_{p}}\]
-(where $m \in M_{1}$ and $\hat{i}_{r}$ indicates that $i_{r}$ is omitted there).
+\[\tag{18.1}\label{eqn:18.1}\dd(m e_{i_{1}\dots i_{p}})=\sum_{r=1}^{p}(-1)^{r-1} x_{i_{r}}m e_{i_{1} \dots \hat{i}_{r} \dots i_{p}}\]
+(where $m \in M$ and $\hat{i}_{r}$ indicates that $i_{r}$ is omitted there).
 The formula \ref{eqn:18.1} for the operator $\dd$ can be put into another
 form: let \[\sum_{ i_{1}<\dots<i_{p} }m_{i_1 \dots i_{p}} e_{i_{1} \dots i_{p}}\] be an arbitrary
 element of $K_{p}(\underline{x}, M)$, and extend the $m_{i_{1} \dots i_{p}}$'s to an alternating function of the indices (i.e. such that $m_{\dots i \dots i\dots }=0$
 and $m_{\dots i \dots j \dots}=-m_{\dots j \dots i \dots}$). Then we have
 
-\[\tag{18.2}\label{eqn:18.2} \dd\bigg(\sum_{i_1<\dots<i_p}m_{i_1 \dots i_{p}} e_{i_{1} \dots i_{p}} \bigg)=\sum_{j=1}^n x_j\bigg( \sum_{i_1<\dots<i_{p-1}}m_{i_1 \dots i_{p-1}} e_{i_{1} \dots i_{p-1}}\bigg)\]
+\[\tag{18.2}\label{eqn:18.2} \dd\bigg(\sum_{i_1<\dots<i_p}m_{i_1 \dots i_{p}} e_{i_{1} \dots i_{p}} \bigg)=\sum_{j=1}^n x_j\bigg( \sum_{i_1<\dots<i_{p-1}}m_{j i_1 \dots i_{p-1}} e_{i_{1} \dots i_{p-1}}\bigg)\]
 
 There is another interpretation of the Koszul complex.
 Let \[F=A X_{1}+\dots+AX_{n}\] be a free $A$-module of rank $n$ with a
@@ -213,7 +213,7 @@ such that each $f_{i}$ maps $F_{i}$ isomorphically onto a direct summand of $L_{
 
 \begin{partheorem}\label{thm:044} Let $(A, \ideal{m}, k)$ be a Noetherian local ring and let \newline $s=\rank_{k} \ideal{m}/\ideal{m}^2$. Then we have
 \[
-\rank_k \Tor_1^A(k,k)\geq \binom{s}{1} \quad \text{for } 0\leq i \leq s
+\rank_k \Tor_i^A(k,k)\geq \binom{s}{i} \quad \text{for } 0\leq i \leq s
 \]
 \end{partheorem}
 \begin{proof}
@@ -244,7 +244,7 @@ domain containing $A$ which is a finite $A$-module. Then $B$ is flat
 if $B$ is regular then it is a free $A$-module.
 \end{partheorem} 
 
-\begin{proof}Suppose $B$ is flat over $A$. Then $B$ is C.M. as $A$ is so. (For, if $P$ is a maximal ideal of $B$ then $\dim B_{P} \leqslant \dim A$ by \ref{13.C}, while any $A$-regular sequence is also $B_{P}$-regular by the flatness and hence depth $B_{P} \geqslant \depth A$.) Conversely, suppose $B$ is Cohen-Macaulay. Since $A$ is normal the going-down theorem holds between $A$ and $B$ by \ref{5.E}, so if $\ideal{m}$ is the maximal ideal of $A$ we have $\Ht(\ideal{m}B)=\Ht(\ideal{m})$ by Th.\ref{thm:019}(3). By the unmixedness theorem in $B$, any regular system of parameters of $A$ is a $B$-regular sequence. Therefore the depth of $B$ as $A$-module is equal to $\dim A=\depth A$, and by the formula of Auslander-Buchsbaum (chapter 6 exercise \ref{ex:ch06.4}) we have $\ProjDim \dd_{A}=0$, i.e. $B$ is $A$-free.
+\begin{proof}Suppose $B$ is flat over $A$. Then $B$ is C.M. as $A$ is so. (For, if $P$ is a maximal ideal of $B$ then $\dim B_{P} \leqslant \dim A$ by \ref{13.C}, while any $A$-regular sequence is also $B_{P}$-regular by the flatness and hence depth $B_{P} \geqslant \depth A$.) Conversely, suppose $B$ is Cohen-Macaulay. Since $A$ is normal the going-down theorem holds between $A$ and $B$ by \ref{5.E}, so if $\ideal{m}$ is the maximal ideal of $A$ we have $\Ht(\ideal{m}B)=\Ht(\ideal{m})$ by Th.\ref{thm:019}(3). By the unmixedness theorem in $B$, any regular system of parameters of $A$ is a $B$-regular sequence. Therefore the depth of $B$ as $A$-module is equal to $\dim A=\depth A$, and by the formula of Auslander-Buchsbaum (chapter 6 exercise \ref{ex:ch06.4}) we have $\ProjDim_A B=0$, i.e. $B$ is $A$-free.
 \end{proof}
 
 

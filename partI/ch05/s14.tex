@@ -8,7 +8,7 @@ Let $A$ be a Noetherian ring and let $A[X_1, \ldots, X_n]$ be a polynomial ring 
 \end{partheorem}
 
 \begin{proof}
-Enough to prove the case $n=1$. Put $B=A[X]$. Let $\ideal{p}$ be a prime ideal of $A$ and let $P$ be a prime ideal of $B$ which that $\Ht(P /\ideal{p}B)=1$. In fact, localizing $A$ and $B$ by the multiplicative set $A-\ideal{p}$ we can assume that $\ideal{p}$ is a maximal ideal, and then $B / \ideal{p} B=(A / \ideal{p})[X]$ is a polynomial ring in one variable over a field. Therefore $B / \ideal{p} B$ is a principal ideal domain and every maximal ideal has height one. Thus $\Ht(P / \ideal{p} B)=1$ Since $B$ is free over $A$ we have $\Ht(P)=\Ht(p)+1$ by Th.\ref{thm:019} (2). As the map $\Spec(B) \longrightarrow \Spec(A)$ is surjective, we obtain $\dim B=\dim A+1$.
+Enough to prove the case $n=1$. Put $B=A[X]$. Let $\ideal{p}$ be a prime ideal of $A$ and let $P$ be a prime ideal of $B$ maximal among the prime ideals lying over $\ideal{p}$. We claim that $\Ht(P /\ideal{p}B)=1$. In fact, localizing $A$ and $B$ by the multiplicative set $A-\ideal{p}$ we can assume that $\ideal{p}$ is a maximal ideal, and then $B / \ideal{p} B=(A / \ideal{p})[X]$ is a polynomial ring in one variable over a field. Therefore $B / \ideal{p} B$ is a principal ideal domain and every maximal ideal has height one. Thus $\Ht(P / \ideal{p} B)=1$ Since $B$ is free over $A$ we have $\Ht(P)=\Ht(p)+1$ by Th.\ref{thm:019} (2). As the map $\Spec(B) \longrightarrow \Spec(A)$ is surjective, we obtain $\dim B=\dim A+1$.
 \end{proof}
 
 \begin{corollary}\label{cor:14.01}
@@ -36,7 +36,7 @@ If $A$ is u.c., so are the localizations of $A$, the homomorphic images of $A$ a
 
 \begin{partheorem}\label{thm:023}
 Let $A$ be a Noetherian domain, and let $B$ be a finitely generated overdomain of $A$. Let $P \in \Spec(B)$ and $\ideal{p}=P \cap A$. Then we have
-\[\tag{14.*}\label{cond:14.*}\Ht(P) \leqslant \Ht(\ideal{p})+\TrDeg_{\kappa(\ideal{p})}\kappa(P)\]
+\[\tag{14.*}\label{cond:14.*}\Ht(P) \leqslant \Ht(\ideal{p})+\TrDeg_A B-\TrDeg_{\kappa(\ideal{p})}\kappa(P)\]
 And the equality holds if $A$ is universally catenary, or if $B$ is a polynomial ring $A[X_1, \ldots, X_n]$, (Here, $\TrDeg_AB$ means the transcendence degree of the quotient field of $B$ over that of $A$, and $\kappa(P)$ is the quotient field of $B / P$.)
 \end{partheorem}
 
@@ -44,7 +44,7 @@ And the equality holds if $A$ is universally catenary, or if $B$ is a polynomial
 Let $B=A[x_1, \ldots, x_n]$. B y induction on $n$ it is enough to consider the case $n=1$. So let $B=A[x]$. Replacing $A$ by $A_{\ideal{p}}$, and $B$ by $B_{\ideal{p}}=A_{\ideal{p}}[x]$, we assume that $(A, \ideal{p})$ is a local ring. Put $k=\kappa(\ideal{p})=A / \ideal{p}$ and $I=\{f(X) \in A[X] \mid f(x)=0\}$. Thus $B=A[X]/I$.
 \begin{enumerate}[label = Case \arabic*.]
     \item $I=(0)$. Then $B=A[X]$, $\TrDeg_AB=1$ and $B / \ideal{p}B=k[X]$. Therefore $\Ht(P / \ideal{p}B)=1$ or $0$ according as $P \supset \ideal{p}B$ (then $\TrDeg_k\kappa(P)=0$) or $P=\ideal{p}B$ (then $\TrDeg_k\kappa(P)=1$). In other words $\Ht(P/\ideal{p}B)=1-\TrDeg_k\kappa(P)$. On the other hand, $\Ht(P)=\Ht(\ideal{p})+\Ht(P / \ideal{p} B)$ by Th.\ref{thm:019}. Thus the equality holds in \ref{cond:14.*}.
-    \item $I \neq(0)$. Then $\TrDeg_AB=0$. Let $P^*$ be the inverse image of $P$ in $A[X]$, so that $P=P^*/I$ and $\kappa(P)=\kappa(P^*)$. Since $A$ is a subring of $B=A[X]/I$ we have $A \cap I=(0)$. Therefore, if $K$ denotes the quotient field of $A$ then \[\Ht(I)=\Ht(IK[X]) \leqslant \dim K[X]=1.\] Since $I \neq(0)$ we have $\Ht(I)=1$. Hence $\Ht(P) \leqslant \Ht(P^*)-\Ht(I)=\Ht(P^*)-1$, where the equality holds if $A$ is u.c.. On the other hand we have \[\Ht(P^*)=\Ht(\ideal{p})+1\TrDeg_k\kappa(P^*)\] by case 1, and $\kappa(P^*)=\kappa(P)$. Our assertions follow immediately from these.
+    \item $I \neq(0)$. Then $\TrDeg_AB=0$. Let $P^*$ be the inverse image of $P$ in $A[X]$, so that $P=P^*/I$ and $\kappa(P)=\kappa(P^*)$. Since $A$ is a subring of $B=A[X]/I$ we have $A \cap I=(0)$. Therefore, if $K$ denotes the quotient field of $A$ then \[\Ht(I)=\Ht(IK[X]) \leqslant \dim K[X]=1.\] Since $I \neq(0)$ we have $\Ht(I)=1$. Hence $\Ht(P) \leqslant \Ht(P^*)-\Ht(I)=\Ht(P^*)-1$, where the equality holds if $A$ is u.c.. On the other hand we have \[\Ht(P^*)=\Ht(\ideal{p})+1-\TrDeg_k\kappa(P^*)\] by case 1, and $\kappa(P^*)=\kappa(P)$. Our assertions follow immediately from these.
 \end{enumerate}
 \end{proof}
 
